@@ -295,7 +295,7 @@ void loop() {
    misdatos.mqtt_server= WiFi.SSID(); 
    misdatos.vcc = ESP.getVcc();
    misdatos.rssi = WiFi.RSSI();
-   misdatos.temperatura = dht.getTemperature();
+   misdatos.temperatura = round(dht.getTemperature());
    misdatos.humedad = dht.getHumidity();
    misdatos.tiempo = millis();
    misdatos.LED = LED_dato;
