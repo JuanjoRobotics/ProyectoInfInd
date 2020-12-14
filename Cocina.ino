@@ -1,16 +1,20 @@
+
+
+
+
 #include <ESP8266WiFi.h>
 #include <ESP8266httpUpdate.h>
 #include <PubSubClient.h>
 #include "DHTesp.h"
 #include <ArduinoJson.h>
 #include <Arduino_JSON.h>
-#include <MQ2.h>
+#include <MQ2Lib.h>
+
 
 //MQ-2
 
 int pin = 0; //change this to the pin that you use
-
-MQ2 mq2(pin);
+MQ2 mq2(pin, true);
 
 
 // datos para actualización   >>>> SUSTITUIR IP <<<<<
@@ -284,8 +288,7 @@ void setup() {
   // descomentar para activar interrupción
   attachInterrupt(digitalPinToInterrupt(boton_flash), RTI, CHANGE);
 
-  //MQ-2
-  mq2.begin();
+
   
   // OTA
   Serial.println( "---------CAMBIA-----------------" );
@@ -309,7 +312,9 @@ void setup() {
       break;
     } 
 
-    
+  //MQ-2
+  mq2.begin();
+  
 }
 //------------------------------------------------------------------------------------------------------------------------
 // OTA
@@ -356,7 +361,7 @@ void loop() {
   
   unsigned long now = millis();
   if (now - lastMsg > 10000) {
-    
+   
   
    //Las variables que vamos a meter en nuestra estructura datos
    misdatos.ssid= WiFi.localIP().toString();
