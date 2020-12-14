@@ -4,6 +4,14 @@
 #include "DHTesp.h"
 #include <ArduinoJson.h>
 #include <Arduino_JSON.h>
+#include <MQ2.h>
+
+//MQ-2
+
+int pin = 0; //change this to the pin that you use
+
+MQ2 mq2(pin);
+
 
 // datos para actualización   >>>> SUSTITUIR IP <<<<<
 //#define HTTP_OTA_ADDRESS      F("192.168.1.90")       // Address of OTA update server
@@ -21,6 +29,9 @@ DHTesp dht;
 struct registro_datos {
   float temperatura;
   float humedad;
+  float lpg;
+  float co;
+  float humo;
   float vcc;
   unsigned long tiempo;
   long rssi;
@@ -101,12 +112,16 @@ String serializa_JSON2 (struct registro_datos datos)
 {
   JSONVar jsonRoot;
   JSONVar DHT11;
+  JSONVar MQ2;
   JSONVar Wifi;
   JSONVar ANALOG;
   String jsonString;
   
-  DHT11["temp"] = datos.temperatura;
+  DHT11["temp"] = datos.temperatura*10/10.0;
   DHT11["hum"] = datos.humedad;
+  MQ2["LPG"] = datos.lpg;
+  MQ2["CO"] = datos.co;
+  MQ2["Humo"] = datos.humo;
   Wifi["ssid"] = datos.ssid;
   Wifi["ip"] = datos.mqtt_server;
   Wifi["rssi"] = datos.rssi;
@@ -114,6 +129,7 @@ String serializa_JSON2 (struct registro_datos datos)
   jsonRoot["Uptime"]= datos.tiempo;
   jsonRoot["vcc"] = datos.vcc/1000.;
   jsonRoot["DHT11"]= DHT11;
+  jsonRoot["MQ-2"]= MQ2;
   jsonRoot["Wifi"]=Wifi;
   jsonRoot["LED"]=datos.LED;
    
@@ -268,6 +284,9 @@ void setup() {
   // descomentar para activar interrupción
   attachInterrupt(digitalPinToInterrupt(boton_flash), RTI, CHANGE);
 
+  //MQ-2
+  mq2.begin();
+  
   // OTA
   Serial.println( "---------CAMBIA-----------------" );
   Serial.println( "Comprobando actualización:" );
@@ -346,6 +365,9 @@ void loop() {
    misdatos.rssi = WiFi.RSSI();
    misdatos.temperatura = dht.getTemperature();
    misdatos.humedad = dht.getHumidity();
+   misdatos.lpg =mq2.readLPG();
+   misdatos.co= mq2.readCO();
+   misdatos.humo = mq2.readSmoke();
    misdatos.tiempo = millis();
    misdatos.LED = LED_dato;
 //Publicamos los datos
