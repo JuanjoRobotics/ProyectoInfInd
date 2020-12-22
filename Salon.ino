@@ -113,9 +113,16 @@ void inicio_OTA();
 void error_OTA(int);
 
 // Interrupciones
+bool actualiza = false;
 int salida = 16; //GPIO 16 - LED de ABAJO
-int estado_led=0;
-bool cambia=false;
+//int BUILTIN_LED = 2; // GPIO 0 - LED de ARRIBA
+int estado_led0=0;
+int estado_led16=0;
+
+bool cambia0=false;
+bool cambia16=false;
+
+// LASER
 float cambia_dist = 0;
 
 //------------------------------------------------------------------------------------
@@ -212,6 +219,10 @@ void setup_wifi() {
   Serial.println("WiFi connected");
   Serial.println("IP address: ");
   Serial.println(WiFi.localIP());
+  uint8_t macAddr[6];
+  WiFi.macAddress(macAddr);
+  Serial.printf("Connected, mac address: %02X:%02X:%02X:%02X:%02X:%02X\n", macAddr[0], macAddr[1], macAddr[2], macAddr[3], macAddr[4], macAddr[5]);
+
 }
 //--------------------------------------------------------------------------------------
 
@@ -312,7 +323,7 @@ void callback(char* topic, byte* payload, unsigned int length) {
 //------------------------------------SET-UP----------------------------------------------------------------
 void setup() {
   //FLASH
-   pinMode(boton_flash, INPUT_PULLUP);
+  pinMode(boton_flash, INPUT_PULLUP);
   // descomentar para activar interrupción
   attachInterrupt(digitalPinToInterrupt(boton_flash), RTI, CHANGE);
   Serial.begin(9600);
@@ -336,30 +347,7 @@ void setup() {
   client.setBufferSize(512); //Ampliamos el tamaño del buffer
   char cadena[512];
   dht.setup(2, DHTesp::DHT11); // Connect DHT sensor to GPIO 2
-  
-
-  
-  // OTA
-  Serial.println( "--------------------------" );
-  Serial.println( "Comprobando actualización:" );
-  Serial.print(HTTP_OTA_ADDRESS);Serial.print(":");Serial.print(HTTP_OTA_PORT);Serial.println(HTTP_OTA_PATH); // Se comprueba la actualización
-  Serial.println( "--------------------------" );  
-  ESPhttpUpdate.setLedPin(16,LOW);
-  ESPhttpUpdate.onStart(inicio_OTA);
-  ESPhttpUpdate.onError(error_OTA);
-  ESPhttpUpdate.onProgress(progreso_OTA);
-  ESPhttpUpdate.onEnd(final_OTA);
-  switch(ESPhttpUpdate.update(HTTP_OTA_ADDRESS, HTTP_OTA_PORT, HTTP_OTA_PATH, HTTP_OTA_VERSION)) {
-    case HTTP_UPDATE_FAILED:
-      Serial.printf(" HTTP update failed: Error (%d): %s\n", ESPhttpUpdate.getLastError(), ESPhttpUpdate.getLastErrorString().c_str());
-      break;
-    case HTTP_UPDATE_NO_UPDATES:
-      Serial.println(F(" El dispositivo ya está actualizado"));
-      break;
-    case HTTP_UPDATE_OK:
-      Serial.println(F(" OK"));
-      break;
-    } 
+ 
     //MQ-2
     mq2.begin();
 }
@@ -408,17 +396,48 @@ void loop() {
       Serial.print("Terminó la pulsación, duración = ");
       Serial.print(ahora-penultima_int);
       Serial.println(" ms");
-      cambia=true;
-      if (estado_led==1)
-        estado_led=0;
+      if (ahora-penultima_int < 5000) // Mientras NO haya actualización
+      {
+        cambia16=true;
+        
+        if (estado_led16==1)
+          estado_led16=0;
+        else
+          estado_led16=1;
+      }
       else
-        estado_led=1;
-    } 
+        actualiza=true;
+    }
     interrupcion=false; // DESABILITAMOS LA INTERRUPCIÓN HASTA QUE VUELVA A HABER UNA LLAMADA A LA MISMA
     }
-    if (cambia==true)
+    if (actualiza==true) // mantenemos pulsado: ACTUALIZAMOS! 
     {
-      if (estado_led==1)
+      // OTA
+      Serial.println( "--------------------------" );
+      Serial.println( "Comprobando actualización:" );
+      Serial.print(HTTP_OTA_ADDRESS);Serial.print(":");Serial.print(HTTP_OTA_PORT);Serial.println(HTTP_OTA_PATH); // Se comprueba la actualización
+      Serial.println( "--------------------------" );  
+      ESPhttpUpdate.setLedPin(16,LOW);
+      ESPhttpUpdate.onStart(inicio_OTA);
+      ESPhttpUpdate.onError(error_OTA);
+      ESPhttpUpdate.onProgress(progreso_OTA);
+      ESPhttpUpdate.onEnd(final_OTA);
+      switch(ESPhttpUpdate.update(HTTP_OTA_ADDRESS, HTTP_OTA_PORT, HTTP_OTA_PATH, HTTP_OTA_VERSION)) {
+        case HTTP_UPDATE_FAILED:
+          Serial.printf(" HTTP update failed: Error (%d): %s\n", ESPhttpUpdate.getLastError(), ESPhttpUpdate.getLastErrorString().c_str());
+          break;
+        case HTTP_UPDATE_NO_UPDATES:
+          Serial.println(F(" El dispositivo ya está actualizado"));
+          break;
+        case HTTP_UPDATE_OK:
+          Serial.println(F(" OK"));
+          break;
+        } 
+        actualiza=false;
+    }
+    if (cambia16==true)
+    {
+      if (estado_led16==1)
       {
         digitalWrite(salida, HIGH);
       }
@@ -426,7 +445,7 @@ void loop() {
       { 
         digitalWrite(salida, LOW);
       }
-        cambia=false;
+        cambia16=false;
     }    
   // LÁSER
   struct registro_distancia laser;
