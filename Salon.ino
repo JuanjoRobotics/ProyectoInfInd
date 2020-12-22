@@ -114,6 +114,7 @@ void error_OTA(int);
 
 // Interrupciones
 bool actualiza = false;
+int cont=0;
 int salida = 16; //GPIO 16 - LED de ABAJO
 //int BUILTIN_LED = 2; // GPIO 0 - LED de ARRIBA
 int estado_led0=0;
@@ -396,14 +397,31 @@ void loop() {
       Serial.print("Terminó la pulsación, duración = ");
       Serial.print(ahora-penultima_int);
       Serial.println(" ms");
+      cont++;
       if (ahora-penultima_int < 5000) // Mientras NO haya actualización
       {
-        cambia16=true;
-        
-        if (estado_led16==1)
-          estado_led16=0;
-        else
-          estado_led16=1;
+        if (ahora-penultima_int<800 && cont==2) // Si ha contado 2 pulsos de menos de un segundo
+        {
+          cambia0=true;
+          if (estado_led0==1)
+            estado_led0=0;
+          else
+            estado_led0=1;
+          cont=0;
+          Serial.println("PULSACIÓN DOBLE");
+  
+        }
+        else if (ahora-penultima_int<180 && cont==1) // Si ha contado solo 1 pulso
+        {
+          cambia16=true;
+          if (estado_led16==1)
+            estado_led16=0;
+          else
+            estado_led16=1;
+
+         cont=0;
+         Serial.println("PULSACIÓN SIMPLE");
+        }
       }
       else
         actualiza=true;
@@ -435,17 +453,32 @@ void loop() {
         } 
         actualiza=false;
     }
-    if (cambia16==true)
+    else
     {
-      if (estado_led16==1)
-      {
-        digitalWrite(salida, HIGH);
-      }
-      else
-      { 
-        digitalWrite(salida, LOW);
-      }
-        cambia16=false;
+        if (cambia16==true)
+        {
+          if (estado_led16==1)
+          {
+            digitalWrite(salida, HIGH);
+          }
+          else
+          { 
+            digitalWrite(salida, LOW);
+          }
+          cambia16=false;
+        }
+        else if (cambia0==true)
+        {
+          if (estado_led0==1)
+          {
+            digitalWrite(BUILTIN_LED, HIGH);
+          }
+          else
+          { 
+            digitalWrite(BUILTIN_LED, LOW);
+          }
+          cambia0=false;
+        }
     }    
   // LÁSER
   struct registro_distancia laser;
