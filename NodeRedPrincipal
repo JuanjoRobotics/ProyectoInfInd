@@ -806,42 +806,13 @@
         "command": "/start",
         "commandType": "str",
         "commandCase": false,
-        "x": 168,
-        "y": 148,
+        "x": 99,
+        "y": 1481.5556163787842,
         "wires": [
             [
-                "b5320eac.f6dbf"
+                "3402c984.102fb6"
             ]
         ]
-    },
-    {
-        "id": "b5320eac.f6dbf",
-        "type": "function",
-        "z": "cb95b8f7.9b4968",
-        "name": "mensaje bienvenida",
-        "func": "\n msg.payload=\"Buenardo, soy el bot del grupo 2, me encargo de la domotica. Puedo responderte a estos comandos:\\n/start\\n/estado\\n/encender\\n/apagar\";\n return msg;\n",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 404,
-        "y": 134,
-        "wires": [
-            [
-                "678694e4.a28f7c"
-            ]
-        ]
-    },
-    {
-        "id": "678694e4.a28f7c",
-        "type": "telegrambot-notify",
-        "z": "cb95b8f7.9b4968",
-        "name": "bienvenida",
-        "bot": "407d7e26.e9903",
-        "chatId": "",
-        "message": "",
-        "parseMode": "",
-        "x": 621,
-        "y": 129,
-        "wires": []
     },
     {
         "id": "bf418aa1.776be8",
@@ -864,8 +835,8 @@
         "upsert": false,
         "multi": false,
         "operation": "store",
-        "x": 969.772705078125,
-        "y": 3668,
+        "x": 932.772705078125,
+        "y": 3967.3333139419556,
         "wires": []
     },
     {
@@ -876,8 +847,8 @@
         "func": "msg.payload.date = new Date();\nmsg.payload.topic = \"infind/GRUPO2/datos/cocina\"\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 678.685791015625,
-        "y": 3669.227294921875,
+        "x": 641.685791015625,
+        "y": 3968.5606088638306,
         "wires": [
             [
                 "cda3c0d4.ed18a",
@@ -893,8 +864,8 @@
         "topic": "infind/GRUPO2/datos/cocina",
         "qos": "2",
         "broker": "8fab76dc.3e75b8",
-        "x": 231,
-        "y": 3661,
+        "x": 194,
+        "y": 3960.3333139419556,
         "wires": [
             [
                 "7a214638.93bc18"
@@ -909,8 +880,8 @@
         "property": "payload",
         "action": "",
         "pretty": false,
-        "x": 489,
-        "y": 3669,
+        "x": 452,
+        "y": 3968.3333139419556,
         "wires": [
             [
                 "b6132bd3.8e4038"
@@ -923,8 +894,8 @@
         "z": "cb95b8f7.9b4968",
         "name": "Recogida de datos",
         "info": "e",
-        "x": 398,
-        "y": 3589.999972343445,
+        "x": 361,
+        "y": 3889.3332862854004,
         "wires": []
     },
     {
@@ -2319,8 +2290,8 @@
         "topic": "infind/GRUPO2/datos/cocina",
         "qos": "2",
         "broker": "8fab76dc.3e75b8",
-        "x": 203,
-        "y": 4058.3634929656982,
+        "x": 166,
+        "y": 4357.696806907654,
         "wires": [
             [
                 "acc49c7.cfed26"
@@ -2335,8 +2306,8 @@
         "func": "var deteccion = msg.payload.calidad_aire;\nif (deteccion == 1)\nmsg.payload = \"La calidad del aire es mala\";\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 643,
-        "y": 4057.363465309143,
+        "x": 606,
+        "y": 4356.696779251099,
         "wires": [
             [
                 "9ea788a6.b86e08"
@@ -2352,8 +2323,8 @@
         "chatId": "-487674790",
         "message": "",
         "parseMode": "",
-        "x": 864,
-        "y": 4171.363465309143,
+        "x": 827,
+        "y": 4470.696779251099,
         "wires": []
     },
     {
@@ -2364,8 +2335,8 @@
         "func": "var deteccion = msg.payload.VL53L0X;\nif (deteccion <=50)\nmsg.payload = \"Se ha abierto la puerta\";\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 665,
-        "y": 4287.363465309143,
+        "x": 628,
+        "y": 4586.696779251099,
         "wires": [
             [
                 "9ea788a6.b86e08"
@@ -2380,8 +2351,8 @@
         "topic": "infind/GRUPO2/datos/salon/puerta",
         "qos": "2",
         "broker": "8fab76dc.3e75b8",
-        "x": 233,
-        "y": 4285.363492965698,
+        "x": 196,
+        "y": 4584.696806907654,
         "wires": [
             [
                 "306acfb5.57441"
@@ -2394,8 +2365,8 @@
         "z": "cb95b8f7.9b4968",
         "name": "calidad del aire de la cocina",
         "info": "",
-        "x": 229,
-        "y": 4015.3634929656982,
+        "x": 192,
+        "y": 4314.696806907654,
         "wires": []
     },
     {
@@ -2404,8 +2375,8 @@
         "z": "cb95b8f7.9b4968",
         "name": "estado puerta principal",
         "info": "",
-        "x": 217,
-        "y": 4238.363492965698,
+        "x": 180,
+        "y": 4537.696806907654,
         "wires": []
     },
     {
@@ -2416,8 +2387,8 @@
         "topic": "infind/GRUPO2/datos/cocina",
         "qos": "2",
         "broker": "8fab76dc.3e75b8",
-        "x": 184,
-        "y": 4168.363492965698,
+        "x": 147,
+        "y": 4467.696806907654,
         "wires": [
             [
                 "f14ae36e.fc575"
@@ -2432,8 +2403,8 @@
         "func": "var deteccion = msg.payload.DHT11.temp;\nif (deteccion >= 45)\nmsg.payload = \"LA TEMPERATURA DE LA COCINA ES DEMASIADO ALTA \\n\";\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 639,
-        "y": 4163.363465309143,
+        "x": 602,
+        "y": 4462.696779251099,
         "wires": [
             [
                 "9ea788a6.b86e08"
@@ -2446,8 +2417,8 @@
         "z": "cb95b8f7.9b4968",
         "name": "temperatura cocina",
         "info": "",
-        "x": 181,
-        "y": 4124.363492965698,
+        "x": 144,
+        "y": 4423.696806907654,
         "wires": []
     },
     {
@@ -2461,8 +2432,8 @@
         "upsert": false,
         "multi": false,
         "operation": "store",
-        "x": 969.772705078125,
-        "y": 3761,
+        "x": 932.772705078125,
+        "y": 4060.3333139419556,
         "wires": []
     },
     {
@@ -2473,8 +2444,8 @@
         "func": "msg.payload.date = new Date();\nmsg.payload.topic = \"infind/GRUPO2/datos/habitacion\"\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 678.685791015625,
-        "y": 3762.227294921875,
+        "x": 641.685791015625,
+        "y": 4061.5606088638306,
         "wires": [
             [
                 "2194a2d0.3f226e",
@@ -2490,8 +2461,8 @@
         "topic": "infind/GRUPO2/datos/habitacion",
         "qos": "2",
         "broker": "8fab76dc.3e75b8",
-        "x": 247,
-        "y": 3766,
+        "x": 210,
+        "y": 4065.3333139419556,
         "wires": [
             [
                 "5d6f0503.ac47dc"
@@ -2506,8 +2477,8 @@
         "property": "payload",
         "action": "",
         "pretty": false,
-        "x": 486,
-        "y": 3764,
+        "x": 449,
+        "y": 4063.3333139419556,
         "wires": [
             [
                 "5ccdcbe0.4f7b14"
@@ -2525,8 +2496,8 @@
         "upsert": false,
         "multi": false,
         "operation": "store",
-        "x": 974.772705078125,
-        "y": 3846,
+        "x": 937.772705078125,
+        "y": 4145.333313941956,
         "wires": []
     },
     {
@@ -2537,8 +2508,8 @@
         "func": "msg.payload.date = new Date();\nmsg.payload.topic = \"infind/GRUPO2/datos/wc\"\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 681.685791015625,
-        "y": 3848.227294921875,
+        "x": 644.685791015625,
+        "y": 4147.560608863831,
         "wires": [
             [
                 "7de15541.d2a8bc"
@@ -2553,8 +2524,8 @@
         "topic": "infind/GRUPO2/datos/wc",
         "qos": "2",
         "broker": "8fab76dc.3e75b8",
-        "x": 232,
-        "y": 3854,
+        "x": 195,
+        "y": 4153.333313941956,
         "wires": [
             [
                 "2b2fd651.49c6fa"
@@ -2569,8 +2540,8 @@
         "property": "payload",
         "action": "",
         "pretty": false,
-        "x": 487,
-        "y": 3855,
+        "x": 450,
+        "y": 4154.333313941956,
         "wires": [
             [
                 "5d3b24b.b610edc"
@@ -2588,8 +2559,8 @@
         "upsert": false,
         "multi": false,
         "operation": "store",
-        "x": 970.772705078125,
-        "y": 3940,
+        "x": 933.772705078125,
+        "y": 4239.333313941956,
         "wires": []
     },
     {
@@ -2600,8 +2571,8 @@
         "func": "msg.payload.date = new Date();\nmsg.payload.topic = \"infind/GRUPO2/datos/salon\"\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 678.685791015625,
-        "y": 3942.227294921875,
+        "x": 641.685791015625,
+        "y": 4241.560608863831,
         "wires": [
             [
                 "572b4ef6.2df5f"
@@ -2616,8 +2587,8 @@
         "topic": "infind/GRUPO2/datos/salon",
         "qos": "2",
         "broker": "8fab76dc.3e75b8",
-        "x": 254,
-        "y": 3942,
+        "x": 217,
+        "y": 4241.333313941956,
         "wires": [
             [
                 "fcef84a9.bc42f8"
@@ -2632,8 +2603,8 @@
         "property": "payload",
         "action": "",
         "pretty": false,
-        "x": 486,
-        "y": 3944,
+        "x": 449,
+        "y": 4243.333313941956,
         "wires": [
             [
                 "625dc83d.507f48"
@@ -2646,8 +2617,8 @@
         "z": "cb95b8f7.9b4968",
         "name": "javi",
         "info": "e",
-        "x": 161,
-        "y": 3631,
+        "x": 124,
+        "y": 3930.3333139419556,
         "wires": []
     },
     {
@@ -2656,8 +2627,8 @@
         "z": "cb95b8f7.9b4968",
         "name": "Frank",
         "info": "e",
-        "x": 164,
-        "y": 3737,
+        "x": 127,
+        "y": 4036.3333139419556,
         "wires": []
     },
     {
@@ -2666,8 +2637,8 @@
         "z": "cb95b8f7.9b4968",
         "name": "Leo",
         "info": "e",
-        "x": 184,
-        "y": 3913,
+        "x": 147,
+        "y": 4212.333313941956,
         "wires": []
     },
     {
@@ -2676,8 +2647,8 @@
         "z": "cb95b8f7.9b4968",
         "name": "Juanjo",
         "info": "e",
-        "x": 172,
-        "y": 3825,
+        "x": 135,
+        "y": 4124.333313941956,
         "wires": []
     },
     {
@@ -2688,8 +2659,8 @@
         "property": "payload",
         "action": "",
         "pretty": false,
-        "x": 413,
-        "y": 4163.363465309143,
+        "x": 376,
+        "y": 4462.696779251099,
         "wires": [
             [
                 "927d8823.9b0768"
@@ -2704,8 +2675,8 @@
         "property": "payload",
         "action": "",
         "pretty": false,
-        "x": 446.0000190734863,
-        "y": 4059.363700866699,
+        "x": 409.0000190734863,
+        "y": 4358.697014808655,
         "wires": [
             [
                 "5599bdc4.09fe14"
@@ -2720,8 +2691,8 @@
         "property": "payload",
         "action": "",
         "pretty": false,
-        "x": 478,
-        "y": 4285.363465309143,
+        "x": 441,
+        "y": 4584.696779251099,
         "wires": [
             [
                 "78c471d9.c96c4"
@@ -2955,8 +2926,8 @@
         "z": "cb95b8f7.9b4968",
         "name": "Avisos especiales ",
         "info": "",
-        "x": 867.9232711791992,
-        "y": 4128.187700271606,
+        "x": 830.9232711791992,
+        "y": 4427.521014213562,
         "wires": []
     },
     {
@@ -3487,13 +3458,13 @@
         "type": "debug",
         "z": "cb95b8f7.9b4968",
         "name": "",
-        "active": true,
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
         "complete": "false",
-        "x": 876.6735801696777,
-        "y": 3575.111252784729,
+        "x": 839.6735801696777,
+        "y": 3874.4445667266846,
         "wires": []
     },
     {
@@ -3511,13 +3482,13 @@
         "type": "debug",
         "z": "cb95b8f7.9b4968",
         "name": "",
-        "active": true,
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
         "complete": "false",
-        "x": 905.2292175292969,
-        "y": 3711.8888998031616,
+        "x": 868.2292175292969,
+        "y": 4011.222213745117,
         "wires": []
     },
     {
@@ -3525,13 +3496,347 @@
         "type": "debug",
         "z": "cb95b8f7.9b4968",
         "name": "",
-        "active": true,
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
         "complete": "false",
         "x": 1214.8334426879883,
         "y": 3158.6806602478027,
+        "wires": []
+    },
+    {
+        "id": "3402c984.102fb6",
+        "type": "telegrambot-switch",
+        "z": "cb95b8f7.9b4968",
+        "name": "switch bienvenida",
+        "bot": "407d7e26.e9903",
+        "chatId": "",
+        "question": "¡Hola! Soy el bot del grupo 2, ¿En que puedo ayudarte?",
+        "answers": [
+            "Encender",
+            "Apagar",
+            "Ver estado",
+            "Tutorial",
+            "tiempo de recogida"
+        ],
+        "outputs": 6,
+        "autoAnswerCallback": false,
+        "timeoutValue": "20",
+        "timeoutUnits": "s",
+        "x": 133.8958740234375,
+        "y": 1590.4447975158691,
+        "wires": [
+            [
+                "1147cc5.9871434"
+            ],
+            [
+                "859317dc.9f0a78"
+            ],
+            [
+                "8e9de4d1.546c88"
+            ],
+            [
+                "9c9f3e3e.c122b"
+            ],
+            [
+                "f3736886.d575c8"
+            ],
+            [
+                "e936cbcd.f0a6e8"
+            ]
+        ]
+    },
+    {
+        "id": "e936cbcd.f0a6e8",
+        "type": "telegrambot-notify",
+        "z": "cb95b8f7.9b4968",
+        "name": "TimeOut",
+        "bot": "407d7e26.e9903",
+        "chatId": "",
+        "message": "Se acabo el tiempo bru",
+        "parseMode": "",
+        "x": 170.8958854675293,
+        "y": 1725.444694519043,
+        "wires": []
+    },
+    {
+        "id": "e853cf76.711fd",
+        "type": "telegrambot-notify",
+        "z": "cb95b8f7.9b4968",
+        "name": "Ayuda",
+        "bot": "407d7e26.e9903",
+        "chatId": "",
+        "message": "",
+        "parseMode": "",
+        "x": 676.8958358764648,
+        "y": 1524.999963760376,
+        "wires": []
+    },
+    {
+        "id": "9c9f3e3e.c122b",
+        "type": "function",
+        "z": "cb95b8f7.9b4968",
+        "name": "ayuda mensaje",
+        "func": "msg.payload = \"¿Estás un poco perdido? Tranquilo, yo te ayudo. \\n\";\nmsg.payload += \"En primer lugar puedes utilizar el comando /encender o /apagar para modificar las luces. \\n\";\nmsg.payload += \"Una vez lo hagas podrás elegir qué quieres enceder, tienes varios niveles para elegir. \\n\";\nmsg.payload += \"Por otro lado tienes el comando /estado para comprobar cierta información de cada rincón de la casa. \\n\";\nmsg.payload += \"También tienes la opcion de cambiar el tiempo de recogida de datos con el comando /tiempo, para no saturarte de información. \\n\";\nmsg.payload += \"Hay otros mensajes que se envian automaticamente si ocurren situaciones concretas, como por ejemplo, que se abra la puerta de la casa o que tengas un nivel de humo demasiado alto. \\n\";\nmsg.payload += \"¿No me crees? Pues metele fuego a la casa para que veas lo efectivo que soy ^^. \\n\";\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 422.8958435058594,
+        "y": 1562,
+        "wires": [
+            [
+                "e853cf76.711fd"
+            ]
+        ]
+    },
+    {
+        "id": "19dee5b5.dd749a",
+        "type": "mqtt out",
+        "z": "cb95b8f7.9b4968",
+        "name": "",
+        "topic": "infind/GRUPO2/RECOGIDA/cocina",
+        "qos": "",
+        "retain": "",
+        "broker": "8fab76dc.3e75b8",
+        "x": 942.9521789550781,
+        "y": 3771.7640647888184,
+        "wires": []
+    },
+    {
+        "id": "2fbe402c.3adfe",
+        "type": "telegrambot-command",
+        "z": "cb95b8f7.9b4968",
+        "name": "/tiempo",
+        "bot": "407d7e26.e9903",
+        "command": "/tiempo",
+        "commandType": "str",
+        "commandCase": false,
+        "x": 55,
+        "y": 3666.1118812561035,
+        "wires": [
+            [
+                "f3736886.d575c8"
+            ]
+        ]
+    },
+    {
+        "id": "f3736886.d575c8",
+        "type": "telegrambot-switch",
+        "z": "cb95b8f7.9b4968",
+        "name": "switch tiempo",
+        "bot": "407d7e26.e9903",
+        "chatId": "",
+        "question": "Que tiempo de recogida de datos quieres?",
+        "answers": [
+            "1 segundo",
+            "10 segundo",
+            "30 segundos",
+            "1 minuto",
+            "5 minutos"
+        ],
+        "outputs": 6,
+        "autoAnswerCallback": false,
+        "timeoutValue": "20",
+        "timeoutUnits": "s",
+        "x": 323.0000762939453,
+        "y": 3663.8901977539062,
+        "wires": [
+            [
+                "bb994458.799538"
+            ],
+            [
+                "1dedd397.38f68c"
+            ],
+            [
+                "fff2ec81.f7d34"
+            ],
+            [
+                "f1ce99a3.6b9888"
+            ],
+            [
+                "2266dbc.ac3c024"
+            ],
+            [
+                "d57be3f2.eee94"
+            ]
+        ]
+    },
+    {
+        "id": "bb994458.799538",
+        "type": "function",
+        "z": "cb95b8f7.9b4968",
+        "name": "1 segundo",
+        "func": "msg.payload=msg.mensaje;\n\nmsg.payload= {\"nivel\": 1000};\n\n\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 567.8959045410156,
+        "y": 3614.778102874756,
+        "wires": [
+            [
+                "449ac9c4.261748",
+                "19dee5b5.dd749a"
+            ]
+        ]
+    },
+    {
+        "id": "1dedd397.38f68c",
+        "type": "function",
+        "z": "cb95b8f7.9b4968",
+        "name": "10 segundos",
+        "func": "msg.payload=msg.mensaje;\n\nmsg.payload= {\"nivel\": 10000};\n\n\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 571.9999847412109,
+        "y": 3657.7780570983887,
+        "wires": [
+            [
+                "863aee33.57fb1",
+                "6135d115.1f188",
+                "19dee5b5.dd749a"
+            ]
+        ]
+    },
+    {
+        "id": "fff2ec81.f7d34",
+        "type": "function",
+        "z": "cb95b8f7.9b4968",
+        "name": "30 segundos",
+        "func": "msg.payload=msg.mensaje;\n\nmsg.payload= {\"nivel\": 30000};\n\n\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 577.9999847412109,
+        "y": 3702.7780570983887,
+        "wires": [
+            [
+                "206b276c.840308",
+                "19dee5b5.dd749a"
+            ]
+        ]
+    },
+    {
+        "id": "f1ce99a3.6b9888",
+        "type": "function",
+        "z": "cb95b8f7.9b4968",
+        "name": "1 minuto",
+        "func": "msg.payload=msg.mensaje;\n\nmsg.payload= {\"nivel\": 60000};\n\n\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 568.9999847412109,
+        "y": 3745.7780570983887,
+        "wires": [
+            [
+                "aa39e70e.bbebd8",
+                "19dee5b5.dd749a"
+            ]
+        ]
+    },
+    {
+        "id": "2266dbc.ac3c024",
+        "type": "function",
+        "z": "cb95b8f7.9b4968",
+        "name": "5 minutos",
+        "func": "msg.payload=msg.mensaje;\n\nmsg.payload= {\"nivel\": 300000};\n\n\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 566.9999847412109,
+        "y": 3789.0002250671387,
+        "wires": [
+            [
+                "198569e6.198b46",
+                "19dee5b5.dd749a"
+            ]
+        ]
+    },
+    {
+        "id": "d57be3f2.eee94",
+        "type": "telegrambot-notify",
+        "z": "cb95b8f7.9b4968",
+        "name": "TimeOut",
+        "bot": "407d7e26.e9903",
+        "chatId": "",
+        "message": "Se acabo el tiempo bru",
+        "parseMode": "",
+        "x": 391.00001525878906,
+        "y": 3769.1115531921387,
+        "wires": []
+    },
+    {
+        "id": "449ac9c4.261748",
+        "type": "telegrambot-notify",
+        "z": "cb95b8f7.9b4968",
+        "name": "respuesta 1 segundo",
+        "bot": "407d7e26.e9903",
+        "chatId": "",
+        "message": "Se ha establecido el tiempo en 1 segundo",
+        "parseMode": "",
+        "x": 860.8957824707031,
+        "y": 3486.668294906616,
+        "wires": []
+    },
+    {
+        "id": "863aee33.57fb1",
+        "type": "telegrambot-notify",
+        "z": "cb95b8f7.9b4968",
+        "name": "respuesta 10 segundos",
+        "bot": "407d7e26.e9903",
+        "chatId": "",
+        "message": "Se ha establecido el tiempo en 10 segundos",
+        "parseMode": "",
+        "x": 853.8958435058594,
+        "y": 3525.669164657593,
+        "wires": []
+    },
+    {
+        "id": "206b276c.840308",
+        "type": "telegrambot-notify",
+        "z": "cb95b8f7.9b4968",
+        "name": "respuesta 30 segundos",
+        "bot": "407d7e26.e9903",
+        "chatId": "",
+        "message": "Se ha establecido el tiempo en 30 segundos",
+        "parseMode": "",
+        "x": 865.8959426879883,
+        "y": 3558.669219970703,
+        "wires": []
+    },
+    {
+        "id": "aa39e70e.bbebd8",
+        "type": "telegrambot-notify",
+        "z": "cb95b8f7.9b4968",
+        "name": "respuesta 1 minuto",
+        "bot": "407d7e26.e9903",
+        "chatId": "",
+        "message": "Se ha establecido el tiempo en 1 minuto",
+        "parseMode": "",
+        "x": 821.896125793457,
+        "y": 3611.890820503235,
+        "wires": []
+    },
+    {
+        "id": "198569e6.198b46",
+        "type": "telegrambot-notify",
+        "z": "cb95b8f7.9b4968",
+        "name": "respuesta 5 minutos",
+        "bot": "407d7e26.e9903",
+        "chatId": "",
+        "message": "Se ha establecido el tiempo en 5 minutos",
+        "parseMode": "",
+        "x": 834.8959655761719,
+        "y": 3651.8903884887695,
+        "wires": []
+    },
+    {
+        "id": "6135d115.1f188",
+        "type": "debug",
+        "z": "cb95b8f7.9b4968",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 864.8403167724609,
+        "y": 3713.333351135254,
         "wires": []
     },
     {
