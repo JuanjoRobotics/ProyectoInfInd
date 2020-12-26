@@ -425,7 +425,7 @@ void loop() {
 //Publicamos los datos
   client.publish("infind/GRUPO2/datos/cocina",serializa_JSON2(misdatos).c_str() );
 //Publicamos el estado de conexion con retain flag=true
-
+  
   
     lastMsg = now;
   }
