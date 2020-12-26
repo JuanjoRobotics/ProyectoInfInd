@@ -1,7 +1,4 @@
 
-
-
-
 #include <ESP8266WiFi.h>
 #include <ESP8266httpUpdate.h>
 #include <PubSubClient.h>
@@ -16,10 +13,13 @@
 int pin = 0; //change this to the pin that you use
 MQ2 mq2(pin, true);
 
+//CO <1.200ppm
+
+
 
 // datos para actualización   >>>> SUSTITUIR IP <<<<<
-//#define HTTP_OTA_ADDRESS      F("192.168.1.90")       // Address of OTA update server
-#define HTTP_OTA_ADDRESS      F("192.168.200.84")       // Address of OTA update server
+#define HTTP_OTA_ADDRESS      F("192.168.1.90")       // Address of OTA update server
+//#define HTTP_OTA_ADDRESS      F("192.168.200.84")       // Address of OTA update server
 #define HTTP_OTA_PATH         F("/esp8266-ota/update") // Path to update firmware
 #define HTTP_OTA_PORT         1880                     // Port of update server
                                                        // Name of firmware
@@ -50,11 +50,11 @@ struct registro_datos {
   
   };
 
-//const char* ssid = "MiFibra-233E";
-//const char* password = "Lh7M2NMK"; //En serio, esta es mi contraseña
+const char* ssid = "MiFibra-233E";
+const char* password = "Lh7M2NMK"; //En serio, esta es mi contraseña
 
-const char* ssid = "ALFIL_PISOS";
-const char* password = "alfil2020"; //En serio, esta es mi contraseña
+//const char* ssid = "ALFIL_PISOS";
+//const char* password = "alfil2020"; //En serio, esta es mi contraseña
 
 const char* mqtt_server = "iot.ac.uma.es";
 WiFiClient espClient;
@@ -63,6 +63,7 @@ unsigned long lastMsg = 0;
 #define MSG_BUFFER_SIZE (50)
 char msg[MSG_BUFFER_SIZE];
 char msg2[MSG_BUFFER_SIZE];
+char msg3[MSG_BUFFER_SIZE];
 int value = 0;
 double LED_dato;
 
@@ -75,7 +76,18 @@ volatile unsigned long ahora;
 unsigned long inicio_pulso_polling = 0;
 volatile unsigned long penultima_int = 0;
 unsigned long ultima_int = 0;
-int ledsecundario=0;
+int ledboton=1;
+int ledboton2=0;
+double subirledboton=0;
+int doblepulsacion=0;
+int LED_Secundario=16; //Puerto GIOP 16
+unsigned long lastInt = 0;
+
+
+//Recogida de datos
+
+double TiempoRecogida=10000;
+
 /*------------------  RTI  --------------------*/
 // Rutina de Tratamiento de la Interrupcion (RTI)
 ICACHE_RAM_ATTR void RTI() {
@@ -201,6 +213,7 @@ void reconnect() {
      client.publish("infind/GRUPO2/conexion/cocina",serializa_JSON(estado).c_str(),true);
      
      client.subscribe("infind/GRUPO2/led/cmd/cocina"); //Me suscribo al topic del estado del led
+     client.subscribe("infind/GRUPO2/RECOGIDA/cocina"); //Me suscribo al topic del tiempo de recogida de datos
     } else {
       Serial.print("failed, rc=");
       Serial.print(client.state());
@@ -233,7 +246,7 @@ void callback(char* topic, byte* payload, unsigned int length) {
     else
     {
      double valor = root["level"];
-     char msg[128];
+     //char msg[128];
       
      double subirled=LED_dato;   
      while(subirled<valor)
@@ -245,7 +258,7 @@ void callback(char* topic, byte* payload, unsigned int length) {
      //publica que he llegado a ese valor
      client.publish("infind/GRUPO2/led/status/cocina",msg2 ); //Publico que he recibido el dato del led
      subirled++;
-     delay(100);
+     delay(10);
     }
          while(subirled>valor)
       {
@@ -256,7 +269,7 @@ void callback(char* topic, byte* payload, unsigned int length) {
      //publica que he llegado a ese valor
      client.publish("infind/GRUPO2/led/status/cocina",msg2 ); //Publico que he recibido el dato del led
      subirled--;
-     delay(100);
+     delay(10);
     }
     
     double PWM = 1023*(1-valor/100);
@@ -271,14 +284,48 @@ void callback(char* topic, byte* payload, unsigned int length) {
   free(mensaje); // libero memoria
 }
   }
+
+
+    if(strcmp(topic,"infind/GRUPO2/RECOGIDA/cocina")==0)
+  {
+ 
+    StaticJsonDocument<512> root; // el tamaño tiene que ser adecuado para el mensaje
+    // Deserialize the JSON document
+    DeserializationError error = deserializeJson(root, mensaje);
+
+    // Compruebo si no hubo error
+    if (error) {
+      Serial.print("Error deserializeJson() failed: ");
+      Serial.println(error.c_str());
+    }
+    else
+    {
+     double valor = root["nivel"];
+     //char msg[128];
+      TiempoRecogida=valor;
+   sprintf(msg3," {\"Tiempo de recogida de datos\": %f} ",valor);
+     //publica que he llegado a ese valor
+    client.publish("infind/GRUPO2/TIEMPO/RECOGIDA/cocina",msg3 ); //Publico que he recibido el dato del led
+
+     
+  free(mensaje); // libero memoria
 }
+  }
+
+  
+}
+
+
+
 //------------------------------------------------------------------------------------------------------
 void setup() {
   pinMode(BUILTIN_LED, OUTPUT);     // Initialize the BUILTIN_LED pin as an output
+  pinMode(LED_Secundario, OUTPUT); 
   Serial.begin(9600);
   setup_wifi();
   client.setServer(mqtt_server,1883);
   client.setCallback(callback);
+ // client.setCallback(callbackRECOGIDA);
   client.setBufferSize(512); //Ampliamos el tamaño del buffer
   char cadena[512];
   dht.setup(5, DHTesp::DHT11); // Connect DHT sensor to GPIO 5
@@ -353,15 +400,15 @@ void loop() {
   if (!client.connected()) {
     reconnect();
   }
-    
+
   client.loop();
 
   struct registro_datos misdatos; //me creo una estructura de cada tipo
   
   
   unsigned long now = millis();
-  if (now - lastMsg > 10000) {
-   
+  if (now - lastMsg > TiempoRecogida) {
+
   
    //Las variables que vamos a meter en nuestra estructura datos
    misdatos.ssid= WiFi.localIP().toString();
@@ -389,24 +436,73 @@ void loop() {
     if (estado_int==LOW)
     {
       Serial.println("Se detectó una pulsación");
-
+      if (ahora-lastInt < 500 && doblepulsacion==1)
+      {
+        doblepulsacion=2;
+        
+      }
+      else
+      {
+      doblepulsacion=1;
+      
+      }
+      
     }
     if (estado_int==HIGH)
-    {
-       if (ahora-penultima_int < 10000) {
-        if(ledsecundario==0)
-        {
-           Serial.println("Encendido");
-           ledsecundario=1;
+    { 
+        lastInt = now;
+        if (ahora-penultima_int < 5000 && doblepulsacion==2)
+       {
+                if(ledboton2==0)
+         {
+                   Serial.println("Apagado 2");
+                   ledboton2=1;
+                   LED_dato=1023;
+                   analogWrite(BUILTIN_LED,LED_dato); //Envio el valor al pin del led
+                   LED_dato=100;
+                   sprintf(msg2," {\"led\": %f} ",LED_dato);
+                      //publica que he llegado a ese valor
+                   client.publish("infind/GRUPO2/led/status/cocina",msg2 ); //Publico que he recibido el dato del led
+     
         }
-        else
+               else
         {
-          Serial.println("Apagado");
-          ledsecundario=0;
+                  Serial.println("Encendido 2");
+                  ledboton2=0;
+                  LED_dato=0;
+                  analogWrite(BUILTIN_LED,LED_dato); //Envio el valor al pin del led
+
+                   sprintf(msg2," {\"led\": %f} ",LED_dato);
+                      //publica que he llegado a ese valor
+                   client.publish("infind/GRUPO2/led/status/cocina",msg2 ); //Publico que he recibido el dato del led
+          
         }
        }
+       else if ( ahora-penultima_int > 5000)
+       {
+        Serial.println("Actualizacion");
+       }
+       
     } 
     interrupcion=false;
     }
+
+       if (ahora-lastInt > 500 && doblepulsacion==1) {
+        if(ledboton==0)
+        {
+           Serial.println("Apagado");
+           ledboton=1;
+           doblepulsacion=0;
+           digitalWrite(LED_Secundario, HIGH);
+        }
+        else
+        {
+          Serial.println("Encendido");
+          ledboton=0;
+          doblepulsacion=0;
+          digitalWrite(LED_Secundario, LOW);
+        }
+       }
+
   }
   
