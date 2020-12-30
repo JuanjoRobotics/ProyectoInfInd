@@ -100,9 +100,12 @@ WiFiClient espClient;
 PubSubClient client(espClient);
 unsigned long lastMsg = 0;
 unsigned long lastMsgLASER = 0;
+
 #define MSG_BUFFER_SIZE (50)
 char msg[MSG_BUFFER_SIZE];
 char msg2[MSG_BUFFER_SIZE];
+char msg3[MSG_BUFFER_SIZE];
+
 int value = 0;
 double LED_dato;
 
@@ -120,15 +123,16 @@ bool pulsaciones=false;
 unsigned long inicio = 0; 
 int cont=0;
 
-int salida = 16; //GPIO 16 - LED de ABAJO
+int LED_Secundario = 16; //GPIO 16 - LED de ABAJO
 //int BUILTIN_LED = 2; // GPIO 0 - LED de ARRIBA
-int estado_led0=1;
+int estado_led2=1;
 int estado_led16=1;
 
 bool cambia0=false;
 bool cambia16=false;
 
-
+//Recogida de datos
+double TiempoRecogida=10000;
 
 // LASER
 float cambia_dist = 0;
@@ -268,7 +272,6 @@ void reconnect() {
 }
 
 //-------------------------------CALLBACK--------------------------------------------------
-
 void callback(char* topic, byte* payload, unsigned int length) {
   char* mensaje=(char*)malloc(length+1); // reservo memoria para copia del mensaje
   strncpy(mensaje,(char*)payload,length); // copio el mensaje en cadena de caracteres
@@ -289,7 +292,7 @@ void callback(char* topic, byte* payload, unsigned int length) {
     else
     {
      double valor = root["level"];
-     char msg[128];
+     //char msg[128];
       
      double subirled=LED_dato;   
      while(subirled<valor)
@@ -301,7 +304,7 @@ void callback(char* topic, byte* payload, unsigned int length) {
      //publica que he llegado a ese valor
      client.publish("infind/GRUPO2/led/status/salon",msg2 ); //Publico que he recibido el dato del led
      subirled++;
-     delay(100);
+     delay(10);
     }
          while(subirled>valor)
       {
@@ -312,7 +315,7 @@ void callback(char* topic, byte* payload, unsigned int length) {
      //publica que he llegado a ese valor
      client.publish("infind/GRUPO2/led/status/salon",msg2 ); //Publico que he recibido el dato del led
      subirled--;
-     delay(100);
+     delay(10);
     }
     
     double PWM = 1023*(1-valor/100);
@@ -323,29 +326,68 @@ void callback(char* topic, byte* payload, unsigned int length) {
      client.publish("infind/GRUPO2/led/status/salon",msg2 ); //Publico que he recibido el dato del led
      
     LED_dato = valor;
+    if (valor==0)
+    {
+      Serial.println("GPIO 2 APAGADO");
+      estado_led2=0;
+    }
+    else
+    {
+      Serial.println("GPIO 2 ENCENDIDO");
+      estado_led2=1;
+    }
+  free(mensaje); // libero memoria
+}
+  }
+
+
+    if(strcmp(topic,"infind/GRUPO2/RECOGIDA/salon")==0)
+  {
+ 
+    StaticJsonDocument<512> root; // el tamaño tiene que ser adecuado para el mensaje
+    // Deserialize the JSON document
+    DeserializationError error = deserializeJson(root, mensaje);
+
+    // Compruebo si no hubo error
+    if (error) {
+      Serial.print("Error deserializeJson() failed: ");
+      Serial.println(error.c_str());
+    }
+    else
+    {
+     double valor = root["nivel"];
+     
+     //char msg[128];
+      TiempoRecogida=valor;
+   sprintf(msg3," {\"Tiempo de recogida de datos\": %f} ",valor);
+     //publica que he llegado a ese valor
+    client.publish("infind/GRUPO2/TIEMPO/RECOGIDA/salon",msg3 ); //Publico que he recibido el dato del led
+
      
   free(mensaje); // libero memoria
 }
   }
+
+  
 }
+
 //------------------------------------SET-UP----------------------------------------------------------------
 void setup() {
+  pinMode(BUILTIN_LED, OUTPUT);     // Initialize the BUILTIN_LED pin as an output
+  pinMode(LED_Secundario, OUTPUT); 
+  Serial.begin(9600);
   setup_wifi();
   client.setServer(mqtt_server,1883);
   client.setCallback(callback);
+ // client.setCallback(callbackRECOGIDA);
   client.setBufferSize(512); //Ampliamos el tamaño del buffer
   char cadena[512];
-  dht.setup(2, DHTesp::DHT11); // Connect DHT sensor to GPIO 2
-  
+  dht.setup(5, DHTesp::DHT11); // Connect DHT sensor to GPIO 5
+
   //FLASH
-  pinMode(boton_flash, INPUT_PULLUP);
+   pinMode(boton_flash, INPUT_PULLUP);
   // descomentar para activar interrupción
   attachInterrupt(digitalPinToInterrupt(boton_flash), RTI, CHANGE);
-  Serial.begin(9600);
-  Serial.println();
-  Serial.println("Interrupción preparada...");
-  pinMode(salida, OUTPUT);     // Initialize the salida pin as an output
-  pinMode(BUILTIN_LED, OUTPUT);     // Initialize the BUILTIN_LED pin as an output
   
   // LÁSER: Iniciar sensor
   Serial.println("VL53L0X test");
@@ -421,7 +463,7 @@ void loop() {
     if (actualiza==true) // mantenemos pulsado: ACTUALIZAMOS! 
     {
       // OTA
-      Serial.println( "--------LUKAKU------------------" );
+      Serial.println( "--------------------------" );
       Serial.println( "Comprobando actualización:" );
       Serial.print(HTTP_OTA_ADDRESS);Serial.print(":");Serial.print(HTTP_OTA_PORT);Serial.println(HTTP_OTA_PATH); // Se comprueba la actualización
       Serial.println( "--------------------------" );  
@@ -450,15 +492,17 @@ void loop() {
         if (cont==2) // 2 pulsos - encendemos arriba
         {
         Serial.println("DOBLE PULSACION");
-        if (estado_led16==1)
+        if (estado_led2==1)
           {
             digitalWrite(BUILTIN_LED, HIGH);
-            estado_led16=0;
+            Serial.println("GPIO 2 APAGADO");
+            estado_led2=0;
           }
           else
           { 
             digitalWrite(BUILTIN_LED, LOW);
-            estado_led16=1;
+            Serial.println("GPIO 2 ENCENDIDO");
+            estado_led2=1;
           }
           cont=0;
           cuenta_pulsos=true;
@@ -466,15 +510,19 @@ void loop() {
         if (cont==1)
         {
         Serial.println("UNA PULSACION");
-        if (estado_led0==1)
+        if (estado_led16==1)
           {
-            digitalWrite(salida, HIGH);
-            estado_led0=0;
+            digitalWrite(LED_Secundario, HIGH);
+            Serial.println("GPIO 16 APAGADO");
+            Serial.printf(" ESP8266 Chip id = %08X\n", ESP.getChipId());
+
+            estado_led16=0;
           }
           else
           { 
-            digitalWrite(salida, LOW);
-            estado_led0=1;
+            digitalWrite(LED_Secundario, LOW);
+            Serial.println("GPIO 16 ENCENDIDO");
+            estado_led16=1;
           }
           cont=0;
           cuenta_pulsos=true;
