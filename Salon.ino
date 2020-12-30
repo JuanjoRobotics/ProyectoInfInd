@@ -18,7 +18,7 @@ Adafruit_VL53L0X lox = Adafruit_VL53L0X();
 
 
 // datos para actualización   >>>> SUSTITUIR IP <<<<<
-#define HTTP_OTA_ADDRESS      F("192.168.200.84")       // Address of OTA update server
+#define HTTP_OTA_ADDRESS      F("192.168.1.113")       // Address of OTA update server
 #define HTTP_OTA_PATH         F("/esp8266-ota/update") // Path to update firmware
 #define HTTP_OTA_PORT         1880                     // Port of update server
                                                        // Name of firmware
@@ -68,7 +68,7 @@ unsigned long ultima_int = 0;
 
 volatile bool interrupcion=false; // SE USARÁ ESTA VARIABLE PARA INDICAR CUÁNDO SE DA UNA INTERRUPCIÓN
 
-int ledsecundario=0;
+//int ledsecundario=0;
 /*------------------  RTI  --------------------*/
 // Rutina de Tratamiento de la Interrupcion (RTI)
 ICACHE_RAM_ATTR void RTI() {
@@ -114,14 +114,21 @@ void error_OTA(int);
 
 // Interrupciones
 bool actualiza = false;
+bool cuenta_pulsos=true;
+bool pulsaciones=false;
+
+unsigned long inicio = 0; 
 int cont=0;
+
 int salida = 16; //GPIO 16 - LED de ABAJO
 //int BUILTIN_LED = 2; // GPIO 0 - LED de ARRIBA
-int estado_led0=0;
-int estado_led16=0;
+int estado_led0=1;
+int estado_led16=1;
 
 bool cambia0=false;
 bool cambia16=false;
+
+
 
 // LASER
 float cambia_dist = 0;
@@ -323,6 +330,13 @@ void callback(char* topic, byte* payload, unsigned int length) {
 }
 //------------------------------------SET-UP----------------------------------------------------------------
 void setup() {
+  setup_wifi();
+  client.setServer(mqtt_server,1883);
+  client.setCallback(callback);
+  client.setBufferSize(512); //Ampliamos el tamaño del buffer
+  char cadena[512];
+  dht.setup(2, DHTesp::DHT11); // Connect DHT sensor to GPIO 2
+  
   //FLASH
   pinMode(boton_flash, INPUT_PULLUP);
   // descomentar para activar interrupción
@@ -340,15 +354,6 @@ void setup() {
     while(1);
   }
   
-  
-  
-  setup_wifi();
-  client.setServer(mqtt_server,1883);
-  client.setCallback(callback);
-  client.setBufferSize(512); //Ampliamos el tamaño del buffer
-  char cadena[512];
-  dht.setup(2, DHTesp::DHT11); // Connect DHT sensor to GPIO 2
- 
     //MQ-2
     mq2.begin();
 }
@@ -383,9 +388,14 @@ void progreso_OTA(int x, int todo)
 }
 //-------------------------------------LOOP-----------------------------------------------------------------------------------
 void loop() {
-  // INTERRUPCIÓN
-    if (interrupcion==true)
+  // INTERRUPCIONES
+  if (interrupcion==true)
   {
+    if (cuenta_pulsos=true)
+    {
+      inicio=ahora;
+      cuenta_pulsos=false;
+    }
     if (estado_int==LOW)
     {
       Serial.print("Se detectó una pulsación en millis = ");
@@ -398,40 +408,20 @@ void loop() {
       Serial.print(ahora-penultima_int);
       Serial.println(" ms");
       cont++;
-      if (ahora-penultima_int < 5000) // Mientras NO haya actualización
+      if (ahora-penultima_int < 2000) // Mientras NO haya actualización
       {
-        if (ahora-penultima_int<800 && cont==2) // Si ha contado 2 pulsos de menos de un segundo
-        {
-          cambia0=true;
-          if (estado_led0==1)
-            estado_led0=0;
-          else
-            estado_led0=1;
-          cont=0;
-          Serial.println("PULSACIÓN DOBLE");
-  
-        }
-        else if (ahora-penultima_int<180 && cont==1) // Si ha contado solo 1 pulso
-        {
-          cambia16=true;
-          if (estado_led16==1)
-            estado_led16=0;
-          else
-            estado_led16=1;
-
-         cont=0;
-         Serial.println("PULSACIÓN SIMPLE");
-        }
+        pulsaciones=true;
       }
       else
         actualiza=true;
     }
     interrupcion=false; // DESABILITAMOS LA INTERRUPCIÓN HASTA QUE VUELVA A HABER UNA LLAMADA A LA MISMA
+    
     }
     if (actualiza==true) // mantenemos pulsado: ACTUALIZAMOS! 
     {
       // OTA
-      Serial.println( "--------------------------" );
+      Serial.println( "--------LUKAKU------------------" );
       Serial.println( "Comprobando actualización:" );
       Serial.print(HTTP_OTA_ADDRESS);Serial.print(":");Serial.print(HTTP_OTA_PORT);Serial.println(HTTP_OTA_PATH); // Se comprueba la actualización
       Serial.println( "--------------------------" );  
@@ -453,33 +443,51 @@ void loop() {
         } 
         actualiza=false;
     }
-    else
-    {
-        if (cambia16==true)
+    unsigned long now=millis();
+   
+      if (now-inicio>650)
+      {
+        if (cont==2) // 2 pulsos - encendemos arriba
         {
-          if (estado_led16==1)
-          {
-            digitalWrite(salida, HIGH);
-          }
-          else
-          { 
-            digitalWrite(salida, LOW);
-          }
-          cambia16=false;
-        }
-        else if (cambia0==true)
-        {
-          if (estado_led0==1)
+        Serial.println("DOBLE PULSACION");
+        if (estado_led16==1)
           {
             digitalWrite(BUILTIN_LED, HIGH);
+            estado_led16=0;
           }
           else
           { 
             digitalWrite(BUILTIN_LED, LOW);
+            estado_led16=1;
           }
-          cambia0=false;
+          cont=0;
+          cuenta_pulsos=true;
         }
-    }    
+        if (cont==1)
+        {
+        Serial.println("UNA PULSACION");
+        if (estado_led0==1)
+          {
+            digitalWrite(salida, HIGH);
+            estado_led0=0;
+          }
+          else
+          { 
+            digitalWrite(salida, LOW);
+            estado_led0=1;
+          }
+          cont=0;
+          cuenta_pulsos=true;
+        }
+        else if (cont>2)
+        {
+          Serial.println("MAS DE 2 PULSACIONES, CÓDIGO NO VÁLIDO");
+
+          cont=0;
+          cuenta_pulsos=true;
+        }
+    delay(10);
+    }
   // LÁSER
   struct registro_distancia laser;
   VL53L0X_RangingMeasurementData_t measure;
@@ -495,7 +503,7 @@ void loop() {
   }
     
   client.loop();
-  unsigned long now = millis();
+  //unsigned long now = millis();
 
   // LASER
   if (cambia_dist >= medida_laser+20 || cambia_dist<=medida_laser-20)
