@@ -1,6 +1,0 @@
-infind/GRUPO2/ESP145/conexion     publicar online
-infind/GRUPO2/ESP145/datos     publicar datos
-infind/GRUPO2/ESP145/led/status   publicar led
- infind/GRUPO2/ESP145/led/cmd   subscribir led
-infind/GRUPO2/ESP145/config/cmd     subscribir tiempo
-infind/GRUPO2/ESP145/config/status  publicar tiempo
