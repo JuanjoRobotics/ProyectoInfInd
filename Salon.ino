@@ -41,6 +41,7 @@ struct registro_datos {
   int lpg;
   int co;
   int humo;
+  char CHIPI;
   };
   
 // Estructura de json para publicar conexión
@@ -162,7 +163,8 @@ String serializa_JSON2 (struct registro_datos datos)
   MQ2["LPG"] = datos.lpg; // Gas natural
   MQ2["CO"] = datos.co;
   MQ2["HUMO"] = datos.humo;
-  
+
+  jsonRoot["CHIPID"]=datos.CHIPI;
   jsonRoot["Uptime"]= datos.tiempo;
   jsonRoot["vcc"] = datos.vcc/1000.;
   jsonRoot["DHT11"]= DHT11;
@@ -260,15 +262,15 @@ void reconnect() {
     estado.conexion=false;
     estado_act.actualizacion=false;
     
-    if (client.connect(clientId.c_str(),"infind","zancudo","infind/GRUPO2/conexion/salon",0,true,serializa_JSON(estado).c_str())) {
+    if (client.connect(clientId.c_str(),"infind","zancudo","infind/GRUPO2/ESP47/conexion/salon",0,true,serializa_JSON(estado).c_str())) {
       Serial.println("connected");
       
       estado.conexion = true;
       //"{\"online\":false}"
-     client.publish("infind/GRUPO2/conexion/salon",serializa_JSON(estado).c_str(),true);
+     client.publish("infind/GRUPO2/ESP47/conexion/salon",serializa_JSON(estado).c_str(),true);
      
-     client.subscribe("infind/GRUPO2/led/cmd/salon"); //Me suscribo al topic del estado del led
-     client.subscribe("infind/GRUPO2/config/cmd/salon"); //Me suscribo al topic del estado del led
+     client.subscribe("infind/GRUPO2/ESP47/led/cmd/salon"); //Me suscribo al topic del estado del led
+     client.subscribe("infind/GRUPO2/ESP47/config/cmd/salon"); //Me suscribo al topic del estado del led
     } else {
       Serial.print("failed, rc=");
       Serial.print(client.state());
@@ -285,7 +287,7 @@ void callback(char* topic, byte* payload, unsigned int length) {
   strncpy(mensaje,(char*)payload,length); // copio el mensaje en cadena de caracteres
 
   // compruebo que es el topic adecuado
-  if(strcmp(topic,"infind/GRUPO2/led/cmd/salon")==0)
+  if(strcmp(topic,"infind/GRUPO2/ESP47/led/cmd/salon")==0)
   {
  
     StaticJsonDocument<512> root; // el tamaño tiene que ser adecuado para el mensaje
@@ -310,7 +312,7 @@ void callback(char* topic, byte* payload, unsigned int length) {
      
     sprintf(msg2," {\"led\": %f} ",subirled);
      //publica que he llegado a ese valor
-     client.publish("infind/GRUPO2/led/status/salon",msg2 ); //Publico que he recibido el dato del led
+     client.publish("infind/GRUPO2/ESP47/led/status/salon",msg2 ); //Publico que he recibido el dato del led
      subirled++;
      delay(TiempoLED);
     }
@@ -321,7 +323,7 @@ void callback(char* topic, byte* payload, unsigned int length) {
      
     sprintf(msg2," {\"led\": %f} ",subirled);
      //publica que he llegado a ese valor
-     client.publish("infind/GRUPO2/led/status/salon",msg2 ); //Publico que he recibido el dato del led
+     client.publish("infind/GRUPO2/ESP47/led/status/salon",msg2 ); //Publico que he recibido el dato del led
      subirled--;
      delay(TiempoLED);
     }
@@ -331,7 +333,7 @@ void callback(char* topic, byte* payload, unsigned int length) {
      
     sprintf(msg2," {\"led\": %f} ",valor);
      //publica que he llegado a ese valor
-     client.publish("infind/GRUPO2/led/status/salon",msg2 ); //Publico que he recibido el dato del led
+     client.publish("infind/GRUPO2/ESP47/led/status/salon",msg2 ); //Publico que he recibido el dato del led
      
     LED_dato = valor;
     if (valor==0)
@@ -349,7 +351,7 @@ void callback(char* topic, byte* payload, unsigned int length) {
   }
 
 
-    if(strcmp(topic,"infind/GRUPO2/config/cmd/salon")==0)
+    if(strcmp(topic,"infind/GRUPO2/ESP47/config/cmd/salon")==0)
   {
  
     StaticJsonDocument<512> root; // el tamaño tiene que ser adecuado para el mensaje
@@ -370,7 +372,7 @@ void callback(char* topic, byte* payload, unsigned int length) {
       TiempoLED=valorLED;
     sprintf(msg3,"{\"Tiempo de Recogida de Datos\": %f, \"Tiempo para subir el LED\": %f}",valorDatos, valorLED);
      //publica que he llegado a ese valor
-    client.publish("infind/GRUPO2/config/salon",msg3 ); //Publico que he recibido el dato del led
+    client.publish("infind/GRUPO2/ESP47/config/salon",msg3 ); //Publico que he recibido el dato del led
 
      
   free(mensaje); // libero memoria
@@ -388,7 +390,7 @@ void setup() {
   Serial.begin(9600);
   setup_wifi();
   // OTA
-      client.subscribe("infind/GRUPO2/FOTA/salon"); //Me suscribo al topic de la actualización
+      client.subscribe("infind/GRUPO2/ESP47/FOTA/salon"); //Me suscribo al topic de la actualización
       Serial.println( "--------------------------" );
       Serial.println( "Comprobando actualización:" );
       Serial.print(HTTP_OTA_ADDRESS);Serial.print(":");Serial.print(HTTP_OTA_PORT);Serial.println(HTTP_OTA_PATH); // Se comprueba la actualización
@@ -494,7 +496,7 @@ void loop() {
     }
     if (actualiza==true) // mantenemos pulsado: ACTUALIZAMOS! 
     {
-      client.subscribe("infind/GRUPO2/FOTA/salon"); //Me suscribo al topic de la actualización
+      client.subscribe("infind/GRUPO2/ESP47/FOTA/salon"); //Me suscribo al topic de la actualización
       // OTA
       Serial.println( "--------------------------" );
       Serial.println( "Comprobando actualización:" );
@@ -547,8 +549,6 @@ void loop() {
           {
             digitalWrite(LED_Secundario, HIGH);
             Serial.println("GPIO 16 APAGADO");
-            Serial.printf(" ESP8266 Chip id = %08X\n", ESP.getChipId());
-
             estado_led16=0;
           }
           else
@@ -592,7 +592,7 @@ void loop() {
    { 
    Serial.print("Distancia (mm): ");
    Serial.println(measure.RangeMilliMeter);
-   client.publish("infind/GRUPO2/datos/salon/puerta",serializa_JSONdistist(laser).c_str() );
+   client.publish("infind/GRUPO2/ESP47/datos/salon/puerta",serializa_JSONdistist(laser).c_str() );
    /*delay(3000);
    lastMsgLASER = now;*/
    cambia_dist=medida_laser;
@@ -620,12 +620,13 @@ void loop() {
    misdatos.tiempo = millis();
    misdatos.LED = LED_dato;
    // Calidad aire
+   misdatos.CHIPI = ESP.getChipId();
    misdatos.lpg =mq2.readLPG();
    misdatos.co= mq2.readCO();
    misdatos.humo = mq2.readSmoke();
    
 //Publicamos los datos
-  client.publish("infind/GRUPO2/datos/salon",serializa_JSON2(misdatos).c_str() );
+  client.publish("infind/GRUPO2/ESP47/datos/salon",serializa_JSON2(misdatos).c_str() );
 //Publicamos el estado de conexion con retain flag=true
 
   
