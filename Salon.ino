@@ -48,6 +48,11 @@ struct registro_datos {
   bool conexion;
   };
   
+  // Estructura de json para publicar actualización
+  struct registro_actualizacion { //estructura para el estado de la actualización
+  bool actualizacion;
+  };
+  
 // Estructura de json para publicar distancia LÁSER
     struct registro_distancia { //estructura para el estado de la conexion
   float distancia;
@@ -133,7 +138,7 @@ bool cambia16=false;
 
 //Recogida de datos
 double TiempoRecogida=10000;
-
+double TiempoLED=10;
 // LASER
 float cambia_dist = 0;
 
@@ -181,18 +186,18 @@ String serializa_JSON (struct registro_conexion estado)
   return JSON.stringify(jsonRoot);
 }
 //------------------------------------------------------------------------------------
-/* Función para la calidad del aire
-String serializa_JSONaire (struct registro_aire calidad)
+//Funcion para la actualización
+String serializa_JSONact (struct registro_actualizacion estado_act)
 {
   JSONVar jsonRoot;
   JSONVar ANALOG;
   String jsonString;
   
 
-  jsonRoot["aire"] = calidad.aire;
+  jsonRoot["actualiza:"] = estado_act.actualizacion;
   
   return JSON.stringify(jsonRoot);
-}*/
+}
 //------------------------------------------------------------------------------------
 
 // Función para la distancia LÁSER
@@ -251,7 +256,9 @@ void reconnect() {
     clientId += String(ESP.getChipId()) ;
     // Attempt to connect
     struct registro_conexion estado;
+    struct registro_actualizacion estado_act;
     estado.conexion=false;
+    estado_act.actualizacion=false;
     
     if (client.connect(clientId.c_str(),"infind","zancudo","infind/GRUPO2/conexion/salon",0,true,serializa_JSON(estado).c_str())) {
       Serial.println("connected");
@@ -261,6 +268,7 @@ void reconnect() {
      client.publish("infind/GRUPO2/conexion/salon",serializa_JSON(estado).c_str(),true);
      
      client.subscribe("infind/GRUPO2/led/cmd/salon"); //Me suscribo al topic del estado del led
+     client.subscribe("infind/GRUPO2/config/cmd/salon"); //Me suscribo al topic del estado del led
     } else {
       Serial.print("failed, rc=");
       Serial.print(client.state());
@@ -304,7 +312,7 @@ void callback(char* topic, byte* payload, unsigned int length) {
      //publica que he llegado a ese valor
      client.publish("infind/GRUPO2/led/status/salon",msg2 ); //Publico que he recibido el dato del led
      subirled++;
-     delay(10);
+     delay(TiempoLED);
     }
          while(subirled>valor)
       {
@@ -315,7 +323,7 @@ void callback(char* topic, byte* payload, unsigned int length) {
      //publica que he llegado a ese valor
      client.publish("infind/GRUPO2/led/status/salon",msg2 ); //Publico que he recibido el dato del led
      subirled--;
-     delay(10);
+     delay(TiempoLED);
     }
     
     double PWM = 1023*(1-valor/100);
@@ -341,7 +349,7 @@ void callback(char* topic, byte* payload, unsigned int length) {
   }
 
 
-    if(strcmp(topic,"infind/GRUPO2/RECOGIDA/salon")==0)
+    if(strcmp(topic,"infind/GRUPO2/config/cmd/salon")==0)
   {
  
     StaticJsonDocument<512> root; // el tamaño tiene que ser adecuado para el mensaje
@@ -355,13 +363,14 @@ void callback(char* topic, byte* payload, unsigned int length) {
     }
     else
     {
-     double valor = root["nivel"];
-     
+     double valorDatos = root["TDATOS"];
+     double valorLED = root["TLED"];
      //char msg[128];
-      TiempoRecogida=valor;
-   sprintf(msg3," {\"Tiempo de recogida de datos\": %f} ",valor);
+      TiempoRecogida=valorDatos;
+      TiempoLED=valorLED;
+    sprintf(msg3,"{\"Tiempo de Recogida de Datos\": %f, \"Tiempo para subir el LED\": %f}",valorDatos, valorLED);
      //publica que he llegado a ese valor
-    client.publish("infind/GRUPO2/TIEMPO/RECOGIDA/salon",msg3 ); //Publico que he recibido el dato del led
+    client.publish("infind/GRUPO2/config/salon",msg3 ); //Publico que he recibido el dato del led
 
      
   free(mensaje); // libero memoria
@@ -373,10 +382,33 @@ void callback(char* topic, byte* payload, unsigned int length) {
 
 //------------------------------------SET-UP----------------------------------------------------------------
 void setup() {
+  struct registro_actualizacion estado_act;
   pinMode(BUILTIN_LED, OUTPUT);     // Initialize the BUILTIN_LED pin as an output
   pinMode(LED_Secundario, OUTPUT); 
   Serial.begin(9600);
   setup_wifi();
+  // OTA
+      client.subscribe("infind/GRUPO2/FOTA/salon"); //Me suscribo al topic de la actualización
+      Serial.println( "--------------------------" );
+      Serial.println( "Comprobando actualización:" );
+      Serial.print(HTTP_OTA_ADDRESS);Serial.print(":");Serial.print(HTTP_OTA_PORT);Serial.println(HTTP_OTA_PATH); // Se comprueba la actualización
+      Serial.println( "--------------------------" );  
+      ESPhttpUpdate.setLedPin(16,LOW);
+      ESPhttpUpdate.onStart(inicio_OTA);
+      ESPhttpUpdate.onError(error_OTA);
+      ESPhttpUpdate.onProgress(progreso_OTA);
+      ESPhttpUpdate.onEnd(final_OTA);
+      switch(ESPhttpUpdate.update(HTTP_OTA_ADDRESS, HTTP_OTA_PORT, HTTP_OTA_PATH, HTTP_OTA_VERSION)) {
+        case HTTP_UPDATE_FAILED:
+          Serial.printf(" HTTP update failed: Error (%d): %s\n", ESPhttpUpdate.getLastError(), ESPhttpUpdate.getLastErrorString().c_str());
+          break;
+        case HTTP_UPDATE_NO_UPDATES:
+          Serial.println(F(" El dispositivo ya está actualizado"));
+          break;
+        case HTTP_UPDATE_OK:
+          Serial.println(F(" OK"));
+          break;
+        } 
   client.setServer(mqtt_server,1883);
   client.setCallback(callback);
  // client.setCallback(callbackRECOGIDA);
@@ -462,6 +494,7 @@ void loop() {
     }
     if (actualiza==true) // mantenemos pulsado: ACTUALIZAMOS! 
     {
+      client.subscribe("infind/GRUPO2/FOTA/salon"); //Me suscribo al topic de la actualización
       // OTA
       Serial.println( "--------------------------" );
       Serial.println( "Comprobando actualización:" );
