@@ -42,6 +42,7 @@ struct registro_datos {
   String ssid;
   String mqtt_server;
   float LED;
+  char CHIPI;
   
   };
 
@@ -87,7 +88,7 @@ unsigned long lastInt = 0;
 //Recogida de datos
 
 double TiempoRecogida=10000;
-
+double TiempoLED=10;
 /*------------------  RTI  --------------------*/
 // Rutina de Tratamiento de la Interrupcion (RTI)
 ICACHE_RAM_ATTR void RTI() {
@@ -131,6 +132,7 @@ String serializa_JSON2 (struct registro_datos datos)
   JSONVar MQ2;
   JSONVar Wifi;
   JSONVar ANALOG;
+
   String jsonString;
   
   DHT11["temp"] = datos.temperatura*10/10.0;
@@ -141,13 +143,16 @@ String serializa_JSON2 (struct registro_datos datos)
   Wifi["ssid"] = datos.ssid;
   Wifi["ip"] = datos.mqtt_server;
   Wifi["rssi"] = datos.rssi;
-  
+
+
+  jsonRoot["CHIPID"]=datos.CHIPI;
   jsonRoot["Uptime"]= datos.tiempo;
   jsonRoot["vcc"] = datos.vcc/1000.;
   jsonRoot["DHT11"]= DHT11;
   jsonRoot["MQ-2"]= MQ2;
   jsonRoot["Wifi"]=Wifi;
   jsonRoot["LED"]=datos.LED;
+  
    
   return JSON.stringify(jsonRoot);
 }
@@ -205,15 +210,15 @@ void reconnect() {
     struct registro_conexion estado;
     estado.conexion=false;
     
-    if (client.connect(clientId.c_str(),"infind","zancudo","infind/GRUPO2/conexion1/cocina",0,true,serializa_JSON(estado).c_str())) {
+    if (client.connect(clientId.c_str(),"infind","zancudo",": infind/GRUPO2/ESP145/conexion/cocina",0,true,serializa_JSON(estado).c_str())) {
       Serial.println("connected");
       
       estado.conexion = true;
       //"{\"online\":false}"
-     client.publish("infind/GRUPO2/conexion/cocina",serializa_JSON(estado).c_str(),true);
+     client.publish("infind/GRUPO2/ESP145/conexion/cocina",serializa_JSON(estado).c_str(),true);
      
-     client.subscribe("infind/GRUPO2/led/cmd/cocina"); //Me suscribo al topic del estado del led
-     client.subscribe("infind/GRUPO2/RECOGIDA/cocina"); //Me suscribo al topic del tiempo de recogida de datos
+     client.subscribe("infind/GRUPO2/ESP145/led/cmd/cocina"); //Me suscribo al topic del estado del led
+     client.subscribe("infind/GRUPO2/ESP145/config/cmd/cocina"); //Me suscribo al topic del tiempo de recogida de datos
     } else {
       Serial.print("failed, rc=");
       Serial.print(client.state());
@@ -231,7 +236,7 @@ void callback(char* topic, byte* payload, unsigned int length) {
   strncpy(mensaje,(char*)payload,length); // copio el mensaje en cadena de caracteres
 
   // compruebo que es el topic adecuado
-  if(strcmp(topic,"infind/GRUPO2/led/cmd/cocina")==0)
+  if(strcmp(topic,"infind/GRUPO2/ESP145/led/cmd/cocina")==0)
   {
  
     StaticJsonDocument<512> root; // el tamaño tiene que ser adecuado para el mensaje
@@ -256,9 +261,9 @@ void callback(char* topic, byte* payload, unsigned int length) {
      
     sprintf(msg2," {\"led\": %f} ",subirled);
      //publica que he llegado a ese valor
-     client.publish("infind/GRUPO2/led/status/cocina",msg2 ); //Publico que he recibido el dato del led
+     client.publish("infind/GRUPO2/ESP145/led/status/cocina",msg2 ); //Publico que he recibido el dato del led
      subirled++;
-     delay(10);
+     delay(TiempoLED);
     }
          while(subirled>valor)
       {
@@ -267,9 +272,9 @@ void callback(char* topic, byte* payload, unsigned int length) {
      
     sprintf(msg2," {\"led\": %f} ",subirled);
      //publica que he llegado a ese valor
-     client.publish("infind/GRUPO2/led/status/cocina",msg2 ); //Publico que he recibido el dato del led
+     client.publish("infind/GRUPO2/ESP145/led/status/cocina",msg2 ); //Publico que he recibido el dato del led
      subirled--;
-     delay(10);
+     delay(TiempoLED);
     }
     
     double PWM = 1023*(1-valor/100);
@@ -277,7 +282,7 @@ void callback(char* topic, byte* payload, unsigned int length) {
      
     sprintf(msg2," {\"led\": %f} ",valor);
      //publica que he llegado a ese valor
-     client.publish("infind/GRUPO2/led/status/cocina",msg2 ); //Publico que he recibido el dato del led
+     client.publish("infind/GRUPO2/ESP145/led/status/cocina",msg2 ); //Publico que he recibido el dato del led
      
     LED_dato = valor;
      
@@ -286,7 +291,7 @@ void callback(char* topic, byte* payload, unsigned int length) {
   }
 
 
-    if(strcmp(topic,"infind/GRUPO2/RECOGIDA/cocina")==0)
+    if(strcmp(topic,"infind/GRUPO2/ESP145/config/cmd/cocina")==0)
   {
  
     StaticJsonDocument<512> root; // el tamaño tiene que ser adecuado para el mensaje
@@ -300,12 +305,15 @@ void callback(char* topic, byte* payload, unsigned int length) {
     }
     else
     {
-     double valor = root["nivel"];
+     double valorDatos = root["TDATOS"];
+     double valorLED = root["TLED"];
      //char msg[128];
-      TiempoRecogida=valor;
-   sprintf(msg3," {\"Tiempo de recogida de datos\": %f} ",valor);
+      TiempoRecogida=valorDatos;
+      TiempoLED=valorLED;
+      
+   sprintf(msg3,"{\"Tiempo de Recogida de Datos\": %f, \"Tiempo para subir el LED\": %f}",valorDatos, valorLED);
      //publica que he llegado a ese valor
-    client.publish("infind/GRUPO2/TIEMPO/RECOGIDA/cocina",msg3 ); //Publico que he recibido el dato del led
+    client.publish("infind/GRUPO2/ESP145/config/status/cocina",msg3 ); //Publico que he recibido el dato del led
 
      
   free(mensaje); // libero memoria
@@ -400,7 +408,7 @@ void loop() {
   if (!client.connected()) {
     reconnect();
   }
-
+  
   client.loop();
 
   struct registro_datos misdatos; //me creo una estructura de cada tipo
@@ -422,10 +430,11 @@ void loop() {
    misdatos.humo = mq2.readSmoke();
    misdatos.tiempo = millis();
    misdatos.LED = LED_dato;
+   misdatos.CHIPI = ESP.getChipId();
 //Publicamos los datos
-  client.publish("infind/GRUPO2/datos/cocina",serializa_JSON2(misdatos).c_str() );
+  client.publish("infind/GRUPO2/ESP145/datos/cocina",serializa_JSON2(misdatos).c_str() );
 //Publicamos el estado de conexion con retain flag=true
-  
+
   
     lastMsg = now;
   }
@@ -462,7 +471,7 @@ void loop() {
                    LED_dato=100;
                    sprintf(msg2," {\"led\": %f} ",LED_dato);
                       //publica que he llegado a ese valor
-                   client.publish("infind/GRUPO2/led/status/cocina",msg2 ); //Publico que he recibido el dato del led
+                   client.publish("infind/GRUPO2/ESP145/led/status/cocina",msg2 ); //Publico que he recibido el dato del led
      
         }
                else
@@ -474,7 +483,7 @@ void loop() {
 
                    sprintf(msg2," {\"led\": %f} ",LED_dato);
                       //publica que he llegado a ese valor
-                   client.publish("infind/GRUPO2/led/status/cocina",msg2 ); //Publico que he recibido el dato del led
+                   client.publish("infind/GRUPO2/ESP145/led/status/cocina",msg2 ); //Publico que he recibido el dato del led
           
         }
        }
