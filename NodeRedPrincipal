@@ -25,8 +25,8 @@
         "autoAnswerCallback": false,
         "timeoutValue": "20",
         "timeoutUnits": "s",
-        "x": 328,
-        "y": 892,
+        "x": 649.0000114440918,
+        "y": 910.0000267028809,
         "wires": [
             [
                 "8f0e032c.df76"
@@ -57,8 +57,8 @@
         "command": "/encender",
         "commandType": "str",
         "commandCase": false,
-        "x": 142,
-        "y": 900,
+        "x": 463.0000114440918,
+        "y": 918.0000267028809,
         "wires": [
             [
                 "1147cc5.9871434"
@@ -74,8 +74,8 @@
         "chatId": "",
         "message": "habitacion encendida a nivel bajo",
         "parseMode": "",
-        "x": 1395,
-        "y": 631,
+        "x": 1716.0000114440918,
+        "y": 649.0000267028809,
         "wires": []
     },
     {
@@ -87,8 +87,8 @@
         "chatId": "",
         "message": "salon encendido a nivel bajo",
         "parseMode": "",
-        "x": 1497,
-        "y": 1095,
+        "x": 1818.0000114440918,
+        "y": 1113.0000267028809,
         "wires": []
     },
     {
@@ -100,8 +100,8 @@
         "chatId": "",
         "message": "cagadero encendido a nivel bajo",
         "parseMode": "",
-        "x": 1577,
-        "y": 1611,
+        "x": 1898.0000114440918,
+        "y": 1629.0000267028809,
         "wires": []
     },
     {
@@ -113,8 +113,8 @@
         "chatId": "",
         "message": "Se han encendido todas las luces a nivel bajo",
         "parseMode": "",
-        "x": 1240.9999351501465,
-        "y": 2079.0001163482666,
+        "x": 1909.9999732971191,
+        "y": 2058.000177383423,
         "wires": []
     },
     {
@@ -136,8 +136,8 @@
         "autoAnswerCallback": false,
         "timeoutValue": "20",
         "timeoutUnits": "s",
-        "x": 335,
-        "y": 2776,
+        "x": 542.0000228881836,
+        "y": 2986.0001010894775,
         "wires": [
             [
                 "2fd5a89.7d49558"
@@ -168,8 +168,8 @@
         "command": "/apagar",
         "commandType": "str",
         "commandCase": false,
-        "x": 55,
-        "y": 2778,
+        "x": 262.0000228881836,
+        "y": 2988.0001010894775,
         "wires": [
             [
                 "859317dc.9f0a78"
@@ -185,8 +185,8 @@
         "chatId": "",
         "message": "cocina apagada",
         "parseMode": "",
-        "x": 1184,
-        "y": 2615,
+        "x": 1391.0000228881836,
+        "y": 2825.0001010894775,
         "wires": []
     },
     {
@@ -198,8 +198,8 @@
         "chatId": "",
         "message": "habitacion apagada",
         "parseMode": "",
-        "x": 1259,
-        "y": 2738,
+        "x": 1466.0000228881836,
+        "y": 2948.0001010894775,
         "wires": []
     },
     {
@@ -211,8 +211,8 @@
         "chatId": "",
         "message": "salon apagado",
         "parseMode": "",
-        "x": 1261,
-        "y": 2857,
+        "x": 1468.0000228881836,
+        "y": 3067.0001010894775,
         "wires": []
     },
     {
@@ -224,8 +224,8 @@
         "chatId": "",
         "message": "cagadero apagado",
         "parseMode": "",
-        "x": 1218,
-        "y": 2978,
+        "x": 1425.0000228881836,
+        "y": 3188.0001010894775,
         "wires": []
     },
     {
@@ -237,8 +237,8 @@
         "chatId": "",
         "message": "Se han apagado todas las luces",
         "parseMode": "",
-        "x": 1206,
-        "y": 3101,
+        "x": 1413.0000228881836,
+        "y": 3311.0001010894775,
         "wires": []
     },
     {
@@ -250,8 +250,8 @@
         "chatId": "",
         "message": "Se acabo el tiempo bru",
         "parseMode": "",
-        "x": 332,
-        "y": 994,
+        "x": 653.0000114440918,
+        "y": 1012.0000267028809,
         "wires": []
     },
     {
@@ -263,8 +263,8 @@
         "chatId": "",
         "message": "Se acabo el tiempo bru",
         "parseMode": "",
-        "x": 475,
-        "y": 2922,
+        "x": 682.0000228881836,
+        "y": 3132.0001010894775,
         "wires": []
     },
     {
@@ -285,8 +285,8 @@
         "autoAnswerCallback": false,
         "timeoutValue": "20",
         "timeoutUnits": "s",
-        "x": 597,
-        "y": 246,
+        "x": 918.0000114440918,
+        "y": 264.00002670288086,
         "wires": [
             [
                 "c8001b36.6eb768"
@@ -314,8 +314,8 @@
         "chatId": "",
         "message": "cocina encendida a nivel medio",
         "parseMode": "",
-        "x": 1351,
-        "y": 190,
+        "x": 1672.0000114440918,
+        "y": 208.00002670288086,
         "wires": []
     },
     {
@@ -327,8 +327,8 @@
         "chatId": "",
         "message": "cocina encendida a nivel fuego valirio",
         "parseMode": "",
-        "x": 1396,
-        "y": 463,
+        "x": 1717.0000114440918,
+        "y": 481.00002670288086,
         "wires": []
     },
     {
@@ -340,8 +340,8 @@
         "chatId": "",
         "message": "cocina encendida a nivel alto",
         "parseMode": "",
-        "x": 1368,
-        "y": 311,
+        "x": 1689.0000114440918,
+        "y": 329.00002670288086,
         "wires": []
     },
     {
@@ -362,8 +362,8 @@
         "autoAnswerCallback": false,
         "timeoutValue": "20",
         "timeoutUnits": "s",
-        "x": 652,
-        "y": 740,
+        "x": 973.0000114440918,
+        "y": 758.0000267028809,
         "wires": [
             [
                 "cdd7db6f.6e8788"
@@ -391,8 +391,8 @@
         "chatId": "",
         "message": "habitacion encendida a nivel medio",
         "parseMode": "",
-        "x": 1407,
-        "y": 741,
+        "x": 1728.0000114440918,
+        "y": 759.0000267028809,
         "wires": []
     },
     {
@@ -404,8 +404,8 @@
         "chatId": "",
         "message": "habitacion encendida a nivel alto",
         "parseMode": "",
-        "x": 1412,
-        "y": 838,
+        "x": 1733.0000114440918,
+        "y": 856.0000267028809,
         "wires": []
     },
     {
@@ -417,8 +417,8 @@
         "chatId": "",
         "message": "habitacion encendida a todo leche",
         "parseMode": "",
-        "x": 1414,
-        "y": 950,
+        "x": 1735.0000114440918,
+        "y": 968.0000267028809,
         "wires": []
     },
     {
@@ -439,8 +439,8 @@
         "autoAnswerCallback": false,
         "timeoutValue": "20",
         "timeoutUnits": "s",
-        "x": 731,
-        "y": 1170,
+        "x": 1052.0000114440918,
+        "y": 1188.0000267028809,
         "wires": [
             [
                 "58d23458.fe3c9c"
@@ -477,8 +477,8 @@
         "autoAnswerCallback": false,
         "timeoutValue": "20",
         "timeoutUnits": "s",
-        "x": 715,
-        "y": 1711,
+        "x": 1036.0000114440918,
+        "y": 1729.0000267028809,
         "wires": [
             [
                 "4c61864c.beff38"
@@ -506,8 +506,8 @@
         "chatId": "",
         "message": "salon encendido a nivel medio",
         "parseMode": "",
-        "x": 1522,
-        "y": 1202,
+        "x": 1843.0000114440918,
+        "y": 1220.0000267028809,
         "wires": []
     },
     {
@@ -519,8 +519,8 @@
         "chatId": "",
         "message": "salon encendido a nivel alto",
         "parseMode": "",
-        "x": 1533,
-        "y": 1314,
+        "x": 1854.0000114440918,
+        "y": 1332.0000267028809,
         "wires": []
     },
     {
@@ -532,8 +532,8 @@
         "chatId": "",
         "message": "salon encendido para HellBoy",
         "parseMode": "",
-        "x": 1541,
-        "y": 1425,
+        "x": 1862.0000114440918,
+        "y": 1443.0000267028809,
         "wires": []
     },
     {
@@ -545,8 +545,8 @@
         "chatId": "",
         "message": "cagadero encendido a nivel medio",
         "parseMode": "",
-        "x": 1579,
-        "y": 1706,
+        "x": 1900.0000114440918,
+        "y": 1724.0000267028809,
         "wires": []
     },
     {
@@ -558,8 +558,8 @@
         "chatId": "",
         "message": "cagadero encendido a nivel alto",
         "parseMode": "",
-        "x": 1587,
-        "y": 1802,
+        "x": 1908.0000114440918,
+        "y": 1820.0000267028809,
         "wires": []
     },
     {
@@ -571,8 +571,8 @@
         "chatId": "",
         "message": "Vas a cagar fuego",
         "parseMode": "",
-        "x": 1581,
-        "y": 1917,
+        "x": 1902.0000114440918,
+        "y": 1935.0000267028809,
         "wires": []
     },
     {
@@ -593,8 +593,8 @@
         "autoAnswerCallback": false,
         "timeoutValue": "20",
         "timeoutUnits": "s",
-        "x": 686,
-        "y": 2184,
+        "x": 1034.0000267028809,
+        "y": 2145.0000343322754,
         "wires": [
             [
                 "d9c5eb05.0b0518"
@@ -622,8 +622,8 @@
         "chatId": "",
         "message": "Se han encendido todas las luces a nivel medio",
         "parseMode": "",
-        "x": 1272.9998474121094,
-        "y": 2223.9998693466187,
+        "x": 1620.9998741149902,
+        "y": 2184.999903678894,
         "wires": []
     },
     {
@@ -635,8 +635,8 @@
         "chatId": "",
         "message": "Se han encendido todas las luces a nivel alto",
         "parseMode": "",
-        "x": 1254.9998931884766,
-        "y": 2335.0000438690186,
+        "x": 1602.9999198913574,
+        "y": 2296.000078201294,
         "wires": []
     },
     {
@@ -648,8 +648,8 @@
         "chatId": "",
         "message": "Se han encendido todas las luces a toda ostia",
         "parseMode": "",
-        "x": 1260.9998512268066,
-        "y": 2477.999731063843,
+        "x": 1608.9998779296875,
+        "y": 2438.999765396118,
         "wires": []
     },
     {
@@ -658,8 +658,8 @@
         "z": "cb95b8f7.9b4968",
         "name": "Encender y regular PWM",
         "info": "e",
-        "x": 283,
-        "y": 774,
+        "x": 604.0000114440918,
+        "y": 792.0000267028809,
         "wires": []
     },
     {
@@ -668,8 +668,8 @@
         "z": "cb95b8f7.9b4968",
         "name": "Apagar luces",
         "info": "e",
-        "x": 330,
-        "y": 2680,
+        "x": 537.0000228881836,
+        "y": 2890.0001010894775,
         "wires": []
     },
     {
@@ -681,8 +681,8 @@
         "command": "/estado",
         "commandType": "str",
         "commandCase": false,
-        "x": 78,
-        "y": 3324,
+        "x": 2806,
+        "y": 2396,
         "wires": [
             [
                 "8e9de4d1.546c88"
@@ -708,8 +708,8 @@
         "autoAnswerCallback": false,
         "timeoutValue": "20",
         "timeoutUnits": "s",
-        "x": 258,
-        "y": 3320,
+        "x": 2986,
+        "y": 2392,
         "wires": [
             [
                 "17d8db0c.136f55"
@@ -744,8 +744,8 @@
         "chatId": "",
         "message": "",
         "parseMode": "",
-        "x": 1520,
-        "y": 3288,
+        "x": 4248,
+        "y": 2360,
         "wires": []
     },
     {
@@ -757,8 +757,8 @@
         "chatId": "",
         "message": "",
         "parseMode": "",
-        "x": 1501,
-        "y": 3338,
+        "x": 4229,
+        "y": 2410,
         "wires": []
     },
     {
@@ -770,8 +770,8 @@
         "chatId": "",
         "message": "",
         "parseMode": "",
-        "x": 1504,
-        "y": 3386,
+        "x": 4232,
+        "y": 2458,
         "wires": []
     },
     {
@@ -783,8 +783,8 @@
         "chatId": "",
         "message": "Se acabo el tiempo bru",
         "parseMode": "",
-        "x": 344,
-        "y": 3460,
+        "x": 3072,
+        "y": 2532,
         "wires": []
     },
     {
@@ -793,8 +793,8 @@
         "z": "cb95b8f7.9b4968",
         "name": "Estado de los sensores",
         "info": "e",
-        "x": 289,
-        "y": 3240,
+        "x": 2999,
+        "y": 2312,
         "wires": []
     },
     {
@@ -806,8 +806,8 @@
         "command": "/start",
         "commandType": "str",
         "commandCase": false,
-        "x": 99,
-        "y": 1481.5556163787842,
+        "x": 85,
+        "y": 295.55578422546387,
         "wires": [
             [
                 "3402c984.102fb6"
@@ -820,8 +820,8 @@
         "z": "cb95b8f7.9b4968",
         "name": "mensaje de bienvenida e informacion",
         "info": "e",
-        "x": 422,
-        "y": 69,
+        "x": 225,
+        "y": 146.0000228881836,
         "wires": []
     },
     {
@@ -835,8 +835,8 @@
         "upsert": false,
         "multi": false,
         "operation": "store",
-        "x": 932.772705078125,
-        "y": 3967.3333139419556,
+        "x": 1074.772720336914,
+        "y": 3793.333526611328,
         "wires": []
     },
     {
@@ -847,12 +847,11 @@
         "func": "msg.payload.date = new Date();\nmsg.payload.topic = \"infind/GRUPO2/datos/cocina\"\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 641.685791015625,
-        "y": 3968.5606088638306,
+        "x": 783.6858062744141,
+        "y": 3794.560821533203,
         "wires": [
             [
-                "cda3c0d4.ed18a",
-                "af8fb797.da7ca8"
+                "cda3c0d4.ed18a"
             ]
         ]
     },
@@ -861,11 +860,11 @@
         "type": "mqtt in",
         "z": "cb95b8f7.9b4968",
         "name": "",
-        "topic": "infind/GRUPO2/datos/cocina",
+        "topic": "infind/GRUPO2/ESP145/datos/cocina",
         "qos": "2",
         "broker": "8fab76dc.3e75b8",
-        "x": 194,
-        "y": 3960.3333139419556,
+        "x": 342.0000305175781,
+        "y": 3794.333559036255,
         "wires": [
             [
                 "7a214638.93bc18"
@@ -880,34 +879,25 @@
         "property": "payload",
         "action": "",
         "pretty": false,
-        "x": 452,
-        "y": 3968.3333139419556,
+        "x": 594.0000152587891,
+        "y": 3794.333526611328,
         "wires": [
             [
-                "b6132bd3.8e4038"
+                "b6132bd3.8e4038",
+                "70be20a3.64df1"
             ]
         ]
-    },
-    {
-        "id": "d3f258a8.44cdd8",
-        "type": "comment",
-        "z": "cb95b8f7.9b4968",
-        "name": "Recogida de datos",
-        "info": "e",
-        "x": 361,
-        "y": 3889.3332862854004,
-        "wires": []
     },
     {
         "id": "17d8db0c.136f55",
         "type": "function",
         "z": "cb95b8f7.9b4968",
         "name": "Registro cocina",
-        "func": "msg.mensaje=msg.payload;\nmsg.limit=1;\nmsg.sort={\"date\":-1};\n//msg.payload={\"topic\": \"infind/GRUPO2/datos/cocina\"};\nmsg.payload ={};\n\nreturn msg;",
+        "func": "msg.mensaje=msg.payload;\nmsg.limit=1;\nmsg.sort={\"date\":-1};\nmsg.payload={\"topic\": \"infind/GRUPO2/datos/cocina\"};\nmsg.payload ={};\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 591,
-        "y": 3208,
+        "x": 3319,
+        "y": 2280,
         "wires": [
             [
                 "3a5d58ea.46b118"
@@ -922,12 +912,11 @@
         "name": "",
         "collection": "datos/GRUPO2_json",
         "operation": "find",
-        "x": 911,
-        "y": 3201,
+        "x": 3639,
+        "y": 2273,
         "wires": [
             [
-                "7af9d6af.7d8d28",
-                "d6fb9960.407518"
+                "7af9d6af.7d8d28"
             ]
         ]
     },
@@ -939,8 +928,8 @@
         "func": "var vcc=msg.payload[0].vcc;\nvar fecha=msg.payload[0].date;\nvar Temperatura=msg.payload[0].DHT11.temp;\nvar Humedad=msg.payload[0].DHT11.hum;\nvar led =msg.payload[0].LED;\n\n\nmsg.payload=msg.mensaje;\n\nmsg.payload=\"El estado de la cocina es el siguiente:  \\n\";\nmsg.payload+=\"El voltaje es de \"+vcc+\" voltios \\n\";\nmsg.payload+=\"Tenemos unos agradables \"+Temperatura+\" ºC \\n\";\nmsg.payload+=\"La humedad es del \"+Humedad+\" % \\n\";\n\nif (led == 25)\nmsg.payload+=\"La cocina esta a nivel bajo  \\n\";\nelse if (led ==50)\nmsg.payload+=\"La cocina esta a nivel medio  \\n\";\nelse if (led ==75)\nmsg.payload+=\"La cocina esta a nivel alto  \\n\";\nelse if (led ==100)\nmsg.payload+=\"La cocina esta a nivel maximo  \\n\";\nelse if (led === 0)\nmsg.payload+=\"La cocina esta apagada  \\n\";\n\nmsg.payload+=\"Última actualización: \"+fecha.toLocaleString('es-ES', { timeZone: 'Europe/Madrid', hour12: false });\n\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 1237.699951171875,
-        "y": 3216,
+        "x": 3965.699951171875,
+        "y": 2288,
         "wires": [
             [
                 "29d9285.6fdb7d8"
@@ -956,8 +945,8 @@
         "chatId": "",
         "message": "",
         "parseMode": "",
-        "x": 1525.9998779296875,
-        "y": 3208,
+        "x": 4253.9998779296875,
+        "y": 2280,
         "wires": []
     },
     {
@@ -965,12 +954,12 @@
         "type": "mqtt out",
         "z": "cb95b8f7.9b4968",
         "name": "",
-        "topic": "infind/GRUPO2/led/cmd/cocina",
+        "topic": "infind/GRUPO2/ESP145/led/cmd/cocina",
         "qos": "",
         "retain": "",
         "broker": "11f84db6.06eda2",
-        "x": 1391.000015258789,
-        "y": 20,
+        "x": 1751.0000305175781,
+        "y": 47.00000190734863,
         "wires": []
     },
     {
@@ -981,8 +970,8 @@
         "property": "payload",
         "action": "str",
         "pretty": false,
-        "x": 1127,
-        "y": 54.00001525878906,
+        "x": 1448.0000114440918,
+        "y": 72.00004196166992,
         "wires": [
             [
                 "41f7cc12.bcfcd4",
@@ -998,8 +987,8 @@
         "func": "msg.payload = {\"level\": 25}\n\nreturn msg;\n",
         "outputs": 1,
         "noerr": 0,
-        "x": 888,
-        "y": 46,
+        "x": 1209.0000114440918,
+        "y": 64.00002670288086,
         "wires": [
             [
                 "1042f82.ae00608"
@@ -1015,8 +1004,8 @@
         "chatId": "",
         "message": "cocina encendida a nivel bajo",
         "parseMode": "",
-        "x": 1349,
-        "y": 79,
+        "x": 1670.0000114440918,
+        "y": 97.00002670288086,
         "wires": []
     },
     {
@@ -1024,12 +1013,12 @@
         "type": "mqtt out",
         "z": "cb95b8f7.9b4968",
         "name": "",
-        "topic": "infind/GRUPO2/led/cmd/cocina",
+        "topic": "infind/GRUPO2/ESP145/led/cmd/cocina",
         "qos": "",
         "retain": "",
         "broker": "11f84db6.06eda2",
-        "x": 1387,
-        "y": 136,
+        "x": 1738.0000114440918,
+        "y": 154.00002670288086,
         "wires": []
     },
     {
@@ -1040,8 +1029,8 @@
         "property": "payload",
         "action": "str",
         "pretty": false,
-        "x": 1123,
-        "y": 164.00001525878906,
+        "x": 1444.0000114440918,
+        "y": 182.00004196166992,
         "wires": [
             [
                 "7c9e2f2c.eae1d",
@@ -1057,8 +1046,8 @@
         "func": "msg.payload = {\"level\": 50}\n\nreturn msg;\n",
         "outputs": 1,
         "noerr": 0,
-        "x": 892,
-        "y": 151,
+        "x": 1213.0000114440918,
+        "y": 169.00002670288086,
         "wires": [
             [
                 "33a09d6d.ed3c82"
@@ -1073,8 +1062,8 @@
         "property": "payload",
         "action": "str",
         "pretty": false,
-        "x": 1125.9999618530273,
-        "y": 291.00001525878906,
+        "x": 1446.9999732971191,
+        "y": 309.0000419616699,
         "wires": [
             [
                 "9cc8bac1.a75388",
@@ -1090,8 +1079,8 @@
         "func": "msg.payload = {\"level\": 75}\n\nreturn msg;\n",
         "outputs": 1,
         "noerr": 0,
-        "x": 893,
-        "y": 268,
+        "x": 1214.0000114440918,
+        "y": 286.00002670288086,
         "wires": [
             [
                 "c3825b3a.53d6e8"
@@ -1103,12 +1092,12 @@
         "type": "mqtt out",
         "z": "cb95b8f7.9b4968",
         "name": "",
-        "topic": "infind/GRUPO2/led/cmd/cocina",
+        "topic": "infind/GRUPO2/ESP145/led/cmd/cocina",
         "qos": "",
         "retain": "",
         "broker": "11f84db6.06eda2",
-        "x": 1413,
-        "y": 263,
+        "x": 1764.0000114440918,
+        "y": 281.00002670288086,
         "wires": []
     },
     {
@@ -1119,8 +1108,8 @@
         "property": "payload",
         "action": "str",
         "pretty": false,
-        "x": 1122,
-        "y": 388.0000305175781,
+        "x": 1443.0000114440918,
+        "y": 406.000057220459,
         "wires": [
             [
                 "682f2cf4.efcc84",
@@ -1136,8 +1125,8 @@
         "func": "msg.payload = {\"level\": 100}\n\nreturn msg;\n",
         "outputs": 1,
         "noerr": 0,
-        "x": 903,
-        "y": 379,
+        "x": 1224.0000114440918,
+        "y": 397.00002670288086,
         "wires": [
             [
                 "c57e908b.1152b"
@@ -1149,12 +1138,12 @@
         "type": "mqtt out",
         "z": "cb95b8f7.9b4968",
         "name": "",
-        "topic": "infind/GRUPO2/led/cmd/cocina",
+        "topic": "infind/GRUPO2/ESP145/led/cmd/cocina",
         "qos": "",
         "retain": "",
         "broker": "11f84db6.06eda2",
-        "x": 1451,
-        "y": 409,
+        "x": 1802.0000114440918,
+        "y": 427.00002670288086,
         "wires": []
     },
     {
@@ -1165,8 +1154,8 @@
         "property": "payload",
         "action": "str",
         "pretty": false,
-        "x": 936.9999771118164,
-        "y": 2600.000015258789,
+        "x": 1144,
+        "y": 2810.0001163482666,
         "wires": [
             [
                 "56a2f66a.5d4e88",
@@ -1182,8 +1171,8 @@
         "func": "msg.payload = {\"level\": 0}\n\nreturn msg;\n",
         "outputs": 1,
         "noerr": 0,
-        "x": 762,
-        "y": 2600,
+        "x": 969.0000228881836,
+        "y": 2810.0001010894775,
         "wires": [
             [
                 "6086651a.e1affc"
@@ -1195,12 +1184,12 @@
         "type": "mqtt out",
         "z": "cb95b8f7.9b4968",
         "name": "",
-        "topic": "infind/GRUPO2/led/cmd/cocina",
+        "topic": "infind/GRUPO2/ESP145/led/cmd/cocina",
         "qos": "",
         "retain": "",
         "broker": "11f84db6.06eda2",
-        "x": 1224,
-        "y": 2565,
+        "x": 1461.0000228881836,
+        "y": 2775.0001010894775,
         "wires": []
     },
     {
@@ -1211,8 +1200,8 @@
         "func": "msg.mensaje=msg.payload;\nmsg.limit=1;\nmsg.sort={\"date\":-1};\nmsg.payload={\"topic\": \"infind/GRUPO2/datos/habitacion\"};\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 598,
-        "y": 3279,
+        "x": 3326,
+        "y": 2351,
         "wires": [
             [
                 "81a20a47.2d1528"
@@ -1227,8 +1216,8 @@
         "name": "",
         "collection": "datos/GRUPO2_json",
         "operation": "find",
-        "x": 901,
-        "y": 3281,
+        "x": 3629,
+        "y": 2353,
         "wires": [
             [
                 "2ee643ea.30bc3c"
@@ -1243,8 +1232,8 @@
         "func": "var vcc=msg.payload[0].vcc;\nvar fecha=msg.payload[0].date;\nvar Temperatura=msg.payload[0].DHT11.temp;\nvar Humedad=msg.payload[0].DHT11.hum;\nvar led = msg.payload[0].LED;\nmsg.payload=msg.mensaje;\n\nmsg.payload=\"El estado de la habitacion es el siguiente:  \\n\";\nmsg.payload+=\"El voltaje es de \"+vcc+\" voltios \\n\";\nmsg.payload+=\"Tenemos unos agradables \"+Temperatura+\" ºC \\n\";\nmsg.payload+=\"La humedad es del \"+Humedad+\" % \\n\";\n\nif (led == 25)\nmsg.payload+=\"La  habitacion esta a nivel bajo  \\n\";\nelse if (led ==50)\nmsg.payload+=\"La  habitacion esta a nivel medio  \\n\";\nelse if (led ==75)\nmsg.payload+=\"La  habitacion esta a nivel alto  \\n\";\nelse if (led ==100)\nmsg.payload+=\"La  habitacion esta a nivel maximo  \\n\";\nelse if (led === 0)\nmsg.payload+=\"La habitacion esta apagada  \\n\";\n\nmsg.payload+=\"Última actualización: \"+fecha.toLocaleString('es-ES', { timeZone: 'Europe/Madrid', hour12: false });\n\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 1240.699951171875,
-        "y": 3274,
+        "x": 3968.699951171875,
+        "y": 2346,
         "wires": [
             [
                 "9213261c.af1508"
@@ -1259,8 +1248,8 @@
         "func": "msg.mensaje=msg.payload;\nmsg.limit=1;\nmsg.sort={\"date\":-1};\nmsg.payload={\"topic\": \"infind/GRUPO2/datos/salon\"};\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 591,
-        "y": 3330,
+        "x": 3319,
+        "y": 2402,
         "wires": [
             [
                 "120ab895.fce517"
@@ -1275,8 +1264,8 @@
         "name": "",
         "collection": "datos/GRUPO2_json",
         "operation": "find",
-        "x": 908,
-        "y": 3326,
+        "x": 3636,
+        "y": 2398,
         "wires": [
             [
                 "748abdb4.cf7e24"
@@ -1291,8 +1280,8 @@
         "func": "var vcc=msg.payload[0].vcc;\nvar fecha=msg.payload[0].date;\nvar Temperatura=msg.payload[0].DHT11.temp;\nvar Humedad=msg.payload[0].DHT11.hum;\nvar led = msg.payload[0].LED;\nmsg.payload=msg.mensaje;\n\nmsg.payload=\"El estado del salon es el siguiente:  \\n\";\nmsg.payload+=\"El voltaje es de \"+vcc+\" voltios \\n\";\nmsg.payload+=\"Tenemos unos agradables \"+Temperatura+\" ºC \\n\";\nmsg.payload+=\"La humedad es del \"+Humedad+\" % \\n\";\n\nif (led == 25)\nmsg.payload+=\"El salon esta a nivel bajo  \\n\";\nelse if (led ==50)\nmsg.payload+=\"El salon esta a nivel medio  \\n\";\nelse if (led ==75)\nmsg.payload+=\"El salon esta a nivel alto  \\n\";\nelse if (led ==100)\nmsg.payload+=\"El salon esta a nivel maximo  \\n\";\nelse if (led === 0)\nmsg.payload+=\"El salon esta apagado  \\n\";\n\nmsg.payload+=\"Última actualización: \"+fecha.toLocaleString('es-ES', { timeZone: 'Europe/Madrid', hour12: false });\n\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 1233.699951171875,
-        "y": 3327,
+        "x": 3961.699951171875,
+        "y": 2399,
         "wires": [
             [
                 "df6ecc4.42aef3"
@@ -1307,8 +1296,8 @@
         "func": "msg.mensaje=msg.payload;\nmsg.limit=1;\nmsg.sort={\"date\":-1};\nmsg.payload={\"topic\": \"infind/GRUPO2/datos/wc\"};\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 592,
-        "y": 3377,
+        "x": 3320,
+        "y": 2449,
         "wires": [
             [
                 "9a219fff.37152"
@@ -1323,8 +1312,8 @@
         "name": "",
         "collection": "datos/GRUPO2_json",
         "operation": "find",
-        "x": 911,
-        "y": 3378,
+        "x": 3639,
+        "y": 2450,
         "wires": [
             [
                 "821b8dc0.2ecd3"
@@ -1339,8 +1328,8 @@
         "func": "var vcc=msg.payload[0].vcc;\nvar fecha=msg.payload[0].date;\nvar Temperatura=msg.payload[0].DHT11.temp;\nvar Humedad=msg.payload[0].DHT11.hum;\nmsg.payload=msg.mensaje;\n\nmsg.payload=\"El estado del baño es el siguiente:  \\n\";\nmsg.payload+=\"El voltaje es de \"+vcc+\" voltios \\n\";\nmsg.payload+=\"Tenemos unos agradables \"+Temperatura+\" ºC \\n\";\nmsg.payload+=\"La humedad es del \"+Humedad+\" % \\n\";\n\nif (led == 25)\nmsg.payload+=\"El baño esta a nivel bajo  \\n\";\nelse if (led ==50)\nmsg.payload+=\"El baño esta a nivel medio  \\n\";\nelse if (led ==75)\nmsg.payload+=\"El baño esta a nivel alto  \\n\";\nelse if (led ==100)\nmsg.payload+=\"El baño esta a nivel maximo  \\n\";\nelse if (led === 0)\nmsg.payload+=\"El baño esta apagado  \\n\";\n\nmsg.payload+=\"Última actualización: \"+fecha.toLocaleString('es-ES', { timeZone: 'Europe/Madrid', hour12: false });\n\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 1236.699951171875,
-        "y": 3379,
+        "x": 3964.699951171875,
+        "y": 2451,
         "wires": [
             [
                 "6749d5f1.f157dc"
@@ -1355,8 +1344,8 @@
         "property": "payload",
         "action": "str",
         "pretty": false,
-        "x": 923.9999618530273,
-        "y": 2735.000015258789,
+        "x": 1130.999984741211,
+        "y": 2945.0001163482666,
         "wires": [
             [
                 "d6364351.39f3b",
@@ -1372,8 +1361,8 @@
         "func": "msg.payload = {\"level\": 0}\n\nreturn msg;\n",
         "outputs": 1,
         "noerr": 0,
-        "x": 748.9999847412109,
-        "y": 2735,
+        "x": 956.0000076293945,
+        "y": 2945.0001010894775,
         "wires": [
             [
                 "a44c3979.949938"
@@ -1389,8 +1378,8 @@
         "qos": "",
         "retain": "",
         "broker": "11f84db6.06eda2",
-        "x": 1288,
-        "y": 2689,
+        "x": 1495.0000228881836,
+        "y": 2899.0001010894775,
         "wires": []
     },
     {
@@ -1401,8 +1390,8 @@
         "property": "payload",
         "action": "str",
         "pretty": false,
-        "x": 931.9999618530273,
-        "y": 2851.000015258789,
+        "x": 1138.999984741211,
+        "y": 3061.0001163482666,
         "wires": [
             [
                 "f3377f38.9b74e",
@@ -1418,8 +1407,8 @@
         "func": "msg.payload = {\"level\": 0}\n\nreturn msg;\n",
         "outputs": 1,
         "noerr": 0,
-        "x": 756.9999847412109,
-        "y": 2851,
+        "x": 964.0000076293945,
+        "y": 3061.0001010894775,
         "wires": [
             [
                 "f1853f84.0504c"
@@ -1431,12 +1420,12 @@
         "type": "mqtt out",
         "z": "cb95b8f7.9b4968",
         "name": "",
-        "topic": "infind/GRUPO2/led/cmd/salon",
+        "topic": "infind/GRUPO2/ESP47/led/cmd/salon",
         "qos": "",
         "retain": "",
         "broker": "11f84db6.06eda2",
-        "x": 1294,
-        "y": 2810,
+        "x": 1521.0000228881836,
+        "y": 3020.0001010894775,
         "wires": []
     },
     {
@@ -1447,8 +1436,8 @@
         "property": "payload",
         "action": "str",
         "pretty": false,
-        "x": 949.9999618530273,
-        "y": 2969.000015258789,
+        "x": 1156.999984741211,
+        "y": 3179.0001163482666,
         "wires": [
             [
                 "6e563e5d.28a57",
@@ -1464,8 +1453,8 @@
         "func": "msg.payload = {\"level\": 0}\n\nreturn msg;\n",
         "outputs": 1,
         "noerr": 0,
-        "x": 774.9999847412109,
-        "y": 2969,
+        "x": 982.0000076293945,
+        "y": 3179.0001010894775,
         "wires": [
             [
                 "72cc61a1.f5633"
@@ -1481,8 +1470,8 @@
         "qos": "",
         "retain": "",
         "broker": "11f84db6.06eda2",
-        "x": 1270,
-        "y": 2930,
+        "x": 1477.0000228881836,
+        "y": 3140.0001010894775,
         "wires": []
     },
     {
@@ -1493,8 +1482,8 @@
         "property": "payload",
         "action": "str",
         "pretty": false,
-        "x": 950.9999618530273,
-        "y": 3081.000015258789,
+        "x": 1157.999984741211,
+        "y": 3291.0001163482666,
         "wires": [
             [
                 "8348ef79.b626f",
@@ -1513,8 +1502,8 @@
         "func": "msg.payload = {\"level\": 0}\n\nreturn msg;\n",
         "outputs": 1,
         "noerr": 0,
-        "x": 775.9999847412109,
-        "y": 3081,
+        "x": 983.0000076293945,
+        "y": 3291.0001010894775,
         "wires": [
             [
                 "c5f98de6.940e"
@@ -1530,8 +1519,8 @@
         "chatId": "",
         "message": "Se acabo el tiempo bru",
         "parseMode": "",
-        "x": 621,
-        "y": 398,
+        "x": 942.0000114440918,
+        "y": 416.00002670288086,
         "wires": []
     },
     {
@@ -1543,8 +1532,8 @@
         "chatId": "",
         "message": "Se acabo el tiempo bru",
         "parseMode": "",
-        "x": 792,
-        "y": 1374,
+        "x": 1113.0000114440918,
+        "y": 1392.0000267028809,
         "wires": []
     },
     {
@@ -1556,8 +1545,8 @@
         "chatId": "",
         "message": "Se acabo el tiempo bru",
         "parseMode": "",
-        "x": 712,
-        "y": 836,
+        "x": 1033.0000114440918,
+        "y": 854.0000267028809,
         "wires": []
     },
     {
@@ -1569,8 +1558,8 @@
         "chatId": "",
         "message": "Se acabo el tiempo bru",
         "parseMode": "",
-        "x": 735,
-        "y": 1812,
+        "x": 1056.0000114440918,
+        "y": 1830.0000267028809,
         "wires": []
     },
     {
@@ -1582,8 +1571,8 @@
         "chatId": "",
         "message": "Se acabo el tiempo bru",
         "parseMode": "",
-        "x": 681,
-        "y": 2301,
+        "x": 1029.0000267028809,
+        "y": 2262.0000343322754,
         "wires": []
     },
     {
@@ -1594,8 +1583,8 @@
         "func": "msg.payload = {\"level\": 25}\n\nreturn msg;\n",
         "outputs": 1,
         "noerr": 0,
-        "x": 869,
-        "y": 585,
+        "x": 1190.0000114440918,
+        "y": 603.0000267028809,
         "wires": [
             [
                 "3e07164.7b906ea"
@@ -1610,8 +1599,8 @@
         "func": "msg.payload = {\"level\": 50}\n\nreturn msg;\n",
         "outputs": 1,
         "noerr": 0,
-        "x": 881,
-        "y": 681,
+        "x": 1202.0000114440918,
+        "y": 699.0000267028809,
         "wires": [
             [
                 "4b28a303.d9f17c"
@@ -1626,8 +1615,8 @@
         "func": "msg.payload = {\"level\": 75}\n\nreturn msg;\n",
         "outputs": 1,
         "noerr": 0,
-        "x": 883,
-        "y": 753,
+        "x": 1204.0000114440918,
+        "y": 771.0000267028809,
         "wires": [
             [
                 "3b7a0b43.9ccde4"
@@ -1642,8 +1631,8 @@
         "func": "msg.payload = {\"level\": 100}\n\nreturn msg;\n",
         "outputs": 1,
         "noerr": 0,
-        "x": 890,
-        "y": 841,
+        "x": 1211.0000114440918,
+        "y": 859.0000267028809,
         "wires": [
             [
                 "c32c3eaa.39e6f"
@@ -1658,8 +1647,8 @@
         "property": "payload",
         "action": "str",
         "pretty": false,
-        "x": 1093,
-        "y": 585,
+        "x": 1414.0000114440918,
+        "y": 603.0000267028809,
         "wires": [
             [
                 "997fb7bd.4977e8",
@@ -1675,8 +1664,8 @@
         "property": "payload",
         "action": "str",
         "pretty": false,
-        "x": 1100,
-        "y": 684,
+        "x": 1421.0000114440918,
+        "y": 702.0000267028809,
         "wires": [
             [
                 "8ae64cef.b7442",
@@ -1692,8 +1681,8 @@
         "property": "payload",
         "action": "str",
         "pretty": false,
-        "x": 1105,
-        "y": 765,
+        "x": 1426.0000114440918,
+        "y": 783.0000267028809,
         "wires": [
             [
                 "d877e28f.5a57e",
@@ -1709,8 +1698,8 @@
         "property": "payload",
         "action": "str",
         "pretty": false,
-        "x": 1109,
-        "y": 834,
+        "x": 1430.0000114440918,
+        "y": 852.0000267028809,
         "wires": [
             [
                 "4df24e3f.799ff",
@@ -1727,8 +1716,8 @@
         "qos": "",
         "retain": "",
         "broker": "11f84db6.06eda2",
-        "x": 1439,
-        "y": 573,
+        "x": 1760.0000114440918,
+        "y": 591.0000267028809,
         "wires": []
     },
     {
@@ -1740,8 +1729,8 @@
         "qos": "",
         "retain": "",
         "broker": "11f84db6.06eda2",
-        "x": 1445,
-        "y": 682,
+        "x": 1766.0000114440918,
+        "y": 700.0000267028809,
         "wires": []
     },
     {
@@ -1753,8 +1742,8 @@
         "qos": "",
         "retain": "",
         "broker": "11f84db6.06eda2",
-        "x": 1451,
-        "y": 795,
+        "x": 1772.0000114440918,
+        "y": 813.0000267028809,
         "wires": []
     },
     {
@@ -1766,8 +1755,8 @@
         "qos": "",
         "retain": "",
         "broker": "11f84db6.06eda2",
-        "x": 1452,
-        "y": 899,
+        "x": 1773.0000114440918,
+        "y": 917.0000267028809,
         "wires": []
     },
     {
@@ -1778,8 +1767,8 @@
         "func": "msg.payload = {\"level\": 25}\n\nreturn msg;\n",
         "outputs": 1,
         "noerr": 0,
-        "x": 938,
-        "y": 1039,
+        "x": 1259.0000114440918,
+        "y": 1057.0000267028809,
         "wires": [
             [
                 "b6dd908c.54997"
@@ -1794,8 +1783,8 @@
         "func": "msg.payload = {\"level\": 50}\n\nreturn msg;\n",
         "outputs": 1,
         "noerr": 0,
-        "x": 936,
-        "y": 1150,
+        "x": 1257.0000114440918,
+        "y": 1168.0000267028809,
         "wires": [
             [
                 "5122dc26.144844"
@@ -1810,8 +1799,8 @@
         "func": "msg.payload = {\"level\": 75}\n\nreturn msg;\n",
         "outputs": 1,
         "noerr": 0,
-        "x": 952,
-        "y": 1248,
+        "x": 1273.0000114440918,
+        "y": 1266.0000267028809,
         "wires": [
             [
                 "d9eafa7c.519f78"
@@ -1826,8 +1815,8 @@
         "func": "msg.payload = {\"level\": 100}\n\nreturn msg;\n",
         "outputs": 1,
         "noerr": 0,
-        "x": 953,
-        "y": 1330,
+        "x": 1274.0000114440918,
+        "y": 1348.0000267028809,
         "wires": [
             [
                 "1c6d0f2a.2e6d31"
@@ -1842,8 +1831,8 @@
         "property": "payload",
         "action": "str",
         "pretty": false,
-        "x": 1141,
-        "y": 1047,
+        "x": 1462.0000114440918,
+        "y": 1065.0000267028809,
         "wires": [
             [
                 "59706509.9cb08c",
@@ -1859,8 +1848,8 @@
         "property": "payload",
         "action": "str",
         "pretty": false,
-        "x": 1125,
-        "y": 1152,
+        "x": 1446.0000114440918,
+        "y": 1170.0000267028809,
         "wires": [
             [
                 "17be3e05.9c2542",
@@ -1876,8 +1865,8 @@
         "property": "payload",
         "action": "str",
         "pretty": false,
-        "x": 1140,
-        "y": 1261,
+        "x": 1461.0000114440918,
+        "y": 1279.0000267028809,
         "wires": [
             [
                 "e77501a5.d82b5",
@@ -1893,8 +1882,8 @@
         "property": "payload",
         "action": "str",
         "pretty": false,
-        "x": 1138,
-        "y": 1343,
+        "x": 1459.0000114440918,
+        "y": 1361.0000267028809,
         "wires": [
             [
                 "4c8a3979.3672c8",
@@ -1907,12 +1896,12 @@
         "type": "mqtt out",
         "z": "cb95b8f7.9b4968",
         "name": "",
-        "topic": "infind/GRUPO2/led/cmd/salon",
+        "topic": "infind/GRUPO2/ESP47/led/cmd/salon",
         "qos": "",
         "retain": "",
         "broker": "11f84db6.06eda2",
-        "x": 1491,
-        "y": 1051,
+        "x": 1832.0000114440918,
+        "y": 1069.0000267028809,
         "wires": []
     },
     {
@@ -1920,12 +1909,12 @@
         "type": "mqtt out",
         "z": "cb95b8f7.9b4968",
         "name": "",
-        "topic": "infind/GRUPO2/led/cmd/salon",
+        "topic": "infind/GRUPO2/ESP47/led/cmd/salon",
         "qos": "",
         "retain": "",
         "broker": "11f84db6.06eda2",
-        "x": 1508,
-        "y": 1148,
+        "x": 1849.0000114440918,
+        "y": 1166.0000267028809,
         "wires": []
     },
     {
@@ -1933,12 +1922,12 @@
         "type": "mqtt out",
         "z": "cb95b8f7.9b4968",
         "name": "",
-        "topic": "infind/GRUPO2/led/cmd/salon",
+        "topic": "infind/GRUPO2/ESP47/led/cmd/salon",
         "qos": "",
         "retain": "",
         "broker": "11f84db6.06eda2",
-        "x": 1531,
-        "y": 1370,
+        "x": 1872.0000114440918,
+        "y": 1388.0000267028809,
         "wires": []
     },
     {
@@ -1946,12 +1935,12 @@
         "type": "mqtt out",
         "z": "cb95b8f7.9b4968",
         "name": "",
-        "topic": "infind/GRUPO2/led/cmd/salon",
+        "topic": "infind/GRUPO2/ESP47/led/cmd/salon",
         "qos": "",
         "retain": "",
         "broker": "11f84db6.06eda2",
-        "x": 1535,
-        "y": 1268,
+        "x": 1876.0000114440918,
+        "y": 1286.0000267028809,
         "wires": []
     },
     {
@@ -1962,8 +1951,8 @@
         "func": "msg.payload = {\"level\": 25}\n\nreturn msg;\n",
         "outputs": 1,
         "noerr": 0,
-        "x": 908,
-        "y": 1582,
+        "x": 1229.0000114440918,
+        "y": 1600.0000267028809,
         "wires": [
             [
                 "f1ceeb47.080658"
@@ -1978,8 +1967,8 @@
         "func": "msg.payload = {\"level\": 50}\n\nreturn msg;\n",
         "outputs": 1,
         "noerr": 0,
-        "x": 903,
-        "y": 1667,
+        "x": 1224.0000114440918,
+        "y": 1685.0000267028809,
         "wires": [
             [
                 "92cfc6e5.0e9618"
@@ -1994,8 +1983,8 @@
         "func": "msg.payload = {\"level\": 75}\n\nreturn msg;\n",
         "outputs": 1,
         "noerr": 0,
-        "x": 904,
-        "y": 1749,
+        "x": 1225.0000114440918,
+        "y": 1767.0000267028809,
         "wires": [
             [
                 "e82dfd16.71942"
@@ -2010,8 +1999,8 @@
         "func": "msg.payload = {\"level\": 100}\n\nreturn msg;\n",
         "outputs": 1,
         "noerr": 0,
-        "x": 899,
-        "y": 1862,
+        "x": 1220.0000114440918,
+        "y": 1880.0000267028809,
         "wires": [
             [
                 "3b6bc483.d818ac"
@@ -2026,8 +2015,8 @@
         "property": "payload",
         "action": "str",
         "pretty": false,
-        "x": 1078,
-        "y": 1595,
+        "x": 1399.0000114440918,
+        "y": 1613.0000267028809,
         "wires": [
             [
                 "a7f4bcd0.4e281",
@@ -2043,8 +2032,8 @@
         "property": "payload",
         "action": "str",
         "pretty": false,
-        "x": 1072,
-        "y": 1688,
+        "x": 1393.0000114440918,
+        "y": 1706.0000267028809,
         "wires": [
             [
                 "31ae3cb5.6e8cc4",
@@ -2060,8 +2049,8 @@
         "property": "payload",
         "action": "str",
         "pretty": false,
-        "x": 1068,
-        "y": 1760,
+        "x": 1389.0000114440918,
+        "y": 1778.0000267028809,
         "wires": [
             [
                 "72ad5f66.15b3",
@@ -2077,8 +2066,8 @@
         "property": "payload",
         "action": "str",
         "pretty": false,
-        "x": 1065,
-        "y": 1867,
+        "x": 1386.0000114440918,
+        "y": 1885.0000267028809,
         "wires": [
             [
                 "cc22971e.778808",
@@ -2095,8 +2084,8 @@
         "qos": "",
         "retain": "",
         "broker": "11f84db6.06eda2",
-        "x": 1563,
-        "y": 1553,
+        "x": 1884.0000114440918,
+        "y": 1571.0000267028809,
         "wires": []
     },
     {
@@ -2108,8 +2097,8 @@
         "qos": "",
         "retain": "",
         "broker": "11f84db6.06eda2",
-        "x": 1591,
-        "y": 1660,
+        "x": 1912.0000114440918,
+        "y": 1678.0000267028809,
         "wires": []
     },
     {
@@ -2121,8 +2110,8 @@
         "qos": "",
         "retain": "",
         "broker": "11f84db6.06eda2",
-        "x": 1585,
-        "y": 1757,
+        "x": 1906.0000114440918,
+        "y": 1775.0000267028809,
         "wires": []
     },
     {
@@ -2134,8 +2123,8 @@
         "qos": "",
         "retain": "",
         "broker": "11f84db6.06eda2",
-        "x": 1583,
-        "y": 1865,
+        "x": 1904.0000114440918,
+        "y": 1883.0000267028809,
         "wires": []
     },
     {
@@ -2146,8 +2135,8 @@
         "func": "msg.payload = {\"level\": 25}\n\nreturn msg;\n",
         "outputs": 1,
         "noerr": 0,
-        "x": 912,
-        "y": 2028,
+        "x": 1581.0000381469727,
+        "y": 2007.0000610351562,
         "wires": [
             [
                 "9ee2ef6a.23669"
@@ -2162,8 +2151,8 @@
         "func": "msg.payload = {\"level\": 50}\n\nreturn msg;\n",
         "outputs": 1,
         "noerr": 0,
-        "x": 909,
-        "y": 2155,
+        "x": 1578.0000381469727,
+        "y": 2134.0000610351562,
         "wires": [
             [
                 "6213c4c1.593fac"
@@ -2178,8 +2167,8 @@
         "func": "msg.payload = {\"level\": 75}\n\nreturn msg;\n",
         "outputs": 1,
         "noerr": 0,
-        "x": 905,
-        "y": 2237,
+        "x": 1253.0000267028809,
+        "y": 2198.0000343322754,
         "wires": [
             [
                 "c285927d.2709d"
@@ -2194,8 +2183,8 @@
         "func": "msg.payload = {\"level\": 100}\n\nreturn msg;\n",
         "outputs": 1,
         "noerr": 0,
-        "x": 911,
-        "y": 2347,
+        "x": 1259.0000267028809,
+        "y": 2308.0000343322754,
         "wires": [
             [
                 "1ebeeb7d.331c85"
@@ -2210,8 +2199,8 @@
         "property": "payload",
         "action": "str",
         "pretty": false,
-        "x": 1060,
-        "y": 2024,
+        "x": 1729.0000381469727,
+        "y": 2003.0000610351562,
         "wires": [
             [
                 "f9d1040e.b17438",
@@ -2230,8 +2219,8 @@
         "property": "payload",
         "action": "str",
         "pretty": false,
-        "x": 1061,
-        "y": 2154,
+        "x": 1730.0000381469727,
+        "y": 2133.0000610351562,
         "wires": [
             [
                 "89e6e01a.bc467",
@@ -2250,8 +2239,8 @@
         "property": "payload",
         "action": "str",
         "pretty": false,
-        "x": 1052,
-        "y": 2240,
+        "x": 1400.0000267028809,
+        "y": 2201.0000343322754,
         "wires": [
             [
                 "c3226777.1554a8",
@@ -2270,8 +2259,8 @@
         "property": "payload",
         "action": "str",
         "pretty": false,
-        "x": 1071,
-        "y": 2360,
+        "x": 1419.0000267028809,
+        "y": 2321.0000343322754,
         "wires": [
             [
                 "73e20c72.d97a84",
@@ -2287,11 +2276,11 @@
         "type": "mqtt in",
         "z": "cb95b8f7.9b4968",
         "name": "",
-        "topic": "infind/GRUPO2/datos/cocina",
+        "topic": "infind/GRUPO2/ESP145/datos/cocina",
         "qos": "2",
         "broker": "8fab76dc.3e75b8",
-        "x": 166,
-        "y": 4357.696806907654,
+        "x": 316.00001525878906,
+        "y": 4185.697100639343,
         "wires": [
             [
                 "acc49c7.cfed26"
@@ -2306,8 +2295,8 @@
         "func": "var deteccion = msg.payload.calidad_aire;\nif (deteccion == 1)\nmsg.payload = \"La calidad del aire es mala\";\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 606,
-        "y": 4356.696779251099,
+        "x": 748.0000152587891,
+        "y": 4182.696991920471,
         "wires": [
             [
                 "9ea788a6.b86e08"
@@ -2323,8 +2312,8 @@
         "chatId": "-487674790",
         "message": "",
         "parseMode": "",
-        "x": 827,
-        "y": 4470.696779251099,
+        "x": 1133.0000610351562,
+        "y": 4304.696982383728,
         "wires": []
     },
     {
@@ -2332,11 +2321,11 @@
         "type": "function",
         "z": "cb95b8f7.9b4968",
         "name": "sensor puerta",
-        "func": "var deteccion = msg.payload.VL53L0X;\nif (deteccion <=50)\nmsg.payload = \"Se ha abierto la puerta\";\nreturn msg;",
+        "func": "var deteccion = msg.payload.VL53L0X;\nvar comprobante = 0;\nif (deteccion <=100)\nmsg.payload = \"Se ha abierto la puerta\";\ncomprobante = 1;\n\nif (comprobante == 1 && deteccion > 100)\nmsg.payload = \"Se ha cerrado la puerta\";\ncomprobante= 0;\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 628,
-        "y": 4586.696779251099,
+        "x": 770.0000152587891,
+        "y": 4412.696991920471,
         "wires": [
             [
                 "9ea788a6.b86e08"
@@ -2348,11 +2337,11 @@
         "type": "mqtt in",
         "z": "cb95b8f7.9b4968",
         "name": "",
-        "topic": "infind/GRUPO2/datos/salon/puerta",
+        "topic": "infind/GRUPO2/ESP47/datos/salon/puerta",
         "qos": "2",
         "broker": "8fab76dc.3e75b8",
-        "x": 196,
-        "y": 4584.696806907654,
+        "x": 342.00001525878906,
+        "y": 4410.69723033905,
         "wires": [
             [
                 "306acfb5.57441"
@@ -2365,8 +2354,8 @@
         "z": "cb95b8f7.9b4968",
         "name": "calidad del aire de la cocina",
         "info": "",
-        "x": 192,
-        "y": 4314.696806907654,
+        "x": 334.00001525878906,
+        "y": 4140.697019577026,
         "wires": []
     },
     {
@@ -2375,8 +2364,8 @@
         "z": "cb95b8f7.9b4968",
         "name": "estado puerta principal",
         "info": "",
-        "x": 180,
-        "y": 4537.696806907654,
+        "x": 322.00001525878906,
+        "y": 4363.697019577026,
         "wires": []
     },
     {
@@ -2384,11 +2373,11 @@
         "type": "mqtt in",
         "z": "cb95b8f7.9b4968",
         "name": "",
-        "topic": "infind/GRUPO2/datos/cocina",
+        "topic": "infind/GRUPO2/ESP145/datos/cocina",
         "qos": "2",
         "broker": "8fab76dc.3e75b8",
-        "x": 147,
-        "y": 4467.696806907654,
+        "x": 300.00001525878906,
+        "y": 4293.697319984436,
         "wires": [
             [
                 "f14ae36e.fc575"
@@ -2403,8 +2392,8 @@
         "func": "var deteccion = msg.payload.DHT11.temp;\nif (deteccion >= 45)\nmsg.payload = \"LA TEMPERATURA DE LA COCINA ES DEMASIADO ALTA \\n\";\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 602,
-        "y": 4462.696779251099,
+        "x": 744.0000152587891,
+        "y": 4288.696991920471,
         "wires": [
             [
                 "9ea788a6.b86e08"
@@ -2417,8 +2406,8 @@
         "z": "cb95b8f7.9b4968",
         "name": "temperatura cocina",
         "info": "",
-        "x": 144,
-        "y": 4423.696806907654,
+        "x": 286.00001525878906,
+        "y": 4249.697019577026,
         "wires": []
     },
     {
@@ -2432,8 +2421,8 @@
         "upsert": false,
         "multi": false,
         "operation": "store",
-        "x": 932.772705078125,
-        "y": 4060.3333139419556,
+        "x": 1074.772720336914,
+        "y": 3886.333526611328,
         "wires": []
     },
     {
@@ -2444,12 +2433,11 @@
         "func": "msg.payload.date = new Date();\nmsg.payload.topic = \"infind/GRUPO2/datos/habitacion\"\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 641.685791015625,
-        "y": 4061.5606088638306,
+        "x": 783.6858062744141,
+        "y": 3887.560821533203,
         "wires": [
             [
-                "2194a2d0.3f226e",
-                "2bffdd46.7b1132"
+                "2194a2d0.3f226e"
             ]
         ]
     },
@@ -2461,8 +2449,8 @@
         "topic": "infind/GRUPO2/datos/habitacion",
         "qos": "2",
         "broker": "8fab76dc.3e75b8",
-        "x": 210,
-        "y": 4065.3333139419556,
+        "x": 352.00001525878906,
+        "y": 3891.333526611328,
         "wires": [
             [
                 "5d6f0503.ac47dc"
@@ -2477,8 +2465,8 @@
         "property": "payload",
         "action": "",
         "pretty": false,
-        "x": 449,
-        "y": 4063.3333139419556,
+        "x": 591.0000152587891,
+        "y": 3889.333526611328,
         "wires": [
             [
                 "5ccdcbe0.4f7b14"
@@ -2496,8 +2484,8 @@
         "upsert": false,
         "multi": false,
         "operation": "store",
-        "x": 937.772705078125,
-        "y": 4145.333313941956,
+        "x": 1079.772720336914,
+        "y": 3971.333526611328,
         "wires": []
     },
     {
@@ -2508,8 +2496,8 @@
         "func": "msg.payload.date = new Date();\nmsg.payload.topic = \"infind/GRUPO2/datos/wc\"\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 644.685791015625,
-        "y": 4147.560608863831,
+        "x": 786.6858062744141,
+        "y": 3973.560821533203,
         "wires": [
             [
                 "7de15541.d2a8bc"
@@ -2524,8 +2512,8 @@
         "topic": "infind/GRUPO2/datos/wc",
         "qos": "2",
         "broker": "8fab76dc.3e75b8",
-        "x": 195,
-        "y": 4153.333313941956,
+        "x": 337.00001525878906,
+        "y": 3979.333526611328,
         "wires": [
             [
                 "2b2fd651.49c6fa"
@@ -2540,8 +2528,8 @@
         "property": "payload",
         "action": "",
         "pretty": false,
-        "x": 450,
-        "y": 4154.333313941956,
+        "x": 592.0000152587891,
+        "y": 3980.333526611328,
         "wires": [
             [
                 "5d3b24b.b610edc"
@@ -2559,8 +2547,8 @@
         "upsert": false,
         "multi": false,
         "operation": "store",
-        "x": 933.772705078125,
-        "y": 4239.333313941956,
+        "x": 1075.772720336914,
+        "y": 4065.333526611328,
         "wires": []
     },
     {
@@ -2571,8 +2559,8 @@
         "func": "msg.payload.date = new Date();\nmsg.payload.topic = \"infind/GRUPO2/datos/salon\"\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 641.685791015625,
-        "y": 4241.560608863831,
+        "x": 783.6858062744141,
+        "y": 4067.560821533203,
         "wires": [
             [
                 "572b4ef6.2df5f"
@@ -2584,11 +2572,11 @@
         "type": "mqtt in",
         "z": "cb95b8f7.9b4968",
         "name": "",
-        "topic": "infind/GRUPO2/datos/salon",
+        "topic": "infind/GRUPO2/ESP47/datos/salon",
         "qos": "2",
         "broker": "8fab76dc.3e75b8",
-        "x": 217,
-        "y": 4241.333313941956,
+        "x": 379.00001525878906,
+        "y": 4067.333526611328,
         "wires": [
             [
                 "fcef84a9.bc42f8"
@@ -2603,11 +2591,12 @@
         "property": "payload",
         "action": "",
         "pretty": false,
-        "x": 449,
-        "y": 4243.333313941956,
+        "x": 620.0000267028809,
+        "y": 4066.3337030410767,
         "wires": [
             [
-                "625dc83d.507f48"
+                "625dc83d.507f48",
+                "86f4d3e9.8a15a"
             ]
         ]
     },
@@ -2617,8 +2606,8 @@
         "z": "cb95b8f7.9b4968",
         "name": "javi",
         "info": "e",
-        "x": 124,
-        "y": 3930.3333139419556,
+        "x": 266.00001525878906,
+        "y": 3756.333526611328,
         "wires": []
     },
     {
@@ -2627,8 +2616,8 @@
         "z": "cb95b8f7.9b4968",
         "name": "Frank",
         "info": "e",
-        "x": 127,
-        "y": 4036.3333139419556,
+        "x": 269.00001525878906,
+        "y": 3862.333526611328,
         "wires": []
     },
     {
@@ -2637,8 +2626,8 @@
         "z": "cb95b8f7.9b4968",
         "name": "Leo",
         "info": "e",
-        "x": 147,
-        "y": 4212.333313941956,
+        "x": 289.00001525878906,
+        "y": 4038.333526611328,
         "wires": []
     },
     {
@@ -2647,8 +2636,8 @@
         "z": "cb95b8f7.9b4968",
         "name": "Juanjo",
         "info": "e",
-        "x": 135,
-        "y": 4124.333313941956,
+        "x": 277.00001525878906,
+        "y": 3950.333526611328,
         "wires": []
     },
     {
@@ -2659,8 +2648,8 @@
         "property": "payload",
         "action": "",
         "pretty": false,
-        "x": 376,
-        "y": 4462.696779251099,
+        "x": 518.0000152587891,
+        "y": 4288.696991920471,
         "wires": [
             [
                 "927d8823.9b0768"
@@ -2675,11 +2664,12 @@
         "property": "payload",
         "action": "",
         "pretty": false,
-        "x": 409.0000190734863,
-        "y": 4358.697014808655,
+        "x": 572.0000534057617,
+        "y": 4185.697205543518,
         "wires": [
             [
-                "5599bdc4.09fe14"
+                "5599bdc4.09fe14",
+                "8e42adcc.f87ec"
             ]
         ]
     },
@@ -2691,11 +2681,12 @@
         "property": "payload",
         "action": "",
         "pretty": false,
-        "x": 441,
-        "y": 4584.696779251099,
+        "x": 597.0000343322754,
+        "y": 4437.69723033905,
         "wires": [
             [
-                "78c471d9.c96c4"
+                "78c471d9.c96c4",
+                "274e3013.bc44b"
             ]
         ]
     },
@@ -2708,8 +2699,8 @@
         "chatId": "",
         "message": "Se va a mostrar el estado de cada parte de la casa",
         "parseMode": "",
-        "x": 529,
-        "y": 3438,
+        "x": 3257,
+        "y": 2510,
         "wires": []
     },
     {
@@ -2717,12 +2708,12 @@
         "type": "mqtt out",
         "z": "cb95b8f7.9b4968",
         "name": "",
-        "topic": "infind/GRUPO2/led/cmd/cocina",
+        "topic": "infind/GRUPO2/ESP145/led/cmd/cocina",
         "qos": "",
         "retain": "",
         "broker": "11f84db6.06eda2",
-        "x": 1692.9999694824219,
-        "y": 1987.9999866485596,
+        "x": 2392.0000076293945,
+        "y": 1967.0000476837158,
         "wires": []
     },
     {
@@ -2734,8 +2725,8 @@
         "qos": "",
         "retain": "",
         "broker": "11f84db6.06eda2",
-        "x": 1691.3777770996094,
-        "y": 2022.9147815704346,
+        "x": 2360.377815246582,
+        "y": 2001.9148426055908,
         "wires": []
     },
     {
@@ -2743,12 +2734,12 @@
         "type": "mqtt out",
         "z": "cb95b8f7.9b4968",
         "name": "",
-        "topic": "infind/GRUPO2/led/cmd/salon",
+        "topic": "infind/GRUPO2/ESP47/led/cmd/salon",
         "qos": "",
         "retain": "",
         "broker": "11f84db6.06eda2",
-        "x": 1701.3777770996094,
-        "y": 2060.0966663360596,
+        "x": 2390.377815246582,
+        "y": 2039.0967273712158,
         "wires": []
     },
     {
@@ -2760,8 +2751,8 @@
         "qos": "",
         "retain": "",
         "broker": "11f84db6.06eda2",
-        "x": 1706.3777770996094,
-        "y": 2092.0966663360596,
+        "x": 2375.377815246582,
+        "y": 2071.096727371216,
         "wires": []
     },
     {
@@ -2769,12 +2760,12 @@
         "type": "mqtt out",
         "z": "cb95b8f7.9b4968",
         "name": "",
-        "topic": "infind/GRUPO2/led/cmd/cocina",
+        "topic": "infind/GRUPO2/ESP145/led/cmd/cocina",
         "qos": "",
         "retain": "",
         "broker": "11f84db6.06eda2",
-        "x": 1708.3778076171875,
-        "y": 2136.82373046875,
+        "x": 2407.37784576416,
+        "y": 2115.8237915039062,
         "wires": []
     },
     {
@@ -2786,8 +2777,8 @@
         "qos": "",
         "retain": "",
         "broker": "11f84db6.06eda2",
-        "x": 1706.755615234375,
-        "y": 2171.738525390625,
+        "x": 2054.755641937256,
+        "y": 2132.7385597229004,
         "wires": []
     },
     {
@@ -2795,12 +2786,12 @@
         "type": "mqtt out",
         "z": "cb95b8f7.9b4968",
         "name": "",
-        "topic": "infind/GRUPO2/led/cmd/salon",
+        "topic": "infind/GRUPO2/ESP47/led/cmd/salon",
         "qos": "",
         "retain": "",
         "broker": "11f84db6.06eda2",
-        "x": 1716.755615234375,
-        "y": 2208.92041015625,
+        "x": 2084.755641937256,
+        "y": 2169.9204444885254,
         "wires": []
     },
     {
@@ -2812,8 +2803,8 @@
         "qos": "",
         "retain": "",
         "broker": "11f84db6.06eda2",
-        "x": 1721.755615234375,
-        "y": 2240.92041015625,
+        "x": 2069.755641937256,
+        "y": 2201.9204444885254,
         "wires": []
     },
     {
@@ -2821,12 +2812,12 @@
         "type": "mqtt out",
         "z": "cb95b8f7.9b4968",
         "name": "",
-        "topic": "infind/GRUPO2/led/cmd/cocina",
+        "topic": "infind/GRUPO2/ESP145/led/cmd/cocina",
         "qos": "",
         "retain": "",
         "broker": "11f84db6.06eda2",
-        "x": 1741.3778076171875,
-        "y": 2286.82373046875,
+        "x": 2119.3778343200684,
+        "y": 2247.8237648010254,
         "wires": []
     },
     {
@@ -2838,8 +2829,8 @@
         "qos": "",
         "retain": "",
         "broker": "11f84db6.06eda2",
-        "x": 1739.755615234375,
-        "y": 2321.738525390625,
+        "x": 2087.755641937256,
+        "y": 2282.7385597229004,
         "wires": []
     },
     {
@@ -2847,12 +2838,12 @@
         "type": "mqtt out",
         "z": "cb95b8f7.9b4968",
         "name": "",
-        "topic": "infind/GRUPO2/led/cmd/salon",
+        "topic": "infind/GRUPO2/ESP47/led/cmd/salon",
         "qos": "",
         "retain": "",
         "broker": "11f84db6.06eda2",
-        "x": 1749.755615234375,
-        "y": 2358.92041015625,
+        "x": 2117.755641937256,
+        "y": 2319.9204444885254,
         "wires": []
     },
     {
@@ -2864,8 +2855,8 @@
         "qos": "",
         "retain": "",
         "broker": "11f84db6.06eda2",
-        "x": 1753.7555594742298,
-        "y": 2389.9203205108643,
+        "x": 2101.7555861771107,
+        "y": 2350.9203548431396,
         "wires": []
     },
     {
@@ -2873,12 +2864,12 @@
         "type": "mqtt out",
         "z": "cb95b8f7.9b4968",
         "name": "",
-        "topic": "infind/GRUPO2/led/cmd/cocina",
+        "topic": "infind/GRUPO2/ESP145/led/cmd/cocina",
         "qos": "",
         "retain": "",
         "broker": "11f84db6.06eda2",
-        "x": 1753.3778076171875,
-        "y": 2457.551025390625,
+        "x": 2131.3778343200684,
+        "y": 2418.5510597229004,
         "wires": []
     },
     {
@@ -2890,8 +2881,8 @@
         "qos": "",
         "retain": "",
         "broker": "11f84db6.06eda2",
-        "x": 1751.755615234375,
-        "y": 2492.4658203125,
+        "x": 2099.755641937256,
+        "y": 2453.4658546447754,
         "wires": []
     },
     {
@@ -2899,12 +2890,12 @@
         "type": "mqtt out",
         "z": "cb95b8f7.9b4968",
         "name": "",
-        "topic": "infind/GRUPO2/led/cmd/salon",
+        "topic": "infind/GRUPO2/ESP47/led/cmd/salon",
         "qos": "",
         "retain": "",
         "broker": "11f84db6.06eda2",
-        "x": 1761.755615234375,
-        "y": 2529.647705078125,
+        "x": 2129.755641937256,
+        "y": 2490.6477394104004,
         "wires": []
     },
     {
@@ -2916,8 +2907,8 @@
         "qos": "",
         "retain": "",
         "broker": "11f84db6.06eda2",
-        "x": 1766.755615234375,
-        "y": 2561.647705078125,
+        "x": 2114.755641937256,
+        "y": 2522.6477394104004,
         "wires": []
     },
     {
@@ -2926,8 +2917,8 @@
         "z": "cb95b8f7.9b4968",
         "name": "Avisos especiales ",
         "info": "",
-        "x": 830.9232711791992,
-        "y": 4427.521014213562,
+        "x": 1151.923324584961,
+        "y": 4264.5213232040405,
         "wires": []
     },
     {
@@ -2938,8 +2929,8 @@
         "func": "msg.limit=1;\nmsg.sort={\"date\":-1};\nmsg.payload={};\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 368.99999618530273,
-        "y": 4693.999797821045,
+        "x": 351.99999237060547,
+        "y": 4855.999996185303,
         "wires": [
             [
                 "f6b50cb7.d6ee6"
@@ -2958,8 +2949,8 @@
         "crontab": "",
         "once": false,
         "onceDelay": 0.1,
-        "x": 168.99997329711914,
-        "y": 4694.999808311462,
+        "x": 151.99996948242188,
+        "y": 4857.00000667572,
         "wires": [
             [
                 "3bb20511.dc10ca"
@@ -2978,8 +2969,8 @@
         "crontab": "",
         "once": false,
         "onceDelay": 0.1,
-        "x": 386.99999618530273,
-        "y": 4739.999797821045,
+        "x": 369.99999237060547,
+        "y": 4901.999996185303,
         "wires": [
             [
                 "f6b50cb7.d6ee6"
@@ -2992,8 +2983,8 @@
         "z": "cb95b8f7.9b4968",
         "name": "acceder al ultimo registro/nodo de pruebas",
         "info": "e",
-        "x": 304.99999618530273,
-        "y": 4640.999797821045,
+        "x": 253,
+        "y": 4798.000118255615,
         "wires": []
     },
     {
@@ -3004,8 +2995,8 @@
         "func": "msg.mensaje=msg.payload;\nmsg.limit=1;\nmsg.sort={\"date\":-1};\nmsg.payload={};\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 350.99993896484375,
-        "y": 4791.999749183655,
+        "x": 333.9999351501465,
+        "y": 4953.999947547913,
         "wires": [
             [
                 "a73f839e.96f48"
@@ -3021,8 +3012,8 @@
         "command": "/consulta",
         "commandType": "str",
         "commandCase": false,
-        "x": 155.99993896484375,
-        "y": 4795.999704360962,
+        "x": 138.99993515014648,
+        "y": 4957.99990272522,
         "wires": [
             [
                 "bbcaeaa0.d45518"
@@ -3037,8 +3028,8 @@
         "name": "",
         "collection": "datos/GRUPO2_json",
         "operation": "find",
-        "x": 694.9999961853027,
-        "y": 4696.9998254776,
+        "x": 677.9999923706055,
+        "y": 4859.000023841858,
         "wires": [
             []
         ]
@@ -3051,8 +3042,8 @@
         "name": "",
         "collection": "datos/GRUPO2_json",
         "operation": "find",
-        "x": 672.9999084472656,
-        "y": 4791.999749183655,
+        "x": 655.9999046325684,
+        "y": 4953.999947547913,
         "wires": [
             [
                 "2944c66c.39fd3a"
@@ -3067,8 +3058,8 @@
         "func": "var vcc=msg.payload[0].vcc;\nvar fecha=msg.payload[0].date;\nvar Temperatura=msg.payload[0].DHT11.temp;\nvar Humedad=msg.payload[0].DHT11.hum;\nmsg.payload=msg.mensaje;\n\nmsg.payload=\"El voltaje es de \"+vcc+\" voltios \\n\";\nmsg.payload+=\"Tenemos unos agradables \"+Temperatura+\" ºC \\n\";\nmsg.payload+=\"La humedad es del \"+Humedad+\" % \\n\";\nmsg.payload+=\"Última actualización: \"+fecha.toLocaleString('es-ES', { timeZone: 'Europe/Madrid', hour12: false });\n\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 1015.699951171875,
-        "y": 4787.999704360962,
+        "x": 998.6999473571777,
+        "y": 4949.99990272522,
         "wires": [
             [
                 "7f175706.c746a8"
@@ -3084,8 +3075,8 @@
         "chatId": "",
         "message": "",
         "parseMode": "",
-        "x": 1232.9999389648438,
-        "y": 4776.999704360962,
+        "x": 1215.9999351501465,
+        "y": 4938.99990272522,
         "wires": []
     },
     {
@@ -3111,8 +3102,8 @@
         "offvalueType": "bool",
         "officon": "",
         "offcolor": "",
-        "x": 1863.0144271850586,
-        "y": 4846.733903884888,
+        "x": 2325.014347076416,
+        "y": 4494.73415184021,
         "wires": [
             [
                 "49979d95.00bf14"
@@ -3131,8 +3122,8 @@
         "crontab": "",
         "once": true,
         "onceDelay": 0.1,
-        "x": 1805.0114517211914,
-        "y": 4768.645750999451,
+        "x": 2267.011371612549,
+        "y": 4416.645998954773,
         "wires": [
             [
                 "49979d95.00bf14"
@@ -3147,8 +3138,8 @@
         "func": "if(msg.payload===true)\n{\n    global.set(\"separador_decimal\",\"coma\");\n    msg.topic=\"separador decimal = coma\";\n}\nelse\n{\n    global.set(\"separador_decimal\",\"punto\");\n    msg.topic=\"separador decimal = punto\";\n}\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 2133.0228385925293,
-        "y": 4769.353123664856,
+        "x": 2595.0227584838867,
+        "y": 4417.353371620178,
         "wires": [
             [
                 "8b6d5a92.28a318"
@@ -3167,8 +3158,8 @@
         "height": 0,
         "passthru": true,
         "topic": "",
-        "x": 1961.7926979064941,
-        "y": 4536.48983335495,
+        "x": 2423.7926177978516,
+        "y": 4184.490081310272,
         "wires": [
             [
                 "8ea661ab.7feaf"
@@ -3187,8 +3178,8 @@
         "height": 0,
         "passthru": true,
         "topic": "",
-        "x": 1964.8040504455566,
-        "y": 4585.484070777893,
+        "x": 2426.803970336914,
+        "y": 4233.484318733215,
         "wires": [
             [
                 "3de495f3.c5c83a"
@@ -3214,8 +3205,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 2157.7983741760254,
-        "y": 4535.151721000671,
+        "x": 2619.798294067383,
+        "y": 4183.151968955994,
         "wires": [
             []
         ]
@@ -3239,8 +3230,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 2161.0256538391113,
-        "y": 4586.03527545929,
+        "x": 2623.0255737304688,
+        "y": 4234.035523414612,
         "wires": [
             []
         ]
@@ -3257,8 +3248,8 @@
         "crontab": "",
         "once": true,
         "onceDelay": 0.1,
-        "x": 1763.801197052002,
-        "y": 4560.910273551941,
+        "x": 2225.8011169433594,
+        "y": 4208.910521507263,
         "wires": [
             [
                 "11e244a2.42c5bb",
@@ -3272,8 +3263,8 @@
         "z": "cb95b8f7.9b4968",
         "name": "Controles para seleccionar fechas",
         "info": "",
-        "x": 1820.8011856079102,
-        "y": 4464.387557983398,
+        "x": 2282.8011054992676,
+        "y": 4112.387805938721,
         "wires": []
     },
     {
@@ -3282,8 +3273,8 @@
         "z": "cb95b8f7.9b4968",
         "name": "Selector de separador decimal",
         "info": "",
-        "x": 1817.0256156921387,
-        "y": 4708.30787563324,
+        "x": 2279.025535583496,
+        "y": 4356.308123588562,
         "wires": []
     },
     {
@@ -3295,8 +3286,8 @@
         "headers": {
             "Content-Disposition": "attachment; filename=registros.csv"
         },
-        "x": 2832.5078659057617,
-        "y": 4373.523770332336,
+        "x": 3294.507785797119,
+        "y": 4021.5240182876587,
         "wires": []
     },
     {
@@ -3307,8 +3298,8 @@
         "func": "//add Unicode BOM character (byte order mark) to make EXCEL knows this is UTF-8\nif(global.get(\"separador_decimal\")==\"punto\")\n{\n    msg.payload='\\ufeff'+msg.payload;\n\n}\nelse\n{\n    msg.payload='\\ufeff'+(msg.payload).replace(/\\./g,\",\");\n}\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 2662.5079917907715,
-        "y": 4373.523699760437,
+        "x": 3124.507911682129,
+        "y": 4021.5239477157593,
         "wires": [
             [
                 "83609717.be0ea8"
@@ -3323,8 +3314,8 @@
         "func": "// fecha por defecto es hoy\nvar ahora = new Date();\n// pillo los globales si los hay, si no la fecha de hoy\nvar desde = new Date(global.get(\"desde\") || ahora);\nvar hasta = new Date(global.get(\"hasta\") || ahora); \n// el día de inicio desde las cero horas\nvar inicio = new Date(desde.getFullYear(),desde.getMonth(),desde.getDate(),0,0,0,0);\n// el día final es hasta final del día\nvar final = new Date(hasta.getFullYear(),hasta.getMonth(),hasta.getDate(),23,59,59,999);\n\nmsg.payload=\n[\n    { \"$match\": { \"date\": { \"$gte\": inicio , \"$lte\": final } } },\n    { \"$project\": {\n        \"_id\": 0,\n        \"date\": 1,\n        \"temp\": \"$DHT11.Temperatura\",\n        \"hum\": \"$DHT11.Humedad\",\n        }\n    },\n    { \"$sort\": {\"date\": 1} }\n];\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 1904.508113861084,
-        "y": 4379.523387908936,
+        "x": 2366.5080337524414,
+        "y": 4027.523635864258,
         "wires": [
             [
                 "a43810db.35d7a",
@@ -3341,8 +3332,8 @@
         "method": "get",
         "upload": false,
         "swaggerDoc": "",
-        "x": 1741.5080757141113,
-        "y": 4379.523366928101,
+        "x": 2203.5079956054688,
+        "y": 4027.523614883423,
         "wires": [
             [
                 "e220512e.4bf94"
@@ -3362,8 +3353,8 @@
         "storeOutMessages": true,
         "fwdInMessages": true,
         "templateScope": "local",
-        "x": 1760.508098602295,
-        "y": 4271.523200035095,
+        "x": 2222.5080184936523,
+        "y": 3919.5234479904175,
         "wires": [
             []
         ]
@@ -3376,8 +3367,8 @@
         "name": "",
         "collection": "datos/GRUPO2_json",
         "operation": "aggregate",
-        "x": 2199.5222969055176,
-        "y": 4379.529048919678,
+        "x": 2661.522216796875,
+        "y": 4027.529296875,
         "wires": [
             [
                 "7ad391f7.71277",
@@ -3397,8 +3388,8 @@
         "ret": "\\r\\n",
         "temp": "date, temp, hum",
         "skip": 0,
-        "x": 2481.5081367492676,
-        "y": 4373.523676872253,
+        "x": 2943.508056640625,
+        "y": 4021.5239248275757,
         "wires": [
             [
                 "f657f050.9ca24"
@@ -3411,8 +3402,8 @@
         "z": "cb95b8f7.9b4968",
         "name": "Botón en HTML para lanzar descarga de fichero",
         "info": "",
-        "x": 1870.2978553771973,
-        "y": 4223.605653762817,
+        "x": 2332.2977752685547,
+        "y": 3871.6059017181396,
         "wires": []
     },
     {
@@ -3421,8 +3412,8 @@
         "z": "cb95b8f7.9b4968",
         "name": "Flujo para descarga de fichero",
         "info": "",
-        "x": 1812.5222816467285,
-        "y": 4321.529020309448,
+        "x": 2274.522201538086,
+        "y": 3969.5292682647705,
         "wires": []
     },
     {
@@ -3435,8 +3426,8 @@
         "console": false,
         "tostatus": false,
         "complete": "false",
-        "x": 2185.8335571289062,
-        "y": 4244.999963760376,
+        "x": 2647.8334770202637,
+        "y": 3893.0002117156982,
         "wires": []
     },
     {
@@ -3449,22 +3440,8 @@
         "console": false,
         "tostatus": false,
         "complete": "false",
-        "x": 2535,
-        "y": 4263.66650390625,
-        "wires": []
-    },
-    {
-        "id": "af8fb797.da7ca8",
-        "type": "debug",
-        "z": "cb95b8f7.9b4968",
-        "name": "",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "x": 839.6735801696777,
-        "y": 3874.4445667266846,
+        "x": 2996.9999198913574,
+        "y": 3911.6667518615723,
         "wires": []
     },
     {
@@ -3473,36 +3450,8 @@
         "z": "cb95b8f7.9b4968",
         "name": "PREGUNTAR AL PROFESOR SOBRE ESTO",
         "info": "",
-        "x": 2360.0157012939453,
-        "y": 4413.750178337097,
-        "wires": []
-    },
-    {
-        "id": "2bffdd46.7b1132",
-        "type": "debug",
-        "z": "cb95b8f7.9b4968",
-        "name": "",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "x": 868.2292175292969,
-        "y": 4011.222213745117,
-        "wires": []
-    },
-    {
-        "id": "d6fb9960.407518",
-        "type": "debug",
-        "z": "cb95b8f7.9b4968",
-        "name": "",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "x": 1214.8334426879883,
-        "y": 3158.6806602478027,
+        "x": 2822.0156211853027,
+        "y": 4061.7504262924194,
         "wires": []
     },
     {
@@ -3518,29 +3467,37 @@
             "Apagar",
             "Ver estado",
             "Tutorial",
-            "tiempo de recogida"
+            "tiempo de recogida",
+            "prediccion",
+            "pwm"
         ],
-        "outputs": 6,
+        "outputs": 8,
         "autoAnswerCallback": false,
         "timeoutValue": "20",
         "timeoutUnits": "s",
-        "x": 133.8958740234375,
-        "y": 1590.4447975158691,
+        "x": 247.89588165283203,
+        "y": 295.4450912475586,
         "wires": [
             [
-                "1147cc5.9871434"
+                "2da6427c.cd1ffe"
             ],
             [
-                "859317dc.9f0a78"
+                "d29ece94.508c2"
             ],
             [
-                "8e9de4d1.546c88"
+                "21016206.b5dd6e"
             ],
             [
                 "9c9f3e3e.c122b"
             ],
             [
-                "f3736886.d575c8"
+                "14c64fe.4527fb"
+            ],
+            [
+                "cb15f29e.19409"
+            ],
+            [
+                "d76189c4.f958a8"
             ],
             [
                 "e936cbcd.f0a6e8"
@@ -3556,8 +3513,8 @@
         "chatId": "",
         "message": "Se acabo el tiempo bru",
         "parseMode": "",
-        "x": 170.8958854675293,
-        "y": 1725.444694519043,
+        "x": 276.8959274291992,
+        "y": 443.4452533721924,
         "wires": []
     },
     {
@@ -3569,8 +3526,8 @@
         "chatId": "",
         "message": "",
         "parseMode": "",
-        "x": 676.8958358764648,
-        "y": 1524.999963760376,
+        "x": 582.8958358764648,
+        "y": 336.0002899169922,
         "wires": []
     },
     {
@@ -3578,11 +3535,11 @@
         "type": "function",
         "z": "cb95b8f7.9b4968",
         "name": "ayuda mensaje",
-        "func": "msg.payload = \"¿Estás un poco perdido? Tranquilo, yo te ayudo. \\n\";\nmsg.payload += \"En primer lugar puedes utilizar el comando /encender o /apagar para modificar las luces. \\n\";\nmsg.payload += \"Una vez lo hagas podrás elegir qué quieres enceder, tienes varios niveles para elegir. \\n\";\nmsg.payload += \"Por otro lado tienes el comando /estado para comprobar cierta información de cada rincón de la casa. \\n\";\nmsg.payload += \"También tienes la opcion de cambiar el tiempo de recogida de datos con el comando /tiempo, para no saturarte de información. \\n\";\nmsg.payload += \"Hay otros mensajes que se envian automaticamente si ocurren situaciones concretas, como por ejemplo, que se abra la puerta de la casa o que tengas un nivel de humo demasiado alto. \\n\";\nmsg.payload += \"¿No me crees? Pues metele fuego a la casa para que veas lo efectivo que soy ^^. \\n\";\nreturn msg;\n",
+        "func": "msg.payload = \"¿Estás un poco perdido? Tranquilo, yo te ayudo. \\n\";\nmsg.payload += \"En primer lugar puedes utilizar el comando /encender o /apagar para modificar las luces. \\n\";\nmsg.payload += \"Una vez lo hagas podrás elegir qué quieres enceder, tienes varios niveles para elegir. \\n\";\nmsg.payload += \"Por otro lado tienes el comando /estado para comprobar cierta información de cada rincón de la casa. \\n\";\nmsg.payload += \"También tienes la opcion de cambiar el tiempo de recogida de datos con el comando /tiempo, para no saturarte de información. \\n\";\nmsg.payload += \"Otro comando interesante es /prediccion, que te permite ver la prediccion del tiempo atmosferico. \\n\";\nmsg.payload += \"Prueba tambien a establecer el tiempo del pwm con el comando /pwm \\n\";\nmsg.payload += \"Hay otros mensajes que se envian automaticamente si ocurren situaciones concretas, como por ejemplo, que se abra la puerta de la casa o que tengas un nivel de humo demasiado alto. \\n\";\nmsg.payload += \"¿No me crees? Pues metele fuego a la casa para que veas lo efectivo que soy ^^. \\n\";\nreturn msg;\n",
         "outputs": 1,
         "noerr": 0,
-        "x": 422.8958435058594,
-        "y": 1562,
+        "x": 491.89585876464844,
+        "y": 276.00025939941406,
         "wires": [
             [
                 "e853cf76.711fd"
@@ -3594,12 +3551,12 @@
         "type": "mqtt out",
         "z": "cb95b8f7.9b4968",
         "name": "",
-        "topic": "infind/GRUPO2/RECOGIDA/cocina",
+        "topic": "infind/GRUPO2/ESP145/config/cmd/cocina",
         "qos": "",
         "retain": "",
         "broker": "8fab76dc.3e75b8",
-        "x": 942.9521789550781,
-        "y": 3771.7640647888184,
+        "x": 3649.952079772949,
+        "y": 2900.76411819458,
         "wires": []
     },
     {
@@ -3611,8 +3568,8 @@
         "command": "/tiempo",
         "commandType": "str",
         "commandCase": false,
-        "x": 55,
-        "y": 3666.1118812561035,
+        "x": 2786.9999237060547,
+        "y": 2858.1118202209473,
         "wires": [
             [
                 "f3736886.d575c8"
@@ -3638,8 +3595,8 @@
         "autoAnswerCallback": false,
         "timeoutValue": "20",
         "timeoutUnits": "s",
-        "x": 323.0000762939453,
-        "y": 3663.8901977539062,
+        "x": 3055,
+        "y": 2855.89013671875,
         "wires": [
             [
                 "bb994458.799538"
@@ -3666,11 +3623,11 @@
         "type": "function",
         "z": "cb95b8f7.9b4968",
         "name": "1 segundo",
-        "func": "msg.payload=msg.mensaje;\n\nmsg.payload= {\"nivel\": 1000};\n\n\n\nreturn msg;",
+        "func": "msg.payload=msg.mensaje;\n\nmsg.payload= {\"TDATOS\": 1000};\n\n\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 567.8959045410156,
-        "y": 3614.778102874756,
+        "x": 3299.8958282470703,
+        "y": 2806.7780418395996,
         "wires": [
             [
                 "449ac9c4.261748",
@@ -3683,15 +3640,14 @@
         "type": "function",
         "z": "cb95b8f7.9b4968",
         "name": "10 segundos",
-        "func": "msg.payload=msg.mensaje;\n\nmsg.payload= {\"nivel\": 10000};\n\n\n\nreturn msg;",
+        "func": "msg.payload=msg.mensaje;\n\nmsg.payload= {\"TDATOS\": 10000};\n\n\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 571.9999847412109,
-        "y": 3657.7780570983887,
+        "x": 3303.9999084472656,
+        "y": 2849.7779960632324,
         "wires": [
             [
                 "863aee33.57fb1",
-                "6135d115.1f188",
                 "19dee5b5.dd749a"
             ]
         ]
@@ -3701,11 +3657,11 @@
         "type": "function",
         "z": "cb95b8f7.9b4968",
         "name": "30 segundos",
-        "func": "msg.payload=msg.mensaje;\n\nmsg.payload= {\"nivel\": 30000};\n\n\n\nreturn msg;",
+        "func": "msg.payload=msg.mensaje;\n\nmsg.payload= {\"TDATOS\": 30000};\n\n\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 577.9999847412109,
-        "y": 3702.7780570983887,
+        "x": 3309.9999084472656,
+        "y": 2894.7779960632324,
         "wires": [
             [
                 "206b276c.840308",
@@ -3718,11 +3674,11 @@
         "type": "function",
         "z": "cb95b8f7.9b4968",
         "name": "1 minuto",
-        "func": "msg.payload=msg.mensaje;\n\nmsg.payload= {\"nivel\": 60000};\n\n\n\nreturn msg;",
+        "func": "msg.payload=msg.mensaje;\n\nmsg.payload= {\"TDATOS\": 60000};\n\n\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 568.9999847412109,
-        "y": 3745.7780570983887,
+        "x": 3300.9999084472656,
+        "y": 2937.7779960632324,
         "wires": [
             [
                 "aa39e70e.bbebd8",
@@ -3735,11 +3691,11 @@
         "type": "function",
         "z": "cb95b8f7.9b4968",
         "name": "5 minutos",
-        "func": "msg.payload=msg.mensaje;\n\nmsg.payload= {\"nivel\": 300000};\n\n\n\nreturn msg;",
+        "func": "msg.payload=msg.mensaje;\n\nmsg.payload= {\"TDATOS\": 300000};\n\n\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 566.9999847412109,
-        "y": 3789.0002250671387,
+        "x": 3298.9999084472656,
+        "y": 2981.0001640319824,
         "wires": [
             [
                 "198569e6.198b46",
@@ -3756,8 +3712,8 @@
         "chatId": "",
         "message": "Se acabo el tiempo bru",
         "parseMode": "",
-        "x": 391.00001525878906,
-        "y": 3769.1115531921387,
+        "x": 3122.9999389648438,
+        "y": 2961.1114921569824,
         "wires": []
     },
     {
@@ -3769,8 +3725,8 @@
         "chatId": "",
         "message": "Se ha establecido el tiempo en 1 segundo",
         "parseMode": "",
-        "x": 860.8957824707031,
-        "y": 3486.668294906616,
+        "x": 3582.895751953125,
+        "y": 2650.668212890625,
         "wires": []
     },
     {
@@ -3782,8 +3738,8 @@
         "chatId": "",
         "message": "Se ha establecido el tiempo en 10 segundos",
         "parseMode": "",
-        "x": 853.8958435058594,
-        "y": 3525.669164657593,
+        "x": 3594.8958282470703,
+        "y": 2699.669408798218,
         "wires": []
     },
     {
@@ -3795,8 +3751,8 @@
         "chatId": "",
         "message": "Se ha establecido el tiempo en 30 segundos",
         "parseMode": "",
-        "x": 865.8959426879883,
-        "y": 3558.669219970703,
+        "x": 3597.895866394043,
+        "y": 2750.669158935547,
         "wires": []
     },
     {
@@ -3808,8 +3764,8 @@
         "chatId": "",
         "message": "Se ha establecido el tiempo en 1 minuto",
         "parseMode": "",
-        "x": 821.896125793457,
-        "y": 3611.890820503235,
+        "x": 3574.8960342407227,
+        "y": 2797.8907928466797,
         "wires": []
     },
     {
@@ -3821,22 +3777,1653 @@
         "chatId": "",
         "message": "Se ha establecido el tiempo en 5 minutos",
         "parseMode": "",
-        "x": 834.8959655761719,
-        "y": 3651.8903884887695,
+        "x": 3580.8958435058594,
+        "y": 2843.890251159668,
         "wires": []
     },
     {
-        "id": "6135d115.1f188",
-        "type": "debug",
+        "id": "582a4416.f761fc",
+        "type": "http request",
+        "z": "cb95b8f7.9b4968",
+        "name": "AEMET http request",
+        "method": "GET",
+        "ret": "txt",
+        "url": "http://www.aemet.es/xml/municipios/localidad_29067.xml",
+        "tls": "",
+        "x": 3690.00736618042,
+        "y": 1083.1118049621582,
+        "wires": [
+            [
+                "57ce4f.7e47d1b"
+            ]
+        ]
+    },
+    {
+        "id": "57ce4f.7e47d1b",
+        "type": "xml",
         "z": "cb95b8f7.9b4968",
         "name": "",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "x": 864.8403167724609,
-        "y": 3713.333351135254,
+        "property": "payload",
+        "attr": "",
+        "chr": "",
+        "x": 3874.00736618042,
+        "y": 1083.1118049621582,
+        "wires": [
+            [
+                "291bd304.8bf1ec",
+                "63a5a2a0.3cfbac",
+                "791e2ff9.3e00b",
+                "cffc90fe.92345"
+            ]
+        ]
+    },
+    {
+        "id": "291bd304.8bf1ec",
+        "type": "change",
+        "z": "cb95b8f7.9b4968",
+        "name": "fecha elaboracion",
+        "rules": [
+            {
+                "t": "set",
+                "p": "fecha",
+                "pt": "global",
+                "to": "payload.root.elaborado[0]",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 4024.3075675964355,
+        "y": 945.1119804382324,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "30ab6bbe.c9eee4",
+        "type": "function",
+        "z": "cb95b8f7.9b4968",
+        "name": "",
+        "func": "var cielo_hoy = global.get(\"cielo_hoy\");\nvar fecha = global.get(\"fecha\")\nvar lluvia_hoy = global.get(\"lluvia_hoy\")\nvar periodo = global.get(\"periodo\")\nmsg.payload.chatId =  1308127721;\nmsg.payload = \"hoy (\" +periodo+\") tendremos el cielo \"+cielo_hoy+\" y con una probabilidad de lluvias de \"+lluvia_hoy+\" % \\n\";\nmsg.payload +=\"Fecha de elaboracion: \"+fecha+ \"\\n\";\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 4350.307586669922,
+        "y": 1087.111988067627,
+        "wires": [
+            [
+                "1da15242.3f4fbe"
+            ]
+        ]
+    },
+    {
+        "id": "da45ff5.77f61",
+        "type": "telegrambot-command",
+        "z": "cb95b8f7.9b4968",
+        "name": "/prediccion",
+        "bot": "407d7e26.e9903",
+        "command": "/prediccion",
+        "commandType": "str",
+        "commandCase": false,
+        "x": 2792.3074226379395,
+        "y": 1515.1111698150635,
+        "wires": [
+            [
+                "31d4b644.71932a",
+                "a7907c2b.c3163"
+            ]
+        ]
+    },
+    {
+        "id": "1da15242.3f4fbe",
+        "type": "telegrambot-notify",
+        "z": "cb95b8f7.9b4968",
+        "name": "",
+        "bot": "407d7e26.e9903",
+        "chatId": "-487674790",
+        "message": "",
+        "parseMode": "",
+        "x": 4518.307540893555,
+        "y": 1087.1121520996094,
+        "wires": []
+    },
+    {
+        "id": "31d4b644.71932a",
+        "type": "function",
+        "z": "cb95b8f7.9b4968",
+        "name": "",
+        "func": "var hora = new Date().getHours();\nmsg.payload = hora;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 3036.307186126709,
+        "y": 1411.1111087799072,
+        "wires": [
+            [
+                "a71ad5eb.30b548"
+            ]
+        ]
+    },
+    {
+        "id": "63a5a2a0.3cfbac",
+        "type": "function",
+        "z": "cb95b8f7.9b4968",
+        "name": "",
+        "func": "var hora = global.get(\"hora\");\nvar cont = 0;\n\nif (hora >= 07 && hora <=12)\ncont = 5;\nelse if (hora >=13 && hora <= 18)\ncont=6;\nelse if (hora>=19 && hora <=24)\ncont=3;\nelse cont=4;\nmsg.payload = msg.payload.root.prediccion[0].dia[0].prob_precipitacion[cont]._;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 4011.307571411133,
+        "y": 992.1124172210693,
+        "wires": [
+            [
+                "225f37ce.9de658"
+            ]
+        ]
+    },
+    {
+        "id": "a71ad5eb.30b548",
+        "type": "change",
+        "z": "cb95b8f7.9b4968",
+        "name": "hora",
+        "rules": [
+            {
+                "t": "set",
+                "p": "hora",
+                "pt": "global",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 3216.307186126709,
+        "y": 1343.1111087799072,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "225f37ce.9de658",
+        "type": "change",
+        "z": "cb95b8f7.9b4968",
+        "name": "hora",
+        "rules": [
+            {
+                "t": "set",
+                "p": "lluvia_hoy",
+                "pt": "global",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 4147.30757522583,
+        "y": 995.1120929718018,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "791e2ff9.3e00b",
+        "type": "function",
+        "z": "cb95b8f7.9b4968",
+        "name": "",
+        "func": "var hora = global.get(\"hora\");\nvar cont = 0;\nif (hora >= 07 && hora <=12)\ncont = 5;\nelse if (hora >=13 && hora <= 18)\ncont=6;\nelse if (hora>=19 && hora <=24)\ncont=3;\nelse cont=4;\nmsg.payload = msg.payload.root.prediccion[0].dia[0].estado_cielo[cont].$.descripcion;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 4025.3072471618652,
+        "y": 1085.1121530532837,
+        "wires": [
+            [
+                "c9d3ff25.5bc15"
+            ]
+        ]
+    },
+    {
+        "id": "c9d3ff25.5bc15",
+        "type": "change",
+        "z": "cb95b8f7.9b4968",
+        "name": "estado cielo hoy",
+        "rules": [
+            {
+                "t": "set",
+                "p": "cielo_hoy",
+                "pt": "global",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 4187.307468414307,
+        "y": 1084.1121520996094,
+        "wires": [
+            [
+                "30ab6bbe.c9eee4"
+            ]
+        ]
+    },
+    {
+        "id": "cffc90fe.92345",
+        "type": "function",
+        "z": "cb95b8f7.9b4968",
+        "name": "",
+        "func": "var hora = global.get(\"hora\");\nvar cont = 0;\nif (hora >= 07 && hora <=12)\ncont = 5;\nelse if (hora >=13 && hora <= 18)\ncont=6;\nelse if (hora>=19 && hora <=24)\ncont=3;\nelse cont=4;\nmsg.payload = msg.payload.root.prediccion[0].dia[0].estado_cielo[cont].$.periodo;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 4027.3073501586914,
+        "y": 1148.1119394302368,
+        "wires": [
+            [
+                "fb7613fa.b787f"
+            ]
+        ]
+    },
+    {
+        "id": "fb7613fa.b787f",
+        "type": "change",
+        "z": "cb95b8f7.9b4968",
+        "name": "periodo",
+        "rules": [
+            {
+                "t": "set",
+                "p": "periodo",
+                "pt": "global",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 4185.307304382324,
+        "y": 1153.1117763519287,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "e5c1e3a2.b133d",
+        "type": "comment",
+        "z": "cb95b8f7.9b4968",
+        "name": "Esta funcion calcula la hora actual",
+        "info": "",
+        "x": 3104.307186126709,
+        "y": 1299.1111087799072,
+        "wires": []
+    },
+    {
+        "id": "83083d.696af7c",
+        "type": "comment",
+        "z": "cb95b8f7.9b4968",
+        "name": "Recibo el comando",
+        "info": "",
+        "x": 2765.307315826416,
+        "y": 1311.1111183166504,
+        "wires": []
+    },
+    {
+        "id": "e6affa07.f41678",
+        "type": "comment",
+        "z": "cb95b8f7.9b4968",
+        "name": "convierto en globales las variables que necesito",
+        "info": "",
+        "x": 4084.3073081970215,
+        "y": 891.1121006011963,
+        "wires": []
+    },
+    {
+        "id": "58336f7c.e7a96",
+        "type": "comment",
+        "z": "cb95b8f7.9b4968",
+        "name": "Para estas necesito primero elegir el periodo correcto",
+        "info": "",
+        "x": 4104.307300567627,
+        "y": 1206.1119956970215,
+        "wires": []
+    },
+    {
+        "id": "8114627f.903c5",
+        "type": "comment",
+        "z": "cb95b8f7.9b4968",
+        "name": "Las junto todas en esta funcion y lo envio a telegram",
+        "info": "",
+        "x": 4501.307582855225,
+        "y": 1019.1119861602783,
+        "wires": []
+    },
+    {
+        "id": "a7907c2b.c3163",
+        "type": "telegrambot-switch",
+        "z": "cb95b8f7.9b4968",
+        "name": "switch prediccion",
+        "bot": "407d7e26.e9903",
+        "chatId": "",
+        "question": "Que prediccion quieres ver?",
+        "answers": [
+            "hoy",
+            "mañana",
+            "Pasado mañana"
+        ],
+        "outputs": 4,
+        "autoAnswerCallback": false,
+        "timeoutValue": "20",
+        "timeoutUnits": "s",
+        "x": 3071.785243988037,
+        "y": 1627.333969116211,
+        "wires": [
+            [
+                "582a4416.f761fc"
+            ],
+            [
+                "9dc53549.c15ee8"
+            ],
+            [
+                "8cf4029.dce73"
+            ],
+            [
+                "7a503b8f.994f34"
+            ]
+        ]
+    },
+    {
+        "id": "9dc53549.c15ee8",
+        "type": "http request",
+        "z": "cb95b8f7.9b4968",
+        "name": "AEMET http request",
+        "method": "GET",
+        "ret": "txt",
+        "url": "http://www.aemet.es/xml/municipios/localidad_29067.xml",
+        "tls": "",
+        "x": 3566.4521980285645,
+        "y": 1528.8890266418457,
+        "wires": [
+            [
+                "ec120049.3121f"
+            ]
+        ]
+    },
+    {
+        "id": "ec120049.3121f",
+        "type": "xml",
+        "z": "cb95b8f7.9b4968",
+        "name": "",
+        "property": "payload",
+        "attr": "",
+        "chr": "",
+        "x": 3813.4520530700684,
+        "y": 1535.8890266418457,
+        "wires": [
+            [
+                "73bb3205.64c46c",
+                "db195c89.8528b",
+                "3510f53c.308eaa",
+                "9bf8031.eef59"
+            ]
+        ]
+    },
+    {
+        "id": "73bb3205.64c46c",
+        "type": "change",
+        "z": "cb95b8f7.9b4968",
+        "name": "estado cielo mañana",
+        "rules": [
+            {
+                "t": "set",
+                "p": "cielo_manana",
+                "pt": "global",
+                "to": "payload.root.prediccion[0].dia[1].estado_cielo[0].$.descripcion",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 4081.7519721984863,
+        "y": 1422.889289855957,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "db195c89.8528b",
+        "type": "change",
+        "z": "cb95b8f7.9b4968",
+        "name": "fecha elaboracion",
+        "rules": [
+            {
+                "t": "set",
+                "p": "fecha",
+                "pt": "global",
+                "to": "payload.root.elaborado[0]",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 4086.752140045166,
+        "y": 1464.88929271698,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "3510f53c.308eaa",
+        "type": "change",
+        "z": "cb95b8f7.9b4968",
+        "name": "lluvia mañana",
+        "rules": [
+            {
+                "t": "set",
+                "p": "lluvia_manana",
+                "pt": "global",
+                "to": "payload.root.prediccion[0].dia[1].prob_precipitacion[0]._",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 4075.7521324157715,
+        "y": 1505.889513015747,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "fb46802a.a376a",
+        "type": "function",
+        "z": "cb95b8f7.9b4968",
+        "name": "",
+        "func": "var cielo_manana = global.get(\"cielo_manana\");\nvar lluvia_manana = global.get(\"lluvia_manana\")\nvar fecha = global.get(\"fecha\")\nvar periodo = global.get(\"periodo\")\nmsg.payload.chatId =  1308127721;\nmsg.payload = \"Mañana tendremos el cielo \"+cielo_manana+\" y con una probabilidad de lluvias de \"+lluvia_manana+\" % \\n\";\nmsg.payload +=\"Fecha de elaboracion: \"+fecha+ \"\\n\";\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 4262.752117156982,
+        "y": 1587.8892192840576,
+        "wires": [
+            [
+                "ea855249.bbfb4"
+            ]
+        ]
+    },
+    {
+        "id": "ea855249.bbfb4",
+        "type": "telegrambot-notify",
+        "z": "cb95b8f7.9b4968",
+        "name": "",
+        "bot": "407d7e26.e9903",
+        "chatId": "-487674790",
+        "message": "",
+        "parseMode": "",
+        "x": 4450.752662658691,
+        "y": 1587.8891115188599,
+        "wires": []
+    },
+    {
+        "id": "9bf8031.eef59",
+        "type": "function",
+        "z": "cb95b8f7.9b4968",
+        "name": "",
+        "func": "var hora = global.get(\"hora\");\nvar cont = 0;\n\nif (hora >= 07 && hora <=12)\ncont = 5;\nelse if (hora >=13 && hora <= 18)\ncont=6;\nelse if (hora>=19 && hora <=24)\ncont=3;\nelse cont=4;\nmsg.payload = msg.payload.root.prediccion[0].dia[0].prob_precipitacion[cont]._;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 4080.75186920166,
+        "y": 1580.8893032073975,
+        "wires": [
+            [
+                "bd8530bd.c1a18",
+                "fb46802a.a376a"
+            ]
+        ]
+    },
+    {
+        "id": "bd8530bd.c1a18",
+        "type": "change",
+        "z": "cb95b8f7.9b4968",
+        "name": "hora",
+        "rules": [
+            {
+                "t": "set",
+                "p": "lluvia_hoy",
+                "pt": "global",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 4245.75216293335,
+        "y": 1519.8892707824707,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "7dfd54e8.4283cc",
+        "type": "comment",
+        "z": "cb95b8f7.9b4968",
+        "name": "convierto en globales las variables que necesito",
+        "info": "",
+        "x": 4103.751926422119,
+        "y": 1350.8894271850586,
+        "wires": []
+    },
+    {
+        "id": "16ddc454.627e1c",
+        "type": "comment",
+        "z": "cb95b8f7.9b4968",
+        "name": "Las junto todas en esta funcion y lo envio a telegram",
+        "info": "",
+        "x": 4507.752712249756,
+        "y": 1532.8894395828247,
+        "wires": []
+    },
+    {
+        "id": "374c8e11.da41e2",
+        "type": "change",
+        "z": "cb95b8f7.9b4968",
+        "name": "estado cielo pasado mañana",
+        "rules": [
+            {
+                "t": "set",
+                "p": "cielo_pasado_manana",
+                "pt": "global",
+                "to": "payload.root.prediccion[0].dia[2].estado_cielo[0].$.descripcion",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 4066.508502960205,
+        "y": 1831.5240097045898,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "2bf11b57.f286a4",
+        "type": "change",
+        "z": "cb95b8f7.9b4968",
+        "name": "lluvia pasado mañana",
+        "rules": [
+            {
+                "t": "set",
+                "p": "lluvia_pasado_manana",
+                "pt": "global",
+                "to": "payload.root.prediccion[0].dia[2].prob_precipitacion[0]._",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 4080.5083198547363,
+        "y": 1934.5240097045898,
+        "wires": [
+            [
+                "215d4a1f.a23596"
+            ]
+        ]
+    },
+    {
+        "id": "8cf4029.dce73",
+        "type": "http request",
+        "z": "cb95b8f7.9b4968",
+        "name": "AEMET http request",
+        "method": "GET",
+        "ret": "txt",
+        "url": "http://www.aemet.es/xml/municipios/localidad_29067.xml",
+        "tls": "",
+        "x": 3528.507984161377,
+        "y": 1846.5235481262207,
+        "wires": [
+            [
+                "619f7a85.e0c144"
+            ]
+        ]
+    },
+    {
+        "id": "619f7a85.e0c144",
+        "type": "xml",
+        "z": "cb95b8f7.9b4968",
+        "name": "",
+        "property": "payload",
+        "attr": "",
+        "chr": "",
+        "x": 3775.507839202881,
+        "y": 1853.5235481262207,
+        "wires": [
+            [
+                "7e4f498d.5c7548",
+                "1775be81.d88c51",
+                "374c8e11.da41e2",
+                "2bf11b57.f286a4"
+            ]
+        ]
+    },
+    {
+        "id": "7e4f498d.5c7548",
+        "type": "change",
+        "z": "cb95b8f7.9b4968",
+        "name": "fecha elaboracion",
+        "rules": [
+            {
+                "t": "set",
+                "p": "fecha",
+                "pt": "global",
+                "to": "payload.root.elaborado[0]",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 4084.8084297180176,
+        "y": 1880.5240097045898,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "215d4a1f.a23596",
+        "type": "function",
+        "z": "cb95b8f7.9b4968",
+        "name": "",
+        "func": "var cielo_pasado_manana = global.get(\"cielo_pasado_manana\");\nvar lluvia_pasado_manana = global.get(\"lluvia_pasado_manana\")\nvar fecha = global.get(\"fecha\")\nvar periodo = global.get(\"periodo\")\nmsg.payload.chatId =  1308127721;\nmsg.payload = \"Pasado mañana tendremos el cielo \"+cielo_pasado_manana+\" y con una probabilidad de lluvias de \"+lluvia_pasado_manana+\" % \\n\";\nmsg.payload +=\"Fecha de elaboracion: \"+fecha+ \"\\n\";\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 4288.808181762695,
+        "y": 2046.5242538452148,
+        "wires": [
+            [
+                "7650de0f.8691e"
+            ]
+        ]
+    },
+    {
+        "id": "7650de0f.8691e",
+        "type": "telegrambot-notify",
+        "z": "cb95b8f7.9b4968",
+        "name": "",
+        "bot": "407d7e26.e9903",
+        "chatId": "-487674790",
+        "message": "",
+        "parseMode": "",
+        "x": 4476.808692932129,
+        "y": 1966.5237550735474,
+        "wires": []
+    },
+    {
+        "id": "1775be81.d88c51",
+        "type": "function",
+        "z": "cb95b8f7.9b4968",
+        "name": "",
+        "func": "var hora = global.get(\"hora\");\nvar cont = 0;\n\nif (hora >= 07 && hora <=12)\ncont = 5;\nelse if (hora >=13 && hora <= 18)\ncont=6;\nelse if (hora>=19 && hora <=24)\ncont=3;\nelse cont=4;\nmsg.payload = msg.payload.root.prediccion[0].dia[0].prob_precipitacion[cont]._;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 4072.807815551758,
+        "y": 2024.5242538452148,
+        "wires": [
+            [
+                "9f7a91fd.20093"
+            ]
+        ]
+    },
+    {
+        "id": "9f7a91fd.20093",
+        "type": "change",
+        "z": "cb95b8f7.9b4968",
+        "name": "hora",
+        "rules": [
+            {
+                "t": "set",
+                "p": "lluvia_hoy",
+                "pt": "global",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 4271.808364868164,
+        "y": 1956.5241317749023,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "da5c7d1e.a5f53",
+        "type": "comment",
+        "z": "cb95b8f7.9b4968",
+        "name": "Las junto todas en esta funcion y lo envio a telegram",
+        "info": "",
+        "x": 4533.808742523193,
+        "y": 1911.5240831375122,
+        "wires": []
+    },
+    {
+        "id": "7a503b8f.994f34",
+        "type": "telegrambot-notify",
+        "z": "cb95b8f7.9b4968",
+        "name": "TimeOut",
+        "bot": "407d7e26.e9903",
+        "chatId": "",
+        "message": "Se acabo el tiempo bru",
+        "parseMode": "",
+        "x": 3182.5080375671387,
+        "y": 1733.5234622955322,
+        "wires": []
+    },
+    {
+        "id": "c83e3c7c.cb59a",
+        "type": "mqtt out",
+        "z": "cb95b8f7.9b4968",
+        "name": "",
+        "topic": "infind/GRUPO2/ESP145/config/cmd/cocina",
+        "qos": "",
+        "retain": "",
+        "broker": "8fab76dc.3e75b8",
+        "x": 3912.0076904296875,
+        "y": 413.5237636566162,
+        "wires": []
+    },
+    {
+        "id": "457d6c11.47a634",
+        "type": "telegrambot-command",
+        "z": "cb95b8f7.9b4968",
+        "name": "/pwm",
+        "bot": "407d7e26.e9903",
+        "command": "/pwm",
+        "commandType": "str",
+        "commandCase": false,
+        "x": 2974.0555877685547,
+        "y": 325.87134170532227,
+        "wires": [
+            [
+                "ab8e164d.ee7308"
+            ]
+        ]
+    },
+    {
+        "id": "ab8e164d.ee7308",
+        "type": "telegrambot-switch",
+        "z": "cb95b8f7.9b4968",
+        "name": "switch pwm",
+        "bot": "407d7e26.e9903",
+        "chatId": "",
+        "question": "Que tiempo de pwm de datos quieres?",
+        "answers": [
+            "5 milisegundos",
+            "10 milisegundos",
+            "100 milisegundos",
+            "200 milisegundos",
+            "500 milisegundos"
+        ],
+        "outputs": 6,
+        "autoAnswerCallback": false,
+        "timeoutValue": "20",
+        "timeoutUnits": "s",
+        "x": 3232.0556640625,
+        "y": 323.649658203125,
+        "wires": [
+            [
+                "63ea9d1a.cf3584"
+            ],
+            [
+                "415a3313.3c5e9c"
+            ],
+            [
+                "86ce6549.76e5a8"
+            ],
+            [
+                "5d571336.28f5ec"
+            ],
+            [
+                "a9e7ece5.54069"
+            ],
+            [
+                "60368129.abd29"
+            ]
+        ]
+    },
+    {
+        "id": "63ea9d1a.cf3584",
+        "type": "function",
+        "z": "cb95b8f7.9b4968",
+        "name": "5 milisegundos",
+        "func": "msg.payload=msg.mensaje;\n\nmsg.payload= {\"TLED\": 5};\n\n\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 3466.95166015625,
+        "y": 241.53732204437256,
+        "wires": [
+            [
+                "c83e3c7c.cb59a",
+                "379e168c.d1ec8a"
+            ]
+        ]
+    },
+    {
+        "id": "415a3313.3c5e9c",
+        "type": "function",
+        "z": "cb95b8f7.9b4968",
+        "name": "10 milisegundos",
+        "func": "msg.payload=msg.mensaje;\n\nmsg.payload= {\"TLED\": 10};\n\n\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 3501.0555725097656,
+        "y": 317.5375175476074,
+        "wires": [
+            [
+                "c83e3c7c.cb59a",
+                "773c997f.10a948"
+            ]
+        ]
+    },
+    {
+        "id": "86ce6549.76e5a8",
+        "type": "function",
+        "z": "cb95b8f7.9b4968",
+        "name": "100 milisegundos",
+        "func": "msg.payload=msg.mensaje;\n\nmsg.payload= {\"TLED\": 100};\n\n\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 3517.0555725097656,
+        "y": 362.5375175476074,
+        "wires": [
+            [
+                "eefe58f.6ee97a8",
+                "c83e3c7c.cb59a"
+            ]
+        ]
+    },
+    {
+        "id": "5d571336.28f5ec",
+        "type": "function",
+        "z": "cb95b8f7.9b4968",
+        "name": "200 milisegundos",
+        "func": "msg.payload=msg.mensaje;\n\nmsg.payload= {\"TLED\": 200};\n\n\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 3518.0555725097656,
+        "y": 405.5375175476074,
+        "wires": [
+            [
+                "c2d23558.53fae8",
+                "c83e3c7c.cb59a"
+            ]
+        ]
+    },
+    {
+        "id": "a9e7ece5.54069",
+        "type": "function",
+        "z": "cb95b8f7.9b4968",
+        "name": "500 milisegundos",
+        "func": "msg.payload=msg.mensaje;\n\nmsg.payload= {\"TLED\": 500};\n\n\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 3516.0555725097656,
+        "y": 448.7596855163574,
+        "wires": [
+            [
+                "f49a0471.5acb08",
+                "c83e3c7c.cb59a"
+            ]
+        ]
+    },
+    {
+        "id": "60368129.abd29",
+        "type": "telegrambot-notify",
+        "z": "cb95b8f7.9b4968",
+        "name": "TimeOut",
+        "bot": "407d7e26.e9903",
+        "chatId": "",
+        "message": "Se acabo el tiempo bru",
+        "parseMode": "",
+        "x": 3310.0556030273438,
+        "y": 428.8710136413574,
+        "wires": []
+    },
+    {
+        "id": "eefe58f.6ee97a8",
+        "type": "telegrambot-notify",
+        "z": "cb95b8f7.9b4968",
+        "name": "respuesta 100 milisegundos",
+        "bot": "407d7e26.e9903",
+        "chatId": "",
+        "message": "Se ha establecido el pwm en 100 milisegundos",
+        "parseMode": "",
+        "x": 3886.9516677856445,
+        "y": 221.42864608764648,
+        "wires": []
+    },
+    {
+        "id": "c2d23558.53fae8",
+        "type": "telegrambot-notify",
+        "z": "cb95b8f7.9b4968",
+        "name": "respuesta 200 milisegundos",
+        "bot": "407d7e26.e9903",
+        "chatId": "",
+        "message": "Se ha establecido el pwm en 200 milisegundos",
+        "parseMode": "",
+        "x": 3911.951560974121,
+        "y": 283.65049266815186,
+        "wires": []
+    },
+    {
+        "id": "f49a0471.5acb08",
+        "type": "telegrambot-notify",
+        "z": "cb95b8f7.9b4968",
+        "name": "respuesta 500 milisegundos",
+        "bot": "407d7e26.e9903",
+        "chatId": "",
+        "message": "Se ha establecido el pwm en 500 milisegundos",
+        "parseMode": "",
+        "x": 3926.95161819458,
+        "y": 348.6500072479248,
+        "wires": []
+    },
+    {
+        "id": "379e168c.d1ec8a",
+        "type": "telegrambot-notify",
+        "z": "cb95b8f7.9b4968",
+        "name": "respuesta 5 milisegundos",
+        "bot": "407d7e26.e9903",
+        "chatId": "",
+        "message": "Se ha establecido el pwm en 5 milisegundos",
+        "parseMode": "",
+        "x": 3869.895462036133,
+        "y": 138.33424186706543,
+        "wires": []
+    },
+    {
+        "id": "773c997f.10a948",
+        "type": "telegrambot-notify",
+        "z": "cb95b8f7.9b4968",
+        "name": "respuesta 10 milisegundos",
+        "bot": "407d7e26.e9903",
+        "chatId": "",
+        "message": "Se ha establecido el pwm en 10 milisegundos",
+        "parseMode": "",
+        "x": 3891.895706176758,
+        "y": 175.3335838317871,
+        "wires": []
+    },
+    {
+        "id": "e877a549.b3de08",
+        "type": "link in",
+        "z": "cb95b8f7.9b4968",
+        "name": "prediccion",
+        "links": [
+            "cb15f29e.19409"
+        ],
+        "x": 2845.382984161377,
+        "y": 1621.6722049713135,
+        "wires": [
+            [
+                "a7907c2b.c3163"
+            ]
+        ]
+    },
+    {
+        "id": "cb15f29e.19409",
+        "type": "link out",
+        "z": "cb95b8f7.9b4968",
+        "name": "prediccion",
+        "links": [
+            "e877a549.b3de08"
+        ],
+        "x": 442.39067554473877,
+        "y": 369.7740669250488,
+        "wires": []
+    },
+    {
+        "id": "d76189c4.f958a8",
+        "type": "link out",
+        "z": "cb95b8f7.9b4968",
+        "name": "pwm",
+        "links": [
+            "9b8b84cc.45a7c8"
+        ],
+        "x": 440.38673973083496,
+        "y": 416.7620735168457,
+        "wires": []
+    },
+    {
+        "id": "9b8b84cc.45a7c8",
+        "type": "link in",
+        "z": "cb95b8f7.9b4968",
+        "name": "",
+        "links": [
+            "d76189c4.f958a8"
+        ],
+        "x": 3057.378963470459,
+        "y": 262.6721167564392,
+        "wires": [
+            [
+                "ab8e164d.ee7308"
+            ]
+        ]
+    },
+    {
+        "id": "d29ece94.508c2",
+        "type": "link out",
+        "z": "cb95b8f7.9b4968",
+        "name": "apagar",
+        "links": [
+            "f58f4eb2.9c82b"
+        ],
+        "x": 427.3828411102295,
+        "y": 175.76206398010254,
+        "wires": []
+    },
+    {
+        "id": "f58f4eb2.9c82b",
+        "type": "link in",
+        "z": "cb95b8f7.9b4968",
+        "name": "apagar",
+        "links": [
+            "d29ece94.508c2"
+        ],
+        "x": 292.3906497955322,
+        "y": 2932.66814994812,
+        "wires": [
+            [
+                "859317dc.9f0a78"
+            ]
+        ]
+    },
+    {
+        "id": "21016206.b5dd6e",
+        "type": "link out",
+        "z": "cb95b8f7.9b4968",
+        "name": "estado",
+        "links": [
+            "2f01c318.49a34c"
+        ],
+        "x": 428.3828411102295,
+        "y": 224.7737865447998,
+        "wires": []
+    },
+    {
+        "id": "2f01c318.49a34c",
+        "type": "link in",
+        "z": "cb95b8f7.9b4968",
+        "name": "",
+        "links": [
+            "21016206.b5dd6e"
+        ],
+        "x": 2831.390645980835,
+        "y": 2347.4219493865967,
+        "wires": [
+            [
+                "8e9de4d1.546c88"
+            ]
+        ]
+    },
+    {
+        "id": "2da6427c.cd1ffe",
+        "type": "link out",
+        "z": "cb95b8f7.9b4968",
+        "name": "encender",
+        "links": [
+            "11b60e06.4cf392"
+        ],
+        "x": 424.37500953674316,
+        "y": 129.52378463745117,
+        "wires": []
+    },
+    {
+        "id": "11b60e06.4cf392",
+        "type": "link in",
+        "z": "cb95b8f7.9b4968",
+        "name": "encender",
+        "links": [
+            "2da6427c.cd1ffe"
+        ],
+        "x": 458.3789129257202,
+        "y": 980.406270980835,
+        "wires": [
+            [
+                "1147cc5.9871434"
+            ]
+        ]
+    },
+    {
+        "id": "bf552559.114678",
+        "type": "comment",
+        "z": "cb95b8f7.9b4968",
+        "name": "Elige el nivel de la cocina",
+        "info": "e",
+        "x": 912.7656364440918,
+        "y": 149.75002670288086,
+        "wires": []
+    },
+    {
+        "id": "37438434.d4ce5c",
+        "type": "comment",
+        "z": "cb95b8f7.9b4968",
+        "name": "Elige el nivel de la habitacion",
+        "info": "e",
+        "x": 960.7656364440918,
+        "y": 669.7500267028809,
+        "wires": []
+    },
+    {
+        "id": "c620be2b.2ae55",
+        "type": "comment",
+        "z": "cb95b8f7.9b4968",
+        "name": "Elige el nivel del salon",
+        "info": "e",
+        "x": 1039.7656364440918,
+        "y": 1112.7500839233398,
+        "wires": []
+    },
+    {
+        "id": "a3f393de.71fe6",
+        "type": "comment",
+        "z": "cb95b8f7.9b4968",
+        "name": "Elige el nivel del baño",
+        "info": "e",
+        "x": 1017.7656440734863,
+        "y": 1658.75004196167,
+        "wires": []
+    },
+    {
+        "id": "b21c0293.b808d",
+        "type": "comment",
+        "z": "cb95b8f7.9b4968",
+        "name": "Elige el nivel de todas las habitaciones",
+        "info": "e",
+        "x": 1287.7656478881836,
+        "y": 2066.7500534057617,
+        "wires": []
+    },
+    {
+        "id": "11d8b1ef.8336de",
+        "type": "comment",
+        "z": "cb95b8f7.9b4968",
+        "name": "velocidad de respuesta del pwm",
+        "info": "",
+        "x": 3234.140655517578,
+        "y": 221.59783935546875,
+        "wires": []
+    },
+    {
+        "id": "c774b358.9f54b",
+        "type": "comment",
+        "z": "cb95b8f7.9b4968",
+        "name": "Cocina",
+        "info": "",
+        "x": 4448.516384124756,
+        "y": 3877.2515907287598,
+        "wires": []
+    },
+    {
+        "id": "be2e0aa5.42e5d8",
+        "type": "ui_gauge",
+        "z": "cb95b8f7.9b4968",
+        "name": "",
+        "group": "a5a62931.5d2068",
+        "order": 5,
+        "width": "4",
+        "height": "3",
+        "gtype": "gage",
+        "title": "Temperatura",
+        "label": "°C",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "x": 4661.801467895508,
+        "y": 3855.8222303390503,
+        "wires": []
+    },
+    {
+        "id": "3aaab688.a5bd3a",
+        "type": "ui_gauge",
+        "z": "cb95b8f7.9b4968",
+        "name": "",
+        "group": "a5a62931.5d2068",
+        "order": 6,
+        "width": "3",
+        "height": "3",
+        "gtype": "wave",
+        "title": "Humedad",
+        "label": "%",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "x": 4676.801467895508,
+        "y": 3928.8222312927246,
+        "wires": []
+    },
+    {
+        "id": "3e8b83fc.9db5dc",
+        "type": "ui_led",
+        "z": "cb95b8f7.9b4968",
+        "group": "a5a62931.5d2068",
+        "order": 8,
+        "width": "2",
+        "height": "2",
+        "label": "calidad aire",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "red",
+                "value": "1",
+                "valueType": "num"
+            },
+            {
+                "color": "green",
+                "value": "0",
+                "valueType": "num"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "name": "",
+        "x": 853.8021774291992,
+        "y": 4229.82342338562,
+        "wires": []
+    },
+    {
+        "id": "14c64fe.4527fb",
+        "type": "link out",
+        "z": "cb95b8f7.9b4968",
+        "name": "recogida",
+        "links": [
+            "243d0dee.f23db2"
+        ],
+        "x": 445.3828401565552,
+        "y": 325.01173877716064,
+        "wires": []
+    },
+    {
+        "id": "243d0dee.f23db2",
+        "type": "link in",
+        "z": "cb95b8f7.9b4968",
+        "name": "recogida",
+        "links": [
+            "14c64fe.4527fb"
+        ],
+        "x": 2875.3906145095825,
+        "y": 2789.9144077301025,
+        "wires": [
+            [
+                "f3736886.d575c8"
+            ]
+        ]
+    },
+    {
+        "id": "4706c050.7fa16",
+        "type": "comment",
+        "z": "cb95b8f7.9b4968",
+        "name": "Salón",
+        "info": "",
+        "x": 4448.765720367432,
+        "y": 4101.250297546387,
+        "wires": []
+    },
+    {
+        "id": "17bf97d0.929058",
+        "type": "ui_gauge",
+        "z": "cb95b8f7.9b4968",
+        "name": "",
+        "group": "40706f5a.d9a34",
+        "order": 1,
+        "width": "4",
+        "height": "3",
+        "gtype": "gage",
+        "title": "Temperatura",
+        "label": "°C",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "x": 4708.765983581543,
+        "y": 4107.107068061829,
+        "wires": []
+    },
+    {
+        "id": "2f94551f.5fa15a",
+        "type": "ui_gauge",
+        "z": "cb95b8f7.9b4968",
+        "name": "",
+        "group": "40706f5a.d9a34",
+        "order": 2,
+        "width": "3",
+        "height": "3",
+        "gtype": "wave",
+        "title": "Humedad",
+        "label": "%",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "x": 4698.765663146973,
+        "y": 4153.107069015503,
+        "wires": []
+    },
+    {
+        "id": "7954da83.84b3b4",
+        "type": "ui_led",
+        "z": "cb95b8f7.9b4968",
+        "group": "40706f5a.d9a34",
+        "order": 4,
+        "width": "5",
+        "height": "4",
+        "label": "Puerta abierta (ROJO) / Puerta cerrada (VERDE)",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "red",
+                "value": "1",
+                "valueType": "num"
+            },
+            {
+                "color": "green",
+                "value": "0",
+                "valueType": "num"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "name": "",
+        "x": 930.765926361084,
+        "y": 4451.107264518738,
+        "wires": []
+    },
+    {
+        "id": "12ba3f89.7999e",
+        "type": "function",
+        "z": "cb95b8f7.9b4968",
+        "name": "Temp/Hum salon",
+        "func": "var temp=msg.payload.DHT11.temp;\nvar hum=msg.payload.DHT11.hum;\nvar led=msg.payload.LED;\n\nmsg1={\"payload\":temp, \"topic\": \"Temperatura\"};\nmsg2={\"payload\":hum, \"topic\": \"Humedad\"};\nmsg3={\"payload\":led, \"topic\": \"level\"};\n\n\nreturn [msg1,msg2,msg3];",
+        "outputs": 3,
+        "noerr": 0,
+        "x": 4456.765733718872,
+        "y": 4154.250293731689,
+        "wires": [
+            [
+                "17bf97d0.929058"
+            ],
+            [
+                "2f94551f.5fa15a"
+            ],
+            [
+                "cbb7c344.b0072"
+            ]
+        ]
+    },
+    {
+        "id": "4fef3862.ad0138",
+        "type": "function",
+        "z": "cb95b8f7.9b4968",
+        "name": "Temp/Hum cocina",
+        "func": "var temp=msg.payload.DHT11.temp;\nvar hum=msg.payload.DHT11.hum;\nvar led=msg.payload.LED;\n\nmsg1={\"payload\":temp, \"topic\": \"Temperatura\"};\nmsg2={\"payload\":hum, \"topic\": \"Humedad\"};\nmsg3={\"payload\":led, \"topic\": \"level\"};\n\n\nreturn [msg1,msg2,msg3];",
+        "outputs": 3,
+        "noerr": 0,
+        "x": 4454.765625,
+        "y": 3934.25048828125,
+        "wires": [
+            [
+                "be2e0aa5.42e5d8"
+            ],
+            [
+                "3aaab688.a5bd3a"
+            ],
+            [
+                "a87f8c83.2d17"
+            ]
+        ]
+    },
+    {
+        "id": "274e3013.bc44b",
+        "type": "function",
+        "z": "cb95b8f7.9b4968",
+        "name": "Puerta",
+        "func": "var puerta = msg.payload.VL53L0X;\nif (puerta <= 100 )\n\nmsg={\"payload\": 1 , \"topic\": \"Puerta\"};\n\nelse\n\nmsg={\"payload\": 0 , \"topic\": \"Puerta\"};\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 747.7656364440918,
+        "y": 4451.250391960144,
+        "wires": [
+            [
+                "7954da83.84b3b4"
+            ]
+        ]
+    },
+    {
+        "id": "8e42adcc.f87ec",
+        "type": "function",
+        "z": "cb95b8f7.9b4968",
+        "name": "calidad mala",
+        "func": "var deteccion = msg.payload.calidad_aire;\nif (deteccion == 1)\nmsg.payload = 1;\nelse\nmsg.payload = 0\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 692.7656402587891,
+        "y": 4232.2503271102905,
+        "wires": [
+            [
+                "3e8b83fc.9db5dc"
+            ]
+        ]
+    },
+    {
+        "id": "86f4d3e9.8a15a",
+        "type": "link out",
+        "z": "cb95b8f7.9b4968",
+        "name": "salon",
+        "links": [
+            "4f303d73.1f84a4"
+        ],
+        "x": 694.3867168426514,
+        "y": 4037.0198583602905,
+        "wires": []
+    },
+    {
+        "id": "4f303d73.1f84a4",
+        "type": "link in",
+        "z": "cb95b8f7.9b4968",
+        "name": "salon",
+        "links": [
+            "86f4d3e9.8a15a"
+        ],
+        "x": 4299.379011154175,
+        "y": 4152.910453796387,
+        "wires": [
+            [
+                "12ba3f89.7999e"
+            ]
+        ]
+    },
+    {
+        "id": "70be20a3.64df1",
+        "type": "link out",
+        "z": "cb95b8f7.9b4968",
+        "name": "cocina",
+        "links": [
+            "51d85ba7.2ec0b4"
+        ],
+        "x": 679.7656526565552,
+        "y": 3831.2502660751343,
+        "wires": []
+    },
+    {
+        "id": "51d85ba7.2ec0b4",
+        "type": "link in",
+        "z": "cb95b8f7.9b4968",
+        "name": "cocina",
+        "links": [
+            "70be20a3.64df1"
+        ],
+        "x": 4318.757917404175,
+        "y": 3932.140916824341,
+        "wires": [
+            [
+                "4fef3862.ad0138"
+            ]
+        ]
+    },
+    {
+        "id": "a87f8c83.2d17",
+        "type": "ui_gauge",
+        "z": "cb95b8f7.9b4968",
+        "name": "",
+        "group": "a5a62931.5d2068",
+        "order": 6,
+        "width": "3",
+        "height": "3",
+        "gtype": "compass",
+        "title": "Iluminacion",
+        "label": "%",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "x": 4674.333686828613,
+        "y": 3985.001272201538,
+        "wires": []
+    },
+    {
+        "id": "cbb7c344.b0072",
+        "type": "ui_gauge",
+        "z": "cb95b8f7.9b4968",
+        "name": "",
+        "group": "40706f5a.d9a34",
+        "order": 3,
+        "width": "3",
+        "height": "3",
+        "gtype": "compass",
+        "title": "Iluminacion",
+        "label": "%",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "x": 4708.333251953125,
+        "y": 4210,
+        "wires": []
+    },
+    {
+        "id": "f4a80023.24e54",
+        "type": "comment",
+        "z": "cb95b8f7.9b4968",
+        "name": "------------------DASHBOARD------------------",
+        "info": "",
+        "x": 4538.000106811523,
+        "y": 3772.333619117737,
+        "wires": []
+    },
+    {
+        "id": "a5ef099c.9e7978",
+        "type": "comment",
+        "z": "cb95b8f7.9b4968",
+        "name": "------------------RECOGIDA DE DATOS------------------",
+        "info": "",
+        "x": 620.6666717529297,
+        "y": 3713.3334646224976,
+        "wires": []
+    },
+    {
+        "id": "1a34c159.e72d5f",
+        "type": "comment",
+        "z": "cb95b8f7.9b4968",
+        "name": "------------------PREDICCION------------------",
+        "info": "",
+        "x": 3503,
+        "y": 925,
+        "wires": []
+    },
+    {
+        "id": "e1abfd3.e3371",
+        "type": "comment",
+        "z": "cb95b8f7.9b4968",
+        "name": "------------------DESCARGA EXCEL------------------",
+        "info": "",
+        "x": 2556.9999618530273,
+        "y": 3743.0000104904175,
+        "wires": []
+    },
+    {
+        "id": "7e031aca.a91f94",
+        "type": "comment",
+        "z": "cb95b8f7.9b4968",
+        "name": "tiempo respuesta",
+        "info": "e",
+        "x": 3065,
+        "y": 2781,
         "wires": []
     },
     {
@@ -3913,10 +5500,42 @@
         "collapse": false
     },
     {
+        "id": "a5a62931.5d2068",
+        "type": "ui_group",
+        "z": "",
+        "name": "Cocina",
+        "tab": "982d2b31.2094f8",
+        "order": 4,
+        "disp": true,
+        "width": "12",
+        "collapse": false
+    },
+    {
+        "id": "40706f5a.d9a34",
+        "type": "ui_group",
+        "z": "",
+        "name": "Salón",
+        "tab": "982d2b31.2094f8",
+        "order": 3,
+        "disp": true,
+        "width": "12",
+        "collapse": false
+    },
+    {
         "id": "b7ed1dac.34a86",
         "type": "ui_tab",
         "z": "",
         "name": "Ejemplo descarga",
+        "icon": "dashboard",
+        "order": 1,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "982d2b31.2094f8",
+        "type": "ui_tab",
+        "z": "",
+        "name": "PANEL DE CONTROL",
         "icon": "dashboard",
         "order": 1,
         "disabled": false,
