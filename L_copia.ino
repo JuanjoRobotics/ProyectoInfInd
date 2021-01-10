@@ -652,23 +652,13 @@ void loop() {
       {
         if (cont==2) // Si se han contado 2 pulsos -> encendemos o apagamos el LED principal (GPIO2)
         {
-        Serial.println("DOBLE PULSACION");
-        if (estado_led2==1) 
-          {
-            digitalWrite(BUILTIN_LED,HIGH);       // Si estaba encendido, apagamos
-            Serial.println("GPIO 2 APAGADO");
-            estado_led2=0;
-            LED_dato=0;
-          }
-          else
-          { 
-            digitalWrite(BUILTIN_LED,LOW);     // Si estaba apagado, encendemos
-            Serial.println("GPIO 2 ENCENDIDO");
-            estado_led2=1;
-            LED_dato = 100;
-            LED_anterior = LED_dato;
-            
-          }
+          Serial.println("DOBLE PULSACION");
+          digitalWrite(BUILTIN_LED,LOW);     // Encendemos al nivel máximo
+          Serial.println("GPIO 2 ENCENDIDO al MÁX");
+          estado_led2=1;
+          LED_dato = 100;
+          LED_anterior = LED_dato;
+          
           cont=0; // Reseteamos la cuenta
           cuenta_pulsos=true;
 
