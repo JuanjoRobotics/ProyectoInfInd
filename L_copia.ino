@@ -50,6 +50,7 @@ struct registro_datos {
   
 // Estructura de json para publicar conexión
   struct registro_conexion { //estructura para el estado de la conexion
+  char CHIPI;
   bool conexion;
   };
   
@@ -132,17 +133,17 @@ char msg_recDatos[MSG_BUFFER_SIZE]; // Para recogida de datos
 char msg_switch[MSG_BUFFER_SIZE];   // Para valor de SWITCH
 
 
-int value = 0;
-double LED_dato;
+
 
 // OTA
 void progreso_OTA(int,int);
 void final_OTA();
 void inicio_OTA();
 void error_OTA(int);
+unsigned long lastAct = 0; // última 
 
 // Interrupciones
-unsigned long lastMsg = 0;
+unsigned long lastMsg = 0; // último mensaje para datos enviado
 bool actualiza = false; 
 bool cuenta_pulsos=true;
 bool pulsaciones=false;
@@ -152,15 +153,23 @@ int cont=0;
 
 int LED_Secundario = 16; //GPIO 16 - LED de ABAJO
 //int BUILTIN_LED = 2; // GPIO 0 - LED de ARRIBA
-int estado_led2=1; // Inicialmente, ambos LEDs están encendidos: estado=1. En caso de estar apagados, estado=0
-int estado_led16=1;
+volatile int estado_led2=1; // Inicialmente, ambos LEDs están encendidos: estado=1. En caso de estar apagados, estado=0
+volatile int estado_led16=1;
+
+//PWM
+int value = 0;
+double LED_dato = 100; // tomamos que inicialmente está encendida al 100%
+volatile double LED_max=100;
+volatile double PWM;
+double LED_anterior = LED_dato;
 
 //Recogida de datos
 double TiempoRecogida=10000; // Recoger datos sensores
 double TiempoLED=10; // Tiempo en que tarda en cambiar el LED un 1%
+int TiempoActualiza = 60; // viene dado en minutos
 
 // LASER
-unsigned long lastMsgLASER = 0;
+unsigned long lastMsgLASER = 0; // último mensaje enviado desde sensor de distancia
 float cambia_dist = 0;
 
 //-----------------------CONVERSIÓN A STRING----ESTRUCTURAS JSON-----------------------
@@ -203,7 +212,8 @@ String serializa_JSON (struct registro_conexion estado)
   String jsonString;
   
 
-  jsonRoot["online"] = estado.conexion;
+  jsonRoot["CHIPID:"] = estado.CHIPI;
+  jsonRoot["online:"] = estado.conexion;
   
   return JSON.stringify(jsonRoot);
 }
@@ -312,7 +322,7 @@ void reconnect() {
     
     if (client.connect(clientId.c_str(),"infind","zancudo","infind/GRUPO2/ESP47/conexion/salon",0,true,serializa_JSON(estado).c_str())) {
       Serial.println("connected"); // Estaremos conectados. Usuario: infind. Contraseña: zancudo. 
-      
+      estado.CHIPI=ESP.getChipId();
       estado.conexion = true;
       //"{\"online\":false}"
      client.publish("infind/GRUPO2/ESP47/conexion/salon",serializa_JSON(estado).c_str(),true); // Publicamos por el topic correspondiente el estado de conexión
@@ -353,18 +363,23 @@ void callback(char* topic, byte* payload, unsigned int length) {
     }
     else  // En caso de no haber error, se hace la secuencia propuesta:
     {
-      double valor_switch = root["level"]; // Se toma el valor del dato de entrada
-      analogWrite(LED_Secundario,valor_switch);
+      double switch_max = root["level"]; // Se toma el valor del dato de entrada
       
-      if (valor_switch == 0)      // Switch apagado
-        estado_led2 = 0;
-      else if (valor_switch == 1) // Switch encendido
-        estado_led2 = 1;
+      if (switch_max == 0)      // Switch apagado
+      {
+        estado_led16 = 0;
+        digitalWrite(LED_Secundario,HIGH);
+      }
+      else if (switch_max == 1) // Switch encendido
+      {
+        estado_led16 = 1;
+        digitalWrite(LED_Secundario,LOW);
+      }
 
       // Publicamos por el topic correspondiente
       valor_SWITCH.CHIPI=ESP.getChipId();
-      valor_SWITCH.SWITCH=estado_led2;
-      valor_SWITCH.origen="mqtt"; // -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- PONER!
+      valor_SWITCH.SWITCH=estado_led16;
+      valor_SWITCH.origen="mqtt"; 
       client.publish("infind/GRUPO2/ESP47/switch/status/salon",serializa_JSONSWITCH(valor_SWITCH).c_str()); //Publico que he recibido el dato del switch
     }
   }
@@ -384,51 +399,58 @@ void callback(char* topic, byte* payload, unsigned int length) {
     }
     else // En caso de no haber error, se hace la secuencia propuesta:
     {
-     double valor = root["led"]; // Se toma el valor del dato de entrada
-           
+     LED_max = root["led"]; // Se toma el valor del dato de entrada
+     
      double subirled=LED_dato; // Iniciamos variable
-     while(subirled<valor) // Mientras no se alcance el valor exigido (en caso de tener valor del led por debajo del exigido), se repite el bucle 
-      {
-     double PWM = 1023*(1-subirled/100);  // Se actualiza la intensidad del LED a través de PWM
+     
+     // Aumentamos intensidad del LED
+     while(subirled<LED_max) // Mientras no se alcance el valor exigido (en caso de tener valor del led por debajo del exigido), se repite el bucle 
+     {
+     PWM = 1023*(1-subirled/100);  // Se actualiza la intensidad del LED a través de PWM
      analogWrite(BUILTIN_LED,PWM); //Envio el valor al pin del led
      
      // Publicamos por el topic correspondiente
      valor_LED.CHIPI=ESP.getChipId();
      valor_LED.LED=subirled;
-     valor_LED.origen="mqtt"; // -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- PONER!
+     valor_LED.origen="mqtt"; 
      //publica que he llegado a ese valor
      client.publish("infind/GRUPO2/ESP47/led/status/salon",serializa_JSONLED(valor_LED).c_str() ); //Publico que he recibido el dato del led
      subirled++;
      delay(TiempoLED); // Se espera el tiempo exigido por el usuario
-    }
-         while(subirled>valor) // Mientras no se alcance el valor exigido (en caso de tener valor del led por debajo del exigido), se repite el bucle 
-      {
-     double PWM = 1023*(1-subirled/100); 
+     }
+
+     // Disminuimos intensidad del LED
+     while(subirled>LED_max) // Mientras no se alcance el valor exigido (en caso de tener valor del led por debajo del exigido), se repite el bucle 
+     {
+     PWM = 1023*(1-subirled/100); 
      analogWrite(BUILTIN_LED,PWM); 
      
      // Publicamos por el topic correspondiente
      valor_LED.CHIPI=ESP.getChipId();
      valor_LED.LED=subirled;
-     valor_LED.origen="mqtt"; // -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- PONER!
+     valor_LED.origen="mqtt"; 
      //publica que he llegado a ese valor
      client.publish("infind/GRUPO2/ESP47/led/status/salon",serializa_JSONLED(valor_LED).c_str() ); //Publico que he recibido el dato del led
      
      subirled--;
      delay(TiempoLED);
-    }
-    
-    double PWM = 1023*(1-valor/100); //Finalmente, se alcanza el valor de LED propuesto por el usuario
+     }
+     
+     PWM = 1023*(1-LED_max/100); //Finalmente, se alcanza el valor de LED propuesto por el usuario
      analogWrite(BUILTIN_LED,PWM); //Envio el valor al pin del led
      
+     LED_dato = subirled;
+     if (LED_dato != 0)
+      LED_anterior = LED_dato;
      // Publicamos por el topic correspondiente
      valor_LED.CHIPI=ESP.getChipId();
-     valor_LED.LED=subirled;
-     valor_LED.origen="mqtt"; // -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- PONER!
+     valor_LED.LED=LED_dato;
+     valor_LED.origen="mqtt"; 
      //publica que he llegado a ese valor
      client.publish("infind/GRUPO2/ESP47/led/status/salon",serializa_JSONLED(valor_LED).c_str() ); //Publico que he recibido el dato del led
      
-    LED_dato = valor;
-    if (valor==0) // Estudio del estado del LED (apagado o encendido)
+    
+    if (LED_dato==0) // Estudio del estado del LED (apagado o encendido)
     {
       Serial.println("GPIO 2 APAGADO");
       estado_led2=0;
@@ -456,14 +478,52 @@ void callback(char* topic, byte* payload, unsigned int length) {
       }
       else // En caso de no haber error:
       {
-        double valorDatos = root["TDATOS"]; // Se toman los valores corresponientes al tiempo de recogida de datos y actualización del LED
-        double valorLED = root["TLED"];
-        //char msg[128];
+        double valorDatos = root["envia"];          // Se toman los valores corresponientes al tiempo del envío de mensajes (s)
+        double valorActualiza = root["actualiza"];  // Se toma el tiempo de comprobación de actualizaciones (min)
+        double valorVelocidad = root["velocidad"];  // Se toma la velocidad de cambio de salida PWM (ms)
+        float valorLED = root["LED"];               // Configura si salida está activada/encendida a nivel alto(1) o bajo(0). null: se mantiene configuración
+        int valorSWITCH = root["SWITCH"];           // Mismas condiciones que para valorLED
+
+        TiempoActualiza=valorActualiza; // Asignamos a una variable global ya que se usará en otros bucles externos al 'Callback'
         TiempoRecogida=valorDatos;
-        TiempoLED=valorLED;
-        sprintf(msg_recDatos,"{\"Tiempo de Recogida de Datos\": %f, \"Tiempo para subir el LED\": %f}",valorDatos, valorLED);
+        TiempoLED=valorVelocidad;
+        sprintf(msg_recDatos,"{\"Tiempo de Recogida de Datos\": %f, \"Tiempo para subir el LED\": %f}",valorDatos, valorVelocidad);
         //publica que he llegado a ese valor
         client.publish("infind/GRUPO2/ESP47/config/salon",msg_recDatos ); //Publico que he recibido el dato del led
+        // -- LED -- 
+        if (root["LED"] == nullptr) // == nullptr
+        {
+          Serial.println("Valor LED NULL");
+          analogWrite(BUILTIN_LED,LED_max);
+        }
+        else if (valorLED == 0)
+        {
+          digitalWrite(LED_Secundario,HIGH);
+          estado_led2 = 0;
+          LED_dato = 0;
+        }
+        else if (valorLED == 1)
+        {
+          digitalWrite(LED_Secundario,LOW);
+          estado_led2=1;
+          LED_dato = 100;
+        }
+        // -- SWITCH --
+        if (root["SWITCH"] == nullptr)
+        {
+          // Mantiene valor anterior
+        }
+        else if (valorSWITCH == 0)
+        {
+          digitalWrite(LED_Secundario,HIGH);
+          estado_led16 = 0;
+        }
+        else if (valorSWITCH == 1)
+        {
+          digitalWrite(LED_Secundario,LOW);
+          estado_led16=1;
+        }
+          
 
         free(mensaje); // libero memoria
       }
@@ -556,7 +616,6 @@ void progreso_OTA(int x, int todo)
 void loop() {
   // INTERRUPCIONES
   struct registro_led valor_LED;        // Declaramos registro json para valores del LED
-  struct registro_switch valor_SWITCH;  // Declaramos registro json para valores del SWITCH
   if (interrupcion==true) // En caso de que se active la interrupción
   {
     if (cuenta_pulsos=true) 
@@ -586,35 +645,9 @@ void loop() {
     interrupcion=false; // Desabilitamos la interrupción hasta que vuelva a haber una llamada a la misma
     
     }
-    if (actualiza==true) // mantenemos pulsado: ACTUALIZAMOS! 
-    {
-      client.subscribe("infind/GRUPO2/ESP47/FOTA/salon"); //Me suscribo al topic de la actualización cuando se mantenga más de 2 segundos el botón flash pulsado
-      // OTA
-      Serial.println( "--------------------------" );
-      Serial.println( "Comprobando actualización:" );
-      Serial.print(HTTP_OTA_ADDRESS);Serial.print(":");Serial.print(HTTP_OTA_PORT);Serial.println(HTTP_OTA_PATH); // Se comprueba la actualización
-      Serial.println( "--------------------------" );  
-      ESPhttpUpdate.setLedPin(16,LOW);
-      ESPhttpUpdate.onStart(inicio_OTA);
-      ESPhttpUpdate.onError(error_OTA);
-      ESPhttpUpdate.onProgress(progreso_OTA);
-      ESPhttpUpdate.onEnd(final_OTA);
-      actualiza=false;
-      switch(ESPhttpUpdate.update(HTTP_OTA_ADDRESS, HTTP_OTA_PORT, HTTP_OTA_PATH, HTTP_OTA_VERSION)) {
-        case HTTP_UPDATE_FAILED:
-          Serial.printf(" HTTP update failed: Error (%d): %s\n", ESPhttpUpdate.getLastError(), ESPhttpUpdate.getLastErrorString().c_str());
-          break;
-        case HTTP_UPDATE_NO_UPDATES:
-          Serial.println(F(" El dispositivo ya está actualizado"));
-          break;
-        case HTTP_UPDATE_OK:
-          Serial.println(F(" OK"));
-          break;
-        } 
-        
-    }
+    
     unsigned long now=millis();
-   
+    
       if (now-inicio>650) // Cuando pasen 0.65 seg tras la interrupción
       {
         if (cont==2) // Si se han contado 2 pulsos -> encendemos o apagamos el LED principal (GPIO2)
@@ -622,49 +655,59 @@ void loop() {
         Serial.println("DOBLE PULSACION");
         if (estado_led2==1) 
           {
-            digitalWrite(BUILTIN_LED, HIGH);
+            digitalWrite(BUILTIN_LED,HIGH);       // Si estaba encendido, apagamos
             Serial.println("GPIO 2 APAGADO");
             estado_led2=0;
+            LED_dato=0;
           }
           else
           { 
-            digitalWrite(BUILTIN_LED, LOW);
+            digitalWrite(BUILTIN_LED,LOW);     // Si estaba apagado, encendemos
             Serial.println("GPIO 2 ENCENDIDO");
             estado_led2=1;
+            LED_dato = 100;
+            LED_anterior = LED_dato;
+            
           }
           cont=0; // Reseteamos la cuenta
           cuenta_pulsos=true;
 
           // Publicamos por el topic correspondiente
           valor_LED.CHIPI=ESP.getChipId();
-          valor_LED.LED=estado_led2*100;
-          valor_LED.origen="pulsador"; // -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- PONER!
+          valor_LED.LED=LED_dato;
+          valor_LED.origen="pulsador"; 
           //publica que he llegado a ese valor
           client.publish("infind/GRUPO2/ESP47/led/status/salon",serializa_JSONLED(valor_LED).c_str() ); //Publico que he recibido el dato del led
         }
         if (cont==1) // Si solo se ha contado 1 pulsación, encendemos o apagamos el LED secundario (GPIO 16)
         {
         Serial.println("UNA PULSACION");
-        if (estado_led16==1)
+
+        if (estado_led2==1) // Si estaba encendido, apagamos
           {
-            digitalWrite(LED_Secundario, HIGH);
-            Serial.println("GPIO 16 APAGADO");
-            estado_led16=0;
+            digitalWrite(BUILTIN_LED,HIGH);
+            Serial.println("GPIO 2 APAGADO");
+            estado_led2 = 0;
+            LED_dato = 0;
+            
           }
-          else
+          else              // Si estaba apagado, encendemos al nivel anterior
           { 
-            digitalWrite(LED_Secundario, LOW);
-            Serial.println("GPIO 16 ENCENDIDO");
-            estado_led16=1;
+            PWM = 1023*(1-LED_anterior/100); 
+            analogWrite(BUILTIN_LED,PWM);
+            Serial.println("GPIO 2 ENCENDIDO AL NIVEL ANTERIOR");
+            estado_led2 = 1;
+            LED_dato = LED_anterior;
+            
           }
           cont=0; // Reseteamos la cuenta
           cuenta_pulsos=true;
           
           // Publicamos por el topic correspondiente
-          valor_SWITCH.CHIPI=ESP.getChipId();
-          valor_SWITCH.SWITCH=estado_led16;
-          valor_SWITCH.origen="pulsador"; // -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- PONER!
-          client.publish("infind/GRUPO2/ESP47/switch/status/salon",serializa_JSONSWITCH(valor_SWITCH).c_str()); //Publico que he recibido el dato del switch
+          valor_LED.CHIPI=ESP.getChipId();
+          valor_LED.LED=LED_dato;
+          valor_LED.origen="pulsador"; 
+          client.publish("infind/GRUPO2/ESP47/led/status/salon",serializa_JSONLED(valor_LED).c_str()); //Publico que he recibido el dato del switch
         }
         else if (cont>2) // Si se cuentan más de 2 pulsos, se hace saber que no es válido
         {
@@ -707,7 +750,7 @@ void loop() {
   struct registro_datos misdatos; //me creo una estructura de cada tipo
   
   
-  if (now - lastMsg > 10005) {
+  if (now - lastMsg > TiempoRecogida) {
    //Las variables que vamos a meter en nuestra estructura datos
    // WiFi y MQTT
    misdatos.ssid= WiFi.localIP().toString();
@@ -736,5 +779,36 @@ void loop() {
 
     lastMsg = now; // Actualizamos el tiempo en que se produce la publicación de datos
   }
+
+  if (now - lastAct > TiempoActualiza*60000)
+  // Actualización!!
+  if (actualiza==true) // mantenemos pulsado: ACTUALIZAMOS! 
+    {
+      client.subscribe("infind/GRUPO2/ESP47/FOTA/salon"); //Me suscribo al topic de la actualización cuando se mantenga más de 2 segundos el botón flash pulsado
+      // OTA
+      Serial.println( "--------------------------" );
+      Serial.println( "Comprobando actualización:" );
+      Serial.print(HTTP_OTA_ADDRESS);Serial.print(":");Serial.print(HTTP_OTA_PORT);Serial.println(HTTP_OTA_PATH); // Se comprueba la actualización
+      Serial.println( "--------------------------" );  
+      ESPhttpUpdate.setLedPin(16,LOW);
+      ESPhttpUpdate.onStart(inicio_OTA);
+      ESPhttpUpdate.onError(error_OTA);
+      ESPhttpUpdate.onProgress(progreso_OTA);
+      ESPhttpUpdate.onEnd(final_OTA);
+      actualiza=false;
+      switch(ESPhttpUpdate.update(HTTP_OTA_ADDRESS, HTTP_OTA_PORT, HTTP_OTA_PATH, HTTP_OTA_VERSION)) {
+        case HTTP_UPDATE_FAILED:
+          Serial.printf(" HTTP update failed: Error (%d): %s\n", ESPhttpUpdate.getLastError(), ESPhttpUpdate.getLastErrorString().c_str());
+          break;
+        case HTTP_UPDATE_NO_UPDATES:
+          Serial.println(F(" El dispositivo ya está actualizado"));
+          break;
+        case HTTP_UPDATE_OK:
+          Serial.println(F(" OK"));
+          break;
+        } 
+      lastAct = now; 
+    }
+    
   delay(10);
 }
