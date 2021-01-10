@@ -50,18 +50,19 @@ struct registro_datos {
   
 // Estructura de json para publicar conexión
   struct registro_conexion { //estructura para el estado de la conexion
-  char CHIPI;
-  bool conexion;
+    char CHIPI;
+    bool conexion;
   };
   
   // Estructura de json para publicar actualización
   struct registro_actualizacion { //estructura para el estado de la actualización
-  bool actualizacion;
+    bool actualizacion;
   };
   
 // Estructura de json para publicar distancia LÁSER
-    struct registro_distancia { //estructura para el estado de la conexion
-  float distancia;
+  struct registro_distancia { //estructura para el estado de la conexion
+    String estado_sensor;
+    float distancia;
   };
 
 // Estructura de json para publicar valor del LED
@@ -75,6 +76,13 @@ struct registro_datos {
     char CHIPI;
     int SWITCH;
     String origen;
+  };
+// Estructura de json para publicar valor de Peligrosidad
+  struct registro_Peligro {
+    char CHIPI;
+    int PeligroCO;
+    int PeligroLPG;
+    int PeligroHumo;
   };
   
 // -----------------------INTERRUPCIONES-----------------------
@@ -164,13 +172,18 @@ volatile double PWM;
 double LED_anterior = LED_dato;
 
 //Recogida de datos
-double TiempoRecogida=10000; // Recoger datos sensores
-double TiempoLED=10; // Tiempo en que tarda en cambiar el LED un 1%
-int TiempoActualiza = 60; // viene dado en minutos
+volatile double TiempoRecogida=10000; // Recoger datos sensores
+volatile double TiempoLED=10; // Tiempo en que tarda en cambiar el LED un 1%
+volatile int TiempoActualiza = 60; // viene dado en minutos
 
 // LASER
 unsigned long lastMsgLASER = 0; // último mensaje enviado desde sensor de distancia
 float cambia_dist = 0;
+
+//Peligro
+int PeligroCOa=0; //Nivel de peligro de CO
+int PeligroLPGa=0; //Nivel de peligro de LPG
+int PeligroHumoa=0; //Nivel de peligro de Humo
 
 //-----------------------CONVERSIÓN A STRING----ESTRUCTURAS JSON-----------------------
 //Esta funcion nos convierte a un String todos los datos globales para ser interpretados por Json
@@ -191,7 +204,7 @@ String serializa_JSON2 (struct registro_datos datos)
   MQ2["LPG"] = datos.lpg; // Gas natural
   MQ2["CO"] = datos.co; 
   MQ2["HUMO"] = datos.humo;
-
+  
   jsonRoot["CHIPID"]=datos.CHIPI; // ID del Chip
   jsonRoot["Uptime"]= datos.tiempo;
   jsonRoot["vcc"] = datos.vcc/1000.;
@@ -239,7 +252,7 @@ String serializa_JSONdistist (struct registro_distancia laser)
   JSONVar ANALOG;
   String jsonString;
   
-
+  jsonRoot["Estado"] = laser.estado_sensor;
   jsonRoot["VL53L0X"] = laser.distancia;
   
   return JSON.stringify(jsonRoot);
@@ -255,7 +268,7 @@ String serializa_JSONLED (struct registro_led valor_LED)
   
 
   jsonRoot["CHIPID"]=valor_LED.CHIPI; // ID del Chip
-  jsonRoot["led"]=valor_LED.LED; // ID del Chip
+  jsonRoot["level"]=valor_LED.LED; // ID del Chip
   jsonRoot["origen"]=valor_LED.origen; // ID del Chip
   
   return JSON.stringify(jsonRoot);
@@ -273,6 +286,22 @@ String serializa_JSONSWITCH (struct registro_switch valor_SWITCH)
   jsonRoot["CHIPID"]=valor_SWITCH.CHIPI; // ID del Chip
   jsonRoot["switch"]=valor_SWITCH.SWITCH; // ID del Chip
   jsonRoot["origen"]=valor_SWITCH.origen; // ID del Chip
+  
+  return JSON.stringify(jsonRoot);
+}
+// -----------------------
+
+// Función para el valor de la Peligrosidad
+String serializa_JSONPeligro (struct registro_Peligro valor_Peligro)
+{
+  JSONVar jsonRoot;
+  JSONVar ANALOG;
+  String jsonString;
+  
+
+  jsonRoot["CO"]=valor_Peligro.PeligroCO; // 
+  jsonRoot["LPG"]=valor_Peligro.PeligroLPG; // 
+  jsonRoot["Humo"]=valor_Peligro.PeligroHumo; // 
   
   return JSON.stringify(jsonRoot);
 }
@@ -384,7 +413,7 @@ void callback(char* topic, byte* payload, unsigned int length) {
     }
   }
   
-  // compruebo que es el topic adecuado ------LED------
+  // compruebo que es el topic adecuado ------LED-----
   if(strcmp(topic,"infind/GRUPO2/ESP47/led/cmd/salon")==0)
   {
  
@@ -399,7 +428,7 @@ void callback(char* topic, byte* payload, unsigned int length) {
     }
     else // En caso de no haber error, se hace la secuencia propuesta:
     {
-     LED_max = root["led"]; // Se toma el valor del dato de entrada
+     LED_max = root["level"]; // Se toma el valor del dato de entrada
      
      double subirled=LED_dato; // Iniciamos variable
      
@@ -487,9 +516,6 @@ void callback(char* topic, byte* payload, unsigned int length) {
         TiempoActualiza=valorActualiza; // Asignamos a una variable global ya que se usará en otros bucles externos al 'Callback'
         TiempoRecogida=valorDatos;
         TiempoLED=valorVelocidad;
-        sprintf(msg_recDatos,"{\"Tiempo de Recogida de Datos\": %f, \"Tiempo para subir el LED\": %f}",valorDatos, valorVelocidad);
-        //publica que he llegado a ese valor
-        client.publish("infind/GRUPO2/ESP47/config/salon",msg_recDatos ); //Publico que he recibido el dato del led
         // -- LED -- 
         if (root["LED"] == nullptr) // == nullptr
         {
@@ -533,6 +559,7 @@ void callback(char* topic, byte* payload, unsigned int length) {
 //-----------------------SET-UP-----------------------
 void setup() {
   struct registro_actualizacion estado_act; // Declaramos la estructura para actualización (json)
+  struct registro_distancia laser;
   pinMode(BUILTIN_LED, OUTPUT);    // Inicializamos el pin BUILTIN_LED como salida
   pinMode(LED_Secundario, OUTPUT); // Inicializamos el pin LED_Secundario como salida
   digitalWrite(LED_Secundario, LOW);
@@ -566,7 +593,7 @@ void setup() {
  // client.setCallback(callbackRECOGIDA);
   client.setBufferSize(512); //Ampliamos el tamaño del buffer
   char cadena[512];
-  dht.setup(5, DHTesp::DHT11); // Connect DHT sensor to GPIO 5
+  dht.setup(2, DHTesp::DHT11); // Connect DHT sensor to GPIO 5
 
   //FLASH
    pinMode(boton_flash, INPUT_PULLUP); // Inicializamos el pin LED_Secundario como entrada
@@ -577,8 +604,10 @@ void setup() {
   Serial.println("VL53L0X test");
   if (!lox.begin()) {
     Serial.println(F("Error al iniciar VL53L0X"));
-    while(1); // Esperamos a que se inicie el sensor de distancia
+    laser.estado_sensor = "Fallo al iniciar";
   }
+  else
+    laser.estado_sensor = "VL53L0X iniciado";
   
     //MQ-2
     mq2.begin();
@@ -618,7 +647,7 @@ void loop() {
   struct registro_led valor_LED;        // Declaramos registro json para valores del LED
   if (interrupcion==true) // En caso de que se active la interrupción
   {
-    if (cuenta_pulsos=true) 
+    if (cuenta_pulsos==true) 
     {
       inicio=ahora; // Estudiamos el tiempo en que se produce la interrupción
       cuenta_pulsos=false;
@@ -708,14 +737,9 @@ void loop() {
         }
     delay(10);
     }
-  // LÁSER
+    
   struct registro_distancia laser;
-  VL53L0X_RangingMeasurementData_t measure;
   
-  //Serial.print("Leyendo sensor... ");
-  lox.rangingTest(&measure, false); // si se pasa true como parametro, muestra por puerto serie datos de debug
-  float medida_laser = measure.RangeMilliMeter;
-  laser.distancia = medida_laser;
   // CONEXIÓN
   String mensaje_conexion;
   if (!client.connected()) {
@@ -726,16 +750,36 @@ void loop() {
   //unsigned long now = millis();
 
   // LASER
-  if (cambia_dist >= medida_laser+20 || cambia_dist<=medida_laser-20) // cuando salgamos de un rango específico, se toma una nueva medida y se hace saber al usuario
-  /*if (now - lastMsgLASER > 3000) {*/
-   { 
-   Serial.print("Distancia (mm): ");
-   Serial.println(measure.RangeMilliMeter);
-   client.publish("infind/GRUPO2/ESP47/datos/salon/puerta",serializa_JSONdistist(laser).c_str() ); // publicamos la distancia por el topic correspondiente
-  
-   cambia_dist=medida_laser; // Actualizamos la distancia 
+  if (laser.estado_sensor == "Fallo al iniciar")
+  {
+    if (!lox.begin()) {
+      Serial.println(F("Error al iniciar VL53L0X"));
+      laser.estado_sensor = "Fallo al iniciar";
+      laser.distancia = 0;
+    }
+    else
+      laser.estado_sensor = "VL53L0X iniciado";
+    laser.distancia = 0;
   }
-
+  else if (laser.estado_sensor == "VL53L0X iniciado")
+  {
+    VL53L0X_RangingMeasurementData_t measure;
+  
+    //Serial.print("Leyendo sensor... ");
+    lox.rangingTest(&measure, false); // si se pasa true como parametro, muestra por puerto serie datos de debug
+    float medida_laser = measure.RangeMilliMeter;
+    laser.distancia = medida_laser;
+    
+    if (cambia_dist >= medida_laser+20 || cambia_dist<=medida_laser-20) // cuando salgamos de un rango específico, se toma una nueva medida y se hace saber al usuario
+    /*if (now - lastMsgLASER > 3000) {*/
+    { 
+    Serial.print("Distancia (mm): ");
+    Serial.println(measure.RangeMilliMeter);
+    client.publish("infind/GRUPO2/ESP47/datos/salon/puerta",serializa_JSONdistist(laser).c_str() ); // publicamos la distancia por el topic correspondiente
+  
+    cambia_dist=medida_laser; // Actualizamos la distancia 
+  }
+  }
   // DATOS
   struct registro_datos misdatos; //me creo una estructura de cada tipo
   
@@ -769,14 +813,18 @@ void loop() {
 
     lastMsg = now; // Actualizamos el tiempo en que se produce la publicación de datos
   }
-
-  if (now - lastAct > TiempoActualiza*60000)
+  
   // Actualización!!
-  if (actualiza==true) // mantenemos pulsado: ACTUALIZAMOS! 
+  if (now - lastAct > TiempoActualiza*60000 && TiempoActualiza != 0)
+  {
+    actualiza=true;
+  }
+  
+  if (actualiza==true ) // mantenemos pulsado: ACTUALIZAMOS! 
     {
       client.subscribe("infind/GRUPO2/ESP47/FOTA/salon"); //Me suscribo al topic de la actualización cuando se mantenga más de 2 segundos el botón flash pulsado
       // OTA
-      Serial.println( "--------------------------" );
+      Serial.println( "---------aaaaaaaaaaaaaaaaaaaaaaaaa-----------------" );
       Serial.println( "Comprobando actualización:" );
       Serial.print(HTTP_OTA_ADDRESS);Serial.print(":");Serial.print(HTTP_OTA_PORT);Serial.println(HTTP_OTA_PATH); // Se comprueba la actualización
       Serial.println( "--------------------------" );  
@@ -798,6 +846,75 @@ void loop() {
           break;
         } 
       lastAct = now; 
+    }
+    // PELIGROSIDAD MQ2
+     //Analizamos los niveles de CO 
+    if (mq2.readCO()>=1.2)
+    {
+      PeligroCOa=3;
+    }
+    else if (mq2.readCO()>=0.9 && mq2.readCO()<1)
+    {
+      PeligroCOa=2;
+    }
+    else if (mq2.readCO()>=0.8 && mq2.readCO()<0.9)
+    {
+      PeligroCOa=1;
+    }
+    else
+    {
+      PeligroCOa=0;
+    }
+
+    //Analizamos los niveles de LPG
+    if (mq2.readLPG()>=1.2)
+    {
+      PeligroLPGa=3;
+    }
+    else if (mq2.readLPG()>=0.9 && mq2.readLPG()<1)
+    {
+      PeligroLPGa=2;
+    }
+    else if (mq2.readLPG()>=0.8 && mq2.readLPG()<0.9)
+    {
+      PeligroLPGa=1;
+    }
+    else
+    {
+      PeligroLPGa=0;
+    }
+
+    //Analizamos los niveles de LPG
+    if (mq2.readSmoke()>=1.2)
+    {
+      PeligroHumoa=3;
+    }
+    else if (mq2.readSmoke()>=0.9 && mq2.readSmoke()<1)
+    {
+      PeligroHumoa=2;
+    }
+    else if (mq2.readSmoke()>=0.8 && mq2.readSmoke()<0.9)
+    {
+      PeligroHumoa=1;
+    }
+    else
+    {
+      PeligroHumoa=0;
+    }
+
+    if ( PeligroHumoa>0 || PeligroLPGa>0 || PeligroCOa>0)
+    {
+  // DATOS
+  struct registro_Peligro NivelPeligro; //me creo una estructura de cada tipo
+
+  //Valores de Peligrosidad
+  NivelPeligro.PeligroCO=PeligroCOa; // 
+  NivelPeligro.PeligroLPG=PeligroLPGa; //
+  NivelPeligro.PeligroHumo=PeligroHumoa; //
+  
+  // Publicamos los datos por el topic correspondiente
+  client.publish("infind/GRUPO2/ESP47/Peligro/salon",serializa_JSONPeligro(NivelPeligro).c_str() );
+  //Publicamos el estado de conexion con retain flag=true
     }
     
   delay(10);
