@@ -635,8 +635,8 @@
         "chatId": "",
         "message": "Se han encendido todas las luces a nivel alto",
         "parseMode": "",
-        "x": 1602.9999198913574,
-        "y": 2296.000078201294,
+        "x": 1559.9998931884766,
+        "y": 2291.0000858306885,
         "wires": []
     },
     {
@@ -648,8 +648,8 @@
         "chatId": "",
         "message": "Se han encendido todas las luces a toda ostia",
         "parseMode": "",
-        "x": 1608.9998779296875,
-        "y": 2438.999765396118,
+        "x": 1536.9999542236328,
+        "y": 2432.9998111724854,
         "wires": []
     },
     {
@@ -806,11 +806,12 @@
         "command": "/start",
         "commandType": "str",
         "commandCase": false,
-        "x": 85,
-        "y": 295.55578422546387,
+        "x": 55,
+        "y": 418.5557918548584,
         "wires": [
             [
-                "3402c984.102fb6"
+                "3402c984.102fb6",
+                "14bef70d.e44c99"
             ]
         ]
     },
@@ -2272,38 +2273,6 @@
         ]
     },
     {
-        "id": "dce9b664.4e5748",
-        "type": "mqtt in",
-        "z": "cb95b8f7.9b4968",
-        "name": "",
-        "topic": "infind/GRUPO2/ESP145/datos/cocina",
-        "qos": "2",
-        "broker": "8fab76dc.3e75b8",
-        "x": 316.00001525878906,
-        "y": 4185.697100639343,
-        "wires": [
-            [
-                "acc49c7.cfed26"
-            ]
-        ]
-    },
-    {
-        "id": "5599bdc4.09fe14",
-        "type": "function",
-        "z": "cb95b8f7.9b4968",
-        "name": "calidad aire",
-        "func": "var deteccion = msg.payload.calidad_aire;\nif (deteccion == 1)\nmsg.payload = \"La calidad del aire es mala\";\n\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 748.0000152587891,
-        "y": 4182.696991920471,
-        "wires": [
-            [
-                "9ea788a6.b86e08"
-            ]
-        ]
-    },
-    {
         "id": "9ea788a6.b86e08",
         "type": "telegrambot-notify",
         "z": "cb95b8f7.9b4968",
@@ -2354,8 +2323,8 @@
         "z": "cb95b8f7.9b4968",
         "name": "calidad del aire de la cocina",
         "info": "",
-        "x": 334.00001525878906,
-        "y": 4140.697019577026,
+        "x": 374.00001525878906,
+        "y": 4507.696900367737,
         "wires": []
     },
     {
@@ -2469,7 +2438,8 @@
         "y": 3889.333526611328,
         "wires": [
             [
-                "5ccdcbe0.4f7b14"
+                "5ccdcbe0.4f7b14",
+                "6b1bace2.f41fe4"
             ]
         ]
     },
@@ -2657,23 +2627,6 @@
         ]
     },
     {
-        "id": "acc49c7.cfed26",
-        "type": "json",
-        "z": "cb95b8f7.9b4968",
-        "name": "",
-        "property": "payload",
-        "action": "",
-        "pretty": false,
-        "x": 572.0000534057617,
-        "y": 4185.697205543518,
-        "wires": [
-            [
-                "5599bdc4.09fe14",
-                "8e42adcc.f87ec"
-            ]
-        ]
-    },
-    {
         "id": "306acfb5.57441",
         "type": "json",
         "z": "cb95b8f7.9b4968",
@@ -2712,8 +2665,8 @@
         "qos": "",
         "retain": "",
         "broker": "11f84db6.06eda2",
-        "x": 2392.0000076293945,
-        "y": 1967.0000476837158,
+        "x": 2368.0001678466797,
+        "y": 1909.000051498413,
         "wires": []
     },
     {
@@ -2725,8 +2678,8 @@
         "qos": "",
         "retain": "",
         "broker": "11f84db6.06eda2",
-        "x": 2360.377815246582,
-        "y": 2001.9148426055908,
+        "x": 2336.377975463867,
+        "y": 1943.914846420288,
         "wires": []
     },
     {
@@ -2738,8 +2691,8 @@
         "qos": "",
         "retain": "",
         "broker": "11f84db6.06eda2",
-        "x": 2390.377815246582,
-        "y": 2039.0967273712158,
+        "x": 2366.377975463867,
+        "y": 1981.096731185913,
         "wires": []
     },
     {
@@ -2751,8 +2704,8 @@
         "qos": "",
         "retain": "",
         "broker": "11f84db6.06eda2",
-        "x": 2375.377815246582,
-        "y": 2071.096727371216,
+        "x": 2351.377975463867,
+        "y": 2013.096731185913,
         "wires": []
     },
     {
@@ -2777,8 +2730,8 @@
         "qos": "",
         "retain": "",
         "broker": "11f84db6.06eda2",
-        "x": 2054.755641937256,
-        "y": 2132.7385597229004,
+        "x": 2392.7557220458984,
+        "y": 2167.7385215759277,
         "wires": []
     },
     {
@@ -2790,8 +2743,8 @@
         "qos": "",
         "retain": "",
         "broker": "11f84db6.06eda2",
-        "x": 2084.755641937256,
-        "y": 2169.9204444885254,
+        "x": 2422.7557220458984,
+        "y": 2204.9204063415527,
         "wires": []
     },
     {
@@ -2803,8 +2756,8 @@
         "qos": "",
         "retain": "",
         "broker": "11f84db6.06eda2",
-        "x": 2069.755641937256,
-        "y": 2201.9204444885254,
+        "x": 2407.7557220458984,
+        "y": 2236.9204063415527,
         "wires": []
     },
     {
@@ -2816,8 +2769,8 @@
         "qos": "",
         "retain": "",
         "broker": "11f84db6.06eda2",
-        "x": 2119.3778343200684,
-        "y": 2247.8237648010254,
+        "x": 2124.3779067993164,
+        "y": 2319.823818206787,
         "wires": []
     },
     {
@@ -2829,8 +2782,8 @@
         "qos": "",
         "retain": "",
         "broker": "11f84db6.06eda2",
-        "x": 2087.755641937256,
-        "y": 2282.7385597229004,
+        "x": 2092.755714416504,
+        "y": 2354.738613128662,
         "wires": []
     },
     {
@@ -2842,8 +2795,8 @@
         "qos": "",
         "retain": "",
         "broker": "11f84db6.06eda2",
-        "x": 2117.755641937256,
-        "y": 2319.9204444885254,
+        "x": 2122.755714416504,
+        "y": 2391.920497894287,
         "wires": []
     },
     {
@@ -2855,8 +2808,8 @@
         "qos": "",
         "retain": "",
         "broker": "11f84db6.06eda2",
-        "x": 2101.7555861771107,
-        "y": 2350.9203548431396,
+        "x": 2106.7556586563587,
+        "y": 2422.9204082489014,
         "wires": []
     },
     {
@@ -2868,8 +2821,8 @@
         "qos": "",
         "retain": "",
         "broker": "11f84db6.06eda2",
-        "x": 2131.3778343200684,
-        "y": 2418.5510597229004,
+        "x": 2027.3780059814453,
+        "y": 2491.551050186157,
         "wires": []
     },
     {
@@ -2881,8 +2834,8 @@
         "qos": "",
         "retain": "",
         "broker": "11f84db6.06eda2",
-        "x": 2099.755641937256,
-        "y": 2453.4658546447754,
+        "x": 1995.7558135986328,
+        "y": 2526.465845108032,
         "wires": []
     },
     {
@@ -2894,8 +2847,8 @@
         "qos": "",
         "retain": "",
         "broker": "11f84db6.06eda2",
-        "x": 2129.755641937256,
-        "y": 2490.6477394104004,
+        "x": 2025.7558135986328,
+        "y": 2563.647729873657,
         "wires": []
     },
     {
@@ -2907,8 +2860,8 @@
         "qos": "",
         "retain": "",
         "broker": "11f84db6.06eda2",
-        "x": 2114.755641937256,
-        "y": 2522.6477394104004,
+        "x": 2010.7558135986328,
+        "y": 2595.647729873657,
         "wires": []
     },
     {
@@ -3421,11 +3374,11 @@
         "type": "debug",
         "z": "cb95b8f7.9b4968",
         "name": "",
-        "active": true,
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
-        "complete": "false",
+        "complete": "payload",
         "x": 2647.8334770202637,
         "y": 3893.0002117156982,
         "wires": []
@@ -3435,7 +3388,7 @@
         "type": "debug",
         "z": "cb95b8f7.9b4968",
         "name": "",
-        "active": true,
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -3461,17 +3414,14 @@
         "name": "switch bienvenida",
         "bot": "407d7e26.e9903",
         "chatId": "",
-        "question": "¡Hola! Soy el bot del grupo 2, ¿En que puedo ayudarte?",
+        "question": "¡Hola! Soy el bot del grupo 2, Puedo hacer muchas cosas, solo tienes que pulsar en una de los siguientes opciones. ¿No sabes que hace cada una?, ¡Tranquilo!, tienes un tutorial justo debajo, ahora sí... ¿En que puedo ayudarte?",
         "answers": [
             "Encender",
             "Apagar",
             "Ver estado",
-            "Tutorial",
-            "tiempo de recogida",
-            "prediccion",
-            "pwm"
+            "Tutorial"
         ],
-        "outputs": 8,
+        "outputs": 5,
         "autoAnswerCallback": false,
         "timeoutValue": "20",
         "timeoutUnits": "s",
@@ -3490,32 +3440,8 @@
             [
                 "9c9f3e3e.c122b"
             ],
-            [
-                "14c64fe.4527fb"
-            ],
-            [
-                "cb15f29e.19409"
-            ],
-            [
-                "d76189c4.f958a8"
-            ],
-            [
-                "e936cbcd.f0a6e8"
-            ]
+            []
         ]
-    },
-    {
-        "id": "e936cbcd.f0a6e8",
-        "type": "telegrambot-notify",
-        "z": "cb95b8f7.9b4968",
-        "name": "TimeOut",
-        "bot": "407d7e26.e9903",
-        "chatId": "",
-        "message": "Se acabo el tiempo bru",
-        "parseMode": "",
-        "x": 276.8959274291992,
-        "y": 443.4452533721924,
-        "wires": []
     },
     {
         "id": "e853cf76.711fd",
@@ -4806,8 +4732,8 @@
         "links": [
             "e877a549.b3de08"
         ],
-        "x": 442.39067554473877,
-        "y": 369.7740669250488,
+        "x": 588.3907451629639,
+        "y": 506.7740993499756,
         "wires": []
     },
     {
@@ -4818,8 +4744,8 @@
         "links": [
             "9b8b84cc.45a7c8"
         ],
-        "x": 440.38673973083496,
-        "y": 416.7620735168457,
+        "x": 587.3867769241333,
+        "y": 549.7620763778687,
         "wires": []
     },
     {
@@ -5045,35 +4971,6 @@
         "wires": []
     },
     {
-        "id": "3e8b83fc.9db5dc",
-        "type": "ui_led",
-        "z": "cb95b8f7.9b4968",
-        "group": "a5a62931.5d2068",
-        "order": 8,
-        "width": "2",
-        "height": "2",
-        "label": "calidad aire",
-        "labelPlacement": "left",
-        "labelAlignment": "left",
-        "colorForValue": [
-            {
-                "color": "red",
-                "value": "1",
-                "valueType": "num"
-            },
-            {
-                "color": "green",
-                "value": "0",
-                "valueType": "num"
-            }
-        ],
-        "allowColorForValueInMessage": false,
-        "name": "",
-        "x": 853.8021774291992,
-        "y": 4229.82342338562,
-        "wires": []
-    },
-    {
         "id": "14c64fe.4527fb",
         "type": "link out",
         "z": "cb95b8f7.9b4968",
@@ -5081,8 +4978,8 @@
         "links": [
             "243d0dee.f23db2"
         ],
-        "x": 445.3828401565552,
-        "y": 325.01173877716064,
+        "x": 587.3828477859497,
+        "y": 460.01173210144043,
         "wires": []
     },
     {
@@ -5200,8 +5097,8 @@
         "func": "var temp=msg.payload.DHT11.temp;\nvar hum=msg.payload.DHT11.hum;\nvar led=msg.payload.LED;\n\nmsg1={\"payload\":temp, \"topic\": \"Temperatura\"};\nmsg2={\"payload\":hum, \"topic\": \"Humedad\"};\nmsg3={\"payload\":led, \"topic\": \"level\"};\n\n\nreturn [msg1,msg2,msg3];",
         "outputs": 3,
         "noerr": 0,
-        "x": 4456.765733718872,
-        "y": 4154.250293731689,
+        "x": 4282.765754699707,
+        "y": 4151.250774383545,
         "wires": [
             [
                 "17bf97d0.929058"
@@ -5210,7 +5107,8 @@
                 "2f94551f.5fa15a"
             ],
             [
-                "cbb7c344.b0072"
+                "cbb7c344.b0072",
+                "4f8e6ded.29b174"
             ]
         ]
     },
@@ -5222,8 +5120,8 @@
         "func": "var temp=msg.payload.DHT11.temp;\nvar hum=msg.payload.DHT11.hum;\nvar led=msg.payload.LED;\n\nmsg1={\"payload\":temp, \"topic\": \"Temperatura\"};\nmsg2={\"payload\":hum, \"topic\": \"Humedad\"};\nmsg3={\"payload\":led, \"topic\": \"level\"};\n\n\nreturn [msg1,msg2,msg3];",
         "outputs": 3,
         "noerr": 0,
-        "x": 4454.765625,
-        "y": 3934.25048828125,
+        "x": 4348.765754699707,
+        "y": 3933.2507667541504,
         "wires": [
             [
                 "be2e0aa5.42e5d8"
@@ -5232,7 +5130,8 @@
                 "3aaab688.a5bd3a"
             ],
             [
-                "a87f8c83.2d17"
+                "a87f8c83.2d17",
+                "9d444e4c.f8d75"
             ]
         ]
     },
@@ -5249,22 +5148,6 @@
         "wires": [
             [
                 "7954da83.84b3b4"
-            ]
-        ]
-    },
-    {
-        "id": "8e42adcc.f87ec",
-        "type": "function",
-        "z": "cb95b8f7.9b4968",
-        "name": "calidad mala",
-        "func": "var deteccion = msg.payload.calidad_aire;\nif (deteccion == 1)\nmsg.payload = 1;\nelse\nmsg.payload = 0\n\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 692.7656402587891,
-        "y": 4232.2503271102905,
-        "wires": [
-            [
-                "3e8b83fc.9db5dc"
             ]
         ]
     },
@@ -5288,8 +5171,8 @@
         "links": [
             "86f4d3e9.8a15a"
         ],
-        "x": 4299.379011154175,
-        "y": 4152.910453796387,
+        "x": 4102.379034042358,
+        "y": 4144.910930633545,
         "wires": [
             [
                 "12ba3f89.7999e"
@@ -5316,8 +5199,8 @@
         "links": [
             "70be20a3.64df1"
         ],
-        "x": 4318.757917404175,
-        "y": 3932.140916824341,
+        "x": 4155.757940292358,
+        "y": 3937.141067504883,
         "wires": [
             [
                 "4fef3862.ad0138"
@@ -5427,6 +5310,960 @@
         "wires": []
     },
     {
+        "id": "21430828.fed9f8",
+        "type": "telegrambot-switch",
+        "z": "cb95b8f7.9b4968",
+        "name": "switch bienvenida",
+        "bot": "407d7e26.e9903",
+        "chatId": "",
+        "question": "Aqui tienes mas opciones",
+        "answers": [
+            "Recogida",
+            "Prediccion",
+            "PWM",
+            "switch"
+        ],
+        "outputs": 5,
+        "autoAnswerCallback": false,
+        "timeoutValue": "20",
+        "timeoutUnits": "s",
+        "x": 409.76563262939453,
+        "y": 524.7499923706055,
+        "wires": [
+            [
+                "14c64fe.4527fb"
+            ],
+            [
+                "cb15f29e.19409"
+            ],
+            [
+                "d76189c4.f958a8"
+            ],
+            [
+                "186f86ae.9507b9"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "14bef70d.e44c99",
+        "type": "delay",
+        "z": "cb95b8f7.9b4968",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "10",
+        "timeoutUnits": "milliseconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "x": 215,
+        "y": 478.3788661956787,
+        "wires": [
+            [
+                "21430828.fed9f8"
+            ]
+        ]
+    },
+    {
+        "id": "4cdf5ddb.a5bd84",
+        "type": "telegrambot-command",
+        "z": "cb95b8f7.9b4968",
+        "name": "/switch",
+        "bot": "407d7e26.e9903",
+        "command": "/switch",
+        "commandType": "str",
+        "commandCase": false,
+        "x": 2872.766571044922,
+        "y": 568.7500133514404,
+        "wires": [
+            [
+                "92943829.39cfd8"
+            ]
+        ]
+    },
+    {
+        "id": "9452d6de.0fc118",
+        "type": "function",
+        "z": "cb95b8f7.9b4968",
+        "name": "Envio apagar",
+        "func": "msg.payload=msg.mensaje;\n\nmsg.payload= {\"level\": 0};\n\n\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 3396.766086578369,
+        "y": 540.7500133514404,
+        "wires": [
+            [
+                "effe05b6.9a2da8"
+            ]
+        ]
+    },
+    {
+        "id": "92943829.39cfd8",
+        "type": "telegrambot-switch",
+        "z": "cb95b8f7.9b4968",
+        "name": "switch switch",
+        "bot": "407d7e26.e9903",
+        "chatId": "",
+        "question": "Que quieres hacer con el switch?",
+        "answers": [
+            "Apagar",
+            "Encender"
+        ],
+        "outputs": 3,
+        "autoAnswerCallback": false,
+        "timeoutValue": "20",
+        "timeoutUnits": "s",
+        "x": 3140.765625,
+        "y": 578.75,
+        "wires": [
+            [
+                "9452d6de.0fc118"
+            ],
+            [
+                "693b6866.4ba6a8"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "693b6866.4ba6a8",
+        "type": "function",
+        "z": "cb95b8f7.9b4968",
+        "name": "Envio encender",
+        "func": "msg.payload=msg.mensaje;\n\nmsg.payload= {\"level\": 1};\n\n\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 3406.7657203674316,
+        "y": 594.7499990463257,
+        "wires": [
+            [
+                "38069256.1ba42e"
+            ]
+        ]
+    },
+    {
+        "id": "c61d927d.41461",
+        "type": "mqtt out",
+        "z": "cb95b8f7.9b4968",
+        "name": "",
+        "topic": "infind/GRUPO2/ESP47/switch/cmd/salon",
+        "qos": "",
+        "retain": "",
+        "broker": "8fab76dc.3e75b8",
+        "x": 4063.2660598754883,
+        "y": 554.6406402587891,
+        "wires": []
+    },
+    {
+        "id": "b5f507f5.fc4758",
+        "type": "link in",
+        "z": "cb95b8f7.9b4968",
+        "name": "switch",
+        "links": [
+            "186f86ae.9507b9"
+        ],
+        "x": 2992.265625,
+        "y": 493.75,
+        "wires": [
+            [
+                "92943829.39cfd8"
+            ]
+        ]
+    },
+    {
+        "id": "186f86ae.9507b9",
+        "type": "link out",
+        "z": "cb95b8f7.9b4968",
+        "name": "switch",
+        "links": [
+            "b5f507f5.fc4758"
+        ],
+        "x": 585.8868389129639,
+        "y": 592.5195827484131,
+        "wires": []
+    },
+    {
+        "id": "9ea7c6c1.75a6e8",
+        "type": "ui_switch",
+        "z": "cb95b8f7.9b4968",
+        "name": "",
+        "label": "Luz del switch",
+        "tooltip": "",
+        "group": "40706f5a.d9a34",
+        "order": 4,
+        "width": "2",
+        "height": "1",
+        "passthru": true,
+        "decouple": "false",
+        "topic": "",
+        "style": "",
+        "onvalue": "1",
+        "onvalueType": "num",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "0",
+        "offvalueType": "num",
+        "officon": "",
+        "offcolor": "",
+        "x": 3178.3795776367188,
+        "y": 674.312520980835,
+        "wires": [
+            [
+                "da034814.187f98"
+            ]
+        ]
+    },
+    {
+        "id": "effe05b6.9a2da8",
+        "type": "json",
+        "z": "cb95b8f7.9b4968",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 3566.1667709350586,
+        "y": 527.0000152587891,
+        "wires": [
+            [
+                "c61d927d.41461",
+                "9913f7a.ad7e608"
+            ]
+        ]
+    },
+    {
+        "id": "38069256.1ba42e",
+        "type": "json",
+        "z": "cb95b8f7.9b4968",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 3587.1665954589844,
+        "y": 585.9999923706055,
+        "wires": [
+            [
+                "c61d927d.41461",
+                "90db2a8e.b6d208"
+            ]
+        ]
+    },
+    {
+        "id": "90db2a8e.b6d208",
+        "type": "telegrambot-notify",
+        "z": "cb95b8f7.9b4968",
+        "name": "Respuesta encender",
+        "bot": "407d7e26.e9903",
+        "chatId": "",
+        "message": "Se ha encendido el led",
+        "parseMode": "",
+        "x": 4006.000114440918,
+        "y": 605.0000171661377,
+        "wires": []
+    },
+    {
+        "id": "9913f7a.ad7e608",
+        "type": "telegrambot-notify",
+        "z": "cb95b8f7.9b4968",
+        "name": "Respuesta apagar",
+        "bot": "407d7e26.e9903",
+        "chatId": "",
+        "message": "Se ha apagado el led",
+        "parseMode": "",
+        "x": 3987.000114440918,
+        "y": 515.0000534057617,
+        "wires": []
+    },
+    {
+        "id": "da034814.187f98",
+        "type": "function",
+        "z": "cb95b8f7.9b4968",
+        "name": "Envio boton",
+        "func": "if (msg.payload == 1)\nmsg.payload = {\"level\": 1};\n\nif (msg.payload === 0)\nmsg.payload = {\"level\": 0};\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 3405.333354949951,
+        "y": 655.0000190734863,
+        "wires": [
+            [
+                "6a18a158.d0484"
+            ]
+        ]
+    },
+    {
+        "id": "6a18a158.d0484",
+        "type": "json",
+        "z": "cb95b8f7.9b4968",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 3591.3333587646484,
+        "y": 651.0000190734863,
+        "wires": [
+            [
+                "c61d927d.41461"
+            ]
+        ]
+    },
+    {
+        "id": "4f8e6ded.29b174",
+        "type": "ui_slider",
+        "z": "cb95b8f7.9b4968",
+        "name": "",
+        "label": "Iluminación",
+        "tooltip": "",
+        "group": "40706f5a.d9a34",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "outs": "all",
+        "topic": "",
+        "min": 0,
+        "max": "100",
+        "step": "25",
+        "x": 4104.667106628418,
+        "y": 4250.3334608078,
+        "wires": [
+            [
+                "c116d5d7.1bacb8"
+            ]
+        ]
+    },
+    {
+        "id": "c116d5d7.1bacb8",
+        "type": "function",
+        "z": "cb95b8f7.9b4968",
+        "name": "envio dashboard salon",
+        "func": "if (msg.payload === 0)\nmsg.payload = {\"level\": 0}\n\nif (msg.payload == 25)\nmsg.payload = {\"level\": 25}\n\nif (msg.payload == 50)\nmsg.payload = {\"level\": 50}\n\nif (msg.payload == 75)\nmsg.payload = {\"level\": 75}\n\nif (msg.payload == 100)\nmsg.payload = {\"level\": 100}\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 4366.667434692383,
+        "y": 4263.333464622498,
+        "wires": [
+            [
+                "d753082b.d4e938"
+            ]
+        ]
+    },
+    {
+        "id": "d753082b.d4e938",
+        "type": "json",
+        "z": "cb95b8f7.9b4968",
+        "name": "",
+        "property": "payload",
+        "action": "str",
+        "pretty": false,
+        "x": 4589.6670570373535,
+        "y": 4268.333474159241,
+        "wires": [
+            [
+                "9dfefd7c.120e2"
+            ]
+        ]
+    },
+    {
+        "id": "9d444e4c.f8d75",
+        "type": "ui_slider",
+        "z": "cb95b8f7.9b4968",
+        "name": "",
+        "label": "Iluminación",
+        "tooltip": "",
+        "group": "a5a62931.5d2068",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "outs": "all",
+        "topic": "",
+        "min": 0,
+        "max": "100",
+        "step": "25",
+        "x": 4079.667133331299,
+        "y": 4010.333565711975,
+        "wires": [
+            [
+                "8a126b80.7fff28"
+            ]
+        ]
+    },
+    {
+        "id": "8a126b80.7fff28",
+        "type": "function",
+        "z": "cb95b8f7.9b4968",
+        "name": "envio dashboard cocina",
+        "func": "if (msg.payload === 0)\nmsg.payload = {\"level\": 0}\n\nif (msg.payload == 25)\nmsg.payload = {\"level\": 25}\n\nif (msg.payload == 50)\nmsg.payload = {\"level\": 50}\n\nif (msg.payload == 75)\nmsg.payload = {\"level\": 75}\n\nif (msg.payload == 100)\nmsg.payload = {\"level\": 100}\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 4309.6671142578125,
+        "y": 4031.333466529846,
+        "wires": [
+            [
+                "87fda46.2528058"
+            ]
+        ]
+    },
+    {
+        "id": "87fda46.2528058",
+        "type": "json",
+        "z": "cb95b8f7.9b4968",
+        "name": "",
+        "property": "payload",
+        "action": "str",
+        "pretty": false,
+        "x": 4545.667053222656,
+        "y": 4034.333466529846,
+        "wires": [
+            [
+                "83e89818.620b18"
+            ]
+        ]
+    },
+    {
+        "id": "f3742edc.355cb",
+        "type": "ui_slider",
+        "z": "cb95b8f7.9b4968",
+        "name": "",
+        "label": "Iluminación",
+        "tooltip": "",
+        "group": "902a2b85.fdc318",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "outs": "all",
+        "topic": "",
+        "min": 0,
+        "max": "100",
+        "step": "25",
+        "x": 4047.667453765869,
+        "y": 4519.333572387695,
+        "wires": [
+            [
+                "2b0ae29b.974f7e"
+            ]
+        ]
+    },
+    {
+        "id": "2b0ae29b.974f7e",
+        "type": "function",
+        "z": "cb95b8f7.9b4968",
+        "name": "envio dashboard habitacion",
+        "func": "if (msg.payload === 0)\nmsg.payload = {\"level\": 0}\n\nif (msg.payload == 25)\nmsg.payload = {\"level\": 25}\n\nif (msg.payload == 50)\nmsg.payload = {\"level\": 50}\n\nif (msg.payload == 75)\nmsg.payload = {\"level\": 75}\n\nif (msg.payload == 100)\nmsg.payload = {\"level\": 100}\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 4287.667434692383,
+        "y": 4540.333473205566,
+        "wires": [
+            [
+                "6b725be.8c546a4"
+            ]
+        ]
+    },
+    {
+        "id": "6b725be.8c546a4",
+        "type": "json",
+        "z": "cb95b8f7.9b4968",
+        "name": "",
+        "property": "payload",
+        "action": "str",
+        "pretty": false,
+        "x": 4513.667373657227,
+        "y": 4543.333473205566,
+        "wires": [
+            [
+                "8afe0627.e0ecb8"
+            ]
+        ]
+    },
+    {
+        "id": "f5e4e3b0.bc7fb",
+        "type": "ui_slider",
+        "z": "cb95b8f7.9b4968",
+        "name": "",
+        "label": "Iluminación",
+        "tooltip": "",
+        "group": "447ab144.14912",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "outs": "all",
+        "topic": "",
+        "min": 0,
+        "max": "100",
+        "step": "25",
+        "x": 4003.667434692383,
+        "y": 4716.333469390869,
+        "wires": [
+            [
+                "f74eb208.42cc7"
+            ]
+        ]
+    },
+    {
+        "id": "f74eb208.42cc7",
+        "type": "function",
+        "z": "cb95b8f7.9b4968",
+        "name": "envio dashboard baño",
+        "func": "if (msg.payload === 0)\nmsg.payload = {\"level\": 0}\n\nif (msg.payload == 25)\nmsg.payload = {\"level\": 25}\n\nif (msg.payload == 50)\nmsg.payload = {\"level\": 50}\n\nif (msg.payload == 75)\nmsg.payload = {\"level\": 75}\n\nif (msg.payload == 100)\nmsg.payload = {\"level\": 100}\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 4221.6674156188965,
+        "y": 4748.333368301392,
+        "wires": [
+            [
+                "a8ea8d54.d8d07"
+            ]
+        ]
+    },
+    {
+        "id": "a8ea8d54.d8d07",
+        "type": "json",
+        "z": "cb95b8f7.9b4968",
+        "name": "",
+        "property": "payload",
+        "action": "str",
+        "pretty": false,
+        "x": 4467.66735458374,
+        "y": 4751.333368301392,
+        "wires": [
+            [
+                "ecd0a62f.f3ce88"
+            ]
+        ]
+    },
+    {
+        "id": "83e89818.620b18",
+        "type": "mqtt out",
+        "z": "cb95b8f7.9b4968",
+        "name": "",
+        "topic": "infind/GRUPO2/ESP145/led/cmd/cocina",
+        "qos": "",
+        "retain": "",
+        "broker": "11f84db6.06eda2",
+        "x": 4804.6670570373535,
+        "y": 4032.333484649658,
+        "wires": []
+    },
+    {
+        "id": "8afe0627.e0ecb8",
+        "type": "mqtt out",
+        "z": "cb95b8f7.9b4968",
+        "name": "",
+        "topic": "infind/GRUPO2/led/cmd/habitacion",
+        "qos": "",
+        "retain": "",
+        "broker": "11f84db6.06eda2",
+        "x": 4757.667392730713,
+        "y": 4544.333572387695,
+        "wires": []
+    },
+    {
+        "id": "ecd0a62f.f3ce88",
+        "type": "mqtt out",
+        "z": "cb95b8f7.9b4968",
+        "name": "",
+        "topic": "infind/GRUPO2/led/cmd/wc",
+        "qos": "",
+        "retain": "",
+        "broker": "11f84db6.06eda2",
+        "x": 4705.667373657227,
+        "y": 4760.3334674835205,
+        "wires": []
+    },
+    {
+        "id": "9dfefd7c.120e2",
+        "type": "mqtt out",
+        "z": "cb95b8f7.9b4968",
+        "name": "",
+        "topic": "infind/GRUPO2/ESP47/led/cmd/salon",
+        "qos": "",
+        "retain": "",
+        "broker": "11f84db6.06eda2",
+        "x": 4830.667022705078,
+        "y": 4272.333373069763,
+        "wires": []
+    },
+    {
+        "id": "a56bb1fb.e22ce",
+        "type": "comment",
+        "z": "cb95b8f7.9b4968",
+        "name": "Habitación",
+        "info": "",
+        "x": 4385.098762512207,
+        "y": 4340.000128746033,
+        "wires": []
+    },
+    {
+        "id": "683b4f2.0eef0b",
+        "type": "ui_gauge",
+        "z": "cb95b8f7.9b4968",
+        "name": "",
+        "group": "902a2b85.fdc318",
+        "order": 1,
+        "width": "4",
+        "height": "3",
+        "gtype": "gage",
+        "title": "Temperatura",
+        "label": "°C",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "x": 4723.098960876465,
+        "y": 4350.856770515442,
+        "wires": []
+    },
+    {
+        "id": "e43b688f.c23d78",
+        "type": "ui_gauge",
+        "z": "cb95b8f7.9b4968",
+        "name": "",
+        "group": "902a2b85.fdc318",
+        "order": 2,
+        "width": "3",
+        "height": "3",
+        "gtype": "wave",
+        "title": "Humedad",
+        "label": "%",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "x": 4713.0986404418945,
+        "y": 4396.856771469116,
+        "wires": []
+    },
+    {
+        "id": "11bf83e6.fc9e6c",
+        "type": "function",
+        "z": "cb95b8f7.9b4968",
+        "name": "Temp/Hum habitacion",
+        "func": "var temp=msg.payload.DHT11.temp;\nvar hum=msg.payload.DHT11.hum;\nvar led=msg.payload.LED;\n\nmsg1={\"payload\":temp, \"topic\": \"Temperatura\"};\nmsg2={\"payload\":hum, \"topic\": \"Humedad\"};\nmsg3={\"payload\":led, \"topic\": \"level\"};\n\n\nreturn [msg1,msg2,msg3];",
+        "outputs": 3,
+        "noerr": 0,
+        "x": 4274.0987548828125,
+        "y": 4400.000782012939,
+        "wires": [
+            [
+                "683b4f2.0eef0b"
+            ],
+            [
+                "e43b688f.c23d78"
+            ],
+            [
+                "d64864d9.60fd18",
+                "f3742edc.355cb"
+            ]
+        ]
+    },
+    {
+        "id": "ab6c18be.25a608",
+        "type": "link in",
+        "z": "cb95b8f7.9b4968",
+        "name": "habitacion",
+        "links": [
+            "6b1bace2.f41fe4"
+        ],
+        "x": 4089.7120361328125,
+        "y": 4388.660938262939,
+        "wires": [
+            [
+                "11bf83e6.fc9e6c"
+            ]
+        ]
+    },
+    {
+        "id": "d64864d9.60fd18",
+        "type": "ui_gauge",
+        "z": "cb95b8f7.9b4968",
+        "name": "",
+        "group": "902a2b85.fdc318",
+        "order": 3,
+        "width": "3",
+        "height": "3",
+        "gtype": "compass",
+        "title": "Iluminacion",
+        "label": "%",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "x": 4722.666229248047,
+        "y": 4453.749702453613,
+        "wires": []
+    },
+    {
+        "id": "6b1bace2.f41fe4",
+        "type": "link out",
+        "z": "cb95b8f7.9b4968",
+        "name": "habitacion",
+        "links": [
+            "ab6c18be.25a608"
+        ],
+        "x": 685,
+        "y": 3935.666748046875,
+        "wires": []
+    },
+    {
+        "id": "f7675c4e.40c6e",
+        "type": "mqtt in",
+        "z": "cb95b8f7.9b4968",
+        "name": "",
+        "topic": "infind/GRUPO2/ESP145/Peligro/cocina",
+        "qos": "2",
+        "broker": "8fab76dc.3e75b8",
+        "x": 363.66666412353516,
+        "y": 4554.000135421753,
+        "wires": [
+            [
+                "bb0eeddb.2ad7"
+            ]
+        ]
+    },
+    {
+        "id": "bb0eeddb.2ad7",
+        "type": "json",
+        "z": "cb95b8f7.9b4968",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 600.6667022705078,
+        "y": 4553.000135421753,
+        "wires": [
+            [
+                "4992c3d4.12d01c",
+                "774fc63b.8ccba8",
+                "3dbb683.44e2298",
+                "b9106d54.92888"
+            ]
+        ]
+    },
+    {
+        "id": "4992c3d4.12d01c",
+        "type": "function",
+        "z": "cb95b8f7.9b4968",
+        "name": "Respuesta gases",
+        "func": "var CO=msg.payload.CO\nvar LPG=msg.payload.LPG\nvar Humo=msg.payload.Humo\n\n\nif (CO == 1)\nmsg1 = {\"payload\":\"peligro bajo de CO\"}\nif (CO == 2)\nmsg1 = {\"payload\":\"peligro medio de CO\"}\nif (CO == 3)\nmsg1 = {\"payload\":\"peligro alto de CO\"}\n\n\nif (LPG == 1)\nmsg2 = {\"payload\" : \"peligro bajo de LPG\"}\nif (LPG == 2)\nmsg2 = {\"payload\" : \"peligro medio de LPG\"}\nif (LPG == 3)\nmsg2 = {\"payload\" : \"peligro alto de LPG\"}\n\n\nif (Humo == 1)\nmsg3 = {\"payload\" : \"peligro bajo de Humo\"}\nif (Humo == 2)\nmsg3 = {\"payload\" : \"peligro medio de Humo\"}\nif (Humo == 3)\nmsg3 = {\"payload\" : \"peligro alto de Humo\"}\nif (CO!==0 || Humo !==0 || LPG!==0)\nreturn [msg1,msg2,msg3];",
+        "outputs": 3,
+        "noerr": 0,
+        "x": 815.5000305175781,
+        "y": 4554.33341217041,
+        "wires": [
+            [
+                "467d82e6.1802ac"
+            ],
+            [
+                "467d82e6.1802ac"
+            ],
+            [
+                "467d82e6.1802ac"
+            ]
+        ]
+    },
+    {
+        "id": "467d82e6.1802ac",
+        "type": "telegrambot-notify",
+        "z": "cb95b8f7.9b4968",
+        "name": "",
+        "bot": "407d7e26.e9903",
+        "chatId": "-487674790",
+        "message": "",
+        "parseMode": "",
+        "x": 1077.6666564941406,
+        "y": 4551.333631515503,
+        "wires": []
+    },
+    {
+        "id": "774fc63b.8ccba8",
+        "type": "function",
+        "z": "cb95b8f7.9b4968",
+        "name": "Respuesta CO",
+        "func": "var CO=msg.payload.CO\n\nif (CO === 0)\nmsg.payload = 0\nif (CO == 1)\nmsg.payload = 1\nif (CO == 2)\nmsg.payload = 2\nif (CO == 3)\nmsg.payload = 3\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 802.6666870117188,
+        "y": 4618,
+        "wires": [
+            [
+                "3989e89.2d5f318"
+            ]
+        ]
+    },
+    {
+        "id": "3989e89.2d5f318",
+        "type": "ui_led",
+        "z": "cb95b8f7.9b4968",
+        "group": "a5a62931.5d2068",
+        "order": 4,
+        "width": "2",
+        "height": "2",
+        "label": "CO",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "red",
+                "value": "3",
+                "valueType": "num"
+            },
+            {
+                "color": "orange",
+                "value": "2",
+                "valueType": "num"
+            },
+            {
+                "color": "yellow",
+                "value": "1",
+                "valueType": "num"
+            },
+            {
+                "color": "green",
+                "value": "0",
+                "valueType": "num"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "name": "",
+        "x": 996.6667175292969,
+        "y": 4614.000299453735,
+        "wires": []
+    },
+    {
+        "id": "3dbb683.44e2298",
+        "type": "function",
+        "z": "cb95b8f7.9b4968",
+        "name": "respuesta LPG",
+        "func": "var LPG=msg.payload.LPG\n\nif (LPG === 0)\nmsg.payload = 0\nif (LPG == 1)\nmsg.payload = 1\nif (LPG == 2)\nmsg.payload = 2\nif (LPG == 3)\nmsg.payload = 3\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 810.5000419616699,
+        "y": 4657.3336353302,
+        "wires": [
+            [
+                "1c1e317a.47347f"
+            ]
+        ]
+    },
+    {
+        "id": "1c1e317a.47347f",
+        "type": "ui_led",
+        "z": "cb95b8f7.9b4968",
+        "group": "a5a62931.5d2068",
+        "order": 4,
+        "width": "2",
+        "height": "2",
+        "label": "LPG",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "red",
+                "value": "3",
+                "valueType": "num"
+            },
+            {
+                "color": "orange",
+                "value": "2",
+                "valueType": "num"
+            },
+            {
+                "color": "yellow",
+                "value": "1",
+                "valueType": "num"
+            },
+            {
+                "color": "green",
+                "value": "0",
+                "valueType": "num"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "name": "",
+        "x": 993.6667175292969,
+        "y": 4652.3336353302,
+        "wires": []
+    },
+    {
+        "id": "b9106d54.92888",
+        "type": "function",
+        "z": "cb95b8f7.9b4968",
+        "name": "respuesta HUMO",
+        "func": "var HUMO=msg.payload.Humo\n\nif (HUMO === 0)\nmsg.payload = 0\nif (HUMO == 1)\nmsg.payload = 1\nif (HUMO == 2)\nmsg.payload = 2\nif (HUMO == 3)\nmsg.payload = 3\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 823.6667098999023,
+        "y": 4697.3336353302,
+        "wires": [
+            [
+                "4a595e17.8f31d"
+            ]
+        ]
+    },
+    {
+        "id": "4a595e17.8f31d",
+        "type": "ui_led",
+        "z": "cb95b8f7.9b4968",
+        "group": "a5a62931.5d2068",
+        "order": 4,
+        "width": "2",
+        "height": "2",
+        "label": "LPG",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "red",
+                "value": "3",
+                "valueType": "num"
+            },
+            {
+                "color": "orange",
+                "value": "2",
+                "valueType": "num"
+            },
+            {
+                "color": "yellow",
+                "value": "1",
+                "valueType": "num"
+            },
+            {
+                "color": "green",
+                "value": "0",
+                "valueType": "num"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "name": "",
+        "x": 989.6667175292969,
+        "y": 4698.333637237549,
+        "wires": []
+    },
+    {
         "id": "407d7e26.e9903",
         "type": "telegrambot-config",
         "z": "",
@@ -5517,6 +6354,28 @@
         "name": "Salón",
         "tab": "982d2b31.2094f8",
         "order": 3,
+        "disp": true,
+        "width": "12",
+        "collapse": false
+    },
+    {
+        "id": "902a2b85.fdc318",
+        "type": "ui_group",
+        "z": "",
+        "name": "Habitación",
+        "tab": "982d2b31.2094f8",
+        "order": 2,
+        "disp": true,
+        "width": "12",
+        "collapse": false
+    },
+    {
+        "id": "447ab144.14912",
+        "type": "ui_group",
+        "z": "",
+        "name": "Baño",
+        "tab": "982d2b31.2094f8",
+        "order": 5,
         "disp": true,
         "width": "12",
         "collapse": false
