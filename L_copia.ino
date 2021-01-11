@@ -154,7 +154,6 @@ unsigned long lastAct = 0; // última
 unsigned long lastMsg = 0; // último mensaje para datos enviado
 volatile bool actualiza = false; 
 bool cuenta_pulsos=true;
-bool pulsaciones=false;
 
 unsigned long inicio = 0; 
 int cont=0;
@@ -225,8 +224,8 @@ String serializa_JSON (struct registro_conexion estado)
   String jsonString;
   
 
-  jsonRoot["CHIPID:"] = estado.CHIPI;
-  jsonRoot["online:"] = estado.conexion;
+  jsonRoot["CHIPID"] = estado.CHIPI;
+  jsonRoot["online"] = estado.conexion;
   
   return JSON.stringify(jsonRoot);
 }
@@ -239,7 +238,7 @@ String serializa_JSONact (struct registro_actualizacion estado_act)
   String jsonString;
   
 
-  jsonRoot["actualiza:"] = estado_act.actualizacion;
+  jsonRoot["actualiza"] = estado_act.actualizacion;
   
   return JSON.stringify(jsonRoot);
 }
@@ -337,6 +336,8 @@ void setup_wifi() {
 
 //Bucle de conexion MQTT
 void reconnect() {
+  struct registro_conexion estado;          // Declaramos la estructura para conexión (json)
+  struct registro_actualizacion estado_act; // Declaramos la estructura para actualización (json)
   // Permanecemos en el bucle hasta que nos reconectemos
   while (!client.connected()) {
     Serial.print("Attempting MQTT connection...");
@@ -344,22 +345,21 @@ void reconnect() {
     String clientId = "ESP8266Client-";
     clientId += String(ESP.getChipId()) ;
     // Esperamos a conexión
-    struct registro_conexion estado; // Declaramos la estructura para conexión (json)
-    struct registro_actualizacion estado_act; // Declaramos la estructura para actualización (json)
-    estado.conexion=false; // Inicialmente, no hemos establecido conexión
+    estado.conexion=false;          // Inicialmente, no hemos establecido conexión
+    estado.CHIPI=ESP.getChipId();
     estado_act.actualizacion=false; // No se ha actualizado aún
     
     if (client.connect(clientId.c_str(),"infind","zancudo","infind/GRUPO2/ESP47/conexion/salon",0,true,serializa_JSON(estado).c_str())) {
       Serial.println("connected"); // Estaremos conectados. Usuario: infind. Contraseña: zancudo. 
       estado.CHIPI=ESP.getChipId();
       estado.conexion = true;
-      //"{\"online\":false}"
+     
      client.publish("infind/GRUPO2/ESP47/conexion/salon",serializa_JSON(estado).c_str(),true); // Publicamos por el topic correspondiente el estado de conexión
      client.subscribe("infind/GRUPO2/ESP47/FOTA");              //Me suscribo al topic de comprobación de actualizaciones
      client.subscribe("infind/GRUPO2/ESP47/led/cmd/salon");     //Me suscribo al topic del estado del GPIO 2
      client.subscribe("infind/GRUPO2/ESP47/switch/cmd/salon");  //Me suscribo al topic del estado del GPIO 16
 
-     client.subscribe("infind/GRUPO2/ESP47/config/cmd/salon"); //Me suscribo al topic del estado del led
+     client.subscribe("infind/GRUPO2/ESP47/config/cmd/salon"); //Me suscribo al topic de configuración
     } else { // En caso de no haber establecido conexión, reintenta a los 5 segundos
       Serial.print("failed, rc=");
       Serial.print(client.state());
@@ -578,11 +578,13 @@ void callback(char* topic, byte* payload, unsigned int length) {
 void setup() {
   struct registro_actualizacion estado_act; // Declaramos la estructura para actualización (json)
   struct registro_distancia laser;
+  struct registro_conexion estado; // Declaramos la estructura para conexión (json)
+     
   laser.estado_sensor="Fallo al iniciar";
-  pinMode(BUILTIN_LED, OUTPUT);    // Inicializamos el pin BUILTIN_LED como salida
-  pinMode(LED_Secundario, OUTPUT); // Inicializamos el pin LED_Secundario como salida
-  digitalWrite(LED_Secundario, LOW);
-  digitalWrite(BUILTIN_LED, LOW);
+  pinMode(BUILTIN_LED, OUTPUT);       // Inicializamos el pin BUILTIN_LED como salida
+  pinMode(LED_Secundario, OUTPUT);    // Inicializamos el pin LED_Secundario como salida
+  digitalWrite(LED_Secundario, LOW);  // Encendemos inicialmente ambos LEDs
+  analogWrite(BUILTIN_LED, 1023);
   Serial.begin(9600);
   setup_wifi();
   // OTA -> Actualizamos al empezar
@@ -592,9 +594,12 @@ void setup() {
       Serial.println( "--------------------------" );  
       ESPhttpUpdate.setLedPin(16,LOW);
       ESPhttpUpdate.onStart(inicio_OTA);
+      estado.conexion=false;
+      client.publish("infind/GRUPO2/ESP47/conexion/salon",serializa_JSON(estado).c_str(),true); // Publicamos por el topic de conexión que nos hemos desconectado debido a la actualización
       ESPhttpUpdate.onError(error_OTA);
       ESPhttpUpdate.onProgress(progreso_OTA);
       ESPhttpUpdate.onEnd(final_OTA);
+     
       switch(ESPhttpUpdate.update(HTTP_OTA_ADDRESS, HTTP_OTA_PORT, HTTP_OTA_PATH, HTTP_OTA_VERSION)) {
         case HTTP_UPDATE_FAILED:
           Serial.printf(" HTTP update failed: Error (%d): %s\n", ESPhttpUpdate.getLastError(), ESPhttpUpdate.getLastErrorString().c_str());
@@ -688,12 +693,12 @@ void loop() {
       Serial.print(ahora-penultima_int);
       Serial.println(" ms");
       cont++; // Se ha dado un pulso 
-      if (ahora-penultima_int < 2000) // Si NO haya actualización, se estudian las pulsaciones
+      if (ahora-penultima_int > 2000) // Si NO haya actualización, se estudian las pulsaciones
       {
-        pulsaciones=true;
-      }
-      else // Si se mantiene +2seg pulsado, se habilita la señal que permite actualizar
+        // Si se mantiene +2seg pulsado, se habilita la señal que permite actualizar
         actualiza=true;
+        cont=0;
+      }
     }
     interrupcion=false; // Desabilitamos la interrupción hasta que vuelva a haber una llamada a la misma
     
