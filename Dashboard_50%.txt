@@ -2,7 +2,7 @@
     {
         "id": "83d34779.b1ac98",
         "type": "tab",
-        "label": "Flow 5",
+        "label": "Domotic Home",
         "disabled": false,
         "info": ""
     },
@@ -28,8 +28,8 @@
         ],
         "seg1": "",
         "seg2": "",
-        "x": 791.4286193847656,
-        "y": 195.71428632736206,
+        "x": 1658.678638458252,
+        "y": 135.00000061307634,
         "wires": []
     },
     {
@@ -54,8 +54,8 @@
         ],
         "seg1": "",
         "seg2": "",
-        "x": 788.4285888671875,
-        "y": 152.2857208251953,
+        "x": 1655.6786079406738,
+        "y": 91.57143511090959,
         "wires": []
     },
     {
@@ -64,8 +64,8 @@
         "z": "83d34779.b1ac98",
         "name": "Cocina",
         "info": "",
-        "x": 375.7142906188965,
-        "y": 81.42856788635254,
+        "x": 750.2143039703369,
+        "y": 23.928569793701172,
         "wires": []
     },
     {
@@ -74,8 +74,8 @@
         "z": "83d34779.b1ac98",
         "name": "Habitación",
         "info": "",
-        "x": 791.4285714285713,
-        "y": 75.71428571428571,
+        "x": 1664.928611755371,
+        "y": 25.000000953674316,
         "wires": []
     },
     {
@@ -84,8 +84,8 @@
         "z": "83d34779.b1ac98",
         "name": "Baño",
         "info": "",
-        "x": 361.1428527832031,
-        "y": 470.8571472167969,
+        "x": 762.809513092041,
+        "y": 455.8571357727051,
         "wires": []
     },
     {
@@ -94,8 +94,8 @@
         "z": "83d34779.b1ac98",
         "name": "Salón",
         "info": "",
-        "x": 787,
-        "y": 385.1428527832031,
+        "x": 1688.6666717529297,
+        "y": 393.4762020111084,
         "wires": []
     },
     {
@@ -110,8 +110,8 @@
         "label": "Registro de temperaturas",
         "format": "{{msg.payload}}",
         "layout": "col-center",
-        "x": 420,
-        "y": 965.7142944335938,
+        "x": 874.9999771118164,
+        "y": 962.3809585571289,
         "wires": []
     },
     {
@@ -131,8 +131,8 @@
         "min": 0,
         "max": 10,
         "step": 1,
-        "x": 811,
-        "y": 241,
+        "x": 1678.2500190734863,
+        "y": 180.28571428571428,
         "wires": [
             []
         ]
@@ -149,8 +149,8 @@
         "label": "Temperatura",
         "format": "{{msg.payload}}",
         "layout": "col-center",
-        "x": 812,
-        "y": 286,
+        "x": 1679.2500190734863,
+        "y": 225.28571428571428,
         "wires": []
     },
     {
@@ -165,8 +165,8 @@
         "label": "Humedad",
         "format": "{{msg.payload}}",
         "layout": "col-center",
-        "x": 798,
-        "y": 323,
+        "x": 1665.2500190734863,
+        "y": 262.2857142857143,
         "wires": []
     },
     {
@@ -186,8 +186,8 @@
         "min": 0,
         "max": 10,
         "step": 1,
-        "x": 810,
-        "y": 518,
+        "x": 1711.6666717529297,
+        "y": 526.3333492279053,
         "wires": [
             []
         ]
@@ -204,8 +204,8 @@
         "label": "Temperatura ",
         "format": "{{msg.payload}}",
         "layout": "col-center",
-        "x": 812,
-        "y": 557,
+        "x": 1713.6666717529297,
+        "y": 565.3333492279053,
         "wires": []
     },
     {
@@ -230,8 +230,8 @@
         ],
         "seg1": "",
         "seg2": "",
-        "x": 796,
-        "y": 433,
+        "x": 1697.6666717529297,
+        "y": 441.3333492279053,
         "wires": []
     },
     {
@@ -256,8 +256,8 @@
         ],
         "seg1": "",
         "seg2": "",
-        "x": 794,
-        "y": 476,
+        "x": 1695.6666717529297,
+        "y": 484.3333492279053,
         "wires": []
     },
     {
@@ -272,8 +272,8 @@
         "label": "Humedad",
         "format": "{{msg.payload}}",
         "layout": "col-center",
-        "x": 798,
-        "y": 598,
+        "x": 1699.6666717529297,
+        "y": 606.3333492279053,
         "wires": []
     },
     {
@@ -301,8 +301,8 @@
         ],
         "allowColorForValueInMessage": false,
         "name": "",
-        "x": 794,
-        "y": 652,
+        "x": 1695.6666717529297,
+        "y": 660.3333492279053,
         "wires": []
     },
     {
@@ -317,8 +317,8 @@
         "label": "Puerta abierta",
         "format": "{{msg.payload}}",
         "layout": "row-left",
-        "x": 816,
-        "y": 699,
+        "x": 1717.6666717529297,
+        "y": 707.3333492279053,
         "wires": []
     },
     {
@@ -346,8 +346,8 @@
         ],
         "allowColorForValueInMessage": false,
         "name": "",
-        "x": 796,
-        "y": 777,
+        "x": 1697.6666717529297,
+        "y": 785.3333492279053,
         "wires": []
     },
     {
@@ -362,8 +362,8 @@
         "label": "Puerta cerrada",
         "format": "{{msg.payload}}",
         "layout": "row-left",
-        "x": 817,
-        "y": 826,
+        "x": 1718.6666717529297,
+        "y": 834.3333492279053,
         "wires": []
     },
     {
@@ -388,8 +388,8 @@
         ],
         "seg1": "",
         "seg2": "",
-        "x": 369,
-        "y": 126,
+        "x": 743.5000133514404,
+        "y": 68.50000190734863,
         "wires": []
     },
     {
@@ -414,8 +414,8 @@
         ],
         "seg1": "",
         "seg2": "",
-        "x": 365,
-        "y": 176,
+        "x": 739.5000133514404,
+        "y": 118.50000190734863,
         "wires": []
     },
     {
@@ -430,8 +430,8 @@
         "label": "Temperatura",
         "format": "{{msg.payload}}",
         "layout": "col-center",
-        "x": 383,
-        "y": 224,
+        "x": 757.5000133514404,
+        "y": 166.50000190734863,
         "wires": []
     },
     {
@@ -446,8 +446,8 @@
         "label": "Humedad",
         "format": "{{msg.payload}}",
         "layout": "col-center",
-        "x": 369,
-        "y": 261,
+        "x": 743.5000133514404,
+        "y": 203.50000190734863,
         "wires": []
     },
     {
@@ -475,8 +475,8 @@
         ],
         "allowColorForValueInMessage": false,
         "name": "",
-        "x": 361,
-        "y": 306,
+        "x": 735.5000133514404,
+        "y": 248.50000190734863,
         "wires": []
     },
     {
@@ -491,8 +491,8 @@
         "label": "Air cuality",
         "format": "{{msg.payload}}",
         "layout": "row-left",
-        "x": 362,
-        "y": 363,
+        "x": 736.5000133514404,
+        "y": 305.50000190734863,
         "wires": []
     },
     {
@@ -512,8 +512,8 @@
         "min": 0,
         "max": 10,
         "step": 1,
-        "x": 371,
-        "y": 407,
+        "x": 745.5000133514404,
+        "y": 349.50000190734863,
         "wires": [
             []
         ]
@@ -540,8 +540,8 @@
         ],
         "seg1": "",
         "seg2": "",
-        "x": 362,
-        "y": 570.9999766349792,
+        "x": 763.6666603088379,
+        "y": 555.9999651908875,
         "wires": []
     },
     {
@@ -566,8 +566,8 @@
         ],
         "seg1": "",
         "seg2": "",
-        "x": 358.9999694824219,
-        "y": 527.5714111328125,
+        "x": 760.6666297912598,
+        "y": 512.5713996887207,
         "wires": []
     },
     {
@@ -587,8 +587,8 @@
         "min": 0,
         "max": 10,
         "step": 1,
-        "x": 381.5713806152344,
-        "y": 616.2856903076172,
+        "x": 783.2380409240723,
+        "y": 601.2856788635254,
         "wires": [
             []
         ]
@@ -605,8 +605,8 @@
         "label": "Temperatura",
         "format": "{{msg.payload}}",
         "layout": "col-center",
-        "x": 382.5713806152344,
-        "y": 661.2856903076172,
+        "x": 784.2380409240723,
+        "y": 646.2856788635254,
         "wires": []
     },
     {
@@ -621,8 +621,8 @@
         "label": "Humedad",
         "format": "{{msg.payload}}",
         "layout": "col-center",
-        "x": 368.5713806152344,
-        "y": 698.2856903076172,
+        "x": 770.2380409240723,
+        "y": 683.2856788635254,
         "wires": []
     },
     {
@@ -631,8 +631,8 @@
         "z": "83d34779.b1ac98",
         "name": "Historico",
         "info": "",
-        "x": 366,
-        "y": 910,
+        "x": 820.9999771118164,
+        "y": 906.6666641235352,
         "wires": []
     },
     {
@@ -642,8 +642,8 @@
         "name": "",
         "group": "3d14af57.f7189",
         "order": 2,
-        "width": 0,
-        "height": 0,
+        "width": "7",
+        "height": "5",
         "label": "chart",
         "chartType": "line",
         "legend": "false",
@@ -670,8 +670,8 @@
             "#c5b0d5"
         ],
         "useOldStyle": false,
-        "x": 366,
-        "y": 1015,
+        "x": 820.9999771118164,
+        "y": 1011.6666641235352,
         "wires": [
             [],
             []
@@ -689,29 +689,9 @@
         "label": "Registro de humedad",
         "format": "{{msg.payload}}",
         "layout": "col-center",
-        "x": 414,
-        "y": 1072,
+        "x": 868.9999771118164,
+        "y": 1068.6666641235352,
         "wires": []
-    },
-    {
-        "id": "305e0ee1.6a3882",
-        "type": "inject",
-        "z": "83d34779.b1ac98",
-        "name": "",
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "x": 184,
-        "y": 1007,
-        "wires": [
-            [
-                "9f0d4d79.6b617"
-            ]
-        ]
     },
     {
         "id": "1711d0a4.117dff",
@@ -720,8 +700,8 @@
         "name": "",
         "group": "6cc38041.a7c5d",
         "order": 2,
-        "width": 0,
-        "height": 0,
+        "width": "7",
+        "height": "5",
         "label": "chart",
         "chartType": "line",
         "legend": "false",
@@ -748,30 +728,693 @@
             "#c5b0d5"
         ],
         "useOldStyle": false,
-        "x": 364,
-        "y": 1131,
+        "x": 818.9999771118164,
+        "y": 1127.6666641235352,
         "wires": [
             [],
             []
         ]
     },
     {
-        "id": "307987ad.b4e448",
-        "type": "inject",
+        "id": "2efcd7e4.9958b8",
+        "type": "mqtt in",
         "z": "83d34779.b1ac98",
         "name": "",
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "x": 182,
-        "y": 1127,
+        "topic": "infind/GRUPO2/ESP230/datos/habitacion",
+        "qos": "2",
+        "broker": "87098068.e4e09",
+        "x": 1006.7500152587891,
+        "y": 130.25000190734863,
         "wires": [
             [
+                "e2907cf7.da3ce"
+            ]
+        ]
+    },
+    {
+        "id": "e2907cf7.da3ce",
+        "type": "json",
+        "z": "83d34779.b1ac98",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 1251.2500114440918,
+        "y": 127.75000095367432,
+        "wires": [
+            [
+                "754e6cf5.0f9a74",
+                "89a659e2.9f65e8"
+            ]
+        ]
+    },
+    {
+        "id": "754e6cf5.0f9a74",
+        "type": "function",
+        "z": "83d34779.b1ac98",
+        "name": "Toma datos",
+        "func": "var temp={\"payload\":msg.payload.DHT11.temp};\nvar hum={\"payload\":msg.payload.DHT11.hum};\nvar wifi={\"payload\":msg.payload.Wifi.ip};\nvar led={\"payload\":msg.payload.LED};\n\nreturn [temp, hum, wifi, led];  ",
+        "outputs": 4,
+        "noerr": 0,
+        "x": 1449.0000114440918,
+        "y": 135.50000190734863,
+        "wires": [
+            [
+                "73ac9fb4.caa91"
+            ],
+            [
+                "a6dbfd3a.33c42"
+            ],
+            [],
+            [
+                "8701d19f.5dd0e"
+            ]
+        ]
+    },
+    {
+        "id": "89a659e2.9f65e8",
+        "type": "debug",
+        "z": "83d34779.b1ac98",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 1446.000015258789,
+        "y": 203.00000381469727,
+        "wires": []
+    },
+    {
+        "id": "3e7d9cd9.4e8bd4",
+        "type": "mqtt in",
+        "z": "83d34779.b1ac98",
+        "name": "",
+        "topic": "infind/GRUPO2/ESP230/datos/habitacion",
+        "qos": "2",
+        "broker": "87098068.e4e09",
+        "x": 165,
+        "y": 160.00000667572021,
+        "wires": [
+            [
+                "33cccfa1.67433"
+            ]
+        ]
+    },
+    {
+        "id": "33cccfa1.67433",
+        "type": "json",
+        "z": "83d34779.b1ac98",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 337.00000381469727,
+        "y": 217.5000033378601,
+        "wires": [
+            [
+                "f757ebf5.d624c8",
+                "e3f3044e.ec91c8"
+            ]
+        ]
+    },
+    {
+        "id": "f757ebf5.d624c8",
+        "type": "function",
+        "z": "83d34779.b1ac98",
+        "name": "Toma datos",
+        "func": "var temp={\"payload\":msg.payload.DHT11.temp};\nvar hum={\"payload\":msg.payload.DHT11.hum};\nvar wifi={\"payload\":msg.payload.Wifi.ip};\nvar led={\"payload\":msg.payload.LED};\n\nreturn [temp, hum, wifi, led];  ",
+        "outputs": 4,
+        "noerr": 0,
+        "x": 509.75000762939453,
+        "y": 181.50000381469727,
+        "wires": [
+            [
+                "d00f1796.031328"
+            ],
+            [
+                "e79e8360.ccfc6"
+            ],
+            [],
+            [
+                "390d6bc7.0d7ae4"
+            ]
+        ]
+    },
+    {
+        "id": "e3f3044e.ec91c8",
+        "type": "debug",
+        "z": "83d34779.b1ac98",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 508.00000762939453,
+        "y": 256.50000381469727,
+        "wires": []
+    },
+    {
+        "id": "5ad3450b.f99e1c",
+        "type": "mqtt in",
+        "z": "83d34779.b1ac98",
+        "name": "",
+        "topic": "infind/GRUPO2/ESP230/datos/habitacion",
+        "qos": "2",
+        "broker": "87098068.e4e09",
+        "x": 165,
+        "y": 538.3333129882812,
+        "wires": [
+            [
+                "a54d1471.c43f88"
+            ]
+        ]
+    },
+    {
+        "id": "a54d1471.c43f88",
+        "type": "json",
+        "z": "83d34779.b1ac98",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 337.00000381469727,
+        "y": 595.8333096504211,
+        "wires": [
+            [
+                "8b195ef.56c54a",
+                "bf92c025.1c9bc"
+            ]
+        ]
+    },
+    {
+        "id": "8b195ef.56c54a",
+        "type": "function",
+        "z": "83d34779.b1ac98",
+        "name": "Toma datos",
+        "func": "var temp={\"payload\":msg.payload.DHT11.temp};\nvar hum={\"payload\":msg.payload.DHT11.hum};\nvar wifi={\"payload\":msg.payload.Wifi.ip};\nvar led={\"payload\":msg.payload.LED};\n\nreturn [temp, hum, wifi, led];  ",
+        "outputs": 4,
+        "noerr": 0,
+        "x": 509.75000762939453,
+        "y": 559.8333101272583,
+        "wires": [
+            [
+                "2b12b238.bbea8e"
+            ],
+            [
+                "518460af.0d4c1"
+            ],
+            [],
+            [
+                "fb869902.256718"
+            ]
+        ]
+    },
+    {
+        "id": "bf92c025.1c9bc",
+        "type": "debug",
+        "z": "83d34779.b1ac98",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 508.00000762939453,
+        "y": 634.8333101272583,
+        "wires": []
+    },
+    {
+        "id": "8e4b7e0b.b3c4f",
+        "type": "mqtt in",
+        "z": "83d34779.b1ac98",
+        "name": "",
+        "topic": "infind/GRUPO2/ESP230/datos/habitacion",
+        "qos": "2",
+        "broker": "87098068.e4e09",
+        "x": 1008.3333129882812,
+        "y": 553.3333129882812,
+        "wires": [
+            [
+                "8402bbbf.c6ced8"
+            ]
+        ]
+    },
+    {
+        "id": "8402bbbf.c6ced8",
+        "type": "json",
+        "z": "83d34779.b1ac98",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 1252.833309173584,
+        "y": 550.8333120346069,
+        "wires": [
+            [
+                "afd7db4b.8c6018",
+                "39403025.f149f"
+            ]
+        ]
+    },
+    {
+        "id": "afd7db4b.8c6018",
+        "type": "function",
+        "z": "83d34779.b1ac98",
+        "name": "Toma datos",
+        "func": "var temp={\"payload\":msg.payload.DHT11.temp};\nvar hum={\"payload\":msg.payload.DHT11.hum};\nvar wifi={\"payload\":msg.payload.Wifi.ip};\nvar led={\"payload\":msg.payload.LED};\n\nreturn [temp, hum, wifi, led];  ",
+        "outputs": 4,
+        "noerr": 0,
+        "x": 1450.583309173584,
+        "y": 558.5833129882812,
+        "wires": [
+            [
+                "cf7cfdd7.6312a"
+            ],
+            [
+                "f5b57c65.cbe3f"
+            ],
+            [],
+            [
+                "1ad2a784.af4b78"
+            ]
+        ]
+    },
+    {
+        "id": "39403025.f149f",
+        "type": "debug",
+        "z": "83d34779.b1ac98",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 1447.5833129882812,
+        "y": 626.0833148956299,
+        "wires": []
+    },
+    {
+        "id": "2cb0970.3e9896a",
+        "type": "mqtt in",
+        "z": "83d34779.b1ac98",
+        "name": "",
+        "topic": "infind/GRUPO2/ESP230/datos/habitacion",
+        "qos": "2",
+        "broker": "87098068.e4e09",
+        "x": 165,
+        "y": 934.9999370574951,
+        "wires": [
+            [
+                "9f9cf714.87ad28"
+            ]
+        ]
+    },
+    {
+        "id": "c16d568.b4ba4a8",
+        "type": "function",
+        "z": "83d34779.b1ac98",
+        "name": "Toma datos",
+        "func": "var temp={\"payload\":msg.payload.DHT11.temp};\nvar hum={\"payload\":msg.payload.DHT11.hum};\n\nreturn [temp, hum];  ",
+        "outputs": 2,
+        "noerr": 0,
+        "x": 493.3333053588867,
+        "y": 946.6666469573975,
+        "wires": [
+            [
+                "9f0d4d79.6b617"
+            ],
+            [
                 "1711d0a4.117dff"
+            ]
+        ]
+    },
+    {
+        "id": "9f9cf714.87ad28",
+        "type": "json",
+        "z": "83d34779.b1ac98",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 314.99998474121094,
+        "y": 994.9999961853027,
+        "wires": [
+            [
+                "c16d568.b4ba4a8"
+            ]
+        ]
+    },
+    {
+        "id": "48d09a1d.c15664",
+        "type": "mqtt in",
+        "z": "83d34779.b1ac98",
+        "name": "",
+        "topic": "infind/GRUPO2/ESP47/datos/salon",
+        "qos": "2",
+        "broker": "87098068.e4e09",
+        "x": 145,
+        "y": 1050.0000014305115,
+        "wires": [
+            [
+                "7936811e.77aac"
+            ]
+        ]
+    },
+    {
+        "id": "ed19ebc9.30faf8",
+        "type": "mqtt in",
+        "z": "83d34779.b1ac98",
+        "name": "",
+        "topic": "infind/GRUPO2/ESP145/datos/cocina",
+        "qos": "2",
+        "broker": "87098068.e4e09",
+        "x": 155,
+        "y": 1178.3334217071533,
+        "wires": [
+            [
+                "55a81129.76ae3"
+            ]
+        ]
+    },
+    {
+        "id": "7936811e.77aac",
+        "type": "json",
+        "z": "83d34779.b1ac98",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 296.66665267944336,
+        "y": 1103.3333759307861,
+        "wires": [
+            [
+                "2dc01a40.6a6336"
+            ]
+        ]
+    },
+    {
+        "id": "55a81129.76ae3",
+        "type": "json",
+        "z": "83d34779.b1ac98",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 293.333309173584,
+        "y": 1230.0000495910645,
+        "wires": [
+            [
+                "cf48adec.2d26e"
+            ]
+        ]
+    },
+    {
+        "id": "2dc01a40.6a6336",
+        "type": "function",
+        "z": "83d34779.b1ac98",
+        "name": "Toma datos",
+        "func": "var temp={\"payload\":msg.payload.DHT11.temp};\nvar hum={\"payload\":msg.payload.DHT11.hum};\n\nreturn [temp, hum];  ",
+        "outputs": 2,
+        "noerr": 0,
+        "x": 493.33331298828125,
+        "y": 1098.333251953125,
+        "wires": [
+            [
+                "9f0d4d79.6b617"
+            ],
+            [
+                "1711d0a4.117dff"
+            ]
+        ]
+    },
+    {
+        "id": "cf48adec.2d26e",
+        "type": "function",
+        "z": "83d34779.b1ac98",
+        "name": "Toma datos",
+        "func": "var temp={\"payload\":msg.payload.DHT11.temp};\nvar hum={\"payload\":msg.payload.DHT11.hum};\n\nreturn [temp, hum];  ",
+        "outputs": 2,
+        "noerr": 0,
+        "x": 483.33329010009766,
+        "y": 1226.6667556762695,
+        "wires": [
+            [
+                "9f0d4d79.6b617"
+            ],
+            [
+                "1711d0a4.117dff"
+            ]
+        ]
+    },
+    {
+        "id": "6ff0a528.130d9c",
+        "type": "debug",
+        "z": "83d34779.b1ac98",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 486.6666564941406,
+        "y": 1343.333251953125,
+        "wires": []
+    },
+    {
+        "id": "328f3cef.d1c384",
+        "type": "json",
+        "z": "83d34779.b1ac98",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 319.3333206176758,
+        "y": 1431.9998798370361,
+        "wires": [
+            [
+                "6ff0a528.130d9c",
+                "71665858.c277e8"
+            ]
+        ]
+    },
+    {
+        "id": "71665858.c277e8",
+        "type": "function",
+        "z": "83d34779.b1ac98",
+        "name": "añade fecha",
+        "func": "msg.payload.date=new Date();\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 507.55553436279297,
+        "y": 1452.9999599456787,
+        "wires": [
+            [
+                "2c3ac0a.6dc3c4"
+            ]
+        ]
+    },
+    {
+        "id": "696d546f.cea14c",
+        "type": "template",
+        "z": "83d34779.b1ac98",
+        "name": "lista en formato html",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": " <h1>Registros: </h1>\n <ul>\n{{#payload}}\n  <li>{{date}} : {{BME280.Temperatura }}ºC, {{BME280.Humedad}}% </li>\n{{/payload}}\n </ul>",
+        "output": "str",
+        "x": 842.5397033691406,
+        "y": 1759.5237770080566,
+        "wires": [
+            [
+                "ffe5267b.415c08"
+            ]
+        ]
+    },
+    {
+        "id": "ffe5267b.415c08",
+        "type": "ui_template",
+        "z": "83d34779.b1ac98",
+        "group": "2b29cd08.176ca2",
+        "name": "",
+        "order": 1,
+        "width": "12",
+        "height": "6",
+        "format": "<div ng-bind-html=\"msg.payload\"></div>",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "templateScope": "local",
+        "x": 1042.2539596557617,
+        "y": 1760.8096494674683,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "d4afd2b2.88b18",
+        "type": "ui_slider",
+        "z": "83d34779.b1ac98",
+        "name": "LimiteConsulta",
+        "label": "Limite de consulta",
+        "tooltip": "",
+        "group": "2b29cd08.176ca2",
+        "order": 2,
+        "width": "12",
+        "height": "1",
+        "passthru": true,
+        "outs": "end",
+        "topic": "",
+        "min": "1",
+        "max": "100",
+        "step": "2",
+        "x": 114.28570556640625,
+        "y": 1737.9365644454956,
+        "wires": [
+            [
+                "46de9c8e.0f06d4"
+            ]
+        ]
+    },
+    {
+        "id": "46de9c8e.0f06d4",
+        "type": "change",
+        "z": "83d34779.b1ac98",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "slider",
+                "pt": "global",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 382.49998474121094,
+        "y": 1719.6507091522217,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "2c3ac0a.6dc3c4",
+        "type": "mongodb out",
+        "z": "83d34779.b1ac98",
+        "mongodb": "e01616fa.3551d8",
+        "name": "",
+        "collection": "datos/GRUPO2_json",
+        "payonly": true,
+        "upsert": false,
+        "multi": false,
+        "operation": "store",
+        "x": 845.7142944335938,
+        "y": 1440,
+        "wires": []
+    },
+    {
+        "id": "dd7b1c05.e1c9f",
+        "type": "mqtt in",
+        "z": "83d34779.b1ac98",
+        "name": "",
+        "topic": "infind/GRUPO2/ESP230/datos/habitacion",
+        "qos": "2",
+        "broker": "87098068.e4e09",
+        "x": 171.42857360839844,
+        "y": 1332.8572082519531,
+        "wires": [
+            [
+                "328f3cef.d1c384"
+            ]
+        ]
+    },
+    {
+        "id": "3f6cd81.db04928",
+        "type": "mongodb in",
+        "z": "83d34779.b1ac98",
+        "mongodb": "853fd75f.ee7a98",
+        "name": "",
+        "collection": "datos/GRUPO2_json",
+        "operation": "find",
+        "x": 571.4286041259766,
+        "y": 1648.5714197158813,
+        "wires": [
+            [
+                "696d546f.cea14c"
+            ]
+        ]
+    },
+    {
+        "id": "54074004.fc145",
+        "type": "function",
+        "z": "83d34779.b1ac98",
+        "name": "",
+        "func": "msg.payload = {\"BME280.Temperatura\": {\"$gte\":global.get(\"temp\")}};\nmsg.limit = global.get(\"slider\");\nmsg.sort = {\"date\" : -1};\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 329.2857208251953,
+        "y": 1614.2857666015625,
+        "wires": [
+            [
+                "3f6cd81.db04928"
+            ]
+        ]
+    },
+    {
+        "id": "9ac2029b.98f73",
+        "type": "ui_button",
+        "z": "83d34779.b1ac98",
+        "name": "",
+        "group": "2b29cd08.176ca2",
+        "order": 3,
+        "width": "8",
+        "height": "2",
+        "passthru": false,
+        "label": "Consulta",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "",
+        "x": 79.28572082519531,
+        "y": 1614.2857666015625,
+        "wires": [
+            [
+                "54074004.fc145"
+            ]
+        ]
+    },
+    {
+        "id": "c855420d.587a6",
+        "type": "ui_button",
+        "z": "83d34779.b1ac98",
+        "name": "Consultar temperatura",
+        "group": "2b29cd08.176ca2",
+        "order": 3,
+        "width": "11",
+        "height": "2",
+        "passthru": false,
+        "label": "Consulta temperatura",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "",
+        "x": 106.28572082519531,
+        "y": 1686.2857666015625,
+        "wires": [
+            [
+                "54074004.fc145"
             ]
         ]
     },
@@ -842,6 +1485,57 @@
         "collapse": false
     },
     {
+        "id": "87098068.e4e09",
+        "type": "mqtt-broker",
+        "z": "",
+        "name": "",
+        "broker": "iot.ac.uma.es",
+        "port": "1883",
+        "clientid": "",
+        "usetls": false,
+        "compatmode": true,
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": ""
+    },
+    {
+        "id": "2b29cd08.176ca2",
+        "type": "ui_group",
+        "z": "",
+        "name": "HAHAHAHAHAAH",
+        "tab": "af9210b7.be72a",
+        "order": 1,
+        "disp": true,
+        "width": "24",
+        "collapse": false
+    },
+    {
+        "id": "e01616fa.3551d8",
+        "type": "mongodb",
+        "z": "",
+        "hostname": "iot.ac.uma.es",
+        "port": "27017",
+        "db": "II2",
+        "name": ""
+    },
+    {
+        "id": "853fd75f.ee7a98",
+        "type": "mongodb",
+        "z": "",
+        "hostname": "iot.ac.uma.es",
+        "port": "27017",
+        "db": "II2",
+        "name": ""
+    },
+    {
         "id": "d46628da.e11788",
         "type": "ui_tab",
         "z": "",
@@ -858,6 +1552,16 @@
         "name": "HISTORICO",
         "icon": "dashboard",
         "order": 2,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "af9210b7.be72a",
+        "type": "ui_tab",
+        "z": "",
+        "name": "Pruebas",
+        "icon": "dashboard",
+        "order": 4,
         "disabled": false,
         "hidden": false
     }
