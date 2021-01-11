@@ -152,7 +152,7 @@ unsigned long lastAct = 0; // última
 
 // Interrupciones
 unsigned long lastMsg = 0; // último mensaje para datos enviado
-bool actualiza = false; 
+volatile bool actualiza = false; 
 bool cuenta_pulsos=true;
 bool pulsaciones=false;
 
@@ -172,7 +172,7 @@ volatile double PWM;
 double LED_anterior = LED_dato;
 
 //Recogida de datos
-volatile double TiempoRecogida=10000; // Recoger datos sensores
+volatile double TiempoRecogida=10; // Recoger datos sensores en segundos
 volatile double TiempoLED=10; // Tiempo en que tarda en cambiar el LED un 1%
 volatile int TiempoActualiza = 60; // viene dado en minutos
 
@@ -355,9 +355,9 @@ void reconnect() {
       estado.conexion = true;
       //"{\"online\":false}"
      client.publish("infind/GRUPO2/ESP47/conexion/salon",serializa_JSON(estado).c_str(),true); // Publicamos por el topic correspondiente el estado de conexión
-     
-     client.subscribe("infind/GRUPO2/ESP47/led/cmd/salon"); //Me suscribo al topic del estado del GPIO 2
-     client.subscribe("infind/GRUPO2/ESP47/switch/cmd/salon"); //Me suscribo al topic del estado del GPIO 16
+     client.subscribe("infind/GRUPO2/ESP47/FOTA");              //Me suscribo al topic de comprobación de actualizaciones
+     client.subscribe("infind/GRUPO2/ESP47/led/cmd/salon");     //Me suscribo al topic del estado del GPIO 2
+     client.subscribe("infind/GRUPO2/ESP47/switch/cmd/salon");  //Me suscribo al topic del estado del GPIO 16
 
      client.subscribe("infind/GRUPO2/ESP47/config/cmd/salon"); //Me suscribo al topic del estado del led
     } else { // En caso de no haber establecido conexión, reintenta a los 5 segundos
@@ -378,6 +378,24 @@ void callback(char* topic, byte* payload, unsigned int length) {
   struct registro_led valor_LED;        // Declaramos registro json para valores del LED
   struct registro_switch valor_SWITCH;  // Declaramos registro json para valores del SWITCH
   
+  if(strcmp(topic,"infind/GRUPO2/ESP47/FOTA")==0) // Se estudia el estado del topic específico
+    {
+      Serial.println(actualiza);
+      StaticJsonDocument<512> root; // el tamaño tiene que ser adecuado para el mensaje
+      // Deserialize the JSON document
+      DeserializationError error = deserializeJson(root, mensaje);
+
+      // Compruebo si no hubo error
+      if (error) {
+        Serial.print("Error deserializeJson() failed: ");
+        Serial.println(error.c_str());
+      }
+      else // En caso de no haber error:
+      {
+        actualiza = root["actualiza"]; // Buscamos actualizaciones
+        Serial.println(actualiza);
+      }
+   }
   // compruebo que es el topic adecuado ------SWITCH------
   if(strcmp(topic,"infind/GRUPO2/ESP47/switch/cmd/salon")==0)
   {
@@ -560,6 +578,7 @@ void callback(char* topic, byte* payload, unsigned int length) {
 void setup() {
   struct registro_actualizacion estado_act; // Declaramos la estructura para actualización (json)
   struct registro_distancia laser;
+  laser.estado_sensor="Fallo al iniciar";
   pinMode(BUILTIN_LED, OUTPUT);    // Inicializamos el pin BUILTIN_LED como salida
   pinMode(LED_Secundario, OUTPUT); // Inicializamos el pin LED_Secundario como salida
   digitalWrite(LED_Secundario, LOW);
@@ -567,7 +586,6 @@ void setup() {
   Serial.begin(9600);
   setup_wifi();
   // OTA -> Actualizamos al empezar
-      client.subscribe("infind/GRUPO2/ESP47/FOTA/salon"); //Me suscribo al topic de la actualización
       Serial.println( "--------------------------" );
       Serial.println( "Comprobando actualización:" );
       Serial.print(HTTP_OTA_ADDRESS);Serial.print(":");Serial.print(HTTP_OTA_PORT);Serial.println(HTTP_OTA_PATH); // Se comprueba la actualización
@@ -599,16 +617,22 @@ void setup() {
    pinMode(boton_flash, INPUT_PULLUP); // Inicializamos el pin LED_Secundario como entrada
   // Activamos la interrupción
   attachInterrupt(digitalPinToInterrupt(boton_flash), RTI, CHANGE);
-  
+  /*
   // LÁSER: Iniciar sensor
   Serial.println("VL53L0X test");
   if (!lox.begin()) {
     Serial.println(F("Error al iniciar VL53L0X"));
     laser.estado_sensor = "Fallo al iniciar";
+    laser.distancia = -1;
   }
   else
+  {
     laser.estado_sensor = "VL53L0X iniciado";
-  
+    laser.distancia=0;
+    Serial.println("INICIADO VL53L0X");
+  }
+    
+  client.publish("infind/GRUPO2/ESP47/datos/salon/puerta",serializa_JSONdistist(laser).c_str() );*/
     //MQ-2
     mq2.begin();
 }
@@ -682,7 +706,7 @@ void loop() {
         if (cont==2) // Si se han contado 2 pulsos -> encendemos o apagamos el LED principal (GPIO2)
         {
           Serial.println("DOBLE PULSACION");
-          digitalWrite(BUILTIN_LED,LOW);     // Encendemos al nivel máximo
+          analogWrite(BUILTIN_LED,0);     // Encendemos al nivel máximo
           Serial.println("GPIO 2 ENCENDIDO al MÁX");
           estado_led2=1;
           LED_dato = 100;
@@ -704,7 +728,7 @@ void loop() {
 
         if (estado_led2==1) // Si estaba encendido, apagamos
           {
-            digitalWrite(BUILTIN_LED,HIGH);
+            analogWrite(BUILTIN_LED,1023);
             Serial.println("GPIO 2 APAGADO");
             estado_led2 = 0;
             LED_dato = 0;
@@ -755,10 +779,11 @@ void loop() {
     if (!lox.begin()) {
       Serial.println(F("Error al iniciar VL53L0X"));
       laser.estado_sensor = "Fallo al iniciar";
-      laser.distancia = 0;
+      laser.distancia = -1;
     }
     else
       laser.estado_sensor = "VL53L0X iniciado";
+      Serial.println("Iniciado VL53L0X");
     laser.distancia = 0;
   }
   else if (laser.estado_sensor == "VL53L0X iniciado")
@@ -784,7 +809,7 @@ void loop() {
   struct registro_datos misdatos; //me creo una estructura de cada tipo
   
   
-  if (now - lastMsg > TiempoRecogida) {
+  if (now - lastMsg > TiempoRecogida*1000) {
    //Las variables que vamos a meter en nuestra estructura datos
    // WiFi y MQTT
    misdatos.ssid= WiFi.localIP().toString();
@@ -822,7 +847,6 @@ void loop() {
   
   if (actualiza==true ) // mantenemos pulsado: ACTUALIZAMOS! 
     {
-      client.subscribe("infind/GRUPO2/ESP47/FOTA/salon"); //Me suscribo al topic de la actualización cuando se mantenga más de 2 segundos el botón flash pulsado
       // OTA
       Serial.println( "---------aaaaaaaaaaaaaaaaaaaaaaaaa-----------------" );
       Serial.println( "Comprobando actualización:" );
