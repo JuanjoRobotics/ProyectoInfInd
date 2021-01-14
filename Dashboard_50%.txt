@@ -99,22 +99,6 @@
         "wires": []
     },
     {
-        "id": "d37572a3.7c4ee",
-        "type": "ui_text",
-        "z": "83d34779.b1ac98",
-        "group": "3d14af57.f7189",
-        "order": 1,
-        "width": "10",
-        "height": "1",
-        "name": "",
-        "label": "Registro de temperaturas",
-        "format": "{{msg.payload}}",
-        "layout": "col-center",
-        "x": 874.9999771118164,
-        "y": 962.3809585571289,
-        "wires": []
-    },
-    {
         "id": "8701d19f.5dd0e",
         "type": "ui_slider",
         "z": "83d34779.b1ac98",
@@ -642,7 +626,7 @@
         "name": "",
         "group": "3d14af57.f7189",
         "order": 2,
-        "width": "7",
+        "width": "8",
         "height": "5",
         "label": "chart",
         "chartType": "line",
@@ -678,29 +662,13 @@
         ]
     },
     {
-        "id": "9f3d2e59.a60e3",
-        "type": "ui_text",
-        "z": "83d34779.b1ac98",
-        "group": "6cc38041.a7c5d",
-        "order": 1,
-        "width": 0,
-        "height": 0,
-        "name": "",
-        "label": "Registro de humedad",
-        "format": "{{msg.payload}}",
-        "layout": "col-center",
-        "x": 868.9999771118164,
-        "y": 1068.6666641235352,
-        "wires": []
-    },
-    {
         "id": "1711d0a4.117dff",
         "type": "ui_chart",
         "z": "83d34779.b1ac98",
         "name": "",
         "group": "6cc38041.a7c5d",
         "order": 2,
-        "width": "7",
+        "width": "8",
         "height": "5",
         "label": "chart",
         "chartType": "line",
@@ -810,11 +778,11 @@
         "type": "mqtt in",
         "z": "83d34779.b1ac98",
         "name": "",
-        "topic": "infind/GRUPO2/ESP230/datos/habitacion",
+        "topic": "infind/GRUPO2/ESP145/datos/cocina",
         "qos": "2",
         "broker": "87098068.e4e09",
-        "x": 165,
-        "y": 160.00000667572021,
+        "x": 155,
+        "y": 166.6666774749756,
         "wires": [
             [
                 "33cccfa1.67433"
@@ -880,10 +848,10 @@
         "type": "mqtt in",
         "z": "83d34779.b1ac98",
         "name": "",
-        "topic": "infind/GRUPO2/ESP230/datos/habitacion",
+        "topic": "infind/GRUPO2/ESP1122489/datos/wc",
         "qos": "2",
         "broker": "87098068.e4e09",
-        "x": 165,
+        "x": 155,
         "y": 538.3333129882812,
         "wires": [
             [
@@ -950,10 +918,10 @@
         "type": "mqtt in",
         "z": "83d34779.b1ac98",
         "name": "",
-        "topic": "infind/GRUPO2/ESP230/datos/habitacion",
+        "topic": "infind/GRUPO2/ESP47/datos/salon",
         "qos": "2",
         "broker": "87098068.e4e09",
-        "x": 1008.3333129882812,
+        "x": 988.3333129882812,
         "y": 553.3333129882812,
         "wires": [
             [
@@ -1024,7 +992,7 @@
         "qos": "2",
         "broker": "87098068.e4e09",
         "x": 165,
-        "y": 934.9999370574951,
+        "y": 921.9999389648438,
         "wires": [
             [
                 "9f9cf714.87ad28"
@@ -1062,7 +1030,8 @@
         "y": 994.9999961853027,
         "wires": [
             [
-                "c16d568.b4ba4a8"
+                "c16d568.b4ba4a8",
+                "e9e659e2.5b8f68"
             ]
         ]
     },
@@ -1110,7 +1079,8 @@
         "y": 1103.3333759307861,
         "wires": [
             [
-                "2dc01a40.6a6336"
+                "2dc01a40.6a6336",
+                "f21b6975.99f6a8"
             ]
         ]
     },
@@ -1126,7 +1096,8 @@
         "y": 1230.0000495910645,
         "wires": [
             [
-                "cf48adec.2d26e"
+                "cf48adec.2d26e",
+                "6f057221.f993ac"
             ]
         ]
     },
@@ -1169,53 +1140,6 @@
         ]
     },
     {
-        "id": "6ff0a528.130d9c",
-        "type": "debug",
-        "z": "83d34779.b1ac98",
-        "name": "",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "x": 486.6666564941406,
-        "y": 1343.333251953125,
-        "wires": []
-    },
-    {
-        "id": "328f3cef.d1c384",
-        "type": "json",
-        "z": "83d34779.b1ac98",
-        "name": "",
-        "property": "payload",
-        "action": "",
-        "pretty": false,
-        "x": 319.3333206176758,
-        "y": 1431.9998798370361,
-        "wires": [
-            [
-                "6ff0a528.130d9c",
-                "71665858.c277e8"
-            ]
-        ]
-    },
-    {
-        "id": "71665858.c277e8",
-        "type": "function",
-        "z": "83d34779.b1ac98",
-        "name": "añade fecha",
-        "func": "msg.payload.date=new Date();\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 507.55553436279297,
-        "y": 1452.9999599456787,
-        "wires": [
-            [
-                "2c3ac0a.6dc3c4"
-            ]
-        ]
-    },
-    {
         "id": "696d546f.cea14c",
         "type": "template",
         "z": "83d34779.b1ac98",
@@ -1224,7 +1148,7 @@
         "fieldType": "msg",
         "format": "handlebars",
         "syntax": "mustache",
-        "template": " <h1>Registros: </h1>\n <ul>\n{{#payload}}\n  <li>{{date}} : {{BME280.Temperatura }}ºC, {{BME280.Humedad}}% </li>\n{{/payload}}\n </ul>",
+        "template": " <h1>Registros: </h1>\n <ul>\n{{#payload}}\n  <li>{{date}} : {{DHT11.temp }}ºC, {{DHT11.hum}}% </li>\n{{/payload}}\n </ul>",
         "output": "str",
         "x": 842.5397033691406,
         "y": 1759.5237770080566,
@@ -1238,11 +1162,11 @@
         "id": "ffe5267b.415c08",
         "type": "ui_template",
         "z": "83d34779.b1ac98",
-        "group": "2b29cd08.176ca2",
+        "group": "efc16607.39a8a8",
         "name": "",
         "order": 1,
-        "width": "12",
-        "height": "6",
+        "width": "14",
+        "height": "4",
         "format": "<div ng-bind-html=\"msg.payload\"></div>",
         "storeOutMessages": true,
         "fwdInMessages": true,
@@ -1260,9 +1184,9 @@
         "name": "LimiteConsulta",
         "label": "Limite de consulta",
         "tooltip": "",
-        "group": "2b29cd08.176ca2",
+        "group": "efc16607.39a8a8",
         "order": 2,
-        "width": "12",
+        "width": "10",
         "height": "1",
         "passthru": true,
         "outs": "end",
@@ -1304,37 +1228,6 @@
         ]
     },
     {
-        "id": "2c3ac0a.6dc3c4",
-        "type": "mongodb out",
-        "z": "83d34779.b1ac98",
-        "mongodb": "e01616fa.3551d8",
-        "name": "",
-        "collection": "datos/GRUPO2_json",
-        "payonly": true,
-        "upsert": false,
-        "multi": false,
-        "operation": "store",
-        "x": 845.7142944335938,
-        "y": 1440,
-        "wires": []
-    },
-    {
-        "id": "dd7b1c05.e1c9f",
-        "type": "mqtt in",
-        "z": "83d34779.b1ac98",
-        "name": "",
-        "topic": "infind/GRUPO2/ESP230/datos/habitacion",
-        "qos": "2",
-        "broker": "87098068.e4e09",
-        "x": 171.42857360839844,
-        "y": 1332.8572082519531,
-        "wires": [
-            [
-                "328f3cef.d1c384"
-            ]
-        ]
-    },
-    {
         "id": "3f6cd81.db04928",
         "type": "mongodb in",
         "z": "83d34779.b1ac98",
@@ -1355,7 +1248,7 @@
         "type": "function",
         "z": "83d34779.b1ac98",
         "name": "",
-        "func": "msg.payload = {\"BME280.Temperatura\": {\"$gte\":global.get(\"temp\")}};\nmsg.limit = global.get(\"slider\");\nmsg.sort = {\"date\" : -1};\nreturn msg;",
+        "func": "msg.payload = {\"DHT11.temp\": {\"$gte\":global.get(\"temp\")}};\nmsg.limit = global.get(\"slider\");\nmsg.sort = {\"date\" : -1};\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "x": 329.2857208251953,
@@ -1371,10 +1264,10 @@
         "type": "ui_button",
         "z": "83d34779.b1ac98",
         "name": "",
-        "group": "2b29cd08.176ca2",
+        "group": "efc16607.39a8a8",
         "order": 3,
-        "width": "8",
-        "height": "2",
+        "width": "10",
+        "height": "1",
         "passthru": false,
         "label": "Consulta",
         "tooltip": "",
@@ -1393,28 +1286,240 @@
         ]
     },
     {
-        "id": "c855420d.587a6",
-        "type": "ui_button",
+        "id": "f9c22ab0.dc4c38",
+        "type": "ui_template",
         "z": "83d34779.b1ac98",
-        "name": "Consultar temperatura",
-        "group": "2b29cd08.176ca2",
-        "order": 3,
-        "width": "11",
-        "height": "2",
-        "passthru": false,
-        "label": "Consulta temperatura",
-        "tooltip": "",
-        "color": "",
-        "bgcolor": "",
-        "icon": "",
-        "payload": "",
-        "payloadType": "str",
+        "group": "efc16607.39a8a8",
+        "name": "",
+        "order": 7,
+        "width": "10",
+        "height": "1",
+        "format": "<style>\n.button {\n    text-align: center;\n    font: bold 17px Arial;\n    text-decoration: none;\n    background-color: #339966;\n    color: white;\n    padding: 8px 10px;\n    border: 2px solid #CCCCCC;\n  }\n  \n  .button:hover\n  {\n   background-color: #26734d;\n  }\n\n</style>\n<a href=\"/registros\" class=\"button\">Descarga registros en CSV (EXCEL)</a>\n",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "templateScope": "local",
+        "x": 1038.5714111328125,
+        "y": 1875.71435546875,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "afded262.9000a",
+        "type": "ui_date_picker",
+        "z": "83d34779.b1ac98",
+        "name": "",
+        "label": "Fecha inicio",
+        "group": "efc16607.39a8a8",
+        "order": 4,
+        "width": "10",
+        "height": "1",
+        "passthru": true,
         "topic": "",
-        "x": 106.28572082519531,
-        "y": 1686.2857666015625,
+        "x": 327.1428527832031,
+        "y": 1922.857177734375,
         "wires": [
             [
-                "54074004.fc145"
+                "1e46512e.e5c38f"
+            ]
+        ]
+    },
+    {
+        "id": "269ac312.10ef4c",
+        "type": "ui_date_picker",
+        "z": "83d34779.b1ac98",
+        "name": "",
+        "label": "Fecha final",
+        "group": "efc16607.39a8a8",
+        "order": 5,
+        "width": "10",
+        "height": "1",
+        "passthru": true,
+        "topic": "",
+        "x": 330.1542053222656,
+        "y": 1971.8514151573181,
+        "wires": [
+            [
+                "23f91037.2743b"
+            ]
+        ]
+    },
+    {
+        "id": "1e46512e.e5c38f",
+        "type": "change",
+        "z": "83d34779.b1ac98",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "desde",
+                "pt": "global",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 523.1485290527344,
+        "y": 1921.5190653800964,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "23f91037.2743b",
+        "type": "change",
+        "z": "83d34779.b1ac98",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "hasta",
+                "pt": "global",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 526.3758087158203,
+        "y": 1972.4026198387146,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "71915498.ea854c",
+        "type": "inject",
+        "z": "83d34779.b1ac98",
+        "name": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "x": 129.15135192871094,
+        "y": 1947.277617931366,
+        "wires": [
+            [
+                "afded262.9000a",
+                "269ac312.10ef4c"
+            ]
+        ]
+    },
+    {
+        "id": "3094f4b8.b30afc",
+        "type": "mqtt in",
+        "z": "83d34779.b1ac98",
+        "name": "",
+        "topic": "infind/GRUPO2/ESP1122489/datos/wc",
+        "qos": "2",
+        "broker": "87098068.e4e09",
+        "x": 168.57144165039062,
+        "y": 785.7143230438232,
+        "wires": [
+            [
+                "81c2128f.08e6d"
+            ]
+        ]
+    },
+    {
+        "id": "e9e659e2.5b8f68",
+        "type": "debug",
+        "z": "83d34779.b1ac98",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 488.57144927978516,
+        "y": 1008.571475982666,
+        "wires": []
+    },
+    {
+        "id": "f21b6975.99f6a8",
+        "type": "debug",
+        "z": "83d34779.b1ac98",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 481.4285888671875,
+        "y": 1147.142822265625,
+        "wires": []
+    },
+    {
+        "id": "6f057221.f993ac",
+        "type": "debug",
+        "z": "83d34779.b1ac98",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 485.71429443359375,
+        "y": 1285.71435546875,
+        "wires": []
+    },
+    {
+        "id": "9eb81c83.228be",
+        "type": "function",
+        "z": "83d34779.b1ac98",
+        "name": "Toma datos",
+        "func": "var temp={\"payload\":msg.payload.DHT11.temp};\nvar hum={\"payload\":msg.payload.DHT11.hum};\n\nreturn [temp, hum];  ",
+        "outputs": 2,
+        "noerr": 0,
+        "x": 540.0000228881836,
+        "y": 824.2856826782227,
+        "wires": [
+            [
+                "9f0d4d79.6b617"
+            ],
+            [
+                "1711d0a4.117dff"
+            ]
+        ]
+    },
+    {
+        "id": "583f392f.d31f48",
+        "type": "debug",
+        "z": "83d34779.b1ac98",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 535.238166809082,
+        "y": 886.1905727386475,
+        "wires": []
+    },
+    {
+        "id": "81c2128f.08e6d",
+        "type": "json",
+        "z": "83d34779.b1ac98",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 361.4285316467285,
+        "y": 852.8570938110352,
+        "wires": [
+            [
+                "9eb81c83.228be",
+                "583f392f.d31f48"
             ]
         ]
     },
@@ -1425,17 +1530,6 @@
         "name": "Habitación",
         "tab": "d46628da.e11788",
         "order": 2,
-        "disp": true,
-        "width": "12",
-        "collapse": false
-    },
-    {
-        "id": "3d14af57.f7189",
-        "type": "ui_group",
-        "z": "",
-        "name": "Temperatura",
-        "tab": "74ab35ae.84578c",
-        "order": 1,
         "disp": true,
         "width": "12",
         "collapse": false
@@ -1474,6 +1568,17 @@
         "collapse": false
     },
     {
+        "id": "3d14af57.f7189",
+        "type": "ui_group",
+        "z": "",
+        "name": "Temperatura",
+        "tab": "74ab35ae.84578c",
+        "order": 1,
+        "disp": true,
+        "width": "12",
+        "collapse": false
+    },
+    {
         "id": "6cc38041.a7c5d",
         "type": "ui_group",
         "z": "",
@@ -1507,24 +1612,15 @@
         "willPayload": ""
     },
     {
-        "id": "2b29cd08.176ca2",
+        "id": "efc16607.39a8a8",
         "type": "ui_group",
         "z": "",
-        "name": "HAHAHAHAHAAH",
-        "tab": "af9210b7.be72a",
-        "order": 1,
+        "name": "Registro de datos",
+        "tab": "74ab35ae.84578c",
+        "order": 3,
         "disp": true,
         "width": "24",
         "collapse": false
-    },
-    {
-        "id": "e01616fa.3551d8",
-        "type": "mongodb",
-        "z": "",
-        "hostname": "iot.ac.uma.es",
-        "port": "27017",
-        "db": "II2",
-        "name": ""
     },
     {
         "id": "853fd75f.ee7a98",
@@ -1552,16 +1648,6 @@
         "name": "HISTORICO",
         "icon": "dashboard",
         "order": 2,
-        "disabled": false,
-        "hidden": false
-    },
-    {
-        "id": "af9210b7.be72a",
-        "type": "ui_tab",
-        "z": "",
-        "name": "Pruebas",
-        "icon": "dashboard",
-        "order": 4,
         "disabled": false,
         "hidden": false
     }
