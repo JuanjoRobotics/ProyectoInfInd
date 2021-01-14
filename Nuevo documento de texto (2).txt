@@ -1,0 +1,39 @@
+      double valorDatos = root["envia"];          // Se toman los valores corresponientes al tiempo del envío de mensajes (s)
+        double valorActualiza = root["actualiza"];  // Se toma el tiempo de comprobación de actualizaciones (min)
+        double valorVelocidad = root["velocidad"];  // Se toma la velocidad de cambio de salida PWM (ms)
+        float valorLED = root["LED"];               // Configura si salida está activada/encendida a nivel alto(1) o bajo(0). null: se mantiene configuración
+        int valorSWITCH = root["SWITCH"];           // Mismas condiciones que para valorLED
+
+        
+        
+        
+
+        // -- Envia -- 
+        if (root["envia"] == nullptr)                 // Valor recibido sin valor, mantenemos el último valor
+        {
+          
+        }
+        else
+        {
+         TiempoRecogida=valorDatos;
+        }
+
+                // -- Actualiza -- 
+        if (root["envia"] == nullptr)                 // Valor recibido sin valor, mantenemos el último valor
+        {
+          
+        }
+        else
+        {
+         TiempoActualiza=valorActualiza;             // Asignamos a una variable global ya que se usará en otros bucles externos al 'Callback'
+        }
+
+                        // -- Velocidad -- 
+        if (root["envia"] == nullptr)                 // Valor recibido sin valor, mantenemos el último valor
+        {
+          
+        }
+        else
+        {
+         TiempoLED=valorVelocidad;
+        }
