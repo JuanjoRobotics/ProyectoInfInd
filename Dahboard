@@ -1,0 +1,1183 @@
+[
+    {
+        "id": "6eb4d03d.9126f",
+        "type": "tab",
+        "label": "Domotic Home 2",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "981a7a01.5d9808",
+        "type": "ui_gauge",
+        "z": "6eb4d03d.9126f",
+        "name": "",
+        "group": "2b29cd08.176ca2",
+        "order": 0,
+        "width": "3",
+        "height": "3",
+        "gtype": "gage",
+        "title": "Habitacion",
+        "label": "units",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "50",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "x": 480.5,
+        "y": 67,
+        "wires": []
+    },
+    {
+        "id": "fcfc432.43d5dc",
+        "type": "ui_gauge",
+        "z": "6eb4d03d.9126f",
+        "name": "",
+        "group": "2b29cd08.176ca2",
+        "order": 0,
+        "width": "3",
+        "height": "3",
+        "gtype": "gage",
+        "title": "Salon",
+        "label": "units",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "50",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "x": 464,
+        "y": 110,
+        "wires": []
+    },
+    {
+        "id": "a6990e2a.2cdd4",
+        "type": "ui_gauge",
+        "z": "6eb4d03d.9126f",
+        "name": "",
+        "group": "2b29cd08.176ca2",
+        "order": 0,
+        "width": "3",
+        "height": "3",
+        "gtype": "gage",
+        "title": "Cocina",
+        "label": "units",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "50",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "x": 472,
+        "y": 159,
+        "wires": []
+    },
+    {
+        "id": "b5c83039.87951",
+        "type": "ui_gauge",
+        "z": "6eb4d03d.9126f",
+        "name": "",
+        "group": "2b29cd08.176ca2",
+        "order": 0,
+        "width": "3",
+        "height": "3",
+        "gtype": "gage",
+        "title": "Baño",
+        "label": "units",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "50",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "x": 465,
+        "y": 210,
+        "wires": []
+    },
+    {
+        "id": "8b47bf01.da837",
+        "type": "ui_gauge",
+        "z": "6eb4d03d.9126f",
+        "name": "",
+        "group": "2b29cd08.176ca2",
+        "order": 0,
+        "width": "6",
+        "height": "3",
+        "gtype": "gage",
+        "title": "Global",
+        "label": "units",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "50",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "x": 481,
+        "y": 283,
+        "wires": []
+    },
+    {
+        "id": "33146d2d.98a8b2",
+        "type": "ui_switch",
+        "z": "6eb4d03d.9126f",
+        "name": "",
+        "label": "Salon",
+        "tooltip": "",
+        "group": "55a2750.9f8758c",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "x": 106,
+        "y": 928,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "3641d635.cc84ca",
+        "type": "ui_switch",
+        "z": "6eb4d03d.9126f",
+        "name": "",
+        "label": "Habitacion",
+        "tooltip": "",
+        "group": "55a2750.9f8758c",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "x": 122,
+        "y": 976,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "c066e7d8.ce1cd8",
+        "type": "ui_switch",
+        "z": "6eb4d03d.9126f",
+        "name": "",
+        "label": "Cocina",
+        "tooltip": "",
+        "group": "55a2750.9f8758c",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "x": 112,
+        "y": 1007,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "70c6870e.52d4f8",
+        "type": "ui_switch",
+        "z": "6eb4d03d.9126f",
+        "name": "",
+        "label": "Baño",
+        "tooltip": "",
+        "group": "55a2750.9f8758c",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "x": 100,
+        "y": 1048,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "2131602b.9adce",
+        "type": "ui_slider",
+        "z": "6eb4d03d.9126f",
+        "name": "",
+        "label": "Salon____",
+        "tooltip": "",
+        "group": "55a2750.9f8758c",
+        "order": 6,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "outs": "all",
+        "topic": "",
+        "min": 0,
+        "max": "100",
+        "step": 1,
+        "x": 111,
+        "y": 687,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "6bddc746.871098",
+        "type": "ui_slider",
+        "z": "6eb4d03d.9126f",
+        "name": "",
+        "label": "Habitacion",
+        "tooltip": "",
+        "group": "55a2750.9f8758c",
+        "order": 7,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "outs": "all",
+        "topic": "",
+        "min": 0,
+        "max": "100",
+        "step": 1,
+        "x": 109,
+        "y": 731,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "de4d9b53.d72d98",
+        "type": "ui_slider",
+        "z": "6eb4d03d.9126f",
+        "name": "",
+        "label": "Cocina___",
+        "tooltip": "",
+        "group": "55a2750.9f8758c",
+        "order": 8,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "outs": "all",
+        "topic": "",
+        "min": 0,
+        "max": "100",
+        "step": 1,
+        "x": 108,
+        "y": 769,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "193f855a.45c7db",
+        "type": "ui_slider",
+        "z": "6eb4d03d.9126f",
+        "name": "",
+        "label": "Baño_____",
+        "tooltip": "",
+        "group": "55a2750.9f8758c",
+        "order": 9,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "outs": "all",
+        "topic": "",
+        "min": 0,
+        "max": "100",
+        "step": 1,
+        "x": 115,
+        "y": 819,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "b551afc0.f299f",
+        "type": "ui_chart",
+        "z": "6eb4d03d.9126f",
+        "name": "",
+        "group": "f7b86bbf.edc498",
+        "order": 0,
+        "width": "12",
+        "height": "8",
+        "label": "Temperatura",
+        "chartType": "line",
+        "legend": "true",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "useOldStyle": false,
+        "x": 855,
+        "y": 245,
+        "wires": [
+            [],
+            []
+        ]
+    },
+    {
+        "id": "3ee8520.91e63ae",
+        "type": "function",
+        "z": "6eb4d03d.9126f",
+        "name": "",
+        "func": "ran= parseInt(Math.random()*10);\nmsg.topic = \"Habitacion\";\nmsg.payload = ran;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 663.000114440918,
+        "y": 157.66666412353516,
+        "wires": [
+            [
+                "b551afc0.f299f"
+            ]
+        ]
+    },
+    {
+        "id": "280056ad.481f8a",
+        "type": "function",
+        "z": "6eb4d03d.9126f",
+        "name": "",
+        "func": "ran= parseInt(Math.random()*10);\nmsg.topic = \"Cocina\";\nmsg.payload = ran;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 664.833366394043,
+        "y": 213.66666793823242,
+        "wires": [
+            [
+                "b551afc0.f299f"
+            ]
+        ]
+    },
+    {
+        "id": "7f3afaaa.293ec4",
+        "type": "function",
+        "z": "6eb4d03d.9126f",
+        "name": "",
+        "func": "ran= parseInt(Math.random()*10);\nmsg.topic = \"WC\";\nmsg.payload = ran;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 664.833366394043,
+        "y": 269.66666984558105,
+        "wires": [
+            [
+                "b551afc0.f299f"
+            ]
+        ]
+    },
+    {
+        "id": "5c248a16.dff694",
+        "type": "function",
+        "z": "6eb4d03d.9126f",
+        "name": "",
+        "func": "ran= parseInt(Math.random()*10);\nmsg.topic = \"Salon\";\nmsg.payload = ran;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 670.833366394043,
+        "y": 328.66673278808594,
+        "wires": [
+            [
+                "b551afc0.f299f"
+            ]
+        ]
+    },
+    {
+        "id": "db07ef67.629cc",
+        "type": "ui_chart",
+        "z": "6eb4d03d.9126f",
+        "name": "",
+        "group": "f7b86bbf.edc498",
+        "order": 0,
+        "width": "12",
+        "height": "7",
+        "label": "Humedad",
+        "chartType": "line",
+        "legend": "true",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "useOldStyle": false,
+        "x": 836,
+        "y": 496,
+        "wires": [
+            [],
+            []
+        ]
+    },
+    {
+        "id": "96214011.cff6b",
+        "type": "function",
+        "z": "6eb4d03d.9126f",
+        "name": "",
+        "func": "ran= parseInt(Math.random()*10);\nmsg.topic = \"Habitacion\";\nmsg.payload = ran;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 654.000114440918,
+        "y": 408.66666412353516,
+        "wires": [
+            [
+                "db07ef67.629cc"
+            ]
+        ]
+    },
+    {
+        "id": "ebf482f.8918c8",
+        "type": "function",
+        "z": "6eb4d03d.9126f",
+        "name": "",
+        "func": "ran= parseInt(Math.random()*10);\nmsg.topic = \"Cocina\";\nmsg.payload = ran;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 655.833366394043,
+        "y": 464.6666679382324,
+        "wires": [
+            [
+                "db07ef67.629cc"
+            ]
+        ]
+    },
+    {
+        "id": "b5cd165a.f0d738",
+        "type": "function",
+        "z": "6eb4d03d.9126f",
+        "name": "",
+        "func": "ran= parseInt(Math.random()*10);\nmsg.topic = \"WC\";\nmsg.payload = ran;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 655.833366394043,
+        "y": 520.666669845581,
+        "wires": [
+            [
+                "db07ef67.629cc"
+            ]
+        ]
+    },
+    {
+        "id": "34b9e720.631008",
+        "type": "function",
+        "z": "6eb4d03d.9126f",
+        "name": "",
+        "func": "ran= parseInt(Math.random()*10);\nmsg.topic = \"Salon\";\nmsg.payload = ran;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 661.833366394043,
+        "y": 579.6667327880859,
+        "wires": [
+            [
+                "db07ef67.629cc"
+            ]
+        ]
+    },
+    {
+        "id": "706cea74.df6ef4",
+        "type": "ui_gauge",
+        "z": "6eb4d03d.9126f",
+        "name": "",
+        "group": "2216b444.550d6c",
+        "order": 1,
+        "width": "3",
+        "height": "3",
+        "gtype": "donut",
+        "title": "Habitacion",
+        "label": "units",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#00bbfa",
+            "#077fbb",
+            "#2319a3"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "x": 432,
+        "y": 397,
+        "wires": []
+    },
+    {
+        "id": "e2e01b6d.4ce188",
+        "type": "inject",
+        "z": "6eb4d03d.9126f",
+        "name": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "5",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 110,
+        "y": 75,
+        "wires": [
+            [
+                "2aec0566.70521a",
+                "ec247705.2fcfd8",
+                "7405a15b.1fe7f",
+                "1aac1b3b.37b8f5",
+                "cf78a13f.1f566"
+            ]
+        ]
+    },
+    {
+        "id": "1aac1b3b.37b8f5",
+        "type": "function",
+        "z": "6eb4d03d.9126f",
+        "name": "",
+        "func": "ran= parseInt(Math.random()*30);\nmsg.topic = \"Habitacion\";\nmsg.payload = ran;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 294,
+        "y": 53,
+        "wires": [
+            [
+                "981a7a01.5d9808"
+            ]
+        ]
+    },
+    {
+        "id": "7405a15b.1fe7f",
+        "type": "function",
+        "z": "6eb4d03d.9126f",
+        "name": "",
+        "func": "ran= parseInt(Math.random()*30);\nmsg.topic = \"Cocina\";\nmsg.payload = ran;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 295.833251953125,
+        "y": 109.00000381469727,
+        "wires": [
+            [
+                "fcfc432.43d5dc"
+            ]
+        ]
+    },
+    {
+        "id": "ec247705.2fcfd8",
+        "type": "function",
+        "z": "6eb4d03d.9126f",
+        "name": "",
+        "func": "ran= parseInt(Math.random()*30);\nmsg.topic = \"WC\";\nmsg.payload = ran;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 295.833251953125,
+        "y": 165.0000057220459,
+        "wires": [
+            [
+                "a6990e2a.2cdd4"
+            ]
+        ]
+    },
+    {
+        "id": "2aec0566.70521a",
+        "type": "function",
+        "z": "6eb4d03d.9126f",
+        "name": "",
+        "func": "ran= parseInt(Math.random()*30);\nmsg.topic = \"Salon\";\nmsg.payload = ran;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 301.833251953125,
+        "y": 224.00006866455078,
+        "wires": [
+            [
+                "b5c83039.87951"
+            ]
+        ]
+    },
+    {
+        "id": "cf78a13f.1f566",
+        "type": "function",
+        "z": "6eb4d03d.9126f",
+        "name": "",
+        "func": "ran= parseInt(Math.random()*30);\nmsg.topic = \"Salon\";\nmsg.payload = ran;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 300,
+        "y": 290,
+        "wires": [
+            [
+                "8b47bf01.da837"
+            ]
+        ]
+    },
+    {
+        "id": "d2593cf1.f6eff",
+        "type": "inject",
+        "z": "6eb4d03d.9126f",
+        "name": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "5",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 77,
+        "y": 408,
+        "wires": [
+            [
+                "20503a21.371966",
+                "a29685e9.192a88",
+                "92ed1309.9206a",
+                "c4265d2a.dba0d",
+                "2eaf4559.a4c8aa"
+            ]
+        ]
+    },
+    {
+        "id": "c4265d2a.dba0d",
+        "type": "function",
+        "z": "6eb4d03d.9126f",
+        "name": "",
+        "func": "ran= parseInt(Math.random()*80);\nmsg.topic = \"Habitacion\";\nmsg.payload = ran;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 261,
+        "y": 386,
+        "wires": [
+            [
+                "706cea74.df6ef4"
+            ]
+        ]
+    },
+    {
+        "id": "92ed1309.9206a",
+        "type": "function",
+        "z": "6eb4d03d.9126f",
+        "name": "",
+        "func": "ran= parseInt(Math.random()*80);\nmsg.topic = \"Cocina\";\nmsg.payload = ran;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 262.833251953125,
+        "y": 442.00000381469727,
+        "wires": [
+            [
+                "f68eadeb.4d9fc"
+            ]
+        ]
+    },
+    {
+        "id": "a29685e9.192a88",
+        "type": "function",
+        "z": "6eb4d03d.9126f",
+        "name": "",
+        "func": "ran= parseInt(Math.random()*90);\nmsg.topic = \"WC\";\nmsg.payload = ran;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 262.833251953125,
+        "y": 498.0000057220459,
+        "wires": [
+            [
+                "21c4ce07.b23522"
+            ]
+        ]
+    },
+    {
+        "id": "20503a21.371966",
+        "type": "function",
+        "z": "6eb4d03d.9126f",
+        "name": "",
+        "func": "ran= parseInt(Math.random()*90);\nmsg.topic = \"Salon\";\nmsg.payload = ran;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 268.833251953125,
+        "y": 557.0000686645508,
+        "wires": [
+            [
+                "eb666a78.6d5e08"
+            ]
+        ]
+    },
+    {
+        "id": "2eaf4559.a4c8aa",
+        "type": "function",
+        "z": "6eb4d03d.9126f",
+        "name": "",
+        "func": "ran= parseInt(Math.random()*90);\nmsg.topic = \"Salon\";\nmsg.payload = ran;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 267,
+        "y": 623,
+        "wires": [
+            [
+                "2189d7d7.34a3a8"
+            ]
+        ]
+    },
+    {
+        "id": "f68eadeb.4d9fc",
+        "type": "ui_gauge",
+        "z": "6eb4d03d.9126f",
+        "name": "",
+        "group": "2216b444.550d6c",
+        "order": 2,
+        "width": "3",
+        "height": "3",
+        "gtype": "donut",
+        "title": "Salon",
+        "label": "units",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#00bbfa",
+            "#077fbb",
+            "#2319a3"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "x": 410,
+        "y": 445,
+        "wires": []
+    },
+    {
+        "id": "21c4ce07.b23522",
+        "type": "ui_gauge",
+        "z": "6eb4d03d.9126f",
+        "name": "",
+        "group": "2216b444.550d6c",
+        "order": 3,
+        "width": "3",
+        "height": "3",
+        "gtype": "donut",
+        "title": "Cocina",
+        "label": "units",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#00bbfa",
+            "#077fbb",
+            "#2319a3"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "x": 416,
+        "y": 495,
+        "wires": []
+    },
+    {
+        "id": "eb666a78.6d5e08",
+        "type": "ui_gauge",
+        "z": "6eb4d03d.9126f",
+        "name": "",
+        "group": "2216b444.550d6c",
+        "order": 4,
+        "width": "3",
+        "height": "3",
+        "gtype": "donut",
+        "title": "Baño",
+        "label": "units",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#00bbfa",
+            "#077fbb",
+            "#2319a3"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "x": 404,
+        "y": 560,
+        "wires": []
+    },
+    {
+        "id": "2189d7d7.34a3a8",
+        "type": "ui_gauge",
+        "z": "6eb4d03d.9126f",
+        "name": "",
+        "group": "2216b444.550d6c",
+        "order": 6,
+        "width": "6",
+        "height": "3",
+        "gtype": "donut",
+        "title": "Global",
+        "label": "units",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#00bbfa",
+            "#077fbb",
+            "#2319a3"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "x": 402,
+        "y": 626,
+        "wires": []
+    },
+    {
+        "id": "22eecc16.d3e444",
+        "type": "ui_text",
+        "z": "6eb4d03d.9126f",
+        "group": "835d0b83.e126f8",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Ultima Actualizacion",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 654,
+        "y": 751,
+        "wires": []
+    },
+    {
+        "id": "42a911a4.00791",
+        "type": "ui_text",
+        "z": "6eb4d03d.9126f",
+        "group": "835d0b83.e126f8",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Estado de la puerta",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 643,
+        "y": 800,
+        "wires": []
+    },
+    {
+        "id": "237b61d9.e0428e",
+        "type": "ui_text",
+        "z": "6eb4d03d.9126f",
+        "group": "835d0b83.e126f8",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Calidad de Aire",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 633,
+        "y": 850,
+        "wires": []
+    },
+    {
+        "id": "49b9f05d.3e4e5",
+        "type": "ui_text",
+        "z": "6eb4d03d.9126f",
+        "group": "835d0b83.e126f8",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Estado de conexion",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 652,
+        "y": 899,
+        "wires": []
+    },
+    {
+        "id": "4e96b972.047b18",
+        "type": "ui_chart",
+        "z": "6eb4d03d.9126f",
+        "name": "",
+        "group": "c6ef8d34.7ce0f",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "label": "Estadisticas",
+        "chartType": "bar",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "useOldStyle": false,
+        "x": 925,
+        "y": 1105,
+        "wires": [
+            [],
+            []
+        ]
+    },
+    {
+        "id": "95a1862.8f50678",
+        "type": "inject",
+        "z": "6eb4d03d.9126f",
+        "name": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "5",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 415,
+        "y": 1033,
+        "wires": [
+            [
+                "4933de89.0d809",
+                "1471dd04.fce293",
+                "19695f3f.2d6561",
+                "8f10633a.3b436",
+                "c8e9292b.8d1ef8"
+            ]
+        ]
+    },
+    {
+        "id": "8f10633a.3b436",
+        "type": "function",
+        "z": "6eb4d03d.9126f",
+        "name": "",
+        "func": "ran= parseInt(Math.random()*30);\nmsg.topic = \"Habitacion\";\nmsg.payload = ran;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 717,
+        "y": 1026,
+        "wires": [
+            [
+                "4e96b972.047b18"
+            ]
+        ]
+    },
+    {
+        "id": "19695f3f.2d6561",
+        "type": "function",
+        "z": "6eb4d03d.9126f",
+        "name": "",
+        "func": "ran= parseInt(Math.random()*30);\nmsg.topic = \"Cocina\";\nmsg.payload = ran;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 718.833251953125,
+        "y": 1082.0000038146973,
+        "wires": [
+            [
+                "4e96b972.047b18"
+            ]
+        ]
+    },
+    {
+        "id": "1471dd04.fce293",
+        "type": "function",
+        "z": "6eb4d03d.9126f",
+        "name": "",
+        "func": "ran= parseInt(Math.random()*30);\nmsg.topic = \"WC\";\nmsg.payload = ran;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 718.833251953125,
+        "y": 1138.000005722046,
+        "wires": [
+            [
+                "4e96b972.047b18"
+            ]
+        ]
+    },
+    {
+        "id": "4933de89.0d809",
+        "type": "function",
+        "z": "6eb4d03d.9126f",
+        "name": "",
+        "func": "ran= parseInt(Math.random()*30);\nmsg.topic = \"Salon\";\nmsg.payload = ran;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 724.833251953125,
+        "y": 1197.0000686645508,
+        "wires": [
+            [
+                "4e96b972.047b18"
+            ]
+        ]
+    },
+    {
+        "id": "c8e9292b.8d1ef8",
+        "type": "function",
+        "z": "6eb4d03d.9126f",
+        "name": "",
+        "func": "ran= parseInt(Math.random()*30);\nmsg.topic = \"Salon\";\nmsg.payload = ran;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 723,
+        "y": 1263,
+        "wires": [
+            [
+                "4e96b972.047b18"
+            ]
+        ]
+    },
+    {
+        "id": "2b29cd08.176ca2",
+        "type": "ui_group",
+        "z": "",
+        "name": "Temperatura",
+        "tab": "af9210b7.be72a",
+        "order": 4,
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "55a2750.9f8758c",
+        "type": "ui_group",
+        "z": "",
+        "name": "Control de luz",
+        "tab": "af9210b7.be72a",
+        "order": 1,
+        "disp": true,
+        "width": "4",
+        "collapse": false
+    },
+    {
+        "id": "f7b86bbf.edc498",
+        "type": "ui_group",
+        "z": "",
+        "name": "Graficas",
+        "tab": "af9210b7.be72a",
+        "order": 3,
+        "disp": true,
+        "width": "12",
+        "collapse": false
+    },
+    {
+        "id": "2216b444.550d6c",
+        "type": "ui_group",
+        "z": "",
+        "name": "Humedad",
+        "tab": "af9210b7.be72a",
+        "order": 2,
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "835d0b83.e126f8",
+        "type": "ui_group",
+        "z": "",
+        "name": "Registro de actividad",
+        "tab": "af9210b7.be72a",
+        "order": 5,
+        "disp": true,
+        "width": "10",
+        "collapse": false
+    },
+    {
+        "id": "c6ef8d34.7ce0f",
+        "type": "ui_group",
+        "z": "",
+        "name": "Uso del area",
+        "tab": "af9210b7.be72a",
+        "order": 6,
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "af9210b7.be72a",
+        "type": "ui_tab",
+        "z": "",
+        "name": "Panel de control ",
+        "icon": "dashboard",
+        "order": 1,
+        "disabled": false,
+        "hidden": false
+    }
+]
