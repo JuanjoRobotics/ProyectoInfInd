@@ -168,6 +168,7 @@ volatile int TiempoActualiza  = 60;  // Tiempo en comprobar actualizaciones (min
 unsigned long lastMsgLASER = 0;     // último mensaje enviado desde sensor de distancia
 float cambia_dist          = 0;
 bool comprueba_laser       =false;
+String nombre_casa=" ";
  
 //--------Peligro--------
 int CalidadCOa  =0;                 //Nivel de peligro de CO
@@ -179,23 +180,23 @@ int CalidadHumoa=0;               //Nivel de peligro de Humo
 const String Num_Grupo="2";
 const String topic_estructura="infind/GRUPO"+Num_Grupo+"/ESP"+String(ESP.getChipId());
 
-// Topics completos
+// Topics (PUBLISH) en String
 String topicS_global=topic_estructura+"/datos";
-//topic_global  =(topic_estructura+String("/datos")).c_str();
 String topicS_conexion=topic_estructura+"/conexion";
-//topic_conexion=(topic_estructura+"/conexion").c_str();
 String topicS_actualizacion=topic_estructura+"/actualizacion";
-//topic_actualizacion=(topic_estructura+"/actualizacion").c_str();
 String topicS_laser=topic_estructura+"/puerta";
-//topic_laser   =(topic_estructura+"/puerta").c_str();
 String topicS_led=topic_estructura+"/led/status";
-//topic_led     =(topic_estructura+"/led/status").c_str();
 String topicS_switch=topic_estructura+"/switch/status";
-//topic_switch  =(topic_estructura+"/switch/status").c_str();
 String topicS_mq2=topic_estructura+"/Calidad_Aire";
-//topic_mq2     =(topic_estructura+"/Calidad_Aire").c_str();
 
+// Topics (SUBSCRIBE) en String
+String topicS_FOTA=topic_estructura+"/FOTA";
+String topicS_led_cmd=topic_estructura+"/led/cmd";
+String topicS_switch_cmd=topic_estructura+"/switch/cmd";
+String topicS_config=topic_estructura+"/config/cmd";
+String topicS_asignacion=topic_estructura+"/asignacion";
 
+// Topics (PUBLISH) en char*
 const char* topic_global=topicS_global.c_str();
 const char* topic_conexion=topicS_conexion.c_str();
 const char* topic_actualizacion=topicS_actualizacion.c_str();
@@ -203,6 +204,14 @@ const char* topic_laser=topicS_laser.c_str();
 const char* topic_led=topicS_led.c_str();
 const char* topic_switch=topicS_switch.c_str();
 const char* topic_mq2=topicS_mq2.c_str();
+
+// Topics (SUBSCRIBE) en char*
+const char* topic_FOTA=topicS_FOTA.c_str();
+const char* topic_led_cmd=topicS_led_cmd.c_str();
+const char* topic_switch_cmd=topicS_switch_cmd.c_str();
+const char* topic_config=topicS_config.c_str();
+const char* topic_asignacion=topicS_asignacion.c_str();
+
 
 //----------------------- FIN DECLARACIÓN DE VARIABLES -----------------------
 
@@ -408,20 +417,19 @@ void reconnect() {
     estado_act.actualizacion=false;         // No se ha actualizado aún
     estado_act.origen="";
     client.publish(topic_actualizacion,serializa_JSONact(estado_act).c_str());
-      
     // Conexión al servidor y últimas voluntades
     if (client.connect(clientId.c_str(),"infind","zancudo",topic_conexion,0,true,serializa_JSON(estado).c_str())) {
       Serial.println("connected"); // Estaremos conectados. Usuario: infind. Contraseña: zancudo. 
       estado.CHIPI=String(ESP.getChipId());
       estado.conexion = true;
-      
       client.publish(topic_conexion,serializa_JSON(estado).c_str(),true );
       
       // Subscripción a los distintos topics
-      client.subscribe("infind/GRUPO2/ESP47/FOTA");              //Me suscribo al topic de comprobación de actualizaciones
-      client.subscribe("infind/GRUPO2/ESP47/led/cmd");     //Me suscribo al topic del estado del GPIO 2
-      client.subscribe("infind/GRUPO2/ESP47/switch/cmd");  //Me suscribo al topic del estado del GPIO 16
-      client.subscribe("infind/GRUPO2/ESP47/config/cmd");  //Me suscribo al topic de configuración
+      client.subscribe(topic_FOTA);              //Me suscribo al topic de comprobación de actualizaciones
+      client.subscribe(topic_led_cmd);     //Me suscribo al topic del estado del GPIO 2
+      client.subscribe(topic_switch_cmd);  //Me suscribo al topic del estado del GPIO 16
+      client.subscribe(topic_config);  //Me suscribo al topic de configuración
+      client.subscribe(topic_asignacion);
      }
      else { // En caso de no haber establecido conexión, reintenta a los 5 segundos
       Serial.print("failed, rc=");
@@ -443,9 +451,28 @@ void callback(char* topic, byte* payload, unsigned int length) {
   
   struct registro_led valor_LED;             // Declaramos registro json para valores del LED
   struct registro_switch valor_SWITCH;       // Declaramos registro json para valores del SWITCH
-  
+  // Comprobación ------Asignación nombre------
+  if(strcmp(topic,topic_asignacion)==0) // Se estudia el valor del topic de Actualización
+    {
+      StaticJsonDocument<512> root;               // El tamaño tiene que ser adecuado para el mensaje
+      // Deserialize the JSON document
+      DeserializationError error = deserializeJson(root, mensaje);
+
+      // Compruebo si no hubo error
+      if (error) {
+        Serial.print("Error deserializeJson() failed: ");
+        Serial.println(error.c_str());
+      }
+      else // En caso de no haber error:
+      {
+        nombre_casa = root["asignacion"];            // Buscamos actualizaciones
+        
+        Serial.println(nombre_casa);
+      }
+      free(mensaje); // libero memoria
+   }
   // Comprobación ------Actualizaciones------
-  if(strcmp(topic,"infind/GRUPO2/ESP47/FOTA")==0) // Se estudia el valor del topic de Actualización
+  if(strcmp(topic,topic_FOTA)==0) // Se estudia el valor del topic de Actualización
     {
       Serial.println(actualiza);
       StaticJsonDocument<512> root;               // El tamaño tiene que ser adecuado para el mensaje
@@ -466,7 +493,7 @@ void callback(char* topic, byte* payload, unsigned int length) {
    }
    
   // Comprobación ------SWITCH------
-  if(strcmp(topic,"infind/GRUPO2/ESP47/switch/cmd")==0)
+  if(strcmp(topic,topic_switch_cmd)==0)
   {
     StaticJsonDocument<512> root;
     // Deserializa el documento JSON
@@ -501,7 +528,7 @@ void callback(char* topic, byte* payload, unsigned int length) {
   }
   
   // Comprobación ------LED-----
-  if(strcmp(topic,"infind/GRUPO2/ESP47/led/cmd")==0)
+  if(strcmp(topic,topic_led_cmd)==0)
   {
     StaticJsonDocument<512> root;
     // Deserializa el documento JSON
@@ -576,7 +603,7 @@ void callback(char* topic, byte* payload, unsigned int length) {
   }
   
     // Comprobación ------Recogida de Datos-----
-    if(strcmp(topic,"infind/GRUPO2/ESP47/config/cmd")==0) // Se estudia el estado del topic específico
+    if(strcmp(topic,topic_config)==0) // Se estudia el estado del topic específico
     {
       StaticJsonDocument<512> root;
       // Deserialize the JSON document
@@ -693,7 +720,6 @@ void setup() {
   digitalWrite(LED_Secundario, LOW);        // Encendemos inicialmente GPIO 2
   analogWrite(BUILTIN_LED, 0);              // Encendemos inicilamente GPIO 16
   Serial.begin(9600);
-  //inicializa(); 
   setup_wifi();
   
   // Hacemos saber que la actualización se debe al arrancar el dispositivo
@@ -920,7 +946,7 @@ void loop() {
    datos_globales.valor_LED = LED_dato;
    datos_globales.valor_SWITCH = estado_led16;
    datos_globales.CHIPI = String(ESP.getChipId());  
-  
+  Serial.println("JAJA");
   client.publish(topic_global,serializa_JSONGlobal(datos_globales).c_str() );
   //Publicamos el estado de conexion con retain flag=true
   
@@ -982,6 +1008,7 @@ void loop() {
     }
 /*
   // LASER
+  if (nombre_casa=="salon") {
   if (comprueba_laser == false)                   // Inicialmente, se estudia estado el sensor
   {
     if (!lox.begin()) {
@@ -998,7 +1025,7 @@ void loop() {
       laser.distancia = 0;
     }
     // Publicamos la distancia por el topic correspondiente
-    client.publish("infind/GRUPO2/ESP47/datos/puerta",serializa_JSONdistist(laser).c_str() ); 
+    client.publish(topic_laser,serializa_JSONdistist(laser).c_str() ); 
   }
   else                                            // Cuando esté activo el sensor, se podrá leer datos del sensor
   {
@@ -1018,9 +1045,10 @@ void loop() {
     Serial.println(measure.RangeMilliMeter);
     
     // Publicamos la distancia por el topic correspondiente
-    client.publish("infind/GRUPO2/ESP47/datos/puerta",serializa_JSONdistist(laser).c_str() ); 
+    client.publish(topic_laser,serializa_JSONdistist(laser).c_str() ); 
     
     cambia_dist=medida_laser;                   // Actualizamos la distancia 
+  }
   }
   }*/
 
