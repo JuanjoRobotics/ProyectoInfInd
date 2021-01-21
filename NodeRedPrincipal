@@ -791,14 +791,16 @@
         "type": "function",
         "z": "cb95b8f7.9b4968",
         "name": "+ fecha",
-        "func": "msg.payload.date = new Date();\nmsg.topic = \"infind/GRUPO2/ESP5826449/datos\"\nreturn msg;",
+        "func": "msg.payload.date = new Date();\nmsg.payload.topic = \"infind/GRUPO2/ESP5826449/datos\"\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "x": 608.685791015625,
         "y": 3783.5608530044556,
         "wires": [
             [
-                "1567217.52944df"
+                "1567217.52944df",
+                "5ef1d99e.da4948",
+                "4193e1ec.f7ea"
             ]
         ]
     },
@@ -814,8 +816,7 @@
         "y": 3783.3335905075073,
         "wires": [
             [
-                "7a214638.93bc18",
-                "4193e1ec.f7ea"
+                "7a214638.93bc18"
             ]
         ]
     },
@@ -841,11 +842,11 @@
         "type": "function",
         "z": "cb95b8f7.9b4968",
         "name": "Registro cocina",
-        "func": "msg.mensaje=msg.payload;\nmsg.limit=1;\nmsg.sort={\"date\":-1};\nmsg.payload={\"topic\": \"infind/GRUPO2/ESP5826449/datos\"};\n\nreturn msg;",
+        "func": "msg.mensaje=msg.payload;\nmsg.limit=1;\nmsg.sort={\"date\":-1};\nmsg.payload={\"topic\": \"infind/GRUPO2/ESP5826449/datos\"};\n\nreturn msg;\n\n\n",
         "outputs": 1,
         "noerr": 0,
-        "x": 4017.9998931884766,
-        "y": 113.99999809265137,
+        "x": 4048.0001831054688,
+        "y": 114.00000190734863,
         "wires": [
             [
                 "3a5d58ea.46b118"
@@ -1241,7 +1242,7 @@
         "type": "function",
         "z": "cb95b8f7.9b4968",
         "name": "Registro baño",
-        "func": "msg.mensaje=msg.payload;\nmsg.limit=1;\nmsg.sort={\"date\":-1};\nmsg.payload={\"topic\": \"infind/GRUPO2/ESP1122489/datos\"};\n\nreturn msg;",
+        "func": "msg.mensaje=msg.payload;\nmsg.limit=1;\nmsg.sort={\"date\":-1};\nmsg.payload={\"topic\":\"infind/GRUPO2/ESP1122489/datos\"};\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "x": 4018.9998931884766,
@@ -2301,7 +2302,8 @@
         "y": 3876.5608530044556,
         "wires": [
             [
-                "2194a2d0.3f226e"
+                "2194a2d0.3f226e",
+                "1750d71e.fcbc29"
             ]
         ]
     },
@@ -2366,7 +2368,7 @@
         "wires": [
             [
                 "7de15541.d2a8bc",
-                "f41e3f64.7dde2"
+                "a77d3dd.2d05fc"
             ]
         ]
     },
@@ -2430,7 +2432,8 @@
         "y": 4056.5608530044556,
         "wires": [
             [
-                "572b4ef6.2df5f"
+                "572b4ef6.2df5f",
+                "f33cc81f.8a1f88"
             ]
         ]
     },
@@ -2772,381 +2775,6 @@
         "wires": []
     },
     {
-        "id": "8b6d5a92.28a318",
-        "type": "ui_switch",
-        "z": "cb95b8f7.9b4968",
-        "name": "separdor decimal",
-        "label": "{{msg.topic}}",
-        "tooltip": "",
-        "group": "26879d4b.7e9e12",
-        "order": 4,
-        "width": 0,
-        "height": 0,
-        "passthru": false,
-        "decouple": "false",
-        "topic": "",
-        "style": "",
-        "onvalue": "true",
-        "onvalueType": "bool",
-        "onicon": "",
-        "oncolor": "",
-        "offvalue": "false",
-        "offvalueType": "bool",
-        "officon": "",
-        "offcolor": "",
-        "x": 2795.0143852233887,
-        "y": 4980,
-        "wires": [
-            [
-                "49979d95.00bf14"
-            ]
-        ]
-    },
-    {
-        "id": "8dfad84.4f69b28",
-        "type": "inject",
-        "z": "cb95b8f7.9b4968",
-        "name": "",
-        "topic": "",
-        "payload": "true",
-        "payloadType": "bool",
-        "repeat": "",
-        "crontab": "",
-        "once": true,
-        "onceDelay": 0.1,
-        "x": 2737.0114097595215,
-        "y": 4901.911847114563,
-        "wires": [
-            [
-                "49979d95.00bf14"
-            ]
-        ]
-    },
-    {
-        "id": "49979d95.00bf14",
-        "type": "function",
-        "z": "cb95b8f7.9b4968",
-        "name": "set global separador_decimal",
-        "func": "if(msg.payload===true)\n{\n    global.set(\"separador_decimal\",\"coma\");\n    msg.topic=\"separador decimal = coma\";\n}\nelse\n{\n    global.set(\"separador_decimal\",\"punto\");\n    msg.topic=\"separador decimal = punto\";\n}\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 3065.0227966308594,
-        "y": 4902.619219779968,
-        "wires": [
-            [
-                "8b6d5a92.28a318"
-            ]
-        ]
-    },
-    {
-        "id": "11e244a2.42c5bb",
-        "type": "ui_date_picker",
-        "z": "cb95b8f7.9b4968",
-        "name": "",
-        "label": "Fecha inicio",
-        "group": "26879d4b.7e9e12",
-        "order": 1,
-        "width": 0,
-        "height": 0,
-        "passthru": true,
-        "topic": "",
-        "x": 2899.7929039001465,
-        "y": 4729.756088256836,
-        "wires": [
-            [
-                "8ea661ab.7feaf"
-            ]
-        ]
-    },
-    {
-        "id": "4ac34026.22a71",
-        "type": "ui_date_picker",
-        "z": "cb95b8f7.9b4968",
-        "name": "",
-        "label": "Fecha final",
-        "group": "26879d4b.7e9e12",
-        "order": 2,
-        "width": 0,
-        "height": 0,
-        "passthru": true,
-        "topic": "",
-        "x": 2902.804256439209,
-        "y": 4778.750325679779,
-        "wires": [
-            [
-                "3de495f3.c5c83a"
-            ]
-        ]
-    },
-    {
-        "id": "8ea661ab.7feaf",
-        "type": "change",
-        "z": "cb95b8f7.9b4968",
-        "name": "",
-        "rules": [
-            {
-                "t": "set",
-                "p": "desde",
-                "pt": "global",
-                "to": "payload",
-                "tot": "msg"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 3095.7985801696777,
-        "y": 4728.417975902557,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "3de495f3.c5c83a",
-        "type": "change",
-        "z": "cb95b8f7.9b4968",
-        "name": "",
-        "rules": [
-            {
-                "t": "set",
-                "p": "hasta",
-                "pt": "global",
-                "to": "payload",
-                "tot": "msg"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 3099.0258598327637,
-        "y": 4779.3015303611755,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "b3821c01.cde1c",
-        "type": "inject",
-        "z": "cb95b8f7.9b4968",
-        "name": "",
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "repeat": "",
-        "crontab": "",
-        "once": true,
-        "onceDelay": 0.1,
-        "x": 2701.8014030456543,
-        "y": 4754.176528453827,
-        "wires": [
-            [
-                "11e244a2.42c5bb",
-                "4ac34026.22a71"
-            ]
-        ]
-    },
-    {
-        "id": "55be51b8.5b806",
-        "type": "comment",
-        "z": "cb95b8f7.9b4968",
-        "name": "Controles para seleccionar fechas",
-        "info": "",
-        "x": 2758.8013916015625,
-        "y": 4657.653812885284,
-        "wires": []
-    },
-    {
-        "id": "5d7e7577.27191c",
-        "type": "comment",
-        "z": "cb95b8f7.9b4968",
-        "name": "Selector de separador decimal",
-        "info": "",
-        "x": 2749.0255737304688,
-        "y": 4841.573971748352,
-        "wires": []
-    },
-    {
-        "id": "83609717.be0ea8",
-        "type": "http response",
-        "z": "cb95b8f7.9b4968",
-        "name": "",
-        "statusCode": "",
-        "headers": {
-            "Content-Disposition": "attachment; filename=registros.csv"
-        },
-        "x": 3638.5079231262207,
-        "y": 4685.790338516235,
-        "wires": []
-    },
-    {
-        "id": "f657f050.9ca24",
-        "type": "function",
-        "z": "cb95b8f7.9b4968",
-        "name": "Unicode y separador",
-        "func": "//add Unicode BOM character (byte order mark) to make EXCEL knows this is UTF-8\nif(global.get(\"separador_decimal\")==\"punto\")\n{\n    msg.payload='\\ufeff'+msg.payload;\n\n}\nelse\n{\n    msg.payload='\\ufeff'+(msg.payload).replace(/\\./g,\",\");\n}\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 3533.5082397460938,
-        "y": 4614.790338516235,
-        "wires": [
-            [
-                "83609717.be0ea8"
-            ]
-        ]
-    },
-    {
-        "id": "e220512e.4bf94",
-        "type": "function",
-        "z": "cb95b8f7.9b4968",
-        "name": "consulta",
-        "func": "// fecha por defecto es hoy\nvar ahora = new Date();\n// pillo los globales si los hay, si no la fecha de hoy\nvar desde = new Date(global.get(\"desde\") || ahora);\nvar hasta = new Date(global.get(\"hasta\") || ahora); \n// el día de inicio desde las cero horas\nvar inicio = new Date(desde.getFullYear(),desde.getMonth(),desde.getDate(),0,0,0,0);\n// el día final es hasta final del día\nvar final = new Date(hasta.getFullYear(),hasta.getMonth(),hasta.getDate(),23,59,59,999);\n\nmsg.payload=\n[\n    { \"$match\": {\"$topic\": \"infind/GRUPO2/ESP145/datos/cocina\", \"date\": { \"$gte\": inicio , \"$lte\": final } } },\n    { \"$project\": {\n        \"_id\": 0,\n        \"date\": 1,\n        \"temp\": \"$DHT11.temp\",\n        \"hum\": \"$DHT11.hum\",\n        }\n    },\n    { \"$sort\": {\"date\": 1} }\n];\n\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 2788.5080947875977,
-        "y": 4584.789490699768,
-        "wires": [
-            [
-                "a43810db.35d7a",
-                "5e247bee.a198c4"
-            ]
-        ]
-    },
-    {
-        "id": "eccb4ff1.8cfdc",
-        "type": "http in",
-        "z": "cb95b8f7.9b4968",
-        "name": "",
-        "url": "/registros",
-        "method": "get",
-        "upload": false,
-        "swaggerDoc": "",
-        "x": 2625.508056640625,
-        "y": 4584.789469718933,
-        "wires": [
-            [
-                "e220512e.4bf94"
-            ]
-        ]
-    },
-    {
-        "id": "259e3c57.c4ad44",
-        "type": "ui_template",
-        "z": "cb95b8f7.9b4968",
-        "group": "26879d4b.7e9e12",
-        "name": "",
-        "order": 3,
-        "width": "0",
-        "height": "0",
-        "format": "<style>\n.button {\n    text-align: center;\n    font: bold 17px Arial;\n    text-decoration: none;\n    background-color: #339966;\n    color: white;\n    padding: 8px 10px;\n    border: 2px solid #CCCCCC;\n  }\n  \n  .button:hover\n  {\n   background-color: #26734d;\n  }\n\n</style>\n<a href=\"/registros\" class=\"button\">Descarga registros en CSV (EXCEL)</a>\n",
-        "storeOutMessages": true,
-        "fwdInMessages": true,
-        "templateScope": "local",
-        "x": 2644.5080795288086,
-        "y": 4476.789302825928,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "a43810db.35d7a",
-        "type": "mongodb in",
-        "z": "cb95b8f7.9b4968",
-        "mongodb": "c5464916.ceffc8",
-        "name": "",
-        "collection": "datos/GRUPO2_json",
-        "operation": "aggregate",
-        "x": 3083.5222778320312,
-        "y": 4584.79515171051,
-        "wires": [
-            [
-                "7ad391f7.71277",
-                "9a73cc7d.ab6d5"
-            ]
-        ]
-    },
-    {
-        "id": "7ad391f7.71277",
-        "type": "csv",
-        "z": "cb95b8f7.9b4968",
-        "name": "",
-        "sep": ";",
-        "hdrin": "",
-        "hdrout": true,
-        "multi": "one",
-        "ret": "\\r\\n",
-        "temp": "date, temp, hum",
-        "skip": 0,
-        "x": 3348.5083236694336,
-        "y": 4582.78976726532,
-        "wires": [
-            [
-                "f657f050.9ca24"
-            ]
-        ]
-    },
-    {
-        "id": "8255736e.34b41",
-        "type": "comment",
-        "z": "cb95b8f7.9b4968",
-        "name": "Botón en HTML para lanzar descarga de fichero",
-        "info": "",
-        "x": 2754.297836303711,
-        "y": 4428.87175655365,
-        "wires": []
-    },
-    {
-        "id": "66f44863.32a7b8",
-        "type": "comment",
-        "z": "cb95b8f7.9b4968",
-        "name": "Flujo para descarga de fichero",
-        "info": "",
-        "x": 2696.522262573242,
-        "y": 4526.795123100281,
-        "wires": []
-    },
-    {
-        "id": "5e247bee.a198c4",
-        "type": "debug",
-        "z": "cb95b8f7.9b4968",
-        "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "x": 3069.83353805542,
-        "y": 4450.2660665512085,
-        "wires": []
-    },
-    {
-        "id": "9a73cc7d.ab6d5",
-        "type": "debug",
-        "z": "cb95b8f7.9b4968",
-        "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "x": 3418.9999809265137,
-        "y": 4468.9326066970825,
-        "wires": []
-    },
-    {
-        "id": "cc80a675.6a69e8",
-        "type": "comment",
-        "z": "cb95b8f7.9b4968",
-        "name": "PREGUNTAR AL PROFESOR SOBRE ESTO",
-        "info": "",
-        "x": 3244.015682220459,
-        "y": 4619.01628112793,
-        "wires": []
-    },
-    {
         "id": "3402c984.102fb6",
         "type": "telegrambot-switch",
         "z": "cb95b8f7.9b4968",
@@ -3200,7 +2828,7 @@
         "type": "function",
         "z": "cb95b8f7.9b4968",
         "name": "ayuda mensaje",
-        "func": "msg.payload = \"¿Estás un poco perdido? Tranquilo, yo te ayudo. \\n\";\nmsg.payload += \"En primer lugar puedes utilizar el comando /encender o /apagar para modificar las luces. \\n\";\nmsg.payload += \"Una vez lo hagas podrás elegir qué quieres enceder, tienes varios niveles para elegir. \\n\";\nmsg.payload += \"Por otro lado tienes el comando /estado para comprobar cierta información de cada rincón de la casa. \\n\";\nmsg.payload += \"Otro comando interesante es /prediccion, que te permite ver la prediccion del tiempo atmosferico. \\n\";\nmsg.payload += \"Con el comando /configuracion podrás tocar varios parámetros como el tiempo de recogida de datos, el de pwm, el estado del switch y del led y el tiempo de actualizacion . Tambien puedes actualizar manualmente con /actualiza \\n\";\nmsg.payload += \"Si escribes /TempMax o /TempMin podrás cambiar la temperatura a la que quieres los avisos \\n\";\nmsg.payload += \"Hay otros mensajes que se envian automaticamente si ocurren situaciones concretas, como por ejemplo, que se abra la puerta de la casa o que tengas un nivel de humo demasiado alto. \\n\";\nmsg.payload += \"¿No me crees? Pues metele fuego a la casa para que veas lo efectivo que soy ^^. \\n\";\nreturn msg;\n",
+        "func": "msg.payload = \"¿Estás un poco perdido? Tranquilo, yo te ayudo. \\n\";\nmsg.payload += \"En primer lugar puedes utilizar el comando /encender o /apagar para modificar las luces. \\n\";\nmsg.payload += \"Una vez lo hagas podrás elegir qué quieres enceder, tienes varios niveles para elegir. \\n\";\nmsg.payload += \"Por otro lado tienes el comando /estado para comprobar cierta información de cada rincón de la casa. \\n\";\nmsg.payload += \"Otro comando interesante es /prediccion, que te permite ver la prediccion del tiempo atmosferico. \\n\";\nmsg.payload += \"Con el comando /configuracion podrás tocar varios parámetros como el tiempo de recogida de datos, el de pwm, el estado del switch y del led y el tiempo de actualizacion . Tambien puedes actualizar manualmente con /actualiza \\n\";\nmsg.payload += \"Si escribes /TempMax o /TempMin podrás cambiar la temperatura a la que quieres los avisos \\n\";\nmsg.payload += \"Con /HumMax y /HumMin puedes regular los avisos para la humedad \\n\";\nmsg.payload += \"Hay otros mensajes que se envian automaticamente si ocurren situaciones concretas, como por ejemplo, que se abra la puerta de la casa o que tengas un nivel de humo demasiado alto. \\n\";\nmsg.payload += \"¿No me crees? Pues metele fuego a la casa para que veas lo efectivo que soy ^^. \\n\";\nreturn msg;\n",
         "outputs": 1,
         "noerr": 0,
         "x": 491.89585876464844,
@@ -4266,11 +3894,11 @@
         "type": "function",
         "z": "cb95b8f7.9b4968",
         "name": "5 milisegundos",
-        "func": "msg.payload=msg.mensaje;\n\nmsg.payload= {\"velocidad\": 5};\n\n\n\nreturn msg;",
+        "func": "\nmsg.payload= {\"velocidad\": 5};\n\n\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 4173.951984405518,
-        "y": 1991.2034130096436,
+        "x": 4154.95166015625,
+        "y": 2041.203125,
         "wires": [
             [
                 "c83e3c7c.cb59a",
@@ -4287,11 +3915,11 @@
         "type": "function",
         "z": "cb95b8f7.9b4968",
         "name": "10 milisegundos",
-        "func": "msg.payload=msg.mensaje;\n\nmsg.payload= {\"velocidad\": 10};\n\n\n\nreturn msg;",
+        "func": "\n\nmsg.payload= {\"velocidad\": 10};\n\n\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 4156.055988311768,
-        "y": 2075.2034130096436,
+        "x": 4162.055419921875,
+        "y": 2108.203369140625,
         "wires": [
             [
                 "c83e3c7c.cb59a",
@@ -4308,11 +3936,11 @@
         "type": "function",
         "z": "cb95b8f7.9b4968",
         "name": "100 milisegundos",
-        "func": "msg.payload=msg.mensaje;\n\nmsg.payload= {\"velocidad\": 100};\n\n\n\nreturn msg;",
+        "func": "\n\nmsg.payload= {\"velocidad\": 100};\n\n\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 4170.055744171143,
-        "y": 2153.2034130096436,
+        "x": 4179.055446624756,
+        "y": 2176.2033109664917,
         "wires": [
             [
                 "eefe58f.6ee97a8",
@@ -4329,11 +3957,11 @@
         "type": "function",
         "z": "cb95b8f7.9b4968",
         "name": "200 milisegundos",
-        "func": "msg.payload=msg.mensaje;\n\nmsg.payload= {\"velocidad\": 200};\n\n\n\nreturn msg;",
+        "func": "\n\nmsg.payload= {\"velocidad\": 200};\n\n\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 4173.05574798584,
-        "y": 2231.203718185425,
+        "x": 4186.055419921875,
+        "y": 2241.203369140625,
         "wires": [
             [
                 "c2d23558.53fae8",
@@ -4350,11 +3978,11 @@
         "type": "function",
         "z": "cb95b8f7.9b4968",
         "name": "500 milisegundos",
-        "func": "msg.payload=msg.mensaje;\n\nmsg.payload= {\"envia\": 500};\n\n\n\nreturn msg;",
+        "func": "\n\nmsg.payload= {\"envia\": 500};\n\n\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 4161.055744171143,
-        "y": 2316.4255809783936,
+        "x": 4187.055419921875,
+        "y": 2305.425537109375,
         "wires": [
             [
                 "f49a0471.5acb08",
@@ -4655,10 +4283,10 @@
         "id": "7954da83.84b3b4",
         "type": "ui_led",
         "z": "cb95b8f7.9b4968",
-        "group": "40706f5a.d9a34",
+        "group": "d663aec0.fe33b",
         "order": 5,
         "width": "5",
-        "height": "2",
+        "height": "1",
         "label": "Puerta abierta (ROJO) / Puerta cerrada (VERDE)",
         "labelPlacement": "left",
         "labelAlignment": "left",
@@ -4701,7 +4329,8 @@
             ],
             [
                 "cbb7c344.b0072",
-                "568d73f8.40590c"
+                "568d73f8.40590c",
+                "a95de7f8.1899d8"
             ]
         ]
     },
@@ -4726,7 +4355,8 @@
             ],
             [
                 "a87f8c83.2d17",
-                "8cc2e7c1.7d3428"
+                "8cc2e7c1.7d3428",
+                "3b5cabf0.072534"
             ]
         ]
     },
@@ -4807,8 +4437,8 @@
         "type": "ui_gauge",
         "z": "cb95b8f7.9b4968",
         "name": "",
-        "group": "12ab21eb.8662ce",
-        "order": 6,
+        "group": "2698f6e4.59cfda",
+        "order": 13,
         "width": "3",
         "height": "3",
         "gtype": "compass",
@@ -4833,7 +4463,7 @@
         "type": "ui_gauge",
         "z": "cb95b8f7.9b4968",
         "name": "",
-        "group": "12ab21eb.8662ce",
+        "group": "2698f6e4.59cfda",
         "order": 9,
         "width": "3",
         "height": "3",
@@ -4882,16 +4512,6 @@
         "info": "",
         "x": 2136.191162109375,
         "y": 3571.0001220703125,
-        "wires": []
-    },
-    {
-        "id": "e1abfd3.e3371",
-        "type": "comment",
-        "z": "cb95b8f7.9b4968",
-        "name": "------------------DESCARGA EXCEL------------------",
-        "info": "",
-        "x": 2979.0000228881836,
-        "y": 4342.26563167572,
         "wires": []
     },
     {
@@ -5371,7 +4991,8 @@
             ],
             [
                 "d64864d9.60fd18",
-                "3acb5995.929526"
+                "3acb5995.929526",
+                "69e19ebb.5db79"
             ]
         ]
     },
@@ -5396,8 +5017,8 @@
         "type": "ui_gauge",
         "z": "cb95b8f7.9b4968",
         "name": "",
-        "group": "12ab21eb.8662ce",
-        "order": 3,
+        "group": "2698f6e4.59cfda",
+        "order": 10,
         "width": "3",
         "height": "3",
         "gtype": "compass",
@@ -5515,12 +5136,12 @@
         "id": "3989e89.2d5f318",
         "type": "ui_led",
         "z": "cb95b8f7.9b4968",
-        "group": "a5a62931.5d2068",
+        "group": "3c99888e.a2a758",
         "order": 4,
         "width": "2",
-        "height": "2",
+        "height": "1",
         "label": "CO",
-        "labelPlacement": "left",
+        "labelPlacement": "right",
         "labelAlignment": "left",
         "colorForValue": [
             {
@@ -5570,12 +5191,12 @@
         "id": "1c1e317a.47347f",
         "type": "ui_led",
         "z": "cb95b8f7.9b4968",
-        "group": "a5a62931.5d2068",
+        "group": "3c99888e.a2a758",
         "order": 4,
         "width": "2",
-        "height": "2",
+        "height": "1",
         "label": "LPG",
-        "labelPlacement": "left",
+        "labelPlacement": "right",
         "labelAlignment": "left",
         "colorForValue": [
             {
@@ -5625,12 +5246,12 @@
         "id": "4a595e17.8f31d",
         "type": "ui_led",
         "z": "cb95b8f7.9b4968",
-        "group": "a5a62931.5d2068",
+        "group": "3c99888e.a2a758",
         "order": 4,
         "width": "2",
-        "height": "2",
+        "height": "1",
         "label": "Humo",
-        "labelPlacement": "left",
+        "labelPlacement": "right",
         "labelAlignment": "left",
         "colorForValue": [
             {
@@ -6014,12 +5635,12 @@
         "id": "a7354d33.375e",
         "type": "ui_led",
         "z": "cb95b8f7.9b4968",
-        "group": "40706f5a.d9a34",
+        "group": "c8594790.14e3d8",
         "order": 6,
         "width": "2",
-        "height": "2",
+        "height": "1",
         "label": "CO",
-        "labelPlacement": "left",
+        "labelPlacement": "right",
         "labelAlignment": "left",
         "colorForValue": [
             {
@@ -6069,12 +5690,12 @@
         "id": "832f99a5.4ee1b8",
         "type": "ui_led",
         "z": "cb95b8f7.9b4968",
-        "group": "40706f5a.d9a34",
+        "group": "c8594790.14e3d8",
         "order": 7,
         "width": "2",
-        "height": "2",
+        "height": "1",
         "label": "LPG",
-        "labelPlacement": "left",
+        "labelPlacement": "right",
         "labelAlignment": "left",
         "colorForValue": [
             {
@@ -6124,12 +5745,12 @@
         "id": "44b2056b.a87a6c",
         "type": "ui_led",
         "z": "cb95b8f7.9b4968",
-        "group": "40706f5a.d9a34",
+        "group": "c8594790.14e3d8",
         "order": 8,
         "width": "2",
-        "height": "2",
+        "height": "1",
         "label": "Humo",
-        "labelPlacement": "left",
+        "labelPlacement": "right",
         "labelAlignment": "left",
         "colorForValue": [
             {
@@ -6394,7 +6015,8 @@
             ],
             [
                 "3989a12f.370a7e",
-                "b5bb4083.b4dcf"
+                "b5bb4083.b4dcf",
+                "fdee383.55c45c8"
             ]
         ]
     },
@@ -6419,8 +6041,8 @@
         "type": "ui_gauge",
         "z": "cb95b8f7.9b4968",
         "name": "",
-        "group": "12ab21eb.8662ce",
-        "order": 3,
+        "group": "2698f6e4.59cfda",
+        "order": 11,
         "width": "3",
         "height": "3",
         "gtype": "compass",
@@ -6750,7 +6372,10 @@
         "x": 2923.833522796631,
         "y": 697.0001630783081,
         "wires": [
-            []
+            [
+                "fbfdd3e5.cfcbc",
+                "f5166b80.bd4908"
+            ]
         ]
     },
     {
@@ -7687,20 +7312,6 @@
         "wires": []
     },
     {
-        "id": "f41e3f64.7dde2",
-        "type": "debug",
-        "z": "cb95b8f7.9b4968",
-        "name": "",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "x": 852.7656097412109,
-        "y": 4013.2500314712524,
-        "wires": []
-    },
-    {
         "id": "39fa9bce.c3e614",
         "type": "comment",
         "z": "cb95b8f7.9b4968",
@@ -8626,39 +8237,13 @@
         "wires": []
     },
     {
-        "id": "a0532964.842ce8",
-        "type": "ui_gauge",
-        "z": "cb95b8f7.9b4968",
-        "name": "",
-        "group": "57330da7.251e34",
-        "order": 0,
-        "width": "6",
-        "height": "3",
-        "gtype": "gage",
-        "title": "Media",
-        "label": "units",
-        "format": "{{value}}",
-        "min": 0,
-        "max": "50",
-        "colors": [
-            "#00b500",
-            "#e6e600",
-            "#ca3838"
-        ],
-        "seg1": "",
-        "seg2": "",
-        "x": 3545.500717163086,
-        "y": 3943.3342838287354,
-        "wires": []
-    },
-    {
         "id": "70143a2c.a82494",
         "type": "comment",
         "z": "cb95b8f7.9b4968",
-        "name": "PENDIENTE TEMPERATURA GLOBAL",
+        "name": "DashBoard Text",
         "info": "",
-        "x": 3603.8334197998047,
-        "y": 3892.6675357818604,
+        "x": 3762.833251953125,
+        "y": 4085.667236328125,
         "wires": []
     },
     {
@@ -8766,32 +8351,6 @@
         "wires": []
     },
     {
-        "id": "21f1f552.c6133a",
-        "type": "ui_gauge",
-        "z": "cb95b8f7.9b4968",
-        "name": "",
-        "group": "95c6b073.e17e4",
-        "order": 6,
-        "width": "6",
-        "height": "3",
-        "gtype": "donut",
-        "title": "Media",
-        "label": "units",
-        "format": "{{value}}",
-        "min": 0,
-        "max": "100",
-        "colors": [
-            "#00bbfa",
-            "#077fbb",
-            "#2319a3"
-        ],
-        "seg1": "",
-        "seg2": "",
-        "x": 3655.000473022461,
-        "y": 3941.333673477173,
-        "wires": []
-    },
-    {
         "id": "51ee50e6.c1e9e",
         "type": "comment",
         "z": "cb95b8f7.9b4968",
@@ -8819,9 +8378,9 @@
         "label": "Salon____",
         "tooltip": "",
         "group": "12ab21eb.8662ce",
-        "order": 6,
-        "width": 0,
-        "height": 0,
+        "order": 1,
+        "width": "6",
+        "height": "1",
         "passthru": false,
         "outs": "all",
         "topic": "",
@@ -8844,9 +8403,9 @@
         "label": "Habitacion",
         "tooltip": "",
         "group": "12ab21eb.8662ce",
-        "order": 7,
-        "width": 0,
-        "height": 0,
+        "order": 4,
+        "width": "6",
+        "height": "1",
         "passthru": false,
         "outs": "all",
         "topic": "",
@@ -8869,9 +8428,9 @@
         "label": "Cocina___",
         "tooltip": "",
         "group": "12ab21eb.8662ce",
-        "order": 8,
-        "width": 0,
-        "height": 0,
+        "order": 3,
+        "width": "6",
+        "height": "1",
         "passthru": false,
         "outs": "all",
         "topic": "",
@@ -8894,9 +8453,9 @@
         "label": "Baño_____",
         "tooltip": "",
         "group": "12ab21eb.8662ce",
-        "order": 9,
-        "width": 0,
-        "height": 0,
+        "order": 2,
+        "width": "6",
+        "height": "1",
         "passthru": false,
         "outs": "all",
         "topic": "",
@@ -8929,7 +8488,7 @@
         "dot": false,
         "ymin": "",
         "ymax": "",
-        "removeOlder": 1,
+        "removeOlder": "12",
         "removeOlderPoints": "",
         "removeOlderUnit": "3600",
         "cutout": 0,
@@ -8971,7 +8530,7 @@
         "dot": false,
         "ymin": "",
         "ymax": "",
-        "removeOlder": 1,
+        "removeOlder": "12",
         "removeOlderPoints": "",
         "removeOlderUnit": "3600",
         "cutout": 0,
@@ -9000,13 +8559,13 @@
         "type": "debug",
         "z": "cb95b8f7.9b4968",
         "name": "",
-        "active": false,
+        "active": true,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
         "complete": "false",
-        "x": 412.38671875,
-        "y": 3622.26953125,
+        "x": 852.38671875,
+        "y": 3735.26953125,
         "wires": []
     },
     {
@@ -9145,9 +8704,9 @@
         "label": "Salon",
         "tooltip": "",
         "group": "12ab21eb.8662ce",
-        "order": 1,
-        "width": 0,
-        "height": 0,
+        "order": 6,
+        "width": "1",
+        "height": "1",
         "passthru": false,
         "decouple": "false",
         "topic": "",
@@ -9176,9 +8735,9 @@
         "label": "Habitacion",
         "tooltip": "",
         "group": "12ab21eb.8662ce",
-        "order": 2,
-        "width": 0,
-        "height": 0,
+        "order": 7,
+        "width": "1",
+        "height": "1",
         "passthru": false,
         "decouple": "false",
         "topic": "",
@@ -9207,9 +8766,9 @@
         "label": "Cocina",
         "tooltip": "",
         "group": "12ab21eb.8662ce",
-        "order": 3,
-        "width": 0,
-        "height": 0,
+        "order": 10,
+        "width": "1",
+        "height": "1",
         "passthru": false,
         "decouple": "false",
         "topic": "",
@@ -9238,9 +8797,9 @@
         "label": "Baño",
         "tooltip": "",
         "group": "12ab21eb.8662ce",
-        "order": 4,
-        "width": 0,
-        "height": 0,
+        "order": 9,
+        "width": "1",
+        "height": "1",
         "passthru": false,
         "decouple": "false",
         "topic": "",
@@ -9268,7 +8827,7 @@
         "name": "",
         "group": "94936d81.8681a",
         "order": 3,
-        "width": "2",
+        "width": "3",
         "height": "1",
         "passthru": false,
         "label": "Manual",
@@ -9294,7 +8853,7 @@
         "name": "",
         "group": "94936d81.8681a",
         "order": 4,
-        "width": "2",
+        "width": "3",
         "height": "1",
         "passthru": false,
         "label": "60 min",
@@ -9320,7 +8879,7 @@
         "name": "",
         "group": "94936d81.8681a",
         "order": 5,
-        "width": "2",
+        "width": "3",
         "height": "1",
         "passthru": false,
         "label": "120 min",
@@ -9346,7 +8905,7 @@
         "name": "",
         "group": "94936d81.8681a",
         "order": 6,
-        "width": "2",
+        "width": "3",
         "height": "1",
         "passthru": false,
         "label": "240 min",
@@ -9450,7 +9009,7 @@
         "name": "",
         "group": "5ed1f6a1.e21328",
         "order": 6,
-        "width": "2",
+        "width": "3",
         "height": "1",
         "passthru": false,
         "label": "1 min",
@@ -9476,7 +9035,7 @@
         "name": "",
         "group": "5ed1f6a1.e21328",
         "order": 7,
-        "width": "2",
+        "width": "3",
         "height": "1",
         "passthru": false,
         "label": "5 min",
@@ -9637,110 +9196,6 @@
         "wires": []
     },
     {
-        "id": "f0929706.3293c8",
-        "type": "ui_button",
-        "z": "cb95b8f7.9b4968",
-        "name": "",
-        "group": "bb511b41.0362b8",
-        "order": 3,
-        "width": "2",
-        "height": "1",
-        "passthru": false,
-        "label": "30 °C",
-        "tooltip": "",
-        "color": "",
-        "bgcolor": "",
-        "icon": "",
-        "payload": "",
-        "payloadType": "str",
-        "topic": "",
-        "x": 2627,
-        "y": 591,
-        "wires": [
-            [
-                "f657569f.6275e8"
-            ]
-        ]
-    },
-    {
-        "id": "73217714.c858b8",
-        "type": "ui_button",
-        "z": "cb95b8f7.9b4968",
-        "name": "",
-        "group": "bb511b41.0362b8",
-        "order": 4,
-        "width": "2",
-        "height": "1",
-        "passthru": false,
-        "label": "40 °C",
-        "tooltip": "",
-        "color": "",
-        "bgcolor": "",
-        "icon": "",
-        "payload": "",
-        "payloadType": "str",
-        "topic": "",
-        "x": 2622.5,
-        "y": 679,
-        "wires": [
-            [
-                "5c4b6083.f69e"
-            ]
-        ]
-    },
-    {
-        "id": "ecbe14de.2eabf8",
-        "type": "ui_button",
-        "z": "cb95b8f7.9b4968",
-        "name": "",
-        "group": "bb511b41.0362b8",
-        "order": 5,
-        "width": "2",
-        "height": "1",
-        "passthru": false,
-        "label": "50 °C",
-        "tooltip": "",
-        "color": "",
-        "bgcolor": "",
-        "icon": "",
-        "payload": "",
-        "payloadType": "str",
-        "topic": "",
-        "x": 2655.25,
-        "y": 771.75,
-        "wires": [
-            [
-                "54445bc8.201534"
-            ]
-        ]
-    },
-    {
-        "id": "1556e916.7e3367",
-        "type": "ui_button",
-        "z": "cb95b8f7.9b4968",
-        "name": "",
-        "group": "bb511b41.0362b8",
-        "order": 6,
-        "width": "2",
-        "height": "1",
-        "passthru": false,
-        "label": "60 °C",
-        "tooltip": "",
-        "color": "",
-        "bgcolor": "",
-        "icon": "",
-        "payload": "",
-        "payloadType": "str",
-        "topic": "",
-        "x": 2642.75,
-        "y": 850,
-        "wires": [
-            [
-                "f7dcb9ff.af3098"
-            ]
-        ]
-    },
-    {
         "id": "de363f6.b80c7c",
         "type": "telegrambot-command",
         "z": "cb95b8f7.9b4968",
@@ -9799,10 +9254,10 @@
         "id": "293b61d1.6c36fe",
         "type": "telegrambot-notify",
         "z": "cb95b8f7.9b4968",
-        "name": "temperatura -20",
+        "name": "temperatura -10",
         "bot": "407d7e26.e9903",
         "chatId": "-487674790",
-        "message": "Se ha establecido la temperatura minima a -20º",
+        "message": "Se ha establecido la temperatura minima a -10º",
         "parseMode": "",
         "x": 2918.3335571289062,
         "y": 924.3333740234375,
@@ -9825,10 +9280,10 @@
         "id": "4582a334.83eeec",
         "type": "telegrambot-notify",
         "z": "cb95b8f7.9b4968",
-        "name": "temperatura -10",
+        "name": "temperatura 0",
         "bot": "407d7e26.e9903",
         "chatId": "-487674790",
-        "message": "Se ha establecido la temperatura minima a -10º",
+        "message": "Se ha establecido la temperatura minima a 0º",
         "parseMode": "",
         "x": 2934.3335571289062,
         "y": 998.0000610351562,
@@ -9838,10 +9293,10 @@
         "id": "9c798459.b05cd8",
         "type": "telegrambot-notify",
         "z": "cb95b8f7.9b4968",
-        "name": "temperatura 0",
+        "name": "temperatura 5",
         "bot": "407d7e26.e9903",
         "chatId": "-487674790",
-        "message": "Se ha establecido la temperatura minima a 0º",
+        "message": "Se ha establecido la temperatura minima a 5º",
         "parseMode": "",
         "x": 2918.3335571289062,
         "y": 1123.0000610351562,
@@ -9851,10 +9306,10 @@
         "id": "bf3944cd.c4e5a8",
         "type": "telegrambot-notify",
         "z": "cb95b8f7.9b4968",
-        "name": "temperatura 5",
+        "name": "temperatura 10",
         "bot": "407d7e26.e9903",
         "chatId": "-487674790",
-        "message": "Se ha establecido la temperatura minima a 5º",
+        "message": "Se ha establecido la temperatura minima a 10º",
         "parseMode": "",
         "x": 2891.3335571289062,
         "y": 1192.0000610351562,
@@ -9882,15 +9337,18 @@
         "x": 2962.166835784912,
         "y": 1057.0000410079956,
         "wires": [
-            []
+            [
+                "fbfdd3e5.cfcbc",
+                "e7809c61.186bf"
+            ]
         ]
     },
     {
         "id": "58e4c098.c7456",
         "type": "function",
         "z": "cb95b8f7.9b4968",
-        "name": "eleccion -20",
-        "func": "msg.payload = -20;\nreturn msg;",
+        "name": "eleccion -10",
+        "func": "msg.payload = -10;\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "x": 2710.1670532226562,
@@ -9906,11 +9364,11 @@
         "id": "21ae7e3.6570e82",
         "type": "function",
         "z": "cb95b8f7.9b4968",
-        "name": "eleccion -10",
-        "func": "msg.payload = -10;\nreturn msg;",
+        "name": "eleccion 0",
+        "func": "msg.payload = 0;\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 2696.3335571289062,
+        "x": 2686.3335571289062,
         "y": 1000.3333740234375,
         "wires": [
             [
@@ -9923,8 +9381,8 @@
         "id": "e0500775.7bcad8",
         "type": "function",
         "z": "cb95b8f7.9b4968",
-        "name": "eleccion 0",
-        "func": "msg.payload = 0;\nreturn msg;",
+        "name": "eleccion 5",
+        "func": "msg.payload = 5;\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "x": 2707.3335571289062,
@@ -9940,11 +9398,11 @@
         "id": "5070fb65.2464d4",
         "type": "function",
         "z": "cb95b8f7.9b4968",
-        "name": "eleccion 5",
-        "func": "msg.payload = 5;\nreturn msg;",
+        "name": "eleccion 10",
+        "func": "msg.payload = 10;\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 2694.33349609375,
+        "x": 2704.33349609375,
         "y": 1167.3333806991577,
         "wires": [
             [
@@ -9970,110 +9428,6 @@
         ]
     },
     {
-        "id": "6995bead.ecf22",
-        "type": "ui_button",
-        "z": "cb95b8f7.9b4968",
-        "name": "",
-        "group": "bb511b41.0362b8",
-        "order": 7,
-        "width": "2",
-        "height": "1",
-        "passthru": false,
-        "label": "-20 °C",
-        "tooltip": "",
-        "color": "",
-        "bgcolor": "",
-        "icon": "",
-        "payload": "",
-        "payloadType": "str",
-        "topic": "",
-        "x": 2691.3331451416016,
-        "y": 956.999903678894,
-        "wires": [
-            [
-                "58e4c098.c7456"
-            ]
-        ]
-    },
-    {
-        "id": "75f074e6.e1b08c",
-        "type": "ui_button",
-        "z": "cb95b8f7.9b4968",
-        "name": "",
-        "group": "bb511b41.0362b8",
-        "order": 8,
-        "width": "2",
-        "height": "1",
-        "passthru": false,
-        "label": "-10 °C",
-        "tooltip": "",
-        "color": "",
-        "bgcolor": "",
-        "icon": "",
-        "payload": "",
-        "payloadType": "str",
-        "topic": "",
-        "x": 2696.8331451416016,
-        "y": 1043.999966621399,
-        "wires": [
-            [
-                "21ae7e3.6570e82"
-            ]
-        ]
-    },
-    {
-        "id": "4b3280af.63571",
-        "type": "ui_button",
-        "z": "cb95b8f7.9b4968",
-        "name": "",
-        "group": "bb511b41.0362b8",
-        "order": 9,
-        "width": "2",
-        "height": "1",
-        "passthru": false,
-        "label": "0 °C",
-        "tooltip": "",
-        "color": "",
-        "bgcolor": "",
-        "icon": "",
-        "payload": "",
-        "payloadType": "str",
-        "topic": "",
-        "x": 2703.5833129882812,
-        "y": 1131.7498779296875,
-        "wires": [
-            [
-                "e0500775.7bcad8"
-            ]
-        ]
-    },
-    {
-        "id": "e5a7e1b6.e46d3",
-        "type": "ui_button",
-        "z": "cb95b8f7.9b4968",
-        "name": "",
-        "group": "bb511b41.0362b8",
-        "order": 10,
-        "width": "2",
-        "height": "1",
-        "passthru": false,
-        "label": "5 °C",
-        "tooltip": "",
-        "color": "",
-        "bgcolor": "",
-        "icon": "",
-        "payload": "",
-        "payloadType": "str",
-        "topic": "",
-        "x": 2691.0833129882812,
-        "y": 1209.9998779296875,
-        "wires": [
-            [
-                "5070fb65.2464d4"
-            ]
-        ]
-    },
-    {
         "id": "8af47cae.70ea1",
         "type": "link out",
         "z": "cb95b8f7.9b4968",
@@ -10091,7 +9445,7 @@
         "z": "cb95b8f7.9b4968",
         "name": "/HumedadMin",
         "bot": "407d7e26.e9903",
-        "command": "/TemperaturaMin",
+        "command": "/HumedadMin",
         "commandType": "str",
         "commandCase": false,
         "x": 2272,
@@ -10227,7 +9581,9 @@
         "x": 3000.500087738037,
         "y": 1443.666666984558,
         "wires": [
-            []
+            [
+                "b5337a85.443388"
+            ]
         ]
     },
     {
@@ -10315,110 +9671,6 @@
         ]
     },
     {
-        "id": "fb3e4342.7741",
-        "type": "ui_button",
-        "z": "cb95b8f7.9b4968",
-        "name": "",
-        "group": "bb511b41.0362b8",
-        "order": 11,
-        "width": "2",
-        "height": "1",
-        "passthru": false,
-        "label": "5 %",
-        "tooltip": "",
-        "color": "",
-        "bgcolor": "",
-        "icon": "",
-        "payload": "",
-        "payloadType": "str",
-        "topic": "",
-        "x": 2729.6663970947266,
-        "y": 1343.6665296554565,
-        "wires": [
-            [
-                "41bf946c.32e54c"
-            ]
-        ]
-    },
-    {
-        "id": "429baaa0.bf4df4",
-        "type": "ui_button",
-        "z": "cb95b8f7.9b4968",
-        "name": "",
-        "group": "bb511b41.0362b8",
-        "order": 12,
-        "width": "2",
-        "height": "1",
-        "passthru": false,
-        "label": "15 %",
-        "tooltip": "",
-        "color": "",
-        "bgcolor": "",
-        "icon": "",
-        "payload": "",
-        "payloadType": "str",
-        "topic": "",
-        "x": 2735.1663970947266,
-        "y": 1430.6665925979614,
-        "wires": [
-            [
-                "7af6a2f.6206d5c"
-            ]
-        ]
-    },
-    {
-        "id": "3be48305.4687bc",
-        "type": "ui_button",
-        "z": "cb95b8f7.9b4968",
-        "name": "",
-        "group": "bb511b41.0362b8",
-        "order": 13,
-        "width": "2",
-        "height": "1",
-        "passthru": false,
-        "label": "20 %",
-        "tooltip": "",
-        "color": "",
-        "bgcolor": "",
-        "icon": "",
-        "payload": "",
-        "payloadType": "str",
-        "topic": "",
-        "x": 2741.9165649414062,
-        "y": 1518.41650390625,
-        "wires": [
-            [
-                "78ed6a7e.8280f4"
-            ]
-        ]
-    },
-    {
-        "id": "5efc2fa.1bc00d",
-        "type": "ui_button",
-        "z": "cb95b8f7.9b4968",
-        "name": "",
-        "group": "bb511b41.0362b8",
-        "order": 14,
-        "width": "2",
-        "height": "1",
-        "passthru": false,
-        "label": "25 %",
-        "tooltip": "",
-        "color": "",
-        "bgcolor": "",
-        "icon": "",
-        "payload": "",
-        "payloadType": "str",
-        "topic": "",
-        "x": 2729.4165649414062,
-        "y": 1596.66650390625,
-        "wires": [
-            [
-                "b3a2459a.0d5298"
-            ]
-        ]
-    },
-    {
         "id": "4a710908.615ca8",
         "type": "telegrambot-notify",
         "z": "cb95b8f7.9b4968",
@@ -10452,7 +9704,7 @@
         "type": "function",
         "z": "cb95b8f7.9b4968",
         "name": "humedad cocina",
-        "func": "var deteccion = msg.payload.DHT11.hum;\nif (deteccion >= global.get(\"HumMin\"))\nmsg.payload = \"LA HUMEDAD DE LA COCINA ES DEMASIADO BAJA \\n\";\n\nif (deteccion <= global.get(\"HumMax\"))\nmsg.payload = \"LA HUMEDAD DE LA COCINA ES DEMASIADO ALTA \\n\";\n\nreturn msg;",
+        "func": "var deteccion = msg.payload.DHT11.hum;\nif (deteccion <= global.get(\"HumMin\"))\nmsg.payload = \"LA HUMEDAD DE LA COCINA ES DEMASIADO BAJA \\n\";\n\nif (deteccion >= global.get(\"HumMax\"))\nmsg.payload = \"LA HUMEDAD DE LA COCINA ES DEMASIADO ALTA \\n\";\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "x": 1457.000015258789,
@@ -10558,7 +9810,7 @@
         "type": "function",
         "z": "cb95b8f7.9b4968",
         "name": "humedad salon",
-        "func": "var deteccion = msg.payload.DHT11.hum;\nif (deteccion >= global.get(\"HumMin\"))\nmsg.payload = \"LA HUMEDAD DEL SALON ES DEMASIADO BAJA \\n\";\n\nif (deteccion <= global.get(\"HumMax\"))\nmsg.payload = \"LA HUMEDAD DEL SALON ES DEMASIADO ALTA \\n\";\n\nreturn msg;",
+        "func": "var deteccion = msg.payload.DHT11.hum;\nif (deteccion <= global.get(\"HumMin\"))\nmsg.payload = \"LA HUMEDAD DEL SALON ES DEMASIADO BAJA \\n\";\n\nif (deteccion >= global.get(\"HumMax\"))\nmsg.payload = \"LA HUMEDAD DEL SALON ES DEMASIADO ALTA \\n\";\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "x": 1455.000015258789,
@@ -10574,7 +9826,7 @@
         "type": "function",
         "z": "cb95b8f7.9b4968",
         "name": "humedad habitacion",
-        "func": "var deteccion = msg.payload.DHT11.hum;\nif (deteccion >= global.get(\"HumMin\"))\nmsg.payload = \"LA HUMEDAD DE LA HABITACION ES DEMASIADO BAJA \\n\";\n\nif (deteccion <= global.get(\"HumMax\"))\nmsg.payload = \"LA HUMEDAD DE LA HABITACION ES DEMASIADO ALTA \\n\";\n\nreturn msg;",
+        "func": "var deteccion = msg.payload.DHT11.hum;\nif (deteccion <= global.get(\"HumMin\"))\nmsg.payload = \"LA HUMEDAD DE LA HABITACION ES DEMASIADO BAJA \\n\";\n\nif (deteccion >= global.get(\"HumMax\"))\nmsg.payload = \"LA HUMEDAD DE LA HABITACION ES DEMASIADO ALTA \\n\";\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "x": 1461.000015258789,
@@ -10622,7 +9874,7 @@
         "type": "function",
         "z": "cb95b8f7.9b4968",
         "name": "humedad WC",
-        "func": "var deteccion = msg.payload.DHT11.hum;\nif (deteccion >= global.get(\"HumMin\"))\nmsg.payload = \"LA HUMEDAD DEL BAÑO ES DEMASIADO BAJA \\n\";\n\nif (deteccion <= global.get(\"HumMax\"))\nmsg.payload = \"LA HUMEDAD DEL BAÑO ES DEMASIADO ALTA \\n\";\n\nreturn msg;",
+        "func": "var deteccion = msg.payload.DHT11.hum;\nif (deteccion <= global.get(\"HumMin\"))\nmsg.payload = \"LA HUMEDAD DEL BAÑO ES DEMASIADO BAJA \\n\";\n\nif (deteccion >= global.get(\"HumMax\"))\nmsg.payload = \"LA HUMEDAD DEL BAÑO ES DEMASIADO ALTA \\n\";\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "x": 1470.000015258789,
@@ -10639,7 +9891,7 @@
         "z": "cb95b8f7.9b4968",
         "name": "/HumedadMax",
         "bot": "407d7e26.e9903",
-        "command": "/TemperaturaMin",
+        "command": "/HumedadMax",
         "commandType": "str",
         "commandCase": false,
         "x": 2274,
@@ -10775,7 +10027,9 @@
         "x": 3003.500087738037,
         "y": 1854.666666984558,
         "wires": [
-            []
+            [
+                "9c4173ee.97273"
+            ]
         ]
     },
     {
@@ -10803,8 +10057,8 @@
         "func": "msg.payload = 75;\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 2737.6668090820312,
-        "y": 1798,
+        "x": 2756.6667442321777,
+        "y": 1794.9999713897705,
         "wires": [
             [
                 "f3af05ee.dbb8c8",
@@ -10859,110 +10113,6 @@
         "wires": [
             [
                 "2959b4cf.e4e22c"
-            ]
-        ]
-    },
-    {
-        "id": "79c21dfc.dd6694",
-        "type": "ui_button",
-        "z": "cb95b8f7.9b4968",
-        "name": "",
-        "group": "bb511b41.0362b8",
-        "order": 15,
-        "width": "2",
-        "height": "1",
-        "passthru": false,
-        "label": "65 %",
-        "tooltip": "",
-        "color": "",
-        "bgcolor": "",
-        "icon": "",
-        "payload": "",
-        "payloadType": "str",
-        "topic": "",
-        "x": 2732.6663970947266,
-        "y": 1754.6665296554565,
-        "wires": [
-            [
-                "638086b4.fc8fd8"
-            ]
-        ]
-    },
-    {
-        "id": "bdea0dc3.56564",
-        "type": "ui_button",
-        "z": "cb95b8f7.9b4968",
-        "name": "",
-        "group": "bb511b41.0362b8",
-        "order": 16,
-        "width": "2",
-        "height": "1",
-        "passthru": false,
-        "label": "75 %",
-        "tooltip": "",
-        "color": "",
-        "bgcolor": "",
-        "icon": "",
-        "payload": "",
-        "payloadType": "str",
-        "topic": "",
-        "x": 2738.1663970947266,
-        "y": 1841.6665925979614,
-        "wires": [
-            [
-                "926f533.0955cb"
-            ]
-        ]
-    },
-    {
-        "id": "a0d386ca.571608",
-        "type": "ui_button",
-        "z": "cb95b8f7.9b4968",
-        "name": "",
-        "group": "bb511b41.0362b8",
-        "order": 17,
-        "width": "2",
-        "height": "1",
-        "passthru": false,
-        "label": "80 %",
-        "tooltip": "",
-        "color": "",
-        "bgcolor": "",
-        "icon": "",
-        "payload": "",
-        "payloadType": "str",
-        "topic": "",
-        "x": 2744.9165649414062,
-        "y": 1929.41650390625,
-        "wires": [
-            [
-                "99d59be7.4de4c8"
-            ]
-        ]
-    },
-    {
-        "id": "1c4b8e03.c7cbe2",
-        "type": "ui_button",
-        "z": "cb95b8f7.9b4968",
-        "name": "",
-        "group": "bb511b41.0362b8",
-        "order": 18,
-        "width": "2",
-        "height": "1",
-        "passthru": false,
-        "label": "90 %",
-        "tooltip": "",
-        "color": "",
-        "bgcolor": "",
-        "icon": "",
-        "payload": "",
-        "payloadType": "str",
-        "topic": "",
-        "x": 2732.4165649414062,
-        "y": 2007.66650390625,
-        "wires": [
-            [
-                "a24bd465.cf99f8"
             ]
         ]
     },
@@ -11044,29 +10194,13 @@
         "wires": []
     },
     {
-        "id": "fd4dbd2f.57c8b",
-        "type": "ui_text",
-        "z": "cb95b8f7.9b4968",
-        "group": "bb511b41.0362b8",
-        "order": 2,
-        "width": "6",
-        "height": "1",
-        "name": "",
-        "label": "Temperatura límite inferior",
-        "format": "{{msg.payload}}",
-        "layout": "row-spread",
-        "x": 3602.000289916992,
-        "y": 3999.000238418579,
-        "wires": []
-    },
-    {
         "id": "5eb272f3.7e493c",
         "type": "ui_button",
         "z": "cb95b8f7.9b4968",
         "name": "",
         "group": "8f9d228c.301c3",
         "order": 5,
-        "width": "3",
+        "width": "2",
         "height": "1",
         "passthru": false,
         "label": "Encender",
@@ -11092,7 +10226,7 @@
         "name": "",
         "group": "8f9d228c.301c3",
         "order": 6,
-        "width": "3",
+        "width": "2",
         "height": "1",
         "passthru": false,
         "label": "Apagar",
@@ -11118,7 +10252,7 @@
         "name": "",
         "group": "8f9d228c.301c3",
         "order": 2,
-        "width": "3",
+        "width": "2",
         "height": "1",
         "passthru": false,
         "label": "Encender",
@@ -11129,8 +10263,8 @@
         "payload": "",
         "payloadType": "str",
         "topic": "",
-        "x": 4155.266098022461,
-        "y": 1756.7500457763672,
+        "x": 3896.2658500671387,
+        "y": 1792.7500476837158,
         "wires": [
             [
                 "f9317c6c.e6f58"
@@ -11144,7 +10278,7 @@
         "name": "",
         "group": "8f9d228c.301c3",
         "order": 3,
-        "width": "3",
+        "width": "2",
         "height": "1",
         "passthru": false,
         "label": "Apagar",
@@ -11155,8 +10289,8 @@
         "payload": "",
         "payloadType": "str",
         "topic": "",
-        "x": 4096.266204833984,
-        "y": 1615.9999561309814,
+        "x": 3895.265853881836,
+        "y": 1631.0000486373901,
         "wires": [
             [
                 "fc84a8bf.339228"
@@ -11164,76 +10298,41 @@
         ]
     },
     {
-        "id": "8c451998.b65658",
-        "type": "ui_text",
+        "id": "fbfdd3e5.cfcbc",
+        "type": "function",
         "z": "cb95b8f7.9b4968",
-        "group": "d663aec0.fe33b",
-        "order": 2,
-        "width": 0,
-        "height": 0,
+        "name": "Paso de temperaturas",
+        "func": "var TempMin = global.get(\"TempMin\")\nvar TempMax = global.get(\"TempMax\")\nmsg = {}\nmsg.payload = {\"TempMax\":TempMax,\"TempMin\":TempMin}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 3134.7578125,
+        "y": 861.8671875,
+        "wires": [
+            [
+                "7a869a35.ffb474"
+            ]
+        ]
+    },
+    {
+        "id": "7a869a35.ffb474",
+        "type": "mqtt out",
+        "z": "cb95b8f7.9b4968",
         "name": "",
-        "label": "Ultima Actualizacion",
-        "format": "{{msg.payload}}",
-        "layout": "row-spread",
-        "x": 3600.0158081054688,
-        "y": 4060.2500610351562,
+        "topic": "infind/GRUPO2/temperaturas",
+        "qos": "",
+        "retain": "",
+        "broker": "8fab76dc.3e75b8",
+        "x": 3266.000289916992,
+        "y": 931.0000371932983,
         "wires": []
     },
     {
-        "id": "fa688b04.665048",
-        "type": "ui_text",
-        "z": "cb95b8f7.9b4968",
-        "group": "d663aec0.fe33b",
-        "order": 4,
-        "width": 0,
-        "height": 0,
-        "name": "",
-        "label": "Estado de la puerta",
-        "format": "{{msg.payload}}",
-        "layout": "row-spread",
-        "x": 3641.0157623291016,
-        "y": 4103.250114917755,
-        "wires": []
-    },
-    {
-        "id": "78ad841d.87adcc",
-        "type": "ui_text",
-        "z": "cb95b8f7.9b4968",
-        "group": "d663aec0.fe33b",
-        "order": 3,
-        "width": 0,
-        "height": 0,
-        "name": "",
-        "label": "Calidad de Aire",
-        "format": "{{msg.payload}}",
-        "layout": "row-spread",
-        "x": 3644.0157585144043,
-        "y": 4143.25004529953,
-        "wires": []
-    },
-    {
-        "id": "aff7165a.b4b958",
-        "type": "ui_text",
-        "z": "cb95b8f7.9b4968",
-        "group": "d663aec0.fe33b",
-        "order": 1,
-        "width": 0,
-        "height": 0,
-        "name": "",
-        "label": "Estado de conexion",
-        "format": "{{msg.payload}}",
-        "layout": "row-spread",
-        "x": 3638.015769958496,
-        "y": 4187.250030994415,
-        "wires": []
-    },
-    {
-        "id": "a5c5dee5.98886",
+        "id": "20efe114.09d7be",
         "type": "ui_button",
         "z": "cb95b8f7.9b4968",
         "name": "",
         "group": "acf3bb1.19ba048",
-        "order": 3,
+        "order": 2,
         "width": "2",
         "height": "1",
         "passthru": false,
@@ -11245,8 +10344,8 @@
         "payload": "",
         "payloadType": "str",
         "topic": "",
-        "x": 4127.00825881958,
-        "y": 2033.0239696502686,
+        "x": 4131,
+        "y": 2076,
         "wires": [
             [
                 "63ea9d1a.cf3584"
@@ -11254,7 +10353,7 @@
         ]
     },
     {
-        "id": "47c7aa9c.a30674",
+        "id": "bd8dbe09.b601",
         "type": "ui_button",
         "z": "cb95b8f7.9b4968",
         "name": "",
@@ -11271,8 +10370,8 @@
         "payload": "",
         "payloadType": "str",
         "topic": "",
-        "x": 4154.75874710083,
-        "y": 2113.023847579956,
+        "x": 4136.75,
+        "y": 2145,
         "wires": [
             [
                 "415a3313.3c5e9c"
@@ -11280,7 +10379,7 @@
         ]
     },
     {
-        "id": "206aeb85.b172e4",
+        "id": "62b1e400.45330c",
         "type": "ui_button",
         "z": "cb95b8f7.9b4968",
         "name": "",
@@ -11297,8 +10396,8 @@
         "payload": "",
         "payloadType": "str",
         "topic": "",
-        "x": 4150.258014678955,
-        "y": 2197.5237255096436,
+        "x": 4150.25,
+        "y": 2207.5,
         "wires": [
             [
                 "86ce6549.76e5a8"
@@ -11306,13 +10405,13 @@
         ]
     },
     {
-        "id": "731dd629.ee2bf8",
+        "id": "5a50e70b.7f5a08",
         "type": "ui_button",
         "z": "cb95b8f7.9b4968",
         "name": "",
         "group": "acf3bb1.19ba048",
         "order": 6,
-        "width": "2",
+        "width": "3",
         "height": "1",
         "passthru": false,
         "label": "200 ms",
@@ -11323,8 +10422,8 @@
         "payload": "",
         "payloadType": "str",
         "topic": "",
-        "x": 4145.758136749268,
-        "y": 2271.773603439331,
+        "x": 4161.75,
+        "y": 2272.75,
         "wires": [
             [
                 "5d571336.28f5ec"
@@ -11332,13 +10431,13 @@
         ]
     },
     {
-        "id": "6a24a673.3d4048",
+        "id": "edae87aa.b18fe8",
         "type": "ui_button",
         "z": "cb95b8f7.9b4968",
         "name": "",
         "group": "acf3bb1.19ba048",
-        "order": 7,
-        "width": "2",
+        "order": 8,
+        "width": "3",
         "height": "1",
         "passthru": false,
         "label": "500 ms",
@@ -11349,8 +10448,8 @@
         "payload": "",
         "payloadType": "str",
         "topic": "",
-        "x": 4144.008136749268,
-        "y": 2359.023603439331,
+        "x": 4159,
+        "y": 2335,
         "wires": [
             [
                 "a9e7ece5.54069"
@@ -11358,13 +10457,688 @@
         ]
     },
     {
-        "id": "e1e1b165.af5c6",
+        "id": "b32bc466.5f9c28",
+        "type": "ui_text",
+        "z": "cb95b8f7.9b4968",
+        "group": "8f9d228c.301c3",
+        "order": 1,
+        "width": "2",
+        "height": "1",
+        "name": "",
+        "label": "Switch global",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 3735,
+        "y": 4218,
+        "wires": []
+    },
+    {
+        "id": "8be7552b.f3d568",
+        "type": "ui_text",
+        "z": "cb95b8f7.9b4968",
+        "group": "8f9d228c.301c3",
+        "order": 4,
+        "width": "2",
+        "height": "1",
+        "name": "",
+        "label": "Led global",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 3733.25,
+        "y": 4186.25,
+        "wires": []
+    },
+    {
+        "id": "8190df08.973e8",
+        "type": "ui_text",
+        "z": "cb95b8f7.9b4968",
+        "group": "12ab21eb.8662ce",
+        "order": 5,
+        "width": "6",
+        "height": "1",
+        "name": "",
+        "label": "Switches",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 3717,
+        "y": 4257,
+        "wires": []
+    },
+    {
+        "id": "c3236ee5.48f4",
+        "type": "ui_chart",
+        "z": "cb95b8f7.9b4968",
+        "name": "",
+        "group": "bed665f6.de0078",
+        "order": 0,
+        "width": "12",
+        "height": "7",
+        "label": "Iluminacion ",
+        "chartType": "line",
+        "legend": "true",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": "12",
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "useOldStyle": false,
+        "x": 4906,
+        "y": 4806,
+        "wires": [
+            [],
+            []
+        ]
+    },
+    {
+        "id": "fdee383.55c45c8",
+        "type": "function",
+        "z": "cb95b8f7.9b4968",
+        "name": "",
+        "func": "\nmsg.topic = \"Habitacion\";\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 4744.765504837036,
+        "y": 4854.916624069214,
+        "wires": [
+            [
+                "c3236ee5.48f4"
+            ]
+        ]
+    },
+    {
+        "id": "3b5cabf0.072534",
+        "type": "function",
+        "z": "cb95b8f7.9b4968",
+        "name": "",
+        "func": "\nmsg.topic = \"cocina\";\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 4742.76544380188,
+        "y": 4751.916746139526,
+        "wires": [
+            [
+                "c3236ee5.48f4"
+            ]
+        ]
+    },
+    {
+        "id": "69e19ebb.5db79",
+        "type": "function",
+        "z": "cb95b8f7.9b4968",
+        "name": "",
+        "func": "\nmsg.topic = \"baño\";\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 4744.765626907349,
+        "y": 4815.916748046875,
+        "wires": [
+            [
+                "c3236ee5.48f4"
+            ]
+        ]
+    },
+    {
+        "id": "a95de7f8.1899d8",
+        "type": "function",
+        "z": "cb95b8f7.9b4968",
+        "name": "",
+        "func": "\nmsg.topic = \"salon\";\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 4747.765565872192,
+        "y": 4782.916563034058,
+        "wires": [
+            [
+                "c3236ee5.48f4"
+            ]
+        ]
+    },
+    {
+        "id": "5ef1d99e.da4948",
+        "type": "ui_text",
+        "z": "cb95b8f7.9b4968",
+        "group": "7b3d966f.41de48",
+        "order": 0,
+        "width": "6",
+        "height": "1",
+        "name": "",
+        "label": "Cocina",
+        "format": "{{msg.payload.date}}",
+        "layout": "row-spread",
+        "x": 772.8402576446533,
+        "y": 3691.5631046295166,
+        "wires": []
+    },
+    {
+        "id": "f33cc81f.8a1f88",
+        "type": "ui_text",
+        "z": "cb95b8f7.9b4968",
+        "group": "7b3d966f.41de48",
+        "order": 0,
+        "width": "6",
+        "height": "1",
+        "name": "",
+        "label": "Salon",
+        "format": "{{msg.payload.date}}",
+        "layout": "row-spread",
+        "x": 800.8958129882812,
+        "y": 4017.222682952881,
+        "wires": []
+    },
+    {
+        "id": "1750d71e.fcbc29",
+        "type": "ui_text",
+        "z": "cb95b8f7.9b4968",
+        "group": "7b3d966f.41de48",
+        "order": 0,
+        "width": "6",
+        "height": "1",
+        "name": "",
+        "label": "Habitacion",
+        "format": "{{msg.payload.date}}",
+        "layout": "row-spread",
+        "x": 812.8958511352539,
+        "y": 3839.222608566284,
+        "wires": []
+    },
+    {
+        "id": "a77d3dd.2d05fc",
+        "type": "ui_text",
+        "z": "cb95b8f7.9b4968",
+        "group": "7b3d966f.41de48",
+        "order": 0,
+        "width": "6",
+        "height": "1",
+        "name": "",
+        "label": "Baño",
+        "format": "{{msg.payload.date}}",
+        "layout": "row-spread",
+        "x": 815.8958969116211,
+        "y": 3917.222502708435,
+        "wires": []
+    },
+    {
+        "id": "7c7fe529.2a194c",
+        "type": "function",
+        "z": "cb95b8f7.9b4968",
+        "name": "agrega todo",
+        "func": "// fecha por defecto es hoy\nvar ahora = new Date();\n// pillo los globales si los hay, si no la fecha de hoy\nvar desde = new Date(global.get(\"desde\") || ahora);\nvar hasta = new Date(global.get(\"hasta\") || ahora); \n// el día de inicio desde las cero horas\nvar inicio = new Date(desde.getFullYear(),desde.getMonth(),desde.getDate(),1,0,0,0);\n// el día final es hasta final del día\nvar final = new Date(hasta.getFullYear(),hasta.getMonth(),hasta.getDate(),24,59,59,99);\n\nmsg.payload=\n[\n    { \"$match\": { \"date\": { \"$gte\": inicio , \"$lte\": final } } } // criterio búsqueda. Se queda con los eltos qur coincidan con fechas\n /*   { \"$project\": {\n        \"temperatura\": \"$DHT11.temp\" // con las proyecciones se elige de todo el documento los campos que vamos a utilizar\n        }\n    },\n    { \"$group\": { //agrupación - da valores a esos grupos\n        \"_id\": 0,\n        \"Tmedia\":{\"$avg\":\"$temperatura\"},\n        \"Tmax\":  {\"$max\":\"$temperatura\"},\n        \"Tmin\":  {\"$min\":\"$temperatura\"},\n        \"datos\": {\"$sum\":1}\n    } }*/\n    //{\"topic\": \"infind/GRUPO2/ESP5826449/datos\"}\n];\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 2489,
+        "y": 4764,
+        "wires": [
+            [
+                "4f4c8306.7629ec",
+                "636a2f07.4f2a1"
+            ]
+        ]
+    },
+    {
+        "id": "4f4c8306.7629ec",
+        "type": "mongodb in",
+        "z": "cb95b8f7.9b4968",
+        "mongodb": "c5464916.ceffc8",
+        "name": "",
+        "collection": "datos/GRUPO2_json",
+        "operation": "aggregate",
+        "x": 2734,
+        "y": 4764,
+        "wires": [
+            [
+                "dc47b898.784c78"
+            ]
+        ]
+    },
+    {
+        "id": "dc47b898.784c78",
+        "type": "function",
+        "z": "cb95b8f7.9b4968",
+        "name": "genera datos gráfica",
+        "func": "var arrayavg=[];\nvar arraymax=[];\nvar arraymin=[];\n\n// los arrays usados en la represenstación gráfica deben contener objetos JSON con dos campos: {x , y}\n// en x debemos poner la hora en formato \"timestamp\". Si tenemos un objeto fecha se puede convertir usando el método getTime()\n// en y debemos poner el valor de la variable\n// mas info en: https://github.com/node-red/node-red-dashboard/blob/master/Charts.md\n\nif(Array.isArray(msg.payload) && msg.payload.length>0)\n{\n    for (var i = 0; i < msg.payload.length; i++) { // añade datos a los array\n        arrayavg.push({x : msg.payload[i]._id.getTime() , y : msg.payload[i].Tmedia});\n        arraymax.push({x : msg.payload[i]._id.getTime() , y : msg.payload[i].Tmax});\n        arraymin.push({x : msg.payload[i]._id.getTime() , y : msg.payload[i].Tmin});\n    }\n}\n    \nmsg.payload = [{\n        \"series\":[\"T.media\",\"T.max\",\"T.min\"],\n        \"data\":[arrayavg, arraymax, arraymin],\n        \"labels\":[\"\"]\n        }];\n\nreturn msg;  ",
+        "outputs": "1",
+        "noerr": 0,
+        "x": 3012,
+        "y": 4766,
+        "wires": [
+            [
+                "4e22a2f0.8dcbbc"
+            ]
+        ]
+    },
+    {
+        "id": "4e22a2f0.8dcbbc",
+        "type": "ui_chart",
+        "z": "cb95b8f7.9b4968",
+        "name": "",
+        "group": "800d9c9f.c6f35",
+        "order": 8,
+        "width": 0,
+        "height": 0,
+        "label": "Temperaturas diarias",
+        "chartType": "line",
+        "legend": "true",
+        "xformat": "D/M",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "colors": [
+            "#008000",
+            "#ff0000",
+            "#0080ff",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "useOldStyle": false,
+        "x": 3227.999755859375,
+        "y": 4767,
+        "wires": [
+            [],
+            []
+        ]
+    },
+    {
+        "id": "b08e8378.4461",
+        "type": "change",
+        "z": "cb95b8f7.9b4968",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "desde",
+                "pt": "global",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 2322,
+        "y": 4739,
+        "wires": [
+            [
+                "7c7fe529.2a194c"
+            ]
+        ]
+    },
+    {
+        "id": "31059aa3.f5a476",
+        "type": "change",
+        "z": "cb95b8f7.9b4968",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "hasta",
+                "pt": "global",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 2322.227294921875,
+        "y": 4796.88330078125,
+        "wires": [
+            [
+                "7c7fe529.2a194c"
+            ]
+        ]
+    },
+    {
+        "id": "e097896b.bfd5e8",
         "type": "comment",
         "z": "cb95b8f7.9b4968",
-        "name": "METELO EN DASHBOARD LOKO8",
+        "name": "Controles para seleccionar fechas",
         "info": "",
-        "x": 976.1737670898438,
-        "y": 4818.246814727783,
+        "x": 2134.9942893981934,
+        "y": 4676.247173309326,
+        "wires": []
+    },
+    {
+        "id": "205290e.9fd6c7",
+        "type": "ui_date_picker",
+        "z": "cb95b8f7.9b4968",
+        "name": "",
+        "label": "Fecha de inicio",
+        "group": "800d9c9f.c6f35",
+        "order": 1,
+        "width": "6",
+        "height": "1",
+        "passthru": true,
+        "topic": "",
+        "x": 2148.76416015625,
+        "y": 4719.1591796875,
+        "wires": [
+            [
+                "b08e8378.4461"
+            ]
+        ]
+    },
+    {
+        "id": "bbf664b3.0d74c8",
+        "type": "ui_date_picker",
+        "z": "cb95b8f7.9b4968",
+        "name": "",
+        "label": "Fecha de final",
+        "group": "800d9c9f.c6f35",
+        "order": 2,
+        "width": "6",
+        "height": "1",
+        "passthru": true,
+        "topic": "",
+        "x": 2137.772705078125,
+        "y": 4813.1650390625,
+        "wires": [
+            [
+                "31059aa3.f5a476"
+            ]
+        ]
+    },
+    {
+        "id": "876d2b64.b46ff8",
+        "type": "telegrambot-notify",
+        "z": "cb95b8f7.9b4968",
+        "name": "tempmin dashboard",
+        "bot": "407d7e26.e9903",
+        "chatId": "-487674790",
+        "message": "",
+        "parseMode": "",
+        "x": 3273.118267059326,
+        "y": 1136.3335628509521,
+        "wires": []
+    },
+    {
+        "id": "e7809c61.186bf",
+        "type": "function",
+        "z": "cb95b8f7.9b4968",
+        "name": "",
+        "func": "var tempmin = global.get(\"TempMin\")\nmsg.payload = \"Se ha establecido el limite inferior de temperatura a: \"\nmsg.payload +=tempmin\nmsg.payload += \"º\"\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 3112.0489234924316,
+        "y": 1105.1807317733765,
+        "wires": [
+            [
+                "876d2b64.b46ff8"
+            ]
+        ]
+    },
+    {
+        "id": "f5166b80.bd4908",
+        "type": "function",
+        "z": "cb95b8f7.9b4968",
+        "name": "",
+        "func": "var tempmax = global.get(\"TempMax\")\nmsg.payload = \"Se ha establecido el limite superior de temperatura a: \"\nmsg.payload +=tempmax\nmsg.payload += \"º\"\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 3103.11820602417,
+        "y": 700.3334245681763,
+        "wires": [
+            [
+                "8024d150.7ab2d"
+            ]
+        ]
+    },
+    {
+        "id": "8024d150.7ab2d",
+        "type": "telegrambot-notify",
+        "z": "cb95b8f7.9b4968",
+        "name": "tempmax dashboard",
+        "bot": "407d7e26.e9903",
+        "chatId": "-487674790",
+        "message": "",
+        "parseMode": "",
+        "x": 3238.118263244629,
+        "y": 750.3334131240845,
+        "wires": []
+    },
+    {
+        "id": "504eb59f.35859c",
+        "type": "telegrambot-notify",
+        "z": "cb95b8f7.9b4968",
+        "name": "hummin dashboard",
+        "bot": "407d7e26.e9903",
+        "chatId": "-487674790",
+        "message": "",
+        "parseMode": "",
+        "x": 3332.1181640625,
+        "y": 1469.77783203125,
+        "wires": []
+    },
+    {
+        "id": "b5337a85.443388",
+        "type": "function",
+        "z": "cb95b8f7.9b4968",
+        "name": "",
+        "func": "var hummin = global.get(\"HumMin\")\nmsg.payload = \"Se ha establecido el limite inferior de humedad a: \"\nmsg.payload +=hummin\nmsg.payload += \"%\"\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 3171.0488204956055,
+        "y": 1438.6250009536743,
+        "wires": [
+            [
+                "504eb59f.35859c"
+            ]
+        ]
+    },
+    {
+        "id": "3827e279.f59eee",
+        "type": "telegrambot-notify",
+        "z": "cb95b8f7.9b4968",
+        "name": "hummax dashboard",
+        "bot": "407d7e26.e9903",
+        "chatId": "-487674790",
+        "message": "",
+        "parseMode": "",
+        "x": 3342.1181640625,
+        "y": 1887,
+        "wires": []
+    },
+    {
+        "id": "9c4173ee.97273",
+        "type": "function",
+        "z": "cb95b8f7.9b4968",
+        "name": "",
+        "func": "var hummax = global.get(\"HumMax\")\nmsg.payload = \"Se ha establecido el limite superior de humedad a: \"\nmsg.payload +=hummax\nmsg.payload += \"%\"\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 3181.0488204956055,
+        "y": 1855.8471689224243,
+        "wires": [
+            [
+                "3827e279.f59eee"
+            ]
+        ]
+    },
+    {
+        "id": "dbac6e89.d1f57",
+        "type": "ui_text_input",
+        "z": "cb95b8f7.9b4968",
+        "name": "",
+        "label": "Temperatura limite superior",
+        "tooltip": "",
+        "group": "bb511b41.0362b8",
+        "order": 2,
+        "width": "6",
+        "height": "1",
+        "passthru": true,
+        "mode": "number",
+        "delay": "0",
+        "topic": "",
+        "x": 2415.055877685547,
+        "y": 592.8439426422119,
+        "wires": [
+            [
+                "498aee73.70a1"
+            ]
+        ]
+    },
+    {
+        "id": "b9421da0.15023",
+        "type": "ui_text_input",
+        "z": "cb95b8f7.9b4968",
+        "name": "",
+        "label": "Temperatura limite inferior",
+        "tooltip": "",
+        "group": "bb511b41.0362b8",
+        "order": 2,
+        "width": "6",
+        "height": "1",
+        "passthru": true,
+        "mode": "number",
+        "delay": "0",
+        "topic": "",
+        "x": 2477.118377685547,
+        "y": 927.3333911895752,
+        "wires": [
+            [
+                "abcd9b11.6ec678"
+            ]
+        ]
+    },
+    {
+        "id": "b2e53acd.1ebc48",
+        "type": "ui_text_input",
+        "z": "cb95b8f7.9b4968",
+        "name": "",
+        "label": "Humedad limite inferior",
+        "tooltip": "",
+        "group": "326c39eb.c9b666",
+        "order": 2,
+        "width": "6",
+        "height": "1",
+        "passthru": true,
+        "mode": "number",
+        "delay": "0",
+        "topic": "",
+        "x": 2502.1181640625,
+        "y": 1305.5555419921875,
+        "wires": [
+            [
+                "51242d3f.4ccf64"
+            ]
+        ]
+    },
+    {
+        "id": "5aa7bc67.fd9774",
+        "type": "ui_text_input",
+        "z": "cb95b8f7.9b4968",
+        "name": "",
+        "label": "Humedad limite superior",
+        "tooltip": "",
+        "group": "326c39eb.c9b666",
+        "order": 2,
+        "width": "6",
+        "height": "1",
+        "passthru": true,
+        "mode": "number",
+        "delay": "0",
+        "topic": "",
+        "x": 2524.118392944336,
+        "y": 1740.8888912200928,
+        "wires": [
+            [
+                "f3af05ee.dbb8c8"
+            ]
+        ]
+    },
+    {
+        "id": "f22b96d5.26c608",
+        "type": "mongodb in",
+        "z": "cb95b8f7.9b4968",
+        "mongodb": "c5464916.ceffc8",
+        "name": "",
+        "collection": "datos/GRUPO2_json",
+        "operation": "find",
+        "x": 2705,
+        "y": 4537,
+        "wires": [
+            [
+                "192fc086.dbf32f"
+            ]
+        ]
+    },
+    {
+        "id": "3442343.f6547cc",
+        "type": "inject",
+        "z": "cb95b8f7.9b4968",
+        "name": "",
+        "topic": "",
+        "payload": "{}",
+        "payloadType": "str",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 2410,
+        "y": 4540,
+        "wires": [
+            [
+                "f22b96d5.26c608"
+            ]
+        ]
+    },
+    {
+        "id": "192fc086.dbf32f",
+        "type": "debug",
+        "z": "cb95b8f7.9b4968",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 3008,
+        "y": 4514,
+        "wires": []
+    },
+    {
+        "id": "636a2f07.4f2a1",
+        "type": "debug",
+        "z": "cb95b8f7.9b4968",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 2661,
+        "y": 4665,
         "wires": []
     },
     {
@@ -11431,46 +11205,47 @@
         "willPayload": ""
     },
     {
-        "id": "26879d4b.7e9e12",
+        "id": "d663aec0.fe33b",
         "type": "ui_group",
         "z": "",
-        "name": "Grupo descarga",
-        "tab": "b7ed1dac.34a86",
-        "disp": true,
-        "width": "8",
-        "collapse": false
-    },
-    {
-        "id": "40706f5a.d9a34",
-        "type": "ui_group",
-        "z": "",
-        "name": "Salón",
-        "tab": "982d2b31.2094f8",
-        "order": 3,
-        "disp": true,
-        "width": "12",
-        "collapse": false
-    },
-    {
-        "id": "12ab21eb.8662ce",
-        "type": "ui_group",
-        "z": "",
-        "name": "Control de luz",
+        "name": "Estado de la puerta",
         "tab": "9905e55b.fa87c8",
-        "order": 1,
+        "order": 6,
         "disp": true,
-        "width": "4",
+        "width": "6",
         "collapse": false
     },
     {
-        "id": "a5a62931.5d2068",
+        "id": "2698f6e4.59cfda",
         "type": "ui_group",
         "z": "",
-        "name": "Cocina",
-        "tab": "982d2b31.2094f8",
-        "order": 4,
+        "name": "Luz",
+        "tab": "9905e55b.fa87c8",
+        "order": 2,
         "disp": true,
-        "width": "12",
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "3c99888e.a2a758",
+        "type": "ui_group",
+        "z": "",
+        "name": "gases cocina",
+        "tab": "9905e55b.fa87c8",
+        "order": 8,
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "c8594790.14e3d8",
+        "type": "ui_group",
+        "z": "",
+        "name": "gases salon",
+        "tab": "9905e55b.fa87c8",
+        "order": 9,
+        "disp": true,
+        "width": "6",
         "collapse": false
     },
     {
@@ -11490,7 +11265,18 @@
         "z": "",
         "name": "Humedad",
         "tab": "9905e55b.fa87c8",
-        "order": 2,
+        "order": 3,
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "12ab21eb.8662ce",
+        "type": "ui_group",
+        "z": "",
+        "name": "Control de luz",
+        "tab": "9905e55b.fa87c8",
+        "order": 1,
         "disp": true,
         "width": "6",
         "collapse": false
@@ -11501,7 +11287,7 @@
         "z": "",
         "name": "Graficas",
         "tab": "9905e55b.fa87c8",
-        "order": 3,
+        "order": 5,
         "disp": true,
         "width": "12",
         "collapse": false
@@ -11512,9 +11298,9 @@
         "z": "",
         "name": "Actualizacion de datos",
         "tab": "845c094c.8d70a8",
-        "order": 5,
+        "order": 4,
         "disp": true,
-        "width": "12",
+        "width": "6",
         "collapse": false
     },
     {
@@ -11525,18 +11311,7 @@
         "tab": "845c094c.8d70a8",
         "order": 3,
         "disp": true,
-        "width": "12",
-        "collapse": false
-    },
-    {
-        "id": "bb511b41.0362b8",
-        "type": "ui_group",
-        "z": "",
-        "name": "Alarma",
-        "tab": "845c094c.8d70a8",
-        "order": 4,
-        "disp": true,
-        "width": "12",
+        "width": "6",
         "collapse": false
     },
     {
@@ -11547,18 +11322,7 @@
         "tab": "845c094c.8d70a8",
         "order": 2,
         "disp": true,
-        "width": "12",
-        "collapse": false
-    },
-    {
-        "id": "d663aec0.fe33b",
-        "type": "ui_group",
-        "z": "",
-        "name": "Registro de actividad",
-        "tab": "9905e55b.fa87c8",
-        "order": 5,
-        "disp": true,
-        "width": "10",
+        "width": "6",
         "collapse": false
     },
     {
@@ -11569,28 +11333,52 @@
         "tab": "845c094c.8d70a8",
         "order": 1,
         "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "7b3d966f.41de48",
+        "type": "ui_group",
+        "z": "",
+        "name": "Ultima Actualizacion",
+        "tab": "9905e55b.fa87c8",
+        "order": 11,
+        "disp": true,
         "width": "12",
         "collapse": false
     },
     {
-        "id": "b7ed1dac.34a86",
-        "type": "ui_tab",
+        "id": "800d9c9f.c6f35",
+        "type": "ui_group",
         "z": "",
-        "name": "Ejemplo descarga",
-        "icon": "dashboard",
-        "order": 1,
-        "disabled": false,
-        "hidden": false
+        "name": "Recoger Datos",
+        "tab": "9905e55b.fa87c8",
+        "order": 10,
+        "disp": true,
+        "width": "12",
+        "collapse": false
     },
     {
-        "id": "982d2b31.2094f8",
-        "type": "ui_tab",
+        "id": "bb511b41.0362b8",
+        "type": "ui_group",
         "z": "",
-        "name": "PANEL DE CONTROL",
-        "icon": "dashboard",
-        "order": 1,
-        "disabled": false,
-        "hidden": false
+        "name": "Temperaturas límite",
+        "tab": "845c094c.8d70a8",
+        "order": 5,
+        "disp": true,
+        "width": "12",
+        "collapse": false
+    },
+    {
+        "id": "326c39eb.c9b666",
+        "type": "ui_group",
+        "z": "",
+        "name": "Humedades",
+        "tab": "845c094c.8d70a8",
+        "order": 6,
+        "disp": true,
+        "width": "12",
+        "collapse": false
     },
     {
         "id": "9905e55b.fa87c8",
