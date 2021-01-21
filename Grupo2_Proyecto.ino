@@ -1,6 +1,6 @@
 //  -----------------------[ INICIALIZACIÓN ]-----------------------
 #ifdef ESP32
-#pragma message(THIS EXAMPLE IS FOR ESP8266 ONLY!)
+#pragma message(THIS PROYECT IS FOR ESP8266 ONLY!)
 #error Select ESP8266 board.
 #endif
 // Se incluyen y se definen los paquetes o expresiones para el correcto funcionamiento y envío/recepción de datos 
@@ -440,7 +440,6 @@ void callback(char* topic, byte* payload, unsigned int length) {
   // Comprobación ------Actualizaciones------
   if(strcmp(topic,topic_FOTA)==0) // Se estudia el valor del topic de Actualización
     {
-      Serial.println(actualiza);
       StaticJsonDocument<512> root;               // El tamaño tiene que ser adecuado para el mensaje
       // Deserialize the JSON document
       DeserializationError error = deserializeJson(root, mensaje);
@@ -701,9 +700,6 @@ void setup() {
   client.setBufferSize(512);              //Ampliamos el tamaño del buffer
   char cadena[512];
 
-  // DHT
-  dht.setup(14, DHTesp::DHT11);           // Connect DHT sensor to GPIO 14
-
   // FLASH
    pinMode(boton_flash, INPUT_PULLUP);    // Inicializamos el pin LED_Secundario como entrada
    
@@ -712,23 +708,24 @@ void setup() {
  
   // Asignaciones para uso de sensores, en caso de obtener otro ID, se le asignará como habitación
   if (String(ESP.getChipId())=="5821487")         // Sensores disponibles: DHT11 / VL53L0X / MQ2
-  {
     nombre_casa="salon";
-  }
   else if (String(ESP.getChipId())=="1122489")    // Sensores disponibles: DHT11 / MQ2
-  {
     nombre_casa="wc";
-  }
   else if (String(ESP.getChipId())=="5826449")    // Sensores disponibles: DHT11 / MQ2
-  {
     nombre_casa="cocina";
-  }
   else if (String(ESP.getChipId())=="8789990")    // Sensores disponibles: DHT11
-  {
-    nombre_casa="habitacion";
-  }
+    nombre_casa="dormitorio";
+  else
+    nombre_casa="habitacion";                     // Sensores disponibles: DHT11
+
+  
 
   // Iniciamos sensores correspondientes
+  if((nombre_casa=="salon")or(nombre_casa=="wc")or(nombre_casa=="cocina")or(nombre_casa=="dormitorio")or(nombre_casa=="habitacion"))
+  { 
+    // DHT
+    dht.setup(14, DHTesp::DHT11);           // Connect DHT sensor to GPIO 14
+  }
   if ((nombre_casa=="salon")or(nombre_casa=="wc")or(nombre_casa=="cocina"))
   {
     // MQ-2
@@ -738,7 +735,6 @@ void setup() {
   {
     // LÁSER
     comprueba_laser=true;
-    
   }
 }
 //-----------------------FIN SETUP ----------------------- 
