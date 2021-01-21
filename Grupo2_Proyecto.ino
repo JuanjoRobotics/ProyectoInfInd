@@ -151,6 +151,7 @@ int estado_led2 =1;               // Inicialmente, ambos LEDs están encendidos:
 int estado_led16=1;
 
 //--------PWM--------
+bool logica_PN=false;
 volatile float LED_dato = 100;    // Valor del LED que se pretende alcanzar
 float LED_max=100;                // Valor del LED que se pretende alcanzar
 volatile float PWM;               // Valor del PWM
@@ -193,6 +194,7 @@ String topicS_FOTA=topic_estructura+"/FOTA";
 String topicS_led_cmd=topic_estructura+"/led/cmd";
 String topicS_switch_cmd=topic_estructura+"/switch/cmd";
 String topicS_config=topic_estructura+"/config/cmd";
+String topicS_tipo_logica=topic_estructura+"/logica";
 
 // Topics (PUBLISH) en char*: se transforma de String -> char* para ser pasados como Topics por MQTT 
 const char* topic_global=topicS_global.c_str();
@@ -208,7 +210,7 @@ const char* topic_FOTA=topicS_FOTA.c_str();
 const char* topic_led_cmd=topicS_led_cmd.c_str();
 const char* topic_switch_cmd=topicS_switch_cmd.c_str();
 const char* topic_config=topicS_config.c_str();
-
+const char* topic_tipo_logica=topicS_tipo_logica.c_str();
 
 //----------------------- FIN DECLARACIÓN DE VARIABLES -----------------------
 
@@ -412,9 +414,10 @@ void reconnect() {
       
       // Subscripción a los distintos topics
       client.subscribe(topic_FOTA);         // Subscripción al topic de comprobación de actualizaciones
-      client.subscribe(topic_led_cmd);      // Subscripciónal topic del estado del GPIO 2
+      client.subscribe(topic_led_cmd);      // Subscripción al topic del estado del GPIO 2
       client.subscribe(topic_switch_cmd);   // Subscripción al topic del estado del GPIO 16
       client.subscribe(topic_config);       // Subscripción al topic de configuración
+      client.subscribe(topic_tipo_logica);  // Subscripicón al topic del tipo de lógica (positiva o negativa)
      }
      else { // En caso de no haber establecido conexión, reintenta a los 5 segundos
       Serial.print("failed, rc=");
@@ -438,6 +441,27 @@ void callback(char* topic, byte* payload, unsigned int length) {
   struct registro_switch valor_SWITCH;       // Declaramos registro json para valores del SWITCH
 
   // Comprobación ------Actualizaciones------
+  if(strcmp(topic,topic_tipo_logica)==0) // Se estudia el valor del topic de Actualización
+    {
+      StaticJsonDocument<512> root;               // El tamaño tiene que ser adecuado para el mensaje
+      // Deserialize the JSON document
+      DeserializationError error = deserializeJson(root, mensaje);
+
+      // Compruebo si no hubo error
+      if (error) {
+        Serial.print("Error deserializeJson() failed: ");
+        Serial.println(error.c_str());
+      }
+      else // En caso de no haber error:
+      {
+        bool logica = root["logica"];            // Buscamos actualizaciones
+        logica_PN=logica;
+        Serial.println(logica);
+      }
+      free(mensaje); // libero memoria
+   }
+  
+  // Comprobación ------Actualizaciones------
   if(strcmp(topic,topic_FOTA)==0) // Se estudia el valor del topic de Actualización
     {
       StaticJsonDocument<512> root;               // El tamaño tiene que ser adecuado para el mensaje
@@ -452,7 +476,6 @@ void callback(char* topic, byte* payload, unsigned int length) {
       else // En caso de no haber error:
       {
         actualiza = root["actualiza"];            // Buscamos actualizaciones
-        Serial.println(actualiza);
         origen_act="mqtt";                        // El origen de búsqueda de actualizaciones se debe a un mensaje recibido por MQTT
       }
       free(mensaje); // libero memoria
@@ -474,15 +497,31 @@ void callback(char* topic, byte* payload, unsigned int length) {
     {
       double switch_max = root["level"];  // Se toma el valor del dato de entrada
       
-      if (switch_max == 0)                // Switch apagado
+      if (switch_max == 0)                
       {
         estado_led16 = 0;
-        digitalWrite(LED_Secundario,HIGH);
+        if (logica_PN==false)             // Switch apagado - Log Neg
+        {
+          
+          digitalWrite(LED_Secundario,HIGH);
+        }
+        else                              // Switch encendido - Log Pos
+        {
+          digitalWrite(LED_Secundario,LOW);
+        }
       }
-      else if (switch_max == 1)           // Switch encendido
+      else if (switch_max == 1)           
       {
         estado_led16 = 1;
-        digitalWrite(LED_Secundario,LOW);
+        if (logica_PN==false)             // Switch encendido - Log Neg
+        {
+          
+          digitalWrite(LED_Secundario,LOW);
+        }
+        else                              // Switch apagado - Log Pos
+        {
+          digitalWrite(LED_Secundario,HIGH);
+        }
       }
        // Publicamos por el topic correspondiente
       valor_SWITCH.SWITCH = estado_led16;
@@ -508,13 +547,18 @@ void callback(char* topic, byte* payload, unsigned int length) {
     else                                // En caso de no haber error, se hace la secuencia propuesta:
     {
      LED_max = root["level"];           // Se toma el valor del dato de entrada
-     
+           
      double subirled=LED_dato;          // Iniciamos variable
      
      // Aumentamos intensidad del LED
      while(subirled<LED_max)            // Mientras no se alcance el valor exigido (en caso de tener valor del led por debajo del exigido), se repite el bucle 
      {
-      PWM = 1023*(1-subirled/100);      // Se actualiza la intensidad del LED a través de PWM
+      // Se actualiza la intensidad del LED a través de PWM 
+      if (logica_PN==false)             // Lógica negativa: subirled=0 -> PWM=1023 // subirled=100 -> PWM=0
+        PWM = 1023*(1-subirled/100);    
+      else                              // Lógica positiva: subirled=0 -> PWM=0    // subirled=100 -> PWM=1023
+        PWM = 1023*(subirled/100);
+        
       analogWrite(BUILTIN_LED,PWM);     //Envio el valor al pin del led
      
       // Publicamos por el topic correspondiente
@@ -529,7 +573,11 @@ void callback(char* topic, byte* payload, unsigned int length) {
      // Disminuimos intensidad del LED
      while(subirled>LED_max)            // Mientras no se alcance el valor exigido (en caso de tener valor del led por debajo del exigido), se repite el bucle 
      {  
-     PWM = 1023*(1-subirled/100); 
+     if (logica_PN==false)              // Lógica negativa: subirled=0 -> PWM=1023 // subirled=100 -> PWM=0
+        PWM = 1023*(1-subirled/100);    
+      else                              // Lógica positiva: subirled=0 -> PWM=0    // subirled=100 -> PWM=1023
+        PWM = 1023*(subirled/100);
+        
      analogWrite(BUILTIN_LED,PWM); 
      
      // Publicamos por el topic correspondiente
@@ -541,30 +589,49 @@ void callback(char* topic, byte* payload, unsigned int length) {
      delay(TiempoLED);
      }
      
-     PWM = 1023*(1-LED_max/100);    //Finalmente, se alcanza el valor de LED propuesto por el usuario
+     if (logica_PN==false)                // Lógica negativa: subirled=0 -> PWM=1023 // subirled=100 -> PWM=0
+        PWM = 1023*(1-subirled/100);    
+      else                             // Lógica positiva: subirled=0 -> PWM=0    // subirled=100 -> PWM=1023
+        PWM = 1023*(subirled/100);
+        
      analogWrite(BUILTIN_LED,PWM);  //Envio el valor al pin del led
      
      LED_dato = subirled;
 
      // Para poder encender al nivel anterior a través del botón flash, se usa esta variable intermedia 
-     if (LED_dato != 0)             // Evita seguir apagado en caso de que el valor previo sea 0
-      LED_anterior = LED_dato; 
+     if (logica_PN==false)
+     {
+      if (LED_dato != 0)             // Evita seguir apagado en caso de que el valor previo sea 0 -Lóg Neg
+        LED_anterior = LED_dato; 
+     }
+     else                            // Evita seguir apagado en caso de que el valor previo sea 100 -Lóg Pos
+     {
+      if (LED_dato != 100)
+        LED_anterior = LED_dato;
+     }
       
      // Publicamos por el topic correspondiente
      valor_LED.LED    = LED_dato;
      valor_LED.origen = "mqtt"; 
      client.publish(topic_led,serializa_JSONLED(valor_LED).c_str() );
-     
-    if (LED_dato==0) // Estudio del estado del LED (apagado o encendido)
+
+    // Estudio del estado del LED (apagado o encendido)
+    if (logica_PN==false)
     {
-      Serial.println("GPIO 2 APAGADO");
-      estado_led2=0;
+      if(LED_dato==0)       // LED apagado   - Lóg Neg
+        estado_led2=0;
+      else                  // LED encendido - Lóg Neg
+        estado_led2=1;
     }
     else
     {
-      Serial.println("GPIO 2 ENCENDIDO");
-      estado_led2=1;
+      if(LED_dato==100)     // LED apagado   - Lóg Pos
+        estado_led2=0;
+      else                  // LED encendido - Lóg Pos
+        estado_led2=1;
     }
+    
+    
   }
   free(mensaje); // libero memoria
   }
@@ -621,23 +688,43 @@ void callback(char* topic, byte* payload, unsigned int length) {
         }
         else if (valorLED == 0)                     // Valor recibido = 0, apagamos LED
         {
-          digitalWrite(LED_Secundario,HIGH);
-          estado_led2 = 0;
-          LED_dato = 0;
+          if(logica_PN==false)
+          {
+            digitalWrite(BUILTIN_LED,HIGH);      // Apagamos LED - LOG NEG
+            estado_led2 = 0;
+            LED_dato = 0;
+          }
+          else
+          {
+            digitalWrite(BUILTIN_LED,LOW);       // Encendemos LED - LOG POS
+            estado_led2 = 1;
+            LED_dato = 100;
+          }
+          
           
           // Publicamos por el topic correspondiente
-          valor_LED.LED    = LED_dato;
+          valor_LED.LED    = 0;
           valor_LED.origen = "mqtt"; 
           client.publish(topic_led,serializa_JSONLED(valor_LED).c_str() );
         }
         else if (valorLED == 1)                     // Valor recibido = 1, encendemos al valor máximo el LED
         {
-          digitalWrite(LED_Secundario,LOW);
-          estado_led2=1;
-          LED_dato = 100;
+          if(logica_PN==false)
+          {
+            digitalWrite(BUILTIN_LED,LOW);       // Encendemos LED - LOG NEG
+            estado_led2=1;
+            LED_dato = 100;
+          }
+          else
+          {
+            digitalWrite(BUILTIN_LED,HIGH);      // Apagamos LED - LOG POS
+            estado_led2=0;
+            LED_dato = 0;
+          }
+          
           
           // Publicamos por el topic correspondiente
-          valor_LED.LED    = LED_dato;
+          valor_LED.LED    = 100;
           valor_LED.origen = "mqtt"; 
           client.publish(topic_led,serializa_JSONLED(valor_LED).c_str() );
         }
@@ -649,9 +736,12 @@ void callback(char* topic, byte* payload, unsigned int length) {
         }
         else if (valorSWITCH == 0)                  // Valor recibido = 0, apagamos SWITCH
         {
-          digitalWrite(LED_Secundario,HIGH);
-          estado_led16 = 0;
+          if (logica_PN==false)
+            digitalWrite(LED_Secundario,HIGH);      // Apagamos SWITCH - LOG NEG
+          else
+            digitalWrite(LED_Secundario,LOW);       // Encendemos SWITCH - LOG POS
           
+          estado_led16 = 0;
           // Publicamos por el topic correspondiente
           valor_SWITCH.SWITCH = estado_led16;
           valor_SWITCH.origen = "mqtt";
@@ -660,8 +750,12 @@ void callback(char* topic, byte* payload, unsigned int length) {
         }
         else if (valorSWITCH == 1)                  // Valor recibido = 1, encendemos SWITCH
         {
-          digitalWrite(LED_Secundario,LOW);
-          estado_led16=1;
+          if (logica_PN==false)
+            digitalWrite(LED_Secundario,LOW);       // Encendemos SWITCH - LOG NEG
+          else
+            digitalWrite(LED_Secundario,HIGH);      // Apagamos SWITCH - LOG POS
+          
+          estado_led16=1; 
           
           // Publicamos por el topic correspondiente
           valor_SWITCH.SWITCH = estado_led16;
@@ -831,14 +925,25 @@ void loop() {
         if (cont==2)                        // Si se han contado 2 pulsos -> encendemos al nivel máximo el GPIO 16
         {
           Serial.println("DOBLE PULSACION");
-          analogWrite(BUILTIN_LED,0);       // Encendemos al nivel máximo (activo al nivel bajo como PWM
-          Serial.println("GPIO 2 ENCENDIDO al MÁX");
-          estado_led2 = 1;
-          LED_dato = 100;                   // Registramos el valor del LED
-          LED_anterior = LED_dato;          // Registramos el último valor encendido
+
+          if (logica_PN==false)
+          {
+            analogWrite(BUILTIN_LED,0);       // Encendemos al nivel máximo (activo al nivel bajo como PWM)
+            Serial.println("GPIO 2 ENCENDIDO al MÁX");
+            estado_led2 = 1;
+            LED_dato = 100; 
+            LED_anterior = LED_dato;          // Registramos el último valor encendido
+          }
+          else
+          {
+            analogWrite(BUILTIN_LED,1023);   // Apagamos al nivel mínimo (activo al nivel alto como PWM)
+            Serial.println("GPIO 2 APAGADO al MÍN");
+            estado_led2 = 0;
+            LED_dato=0;
+          }
           
-          cont=0;                          // Reseteamos la cuenta de pulsos
-          cuenta_pulsos=true;              // Se activa la contación de pulsos a partir del nº de interrupciones
+          cont=0;                           // Reseteamos la cuenta de pulsos
+          cuenta_pulsos=true;               // Se activa la contación de pulsos a partir del nº de interrupciones
 
           // Publicamos por el topic correspondiente
           valor_LED.LED    = LED_dato;
@@ -849,9 +954,9 @@ void loop() {
         {
         Serial.println("UNA PULSACION");
 
-        if (estado_led2==1)                // Si estaba encendido, apagamos
+        if (estado_led2==1)          
           {
-            analogWrite(BUILTIN_LED,1023);
+            analogWrite(BUILTIN_LED,1023);  // Con una pulsación, se enciende o se apaga con lógica negada
             Serial.println("GPIO 2 APAGADO");
             estado_led2 = 0;
             LED_dato = 0;
@@ -859,7 +964,11 @@ void loop() {
           }
           else                              // Si estaba apagado, encendemos al nivel anterior
           { 
-            PWM = 1023*(1-LED_anterior/100); 
+            if (logica_PN==false)
+              PWM = 1023*(1-LED_anterior/100); 
+            else
+              PWM = 1023*(LED_anterior/100);
+              
             analogWrite(BUILTIN_LED,PWM);
             Serial.println("GPIO 2 ENCENDIDO AL NIVEL ANTERIOR");
             estado_led2 = 1;
