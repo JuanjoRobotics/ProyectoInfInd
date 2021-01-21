@@ -27,15 +27,14 @@ DHTesp dht;
 ADC_MODE(ADC_VCC);
 
 // Datos para actualización   >>>> SUSTITUIR IP <<<<<
-#define HTTP_OTA_ADDRESS      F("192.168.0.241")       // Dirección del servidor de actualización OTA 192.168.1.113
+#define HTTP_OTA_ADDRESS      F("192.168.0.241")       // Dirección del servidor de actualización OTA
 #define HTTP_OTA_PATH         F("/esp8266-ota/update") // Campo firmware para actualizar
 #define HTTP_OTA_PORT         1880                     // Port of update server
                                                        // Nombre del firmware
-#define HTTP_OTA_VERSION      String(__FILE__).substring(String(__FILE__).lastIndexOf('\\')+1) + ".nodemcu"
-
-#define OTA_URL "https://iot.ac.uma.es:1880/esp8266-ota/update"// Address of OTA update server
+                                                    
+#define OTA_URL "https://iot.ac.uma.es:1880/esp8266-ota/update"// Dirección del servidor de actualizaciones OTA
 #define HTTP_OTA_VERSION   String(__FILE__).substring(String(__FILE__).lastIndexOf('\\')+1)+".nodemcu"
-String OTAfingerprint("5D 56 09 5C 5F 7B A4 3F 01 B7 22 31 D3 A7 DA A3 6E 10 2E 60"); // sustituir valor
+String OTAfingerprint("5D 56 09 5C 5F 7B A4 3F 01 B7 22 31 D3 A7 DA A3 6E 10 2E 60"); // sustituir valor por la firma del servidor
 
 //  ----------------------- FIN INICIALIZACIÓN -----------------------
 
@@ -104,11 +103,10 @@ struct registro_datos {
 // Se declaran las variables que se usarán a lo largo del código, inicianizando algunas de ellas a valores específicos
 
 //--------Wifi - MQTT--------
-String ssid_select;
-String password_select;
-const char* ssid=ssid_select.c_str(); 
-const char* password=password_select.c_str();
-const char* mqtt_server = "iot.ac.uma.es"; // Servidor MQTT común a todos los integrantes del grupo
+
+const char* ssid="vodafoneAAR6W7";          // INTRODUCIR SSID PROPIO DE CADA USUARIO
+const char* password="Hn3fF6xXYFbgPJsH";    // INTRODUCIR PASSWORD PROPIA DE CADA USUARIO
+const char* mqtt_server = "iot.ac.uma.es";  // Servidor MQTT común a todos los integrantes del grupo
 
 WiFiClient espClient;
 PubSubClient client(espClient);
@@ -159,7 +157,7 @@ volatile float PWM;               // Valor del PWM
 float LED_anterior = LED_dato;    // Registra el último valor del LED (!=0)
 
 //--------Recogida de datos--------
-float TiempoRecogida  = 10;       // Recoger datos sensores (segundos)
+float TiempoRecogida  = 30;       // Recoger datos sensores (segundos)
 float TiempoLED       = 10;       // Tiempo en que tarda en cambiar el LED un 1%
 int  TiempoActualiza  = 60;       // Tiempo en comprobar actualizaciones (minutos)
 
@@ -195,7 +193,6 @@ String topicS_FOTA=topic_estructura+"/FOTA";
 String topicS_led_cmd=topic_estructura+"/led/cmd";
 String topicS_switch_cmd=topic_estructura+"/switch/cmd";
 String topicS_config=topic_estructura+"/config/cmd";
-String topicS_asignacion=topic_estructura+"/asignacion";
 
 // Topics (PUBLISH) en char*: se transforma de String -> char* para ser pasados como Topics por MQTT 
 const char* topic_global=topicS_global.c_str();
@@ -211,7 +208,6 @@ const char* topic_FOTA=topicS_FOTA.c_str();
 const char* topic_led_cmd=topicS_led_cmd.c_str();
 const char* topic_switch_cmd=topicS_switch_cmd.c_str();
 const char* topic_config=topicS_config.c_str();
-const char* topic_asignacion=topicS_asignacion.c_str();
 
 
 //----------------------- FIN DECLARACIÓN DE VARIABLES -----------------------
@@ -248,7 +244,6 @@ String serializa_JSONGlobal (struct registro_datos datos_globales)
   JSONVar jsonRoot;
   JSONVar DHT11;
   JSONVar Wifi;
-  JSONVar MQ2;
   JSONVar ANALOG;
   String jsonString;
   
@@ -719,26 +714,18 @@ void setup() {
   if (String(ESP.getChipId())=="5821487")         // Sensores disponibles: DHT11 / VL53L0X / MQ2
   {
     nombre_casa="salon";
-    ssid_select = "vodafoneAAR6W7"; 
-    password_select = "Hn3fF6xXYFbgPJsH";
   }
   else if (String(ESP.getChipId())=="1122489")    // Sensores disponibles: DHT11 / MQ2
   {
     nombre_casa="wc";
-    ssid_select = "MOVISTAR_JUANJO";
-    password_select = "juanjoesincreibl3-";
   }
   else if (String(ESP.getChipId())=="5826449")    // Sensores disponibles: DHT11 / MQ2
   {
     nombre_casa="cocina";
-    ssid_select = "ALFIL_PISOS"; 
-    password_select = "alfil2020";
   }
-  else if (String(ESP.getChipId())=="5826449")    // Sensores disponibles: DHT11
+  else if (String(ESP.getChipId())=="8789990")    // Sensores disponibles: DHT11
   {
     nombre_casa="habitacion";
-    ssid_select = "iPhone de Frank";
-    password_select = "Sarumordor21";
   }
 
   // Iniciamos sensores correspondientes
@@ -839,20 +826,20 @@ void loop() {
         origen_act="pulsador";
       }
     }
-    interrupcion=false;                   // Desabilitamos la interrupción hasta que vuelva a haber una llamada a la misma
+    interrupcion=false;                     // Desabilitamos la interrupción hasta que vuelva a haber una llamada a la misma
   }
     now=millis();
     
-      if (now-inicio>650)                  // Cuando pasen 0.65 seg tras la interrupción
+      if (now-inicio>650)                   // Cuando pasen 0.65 seg tras la interrupción
       {
-        if (cont==2)                       // Si se han contado 2 pulsos -> encendemos al nivel máximo el GPIO 16
+        if (cont==2)                        // Si se han contado 2 pulsos -> encendemos al nivel máximo el GPIO 16
         {
           Serial.println("DOBLE PULSACION");
-          analogWrite(BUILTIN_LED,0);      // Encendemos al nivel máximo (activo al nivel bajo como PWM
+          analogWrite(BUILTIN_LED,0);       // Encendemos al nivel máximo (activo al nivel bajo como PWM
           Serial.println("GPIO 2 ENCENDIDO al MÁX");
           estado_led2 = 1;
-          LED_dato = 100;              // Registramos el valor del LED
-          LED_anterior = LED_dato;         // Registramos el último valor encendido
+          LED_dato = 100;                   // Registramos el valor del LED
+          LED_anterior = LED_dato;          // Registramos el último valor encendido
           
           cont=0;                          // Reseteamos la cuenta de pulsos
           cuenta_pulsos=true;              // Se activa la contación de pulsos a partir del nº de interrupciones
@@ -959,7 +946,7 @@ void loop() {
       ESPhttpUpdate.onProgress(progreso_OTA);
       ESPhttpUpdate.onEnd(final_OTA);
       
-      switch(ESPhttpUpdate.update(HTTP_OTA_ADDRESS, HTTP_OTA_PORT, HTTP_OTA_PATH, HTTP_OTA_VERSION)) {
+      switch(ESPhttpUpdate.update(OTA_URL, HTTP_OTA_VERSION, OTAfingerprint)) {
         case HTTP_UPDATE_FAILED:
           Serial.printf(" HTTP update failed: Error (%d): %s\n", ESPhttpUpdate.getLastError(), ESPhttpUpdate.getLastErrorString().c_str());
           break;
