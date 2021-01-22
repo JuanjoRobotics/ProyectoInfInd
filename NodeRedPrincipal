@@ -185,8 +185,8 @@
         "chatId": "",
         "message": "cocina apagada",
         "parseMode": "",
-        "x": 1039.9999465942383,
-        "y": 2729.0006351470947,
+        "x": 943.9999389648438,
+        "y": 2733.000651359558,
         "wires": []
     },
     {
@@ -198,8 +198,8 @@
         "chatId": "",
         "message": "habitacion apagada",
         "parseMode": "",
-        "x": 1084.0000076293945,
-        "y": 2826.0004720687866,
+        "x": 988,
+        "y": 2830.00048828125,
         "wires": []
     },
     {
@@ -211,8 +211,8 @@
         "chatId": "",
         "message": "salon apagado",
         "parseMode": "",
-        "x": 1086.0000076293945,
-        "y": 2945.0004720687866,
+        "x": 990,
+        "y": 2949.00048828125,
         "wires": []
     },
     {
@@ -224,8 +224,8 @@
         "chatId": "",
         "message": "baño apagado",
         "parseMode": "",
-        "x": 1043.0000076293945,
-        "y": 3066.0004720687866,
+        "x": 947,
+        "y": 3070.00048828125,
         "wires": []
     },
     {
@@ -237,8 +237,8 @@
         "chatId": "",
         "message": "Se han apagado todas las luces",
         "parseMode": "",
-        "x": 1026.9999313354492,
-        "y": 3152.000551223755,
+        "x": 930.9999237060547,
+        "y": 3156.0005674362183,
         "wires": []
     },
     {
@@ -799,8 +799,7 @@
         "wires": [
             [
                 "1567217.52944df",
-                "5ef1d99e.da4948",
-                "4193e1ec.f7ea"
+                "5ef1d99e.da4948"
             ]
         ]
     },
@@ -1120,8 +1119,8 @@
         "func": "msg.payload = {\"level\": 0}\n\nreturn msg;\n",
         "outputs": 1,
         "noerr": 0,
-        "x": 570.0000686645508,
-        "y": 2767.0006351470947,
+        "x": 526.0000610351562,
+        "y": 2763.000732421875,
         "wires": [
             [
                 "6086651a.e1affc"
@@ -1137,8 +1136,8 @@
         "qos": "",
         "retain": "",
         "broker": "11f84db6.06eda2",
-        "x": 1076.9999465942383,
-        "y": 2676.000633239746,
+        "x": 980.9999389648438,
+        "y": 2680.0006494522095,
         "wires": []
     },
     {
@@ -1310,8 +1309,8 @@
         "func": "msg.payload = {\"level\": 0}\n\nreturn msg;\n",
         "outputs": 1,
         "noerr": 0,
-        "x": 573.9999923706055,
-        "y": 2823.0004720687866,
+        "x": 529.9999847412109,
+        "y": 2819.000569343567,
         "wires": [
             [
                 "a44c3979.949938"
@@ -1327,8 +1326,8 @@
         "qos": "",
         "retain": "",
         "broker": "11f84db6.06eda2",
-        "x": 1123.0000076293945,
-        "y": 2777.0004720687866,
+        "x": 1027,
+        "y": 2781.00048828125,
         "wires": []
     },
     {
@@ -1356,8 +1355,8 @@
         "func": "msg.payload = {\"level\": 0}\n\nreturn msg;\n",
         "outputs": 1,
         "noerr": 0,
-        "x": 577,
-        "y": 2909.0005378723145,
+        "x": 532.9999923706055,
+        "y": 2905.0006351470947,
         "wires": [
             [
                 "f1853f84.0504c"
@@ -1373,8 +1372,8 @@
         "qos": "",
         "retain": "",
         "broker": "11f84db6.06eda2",
-        "x": 1139.0000076293945,
-        "y": 2898.0004720687866,
+        "x": 1043,
+        "y": 2902.00048828125,
         "wires": []
     },
     {
@@ -1402,8 +1401,8 @@
         "func": "msg.payload = {\"level\": 0}\n\nreturn msg;\n",
         "outputs": 1,
         "noerr": 0,
-        "x": 600.0000152587891,
-        "y": 2993.0007610321045,
+        "x": 556.0000076293945,
+        "y": 2989.0008583068848,
         "wires": [
             [
                 "72cc61a1.f5633"
@@ -1419,8 +1418,8 @@
         "qos": "",
         "retain": "",
         "broker": "11f84db6.06eda2",
-        "x": 1125.0000076293945,
-        "y": 3018.0004720687866,
+        "x": 1029,
+        "y": 3022.00048828125,
         "wires": []
     },
     {
@@ -1451,8 +1450,8 @@
         "func": "msg.payload = {\"level\": 0}\n\nreturn msg;\n",
         "outputs": 1,
         "noerr": 0,
-        "x": 605.0000419616699,
-        "y": 3072.0005493164062,
+        "x": 561.0000343322754,
+        "y": 3068.0006465911865,
         "wires": [
             [
                 "c5f98de6.940e"
@@ -2186,7 +2185,7 @@
         "type": "function",
         "z": "cb95b8f7.9b4968",
         "name": "sensor puerta",
-        "func": "var deteccion = msg.payload.VL53L0X;\n\nif (deteccion > -1 && deteccion <=100) \nmsg.payload = \"Se ha abierto la puerta\";\n\nif (deteccion > 100) \nmsg.payload = \"Se ha cerrado la puerta\";\nif (deteccion == -1)\nmsg.payload = \"sensor no inicializado\"\n\nreturn msg;",
+        "func": "var deteccion = msg.payload.VL53L0X;\n\nif (deteccion > -1 && deteccion <=100) \nmsg.payload = \"Se ha abierto la puerta\";\n\nif (deteccion > 100) \nmsg.payload = \"Se ha cerrado la puerta\";\nif (deteccion == -1)\nmsg.payload = \"Sensor láser de la puerta no inicializado\"\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "x": 600.3333435058594,
@@ -2828,7 +2827,7 @@
         "type": "function",
         "z": "cb95b8f7.9b4968",
         "name": "ayuda mensaje",
-        "func": "msg.payload = \"¿Estás un poco perdido? Tranquilo, yo te ayudo. \\n\";\nmsg.payload += \"En primer lugar puedes utilizar el comando /encender o /apagar para modificar las luces. \\n\";\nmsg.payload += \"Una vez lo hagas podrás elegir qué quieres enceder, tienes varios niveles para elegir. \\n\";\nmsg.payload += \"Por otro lado tienes el comando /estado para comprobar cierta información de cada rincón de la casa. \\n\";\nmsg.payload += \"Otro comando interesante es /prediccion, que te permite ver la prediccion del tiempo atmosferico. \\n\";\nmsg.payload += \"Con el comando /configuracion podrás tocar varios parámetros como el tiempo de recogida de datos, el de pwm, el estado del switch y del led y el tiempo de actualizacion . Tambien puedes actualizar manualmente con /actualiza \\n\";\nmsg.payload += \"Si escribes /TempMax o /TempMin podrás cambiar la temperatura a la que quieres los avisos \\n\";\nmsg.payload += \"Con /HumMax y /HumMin puedes regular los avisos para la humedad \\n\";\nmsg.payload += \"Hay otros mensajes que se envian automaticamente si ocurren situaciones concretas, como por ejemplo, que se abra la puerta de la casa o que tengas un nivel de humo demasiado alto. \\n\";\nmsg.payload += \"¿No me crees? Pues metele fuego a la casa para que veas lo efectivo que soy ^^. \\n\";\nreturn msg;\n",
+        "func": "msg.payload = \"¿Estás un poco perdido? Tranquilo, yo te ayudo. \\n\";\nmsg.payload += \"En primer lugar puedes utilizar el comando /encender o /apagar para modificar las luces. \\n\";\nmsg.payload += \"Una vez lo hagas podrás elegir qué quieres enceder, tienes varios niveles para elegir. \\n\";\nmsg.payload += \"Por otro lado tienes el comando /estado para comprobar cierta información de cada rincón de la casa. \\n\";\nmsg.payload += \"Otro comando interesante es /prediccion, que te permite ver la prediccion del tiempo atmosferico. \\n\";\nmsg.payload += \"Con el comando /configuracion podrás tocar varios parámetros como el tiempo de recogida de datos, el de pwm, el estado del switch y del led y el tiempo de actualizacion . Tambien puedes actualizar manualmente con /actualiza \\n\";\nmsg.payload += \"Si escribes /TempMax o /TempMin podrás cambiar la temperatura a la que quieres los avisos \\n\";\nmsg.payload += \"Con /HumMax y /HumMin puedes regular los avisos para la humedad, con /logica puedes cambiar la lógica de los LEDs \\n\";\nmsg.payload += \"Hay otros mensajes que se envian automaticamente si ocurren situaciones concretas, como por ejemplo, que se abra la puerta de la casa o que tengas un nivel de humo demasiado alto. \\n\";\nmsg.payload += \"¿No me crees? Pues metele fuego a la casa para que veas lo efectivo que soy ^^. \\n\";\nreturn msg;\n",
         "outputs": 1,
         "noerr": 0,
         "x": 491.89585876464844,
@@ -3073,8 +3072,8 @@
         "ret": "txt",
         "url": "http://www.aemet.es/xml/municipios/localidad_29067.xml",
         "tls": "",
-        "x": 2036.1986465454102,
-        "y": 3724.1122722625732,
+        "x": 2416.198657989502,
+        "y": 2772.112356185913,
         "wires": [
             [
                 "57ce4f.7e47d1b"
@@ -3089,8 +3088,8 @@
         "property": "payload",
         "attr": "",
         "chr": "",
-        "x": 2379.1983375549316,
-        "y": 3611.112313270569,
+        "x": 2759.1983489990234,
+        "y": 2659.1123971939087,
         "wires": [
             [
                 "291bd304.8bf1ec",
@@ -3119,8 +3118,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 2619.4985313415527,
-        "y": 3417.112112045288,
+        "x": 2999.4985427856445,
+        "y": 2465.112195968628,
         "wires": [
             []
         ]
@@ -3133,8 +3132,8 @@
         "func": "var cielo_hoy = global.get(\"cielo_hoy\");\nvar fecha = global.get(\"fecha\")\nvar lluvia_hoy = global.get(\"lluvia_hoy\")\nvar periodo = global.get(\"periodo\")\nmsg.payload.chatId =  1308127721;\nmsg.payload = \"hoy (\" +periodo+\") tendremos el cielo \"+cielo_hoy+\" y con una probabilidad de lluvias de \"+lluvia_hoy+\" % \\n\";\nmsg.payload +=\"Fecha de elaboracion: \"+fecha+ \"\\n\";\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 2945.498550415039,
-        "y": 3559.1121196746826,
+        "x": 3325.498561859131,
+        "y": 2607.1122035980225,
         "wires": [
             [
                 "1da15242.3f4fbe"
@@ -3150,8 +3149,8 @@
         "command": "/prediccion",
         "commandType": "str",
         "commandCase": false,
-        "x": 1610.307373046875,
-        "y": 3763.111328125,
+        "x": 1990.3073844909668,
+        "y": 2811.11141204834,
         "wires": [
             [
                 "31d4b644.71932a",
@@ -3168,8 +3167,8 @@
         "chatId": "-487674790",
         "message": "",
         "parseMode": "",
-        "x": 3113.498504638672,
-        "y": 3559.112283706665,
+        "x": 3493.4985160827637,
+        "y": 2607.112367630005,
         "wires": []
     },
     {
@@ -3180,8 +3179,8 @@
         "func": "var hora = new Date().getHours();\nmsg.payload = hora;\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 1791.498291015625,
-        "y": 3717.111328125,
+        "x": 2171.498302459717,
+        "y": 2765.11141204834,
         "wires": [
             [
                 "a71ad5eb.30b548"
@@ -3196,8 +3195,8 @@
         "func": "var hora = global.get(\"hora\");\nvar cont = 0;\n\nif (hora >= 07 && hora <=12)\ncont = 5;\nelse if (hora >=13 && hora <= 18)\ncont=6;\nelse if (hora>=19 && hora <=24)\ncont=3;\nelse cont=4;\nmsg.payload = msg.payload.root.prediccion[0].dia[0].prob_precipitacion[cont]._;\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 2606.49853515625,
-        "y": 3464.112548828125,
+        "x": 2986.498546600342,
+        "y": 2512.112632751465,
         "wires": [
             [
                 "225f37ce.9de658"
@@ -3223,8 +3222,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1901.498291015625,
-        "y": 3669.111328125,
+        "x": 2281.498302459717,
+        "y": 2717.11141204834,
         "wires": [
             []
         ]
@@ -3248,8 +3247,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 2742.4985389709473,
-        "y": 3467.1122245788574,
+        "x": 3122.498550415039,
+        "y": 2515.1123085021973,
         "wires": [
             []
         ]
@@ -3262,8 +3261,8 @@
         "func": "var hora = global.get(\"hora\");\nvar cont = 0;\nif (hora >= 07 && hora <=12)\ncont = 5;\nelse if (hora >=13 && hora <= 18)\ncont=6;\nelse if (hora>=19 && hora <=24)\ncont=3;\nelse cont=4;\nmsg.payload = msg.payload.root.prediccion[0].dia[0].estado_cielo[cont].$.descripcion;\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 2620.4982109069824,
-        "y": 3557.1122846603394,
+        "x": 3000.498222351074,
+        "y": 2605.112368583679,
         "wires": [
             [
                 "c9d3ff25.5bc15"
@@ -3289,8 +3288,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 2782.498432159424,
-        "y": 3556.112283706665,
+        "x": 3162.4984436035156,
+        "y": 2604.112367630005,
         "wires": [
             [
                 "30ab6bbe.c9eee4"
@@ -3305,8 +3304,8 @@
         "func": "var hora = global.get(\"hora\");\nvar cont = 0;\nif (hora >= 07 && hora <=12)\ncont = 5;\nelse if (hora >=13 && hora <= 18)\ncont=6;\nelse if (hora>=19 && hora <=24)\ncont=3;\nelse cont=4;\nmsg.payload = msg.payload.root.prediccion[0].dia[0].estado_cielo[cont].$.periodo;\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 2622.4983139038086,
-        "y": 3620.1120710372925,
+        "x": 3002.4983253479004,
+        "y": 2668.1121549606323,
         "wires": [
             [
                 "fb7613fa.b787f"
@@ -3332,8 +3331,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 2780.4982681274414,
-        "y": 3625.1119079589844,
+        "x": 3160.498279571533,
+        "y": 2673.111991882324,
         "wires": [
             []
         ]
@@ -3344,8 +3343,8 @@
         "z": "cb95b8f7.9b4968",
         "name": "Esta funcion calcula la hora actual",
         "info": "",
-        "x": 1807.498291015625,
-        "y": 3621.111328125,
+        "x": 2187.498302459717,
+        "y": 2669.11141204834,
         "wires": []
     },
     {
@@ -3364,8 +3363,8 @@
         "z": "cb95b8f7.9b4968",
         "name": "convierto en globales las variables que necesito",
         "info": "",
-        "x": 2309.4984588623047,
-        "y": 3419.112503051758,
+        "x": 2689.4984703063965,
+        "y": 2467.1125869750977,
         "wires": []
     },
     {
@@ -3374,8 +3373,8 @@
         "z": "cb95b8f7.9b4968",
         "name": "Para estas necesito primero elegir el periodo correcto",
         "info": "",
-        "x": 3125.4983558654785,
-        "y": 3646.112127304077,
+        "x": 3505.4983673095703,
+        "y": 2694.112211227417,
         "wires": []
     },
     {
@@ -3384,8 +3383,8 @@
         "z": "cb95b8f7.9b4968",
         "name": "Las junto todas en esta funcion y lo envio a telegram",
         "info": "",
-        "x": 3096.498546600342,
-        "y": 3491.112117767334,
+        "x": 3476.4985580444336,
+        "y": 2539.112201690674,
         "wires": []
     },
     {
@@ -3405,8 +3404,8 @@
         "autoAnswerCallback": false,
         "timeoutValue": "20",
         "timeoutUnits": "s",
-        "x": 1806.9764289855957,
-        "y": 3797.334144592285,
+        "x": 2186.9764404296875,
+        "y": 2845.334228515625,
         "wires": [
             [
                 "582a4416.f761fc"
@@ -3431,8 +3430,8 @@
         "ret": "txt",
         "url": "http://www.aemet.es/xml/municipios/localidad_29067.xml",
         "tls": "",
-        "x": 2034.6433410644531,
-        "y": 3788.8894939422607,
+        "x": 2414.643352508545,
+        "y": 2836.8895778656006,
         "wires": [
             [
                 "ec120049.3121f"
@@ -3447,8 +3446,8 @@
         "property": "payload",
         "attr": "",
         "chr": "",
-        "x": 2397.6434898376465,
-        "y": 3726.889389038086,
+        "x": 2777.6435012817383,
+        "y": 2774.889472961426,
         "wires": [
             [
                 "73bb3205.64c46c",
@@ -3477,8 +3476,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 2666.9431076049805,
-        "y": 3676.889476776123,
+        "x": 3046.9431190490723,
+        "y": 2724.889560699463,
         "wires": [
             []
         ]
@@ -3502,8 +3501,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 2671.94327545166,
-        "y": 3718.889479637146,
+        "x": 3051.943286895752,
+        "y": 2766.889563560486,
         "wires": [
             []
         ]
@@ -3527,8 +3526,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 2660.9432678222656,
-        "y": 3759.889699935913,
+        "x": 3040.9432792663574,
+        "y": 2807.889783859253,
         "wires": [
             []
         ]
@@ -3541,8 +3540,8 @@
         "func": "var cielo_manana = global.get(\"cielo_manana\");\nvar lluvia_manana = global.get(\"lluvia_manana\")\nvar fecha = global.get(\"fecha\")\nvar periodo = global.get(\"periodo\")\nmsg.payload.chatId =  1308127721;\nmsg.payload = \"Mañana tendremos el cielo \"+cielo_manana+\" y con una probabilidad de lluvias de \"+lluvia_manana+\" % \\n\";\nmsg.payload +=\"Fecha de elaboracion: \"+fecha+ \"\\n\";\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 2847.9432525634766,
-        "y": 3841.8894062042236,
+        "x": 3227.9432640075684,
+        "y": 2889.8894901275635,
         "wires": [
             [
                 "ea855249.bbfb4"
@@ -3558,8 +3557,8 @@
         "chatId": "-487674790",
         "message": "",
         "parseMode": "",
-        "x": 3035.9437980651855,
-        "y": 3841.889298439026,
+        "x": 3415.9438095092773,
+        "y": 2889.8893823623657,
         "wires": []
     },
     {
@@ -3570,8 +3569,8 @@
         "func": "var hora = global.get(\"hora\");\nvar cont = 0;\n\nif (hora >= 07 && hora <=12)\ncont = 5;\nelse if (hora >=13 && hora <= 18)\ncont=6;\nelse if (hora>=19 && hora <=24)\ncont=3;\nelse cont=4;\nmsg.payload = msg.payload.root.prediccion[0].dia[0].prob_precipitacion[cont]._;\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 2665.9430046081543,
-        "y": 3834.8894901275635,
+        "x": 3045.943016052246,
+        "y": 2882.8895740509033,
         "wires": [
             [
                 "bd8530bd.c1a18",
@@ -3598,8 +3597,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 2830.9432983398438,
-        "y": 3773.8894577026367,
+        "x": 3210.9433097839355,
+        "y": 2821.8895416259766,
         "wires": [
             []
         ]
@@ -3610,8 +3609,8 @@
         "z": "cb95b8f7.9b4968",
         "name": "convierto en globales las variables que necesito",
         "info": "",
-        "x": 3008.94287109375,
-        "y": 3714.8896484375,
+        "x": 3388.942882537842,
+        "y": 2762.88973236084,
         "wires": []
     },
     {
@@ -3620,8 +3619,8 @@
         "z": "cb95b8f7.9b4968",
         "name": "Las junto todas en esta funcion y lo envio a telegram",
         "info": "",
-        "x": 3092.94384765625,
-        "y": 3786.8896265029907,
+        "x": 3472.943859100342,
+        "y": 2834.8897104263306,
         "wires": []
     },
     {
@@ -3643,8 +3642,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 2681.6997604370117,
-        "y": 3917.524196624756,
+        "x": 3061.6997718811035,
+        "y": 2965.5242805480957,
         "wires": [
             []
         ]
@@ -3668,8 +3667,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 2695.699577331543,
-        "y": 4020.524196624756,
+        "x": 3075.6995887756348,
+        "y": 3068.5242805480957,
         "wires": [
             [
                 "215d4a1f.a23596"
@@ -3685,8 +3684,8 @@
         "ret": "txt",
         "url": "http://www.aemet.es/xml/municipios/localidad_29067.xml",
         "tls": "",
-        "x": 2056.699317932129,
-        "y": 3845.524015323026,
+        "x": 2436.6993293762207,
+        "y": 2893.524099246366,
         "wires": [
             [
                 "619f7a85.e0c144"
@@ -3701,8 +3700,8 @@
         "property": "payload",
         "attr": "",
         "chr": "",
-        "x": 2413.6993675231934,
-        "y": 3869.5238332748413,
+        "x": 2793.699378967285,
+        "y": 2917.523917198181,
         "wires": [
             [
                 "7e4f498d.5c7548",
@@ -3731,8 +3730,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 2699.999687194824,
-        "y": 3966.524196624756,
+        "x": 3079.999698638916,
+        "y": 3014.5242805480957,
         "wires": [
             []
         ]
@@ -3745,8 +3744,8 @@
         "func": "var cielo_pasado_manana = global.get(\"cielo_pasado_manana\");\nvar lluvia_pasado_manana = global.get(\"lluvia_pasado_manana\")\nvar fecha = global.get(\"fecha\")\nvar periodo = global.get(\"periodo\")\nmsg.payload.chatId =  1308127721;\nmsg.payload = \"Pasado mañana tendremos el cielo \"+cielo_pasado_manana+\" y con una probabilidad de lluvias de \"+lluvia_pasado_manana+\" % \\n\";\nmsg.payload +=\"Fecha de elaboracion: \"+fecha+ \"\\n\";\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 2903.999439239502,
-        "y": 4132.524440765381,
+        "x": 3283.9994506835938,
+        "y": 3180.5245246887207,
         "wires": [
             [
                 "7650de0f.8691e"
@@ -3762,8 +3761,8 @@
         "chatId": "-487674790",
         "message": "",
         "parseMode": "",
-        "x": 3091.9999504089355,
-        "y": 4052.5239419937134,
+        "x": 3471.9999618530273,
+        "y": 3100.524025917053,
         "wires": []
     },
     {
@@ -3774,8 +3773,8 @@
         "func": "var hora = global.get(\"hora\");\nvar cont = 0;\n\nif (hora >= 07 && hora <=12)\ncont = 5;\nelse if (hora >=13 && hora <= 18)\ncont=6;\nelse if (hora>=19 && hora <=24)\ncont=3;\nelse cont=4;\nmsg.payload = msg.payload.root.prediccion[0].dia[0].prob_precipitacion[cont]._;\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 2687.9990730285645,
-        "y": 4110.524440765381,
+        "x": 3067.9990844726562,
+        "y": 3158.5245246887207,
         "wires": [
             [
                 "9f7a91fd.20093"
@@ -3801,8 +3800,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 2886.9996223449707,
-        "y": 4042.5243186950684,
+        "x": 3266.9996337890625,
+        "y": 3090.524402618408,
         "wires": [
             []
         ]
@@ -3813,8 +3812,8 @@
         "z": "cb95b8f7.9b4968",
         "name": "Las junto todas en esta funcion y lo envio a telegram",
         "info": "",
-        "x": 3149,
-        "y": 3997.524270057678,
+        "x": 3529.000011444092,
+        "y": 3045.524353981018,
         "wires": []
     },
     {
@@ -4067,8 +4066,8 @@
         "links": [
             "cb15f29e.19409"
         ],
-        "x": 1593.383056640625,
-        "y": 3839.67236328125,
+        "x": 1973.3830680847168,
+        "y": 2887.67244720459,
         "wires": [
             [
                 "a7907c2b.c3163"
@@ -4510,8 +4509,8 @@
         "z": "cb95b8f7.9b4968",
         "name": "------------------PREDICCION------------------",
         "info": "",
-        "x": 2136.191162109375,
-        "y": 3571.0001220703125,
+        "x": 2516.191173553467,
+        "y": 2619.0002059936523,
         "wires": []
     },
     {
@@ -6216,8 +6215,8 @@
         "chatId": "",
         "message": "Se acabo el tiempo",
         "parseMode": "",
-        "x": 447.333309173584,
-        "y": 2969.333613395691,
+        "x": 367.33331298828125,
+        "y": 2961.33349609375,
         "wires": []
     },
     {
@@ -6294,8 +6293,8 @@
         "chatId": "",
         "message": "Se acabo el tiempo",
         "parseMode": "",
-        "x": 1890.857982635498,
-        "y": 3875.6667652130127,
+        "x": 2270.85799407959,
+        "y": 2923.6668491363525,
         "wires": []
     },
     {
@@ -8555,20 +8554,6 @@
         ]
     },
     {
-        "id": "4193e1ec.f7ea",
-        "type": "debug",
-        "z": "cb95b8f7.9b4968",
-        "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "x": 852.38671875,
-        "y": 3735.26953125,
-        "wires": []
-    },
-    {
         "id": "679820b7.94a32",
         "type": "function",
         "z": "cb95b8f7.9b4968",
@@ -9062,11 +9047,11 @@
         "topic": "infind/GRUPO2/ESP5821487/actualizacion",
         "qos": "2",
         "broker": "8fab76dc.3e75b8",
-        "x": 2244.833938598633,
-        "y": 3113.667580604553,
+        "x": 2374.8342933654785,
+        "y": 2167.667510986328,
         "wires": [
             [
-                "44a27c7a.8a4b54"
+                "add17476.33d298"
             ]
         ]
     },
@@ -9078,11 +9063,11 @@
         "topic": "infind/GRUPO2/ESP1122489/actualizacion",
         "qos": "2",
         "broker": "8fab76dc.3e75b8",
-        "x": 2242.7657775878906,
-        "y": 3162.250403404236,
+        "x": 2372.7661323547363,
+        "y": 2216.2503337860107,
         "wires": [
             [
-                "1a31f7e8.11fcb8"
+                "403d4d57.e1cb54"
             ]
         ]
     },
@@ -9094,11 +9079,11 @@
         "topic": "infind/GRUPO2/ESP5826449/actualizacion",
         "qos": "2",
         "broker": "8fab76dc.3e75b8",
-        "x": 2250.7660217285156,
-        "y": 3210.250457763672,
+        "x": 2380.7663764953613,
+        "y": 2264.250388145447,
         "wires": [
             [
-                "234a7119.b0d1de"
+                "d71ca0ae.2f267"
             ]
         ]
     },
@@ -9110,11 +9095,11 @@
         "topic": "infind/GRUPO2/ESP8789990/actualizacion",
         "qos": "2",
         "broker": "8fab76dc.3e75b8",
-        "x": 2256.7657775878906,
-        "y": 3254.250403404236,
+        "x": 2386.7661323547363,
+        "y": 2308.2503337860107,
         "wires": [
             [
-                "e8cf5fa3.80bc7"
+                "3cb09c4a.1fb124"
             ]
         ]
     },
@@ -9123,11 +9108,11 @@
         "type": "function",
         "z": "cb95b8f7.9b4968",
         "name": "confirmar actualizacion",
-        "func": "var ID = msg.payload.CHIPID\nvar actualizacion = msg.payload.actualizacion\nvar origen = msg.payload.origen\nmsg.payload = {}\nif (actualizacion === false){\nmsg.payload = \"se va a actualizar la placa\"\nmsg.payload += ID\nmsg.payload += \"causa: \"\nmsg.payload += origen }\n\nif (actualizacion === true) {\nmsg.payload= \"Se ha actualizado la placa\"\nmsg.payload += ID\nmsg.payload += \"causa: \"\nmsg.payload += origen }\nreturn msg;",
+        "func": "var ID = msg.payload.CHIPID\nvar actualizacion = msg.payload.actualizacion\nvar origen = msg.payload.origen\nmsg.payload = {}\nif (actualizacion === false){\nmsg.payload = \"Se va a actualizar la placa \"\nmsg.payload += ID\nmsg.payload += \" causa: \"\nmsg.payload += origen }\n\nif (actualizacion === true) {\nmsg.payload= \"Se ha actualizado la placa \"\nmsg.payload += ID\nmsg.payload += \" causa: \"\nmsg.payload += origen }\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 2594.3869552612305,
-        "y": 3097.6332082748413,
+        "x": 2878.3870010375977,
+        "y": 2153.633108139038,
         "wires": [
             [
                 "16fd3bbb.d9e4b4"
@@ -9139,11 +9124,11 @@
         "type": "function",
         "z": "cb95b8f7.9b4968",
         "name": "confirmar actualizacion",
-        "func": "var ID = msg.payload.CHIPID\nvar actualizacion = msg.payload.actualizacion\nvar origen = msg.payload.origen\nmsg.payload = {}\nif (actualizacion === false){\nmsg.payload = \"se va a actualizar la placa\"\nmsg.payload += ID\nmsg.payload += \"causa: \"\nmsg.payload += origen }\n\nif (actualizacion === true) {\nmsg.payload= \"Se ha actualizado la placa\"\nmsg.payload += ID\nmsg.payload += \"causa: \"\nmsg.payload += origen }\nreturn msg;",
+        "func": "var ID = msg.payload.CHIPID\nvar actualizacion = msg.payload.actualizacion\nvar origen = msg.payload.origen\nmsg.payload = {}\nif (actualizacion === false){\nmsg.payload = \"se va a actualizar la placa \"\nmsg.payload += ID\nmsg.payload += \" causa: \"\nmsg.payload += origen }\n\nif (actualizacion === true) {\nmsg.payload= \"Se ha actualizado la placa \"\nmsg.payload += ID\nmsg.payload += \" causa: \"\nmsg.payload += origen }\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 2598.7657775878906,
-        "y": 3154.250403404236,
+        "x": 2882.765823364258,
+        "y": 2210.2503032684326,
         "wires": [
             [
                 "16fd3bbb.d9e4b4"
@@ -9155,11 +9140,11 @@
         "type": "function",
         "z": "cb95b8f7.9b4968",
         "name": "confirmar actualizacion",
-        "func": "var ID = msg.payload.CHIPID\nvar actualizacion = msg.payload.actualizacion\nvar origen = msg.payload.origen\nmsg.payload = {}\nif (actualizacion === false){\nmsg.payload = \"se va a actualizar la placa\"\nmsg.payload += ID\nmsg.payload += \"causa: \"\nmsg.payload += origen }\n\nif (actualizacion === true) {\nmsg.payload= \"Se ha actualizado la placa\"\nmsg.payload += ID\nmsg.payload += \"causa: \"\nmsg.payload += origen }\nreturn msg;",
+        "func": "var ID = msg.payload.CHIPID\nvar actualizacion = msg.payload.actualizacion\nvar origen = msg.payload.origen\nmsg.payload = {}\nif (actualizacion === false){\nmsg.payload = \"se va a actualizar la placa \"\nmsg.payload += ID\nmsg.payload += \" causa: \"\nmsg.payload += origen }\n\nif (actualizacion === true) {\nmsg.payload= \"Se ha actualizado la placa \"\nmsg.payload += ID\nmsg.payload += \" causa: \"\nmsg.payload += origen }\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 2586.7657775878906,
-        "y": 3193.250403404236,
+        "x": 2870.765823364258,
+        "y": 2249.2503032684326,
         "wires": [
             [
                 "16fd3bbb.d9e4b4"
@@ -9171,11 +9156,11 @@
         "type": "function",
         "z": "cb95b8f7.9b4968",
         "name": "confirmar actualizacion",
-        "func": "var ID = msg.payload.CHIPID\nvar actualizacion = msg.payload.actualizacion\nvar origen = msg.payload.origen\nmsg.payload = {}\nif (actualizacion === false){\nmsg.payload = \"se va a actualizar la placa\"\nmsg.payload += ID\nmsg.payload += \"causa: \"\nmsg.payload += origen }\n\nif (actualizacion === true) {\nmsg.payload= \"Se ha actualizado la placa\"\nmsg.payload += ID\nmsg.payload += \"causa: \"\nmsg.payload += origen }\nreturn msg;",
+        "func": "var ID = msg.payload.CHIPID\nvar actualizacion = msg.payload.actualizacion\nvar origen = msg.payload.origen\nmsg.payload = {}\nif (actualizacion === false){\nmsg.payload = \"se va a actualizar la placa \"\nmsg.payload += ID\nmsg.payload += \" causa: \"\nmsg.payload += origen }\n\nif (actualizacion === true) {\nmsg.payload= \"Se ha actualizado la placa \"\nmsg.payload += ID\nmsg.payload += \" causa: \"\nmsg.payload += origen }\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 2590.7657775878906,
-        "y": 3238.250403404236,
+        "x": 2874.765823364258,
+        "y": 2294.2503032684326,
         "wires": [
             [
                 "16fd3bbb.d9e4b4"
@@ -9191,8 +9176,8 @@
         "chatId": "-487674790",
         "message": "",
         "parseMode": "",
-        "x": 2894.266101837158,
-        "y": 3160.250425338745,
+        "x": 3178.2661476135254,
+        "y": 2216.250325202942,
         "wires": []
     },
     {
@@ -10126,9 +10111,10 @@
         "question": "Aqui tienes mas opciones aún!!",
         "answers": [
             "Hum. minima",
-            "Hum. maxima"
+            "Hum. maxima",
+            "Logica"
         ],
-        "outputs": 3,
+        "outputs": 4,
         "autoAnswerCallback": false,
         "timeoutValue": "20",
         "timeoutUnits": "s",
@@ -10140,6 +10126,9 @@
             ],
             [
                 "c6e117ec.fb19c8"
+            ],
+            [
+                "a94b2fdc.1959e"
             ],
             [
                 "27562b09.3e42b4"
@@ -10177,8 +10166,8 @@
         "links": [
             "e9a51445.eb1738"
         ],
-        "x": 524,
-        "y": 839,
+        "x": 532,
+        "y": 822,
         "wires": []
     },
     {
@@ -10189,8 +10178,8 @@
         "links": [
             "25a21e3d.52f692"
         ],
-        "x": 526,
-        "y": 879,
+        "x": 534,
+        "y": 855,
         "wires": []
     },
     {
@@ -10678,16 +10667,15 @@
         "id": "7c7fe529.2a194c",
         "type": "function",
         "z": "cb95b8f7.9b4968",
-        "name": "agrega todo",
-        "func": "// fecha por defecto es hoy\nvar ahora = new Date();\n// pillo los globales si los hay, si no la fecha de hoy\nvar desde = new Date(global.get(\"desde\") || ahora);\nvar hasta = new Date(global.get(\"hasta\") || ahora); \n// el día de inicio desde las cero horas\nvar inicio = new Date(desde.getFullYear(),desde.getMonth(),desde.getDate(),1,0,0,0);\n// el día final es hasta final del día\nvar final = new Date(hasta.getFullYear(),hasta.getMonth(),hasta.getDate(),24,59,59,99);\n\nmsg.payload=\n[\n    { \"$match\": { \"date\": { \"$gte\": inicio , \"$lte\": final } } } // criterio búsqueda. Se queda con los eltos qur coincidan con fechas\n /*   { \"$project\": {\n        \"temperatura\": \"$DHT11.temp\" // con las proyecciones se elige de todo el documento los campos que vamos a utilizar\n        }\n    },\n    { \"$group\": { //agrupación - da valores a esos grupos\n        \"_id\": 0,\n        \"Tmedia\":{\"$avg\":\"$temperatura\"},\n        \"Tmax\":  {\"$max\":\"$temperatura\"},\n        \"Tmin\":  {\"$min\":\"$temperatura\"},\n        \"datos\": {\"$sum\":1}\n    } }*/\n    //{\"topic\": \"infind/GRUPO2/ESP5826449/datos\"}\n];\n\nreturn msg;",
+        "name": "agrega todo/cocina",
+        "func": "// fecha por defecto es hoy\nvar ahora = new Date();\n// pillo los globales si los hay, si no la fecha de hoy\nvar desde = new Date(global.get(\"desde\") || ahora);\nvar hasta = new Date(global.get(\"hasta\") || ahora); \n// el día de inicio desde las cero horas\nvar inicio = new Date(desde.getFullYear(),desde.getMonth(),desde.getDate(),1,0,0,0);\n// el día final es hasta final del día\nvar final = new Date(hasta.getFullYear(),hasta.getMonth(),hasta.getDate(),24,59,59,99);\n\nmsg.payload=\n[\n    { \"$match\": { \"date\": { \"$gte\": inicio , \"$lte\": final }, \"topic\":\"infind/GRUPO2/ESP5826449/datos\"} },// criterio búsqueda. Se queda con los eltos qur coincidan con fechas\n    { \"$project\": {\n        \"temperatura\": \"$DHT11.temp\" // con las proyecciones se elige de todo el documento los campos que vamos a utilizar\n        }\n    },\n    { \"$group\": { //agrupación - da valores a esos grupos\n        \"_id\": 0,\n        \"Tmedia\":{\"$avg\":\"$temperatura\"},\n        \"Tmax\":  {\"$max\":\"$temperatura\"},\n        \"Tmin\":  {\"$min\":\"$temperatura\"},\n        \"datos\": {\"$sum\":1}\n    }}\n \n];\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 2489,
-        "y": 4764,
+        "x": 2382,
+        "y": 4861,
         "wires": [
             [
-                "4f4c8306.7629ec",
-                "636a2f07.4f2a1"
+                "4f4c8306.7629ec"
             ]
         ]
     },
@@ -10699,11 +10687,14 @@
         "name": "",
         "collection": "datos/GRUPO2_json",
         "operation": "aggregate",
-        "x": 2734,
-        "y": 4764,
+        "x": 2666,
+        "y": 4868,
         "wires": [
             [
-                "dc47b898.784c78"
+                "7e5751fc.02e24",
+                "bc4683b6.18556",
+                "e2db2841.b25b28",
+                "b178d7e0.192dd8"
             ]
         ]
     },
@@ -10715,11 +10706,12 @@
         "func": "var arrayavg=[];\nvar arraymax=[];\nvar arraymin=[];\n\n// los arrays usados en la represenstación gráfica deben contener objetos JSON con dos campos: {x , y}\n// en x debemos poner la hora en formato \"timestamp\". Si tenemos un objeto fecha se puede convertir usando el método getTime()\n// en y debemos poner el valor de la variable\n// mas info en: https://github.com/node-red/node-red-dashboard/blob/master/Charts.md\n\nif(Array.isArray(msg.payload) && msg.payload.length>0)\n{\n    for (var i = 0; i < msg.payload.length; i++) { // añade datos a los array\n        arrayavg.push({x : msg.payload[i]._id.getTime() , y : msg.payload[i].Tmedia});\n        arraymax.push({x : msg.payload[i]._id.getTime() , y : msg.payload[i].Tmax});\n        arraymin.push({x : msg.payload[i]._id.getTime() , y : msg.payload[i].Tmin});\n    }\n}\n    \nmsg.payload = [{\n        \"series\":[\"T.media\",\"T.max\",\"T.min\"],\n        \"data\":[arrayavg, arraymax, arraymin],\n        \"labels\":[\"\"]\n        }];\n\nreturn msg;  ",
         "outputs": "1",
         "noerr": 0,
-        "x": 3012,
-        "y": 4766,
+        "x": 2963.0002059936523,
+        "y": 4945.0001792907715,
         "wires": [
             [
-                "4e22a2f0.8dcbbc"
+                "4e22a2f0.8dcbbc",
+                "7828c788.9d4278"
             ]
         ]
     },
@@ -10728,7 +10720,7 @@
         "type": "ui_chart",
         "z": "cb95b8f7.9b4968",
         "name": "",
-        "group": "800d9c9f.c6f35",
+        "group": "53520691.17b148",
         "order": 8,
         "width": 0,
         "height": 0,
@@ -10758,8 +10750,8 @@
             "#c5b0d5"
         ],
         "useOldStyle": false,
-        "x": 3227.999755859375,
-        "y": 4767,
+        "x": 3200.9997215270996,
+        "y": 4927.999996185303,
         "wires": [
             [],
             []
@@ -10784,11 +10776,11 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 2322,
-        "y": 4739,
+        "x": 2687.0004806518555,
+        "y": 3832.3349933624268,
         "wires": [
             [
-                "7c7fe529.2a194c"
+                "f7b88c77.6d2bd"
             ]
         ]
     },
@@ -10811,11 +10803,11 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 2322.227294921875,
-        "y": 4796.88330078125,
+        "x": 2675.2275314331055,
+        "y": 3891.217484474182,
         "wires": [
             [
-                "7c7fe529.2a194c"
+                "803b215f.63702"
             ]
         ]
     },
@@ -10825,8 +10817,8 @@
         "z": "cb95b8f7.9b4968",
         "name": "Controles para seleccionar fechas",
         "info": "",
-        "x": 2134.9942893981934,
-        "y": 4676.247173309326,
+        "x": 2584.994453430176,
+        "y": 3781.2477493286133,
         "wires": []
     },
     {
@@ -10835,14 +10827,14 @@
         "z": "cb95b8f7.9b4968",
         "name": "",
         "label": "Fecha de inicio",
-        "group": "800d9c9f.c6f35",
+        "group": "36584412.3654ac",
         "order": 1,
         "width": "6",
         "height": "1",
         "passthru": true,
         "topic": "",
-        "x": 2148.76416015625,
-        "y": 4719.1591796875,
+        "x": 2505.7642974853516,
+        "y": 3828.493642807007,
         "wires": [
             [
                 "b08e8378.4461"
@@ -10855,14 +10847,14 @@
         "z": "cb95b8f7.9b4968",
         "name": "",
         "label": "Fecha de final",
-        "group": "800d9c9f.c6f35",
+        "group": "36584412.3654ac",
         "order": 2,
         "width": "6",
         "height": "1",
         "passthru": true,
         "topic": "",
-        "x": 2137.772705078125,
-        "y": 4813.1650390625,
+        "x": 2492.77294921875,
+        "y": 3888.499397277832,
         "wires": [
             [
                 "31059aa3.f5a476"
@@ -11016,7 +11008,7 @@
         "label": "Temperatura limite inferior",
         "tooltip": "",
         "group": "bb511b41.0362b8",
-        "order": 2,
+        "order": 1,
         "width": "6",
         "height": "1",
         "passthru": true,
@@ -11078,57 +11070,1569 @@
         ]
     },
     {
-        "id": "f22b96d5.26c608",
+        "id": "3a0fb9cd.f73f16",
+        "type": "function",
+        "z": "cb95b8f7.9b4968",
+        "name": "agrega por días/cocina",
+        "func": "// fecha por defecto es hoy\nvar ahora = new Date();\n// pillo los globales si los hay, si no la fecha de hoy\nvar desde = new Date(global.get(\"desde\") || ahora);\nvar hasta = new Date(global.get(\"hasta\") || ahora); \n// el día de inicio desde las cero horas\nvar inicio = new Date(desde.getFullYear(),desde.getMonth(),desde.getDate(),1,0,0,0);\n// el día final es hasta final del día\nvar final = new Date(hasta.getFullYear(),hasta.getMonth(),hasta.getDate(),24,59,59,99);\n\nmsg.payload=\n[\n    { \"$match\": { \"date\": { \"$gte\": inicio , \"$lte\": final },\"topic\":\"infind/GRUPO2/ESP5826449/datos\" } },\n    { \"$project\": {\n        \"date\": 1,\n        \"temperatura\": \"$DHT11.temp\"\n        }\n    },\n    { \"$group\": {\n        \"_id\": { // cada muestra una fecha distinta: agrupo por días\n        \"$dateFromParts\" : {\n            \"year\": { \"$year\": \"$date\" }, \n            \"month\": { \"$month\": \"$date\" },\n            \"day\": { \"$dayOfMonth\": \"$date\" }\n        }},\n\n        \"Tmedia\":{\"$avg\":\"$temperatura\"},\n        \"Tmax\":  {\"$max\":\"$temperatura\"},\n        \"Tmin\":  {\"$min\":\"$temperatura\"},\n        \"datos\": {\"$sum\":1},\n    }},\n    { \"$sort\": {\"_id\": 1} } //ordena por campo id, que es una fecha\n];\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 2367,
+        "y": 4965,
+        "wires": [
+            [
+                "515bc0.7e9f744"
+            ]
+        ]
+    },
+    {
+        "id": "515bc0.7e9f744",
         "type": "mongodb in",
         "z": "cb95b8f7.9b4968",
         "mongodb": "c5464916.ceffc8",
         "name": "",
         "collection": "datos/GRUPO2_json",
-        "operation": "find",
-        "x": 2705,
-        "y": 4537,
+        "operation": "aggregate",
+        "x": 2659,
+        "y": 4954,
         "wires": [
             [
-                "192fc086.dbf32f"
+                "dc47b898.784c78"
             ]
         ]
     },
     {
-        "id": "3442343.f6547cc",
+        "id": "7e5751fc.02e24",
+        "type": "ui_text",
+        "z": "cb95b8f7.9b4968",
+        "group": "53520691.17b148",
+        "order": 3,
+        "width": "6",
+        "height": "1",
+        "name": "",
+        "label": "Média en el período",
+        "format": "{{msg.payload[0].Tmedia | number:1 }}ºC",
+        "layout": "row-left",
+        "x": 3005.0000915527344,
+        "y": 4761.999868392944,
+        "wires": []
+    },
+    {
+        "id": "bc4683b6.18556",
+        "type": "ui_text",
+        "z": "cb95b8f7.9b4968",
+        "group": "53520691.17b148",
+        "order": 4,
+        "width": "6",
+        "height": "1",
+        "name": "",
+        "label": "Máxima en el período",
+        "format": "{{msg.payload[0].Tmax | number:1 }}ºC",
+        "layout": "row-left",
+        "x": 2999.2216796875,
+        "y": 4801.403354644775,
+        "wires": []
+    },
+    {
+        "id": "e2db2841.b25b28",
+        "type": "ui_text",
+        "z": "cb95b8f7.9b4968",
+        "group": "53520691.17b148",
+        "order": 5,
+        "width": "6",
+        "height": "1",
+        "name": "",
+        "label": "Mínima en el período",
+        "format": "{{msg.payload[0].Tmin | number:1 }}ºC",
+        "layout": "row-left",
+        "x": 2998.2216796875,
+        "y": 4839.4033203125,
+        "wires": []
+    },
+    {
+        "id": "b178d7e0.192dd8",
+        "type": "ui_text",
+        "z": "cb95b8f7.9b4968",
+        "group": "53520691.17b148",
+        "order": 6,
+        "width": "6",
+        "height": "1",
+        "name": "",
+        "label": "Número de datos",
+        "format": "{{msg.payload[0].datos }} muestras",
+        "layout": "row-left",
+        "x": 2994.2216796875,
+        "y": 4876.67626953125,
+        "wires": []
+    },
+    {
+        "id": "7d91a6f.d97ed58",
+        "type": "function",
+        "z": "cb95b8f7.9b4968",
+        "name": "agrega por días/habitacion",
+        "func": "// fecha por defecto es hoy\nvar ahora = new Date();\n// pillo los globales si los hay, si no la fecha de hoy\nvar desde = new Date(global.get(\"desde\") || ahora);\nvar hasta = new Date(global.get(\"hasta\") || ahora); \n// el día de inicio desde las cero horas\nvar inicio = new Date(desde.getFullYear(),desde.getMonth(),desde.getDate(),1,0,0,0);\n// el día final es hasta final del día\nvar final = new Date(hasta.getFullYear(),hasta.getMonth(),hasta.getDate(),24,59,59,99);\n\nmsg.payload=\n[\n    { \"$match\": { \"date\": { \"$gte\": inicio , \"$lte\": final },\"topic\":\"infind/GRUPO2/ESP8789990/datos\" } },\n    { \"$project\": {\n        \"date\": 1,\n        \"temperatura\": \"$DHT11.temp\"\n        }\n    },\n    { \"$group\": {\n        \"_id\": { // cada muestra una fecha distinta: agrupo por días\n        \"$dateFromParts\" : {\n            \"year\": { \"$year\": \"$date\" }, \n            \"month\": { \"$month\": \"$date\" },\n            \"day\": { \"$dayOfMonth\": \"$date\" }\n        }},\n\n        \"Tmedia\":{\"$avg\":\"$temperatura\"},\n        \"Tmax\":  {\"$max\":\"$temperatura\"},\n        \"Tmin\":  {\"$min\":\"$temperatura\"},\n        \"datos\": {\"$sum\":1},\n    }},\n    { \"$sort\": {\"_id\": 1} } //ordena por campo id, que es una fecha\n];\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 2326.000068664551,
+        "y": 4681.3336353302,
+        "wires": [
+            [
+                "dd7c9c7.04b056"
+            ]
+        ]
+    },
+    {
+        "id": "65618ab0.d46604",
+        "type": "function",
+        "z": "cb95b8f7.9b4968",
+        "name": "agrega todo/habitacion",
+        "func": "// fecha por defecto es hoy\nvar ahora = new Date();\n// pillo los globales si los hay, si no la fecha de hoy\nvar desde = new Date(global.get(\"desde\") || ahora);\nvar hasta = new Date(global.get(\"hasta\") || ahora); \n// el día de inicio desde las cero horas\nvar inicio = new Date(desde.getFullYear(),desde.getMonth(),desde.getDate(),1,0,0,0);\n// el día final es hasta final del día\nvar final = new Date(hasta.getFullYear(),hasta.getMonth(),hasta.getDate(),24,59,59,99);\n\nmsg.payload=\n[\n    { \"$match\": { \"date\": { \"$gte\": inicio , \"$lte\": final }, \"topic\":\"infind/GRUPO2/ESP8789990/datos\"} },// criterio búsqueda. Se queda con los eltos qur coincidan con fechas\n    { \"$project\": {\n        \"temperatura\": \"$DHT11.temp\" // con las proyecciones se elige de todo el documento los campos que vamos a utilizar\n        }\n    },\n    { \"$group\": { //agrupación - da valores a esos grupos\n        \"_id\": 0,\n        \"Tmedia\":{\"$avg\":\"$temperatura\"},\n        \"Tmax\":  {\"$max\":\"$temperatura\"},\n        \"Tmin\":  {\"$min\":\"$temperatura\"},\n        \"datos\": {\"$sum\":1}\n    }}\n \n];\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 2354.0001525878906,
+        "y": 4569.33363199234,
+        "wires": [
+            [
+                "764b5852.bebdc8"
+            ]
+        ]
+    },
+    {
+        "id": "764b5852.bebdc8",
+        "type": "mongodb in",
+        "z": "cb95b8f7.9b4968",
+        "mongodb": "c5464916.ceffc8",
+        "name": "",
+        "collection": "datos/GRUPO2_json",
+        "operation": "aggregate",
+        "x": 2645,
+        "y": 4574.33349609375,
+        "wires": [
+            [
+                "5a95ecd3.3281a4",
+                "43f4542a.28c0bc",
+                "ac56f96a.c24368",
+                "d71c7c71.a6311"
+            ]
+        ]
+    },
+    {
+        "id": "d0da4d88.10538",
+        "type": "function",
+        "z": "cb95b8f7.9b4968",
+        "name": "genera datos gráfica",
+        "func": "var arrayavg=[];\nvar arraymax=[];\nvar arraymin=[];\n\n// los arrays usados en la represenstación gráfica deben contener objetos JSON con dos campos: {x , y}\n// en x debemos poner la hora en formato \"timestamp\". Si tenemos un objeto fecha se puede convertir usando el método getTime()\n// en y debemos poner el valor de la variable\n// mas info en: https://github.com/node-red/node-red-dashboard/blob/master/Charts.md\n\nif(Array.isArray(msg.payload) && msg.payload.length>0)\n{\n    for (var i = 0; i < msg.payload.length; i++) { // añade datos a los array\n        arrayavg.push({x : msg.payload[i]._id.getTime() , y : msg.payload[i].Tmedia});\n        arraymax.push({x : msg.payload[i]._id.getTime() , y : msg.payload[i].Tmax});\n        arraymin.push({x : msg.payload[i]._id.getTime() , y : msg.payload[i].Tmin});\n    }\n}\n    \nmsg.payload = [{\n        \"series\":[\"T.media\",\"T.max\",\"T.min\"],\n        \"data\":[arrayavg, arraymax, arraymin],\n        \"labels\":[\"\"]\n        }];\n\nreturn msg;  ",
+        "outputs": "1",
+        "noerr": 0,
+        "x": 2930.00008392334,
+        "y": 4656.333633422852,
+        "wires": [
+            [
+                "3e04b731.edde78"
+            ]
+        ]
+    },
+    {
+        "id": "3e04b731.edde78",
+        "type": "ui_chart",
+        "z": "cb95b8f7.9b4968",
+        "name": "",
+        "group": "74d0e08.fd5c12",
+        "order": 8,
+        "width": 0,
+        "height": 0,
+        "label": "Temperaturas diarias",
+        "chartType": "line",
+        "legend": "true",
+        "xformat": "D/M",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "colors": [
+            "#008000",
+            "#ff0000",
+            "#0080ff",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "useOldStyle": false,
+        "x": 3157.999767303467,
+        "y": 4647.333633422852,
+        "wires": [
+            [],
+            []
+        ]
+    },
+    {
+        "id": "dd7c9c7.04b056",
+        "type": "mongodb in",
+        "z": "cb95b8f7.9b4968",
+        "mongodb": "c5464916.ceffc8",
+        "name": "",
+        "collection": "datos/GRUPO2_json",
+        "operation": "aggregate",
+        "x": 2638,
+        "y": 4660.33349609375,
+        "wires": [
+            [
+                "d0da4d88.10538"
+            ]
+        ]
+    },
+    {
+        "id": "5a95ecd3.3281a4",
+        "type": "ui_text",
+        "z": "cb95b8f7.9b4968",
+        "group": "74d0e08.fd5c12",
+        "order": 3,
+        "width": "6",
+        "height": "1",
+        "name": "",
+        "label": "Média en el período",
+        "format": "{{msg.payload[0].Tmedia | number:1 }}ºC",
+        "layout": "row-left",
+        "x": 2984.0000915527344,
+        "y": 4468.333364486694,
+        "wires": []
+    },
+    {
+        "id": "43f4542a.28c0bc",
+        "type": "ui_text",
+        "z": "cb95b8f7.9b4968",
+        "group": "74d0e08.fd5c12",
+        "order": 4,
+        "width": "6",
+        "height": "1",
+        "name": "",
+        "label": "Máxima en el período",
+        "format": "{{msg.payload[0].Tmax | number:1 }}ºC",
+        "layout": "row-left",
+        "x": 2978.2216796875,
+        "y": 4507.736850738525,
+        "wires": []
+    },
+    {
+        "id": "ac56f96a.c24368",
+        "type": "ui_text",
+        "z": "cb95b8f7.9b4968",
+        "group": "74d0e08.fd5c12",
+        "order": 5,
+        "width": "6",
+        "height": "1",
+        "name": "",
+        "label": "Mínima en el período",
+        "format": "{{msg.payload[0].Tmin | number:1 }}ºC",
+        "layout": "row-left",
+        "x": 2977.2216796875,
+        "y": 4545.73681640625,
+        "wires": []
+    },
+    {
+        "id": "d71c7c71.a6311",
+        "type": "ui_text",
+        "z": "cb95b8f7.9b4968",
+        "group": "74d0e08.fd5c12",
+        "order": 6,
+        "width": "6",
+        "height": "1",
+        "name": "",
+        "label": "Número de datos",
+        "format": "{{msg.payload[0].datos }} muestras",
+        "layout": "row-left",
+        "x": 2973.2216796875,
+        "y": 4583.009765625,
+        "wires": []
+    },
+    {
+        "id": "f7b88c77.6d2bd",
+        "type": "link out",
+        "z": "cb95b8f7.9b4968",
+        "name": "desde",
+        "links": [
+            "b8d1ebf9.d3ac88",
+            "a1debaaf.4a4b38",
+            "8de606c4.f604e8",
+            "2185e5d.3fcfb1a",
+            "74be5f6d.d5e75",
+            "d6d478b4.ec39b8",
+            "3beeb7f8.523728",
+            "54f24362.cf59dc"
+        ],
+        "x": 2801.503909111023,
+        "y": 3829.872428894043,
+        "wires": []
+    },
+    {
+        "id": "803b215f.63702",
+        "type": "link out",
+        "z": "cb95b8f7.9b4968",
+        "name": "hasta",
+        "links": [
+            "8b240c0a.2902c",
+            "b558432c.dd514",
+            "4cfa7aa3.e18024",
+            "d2720788.e6e728",
+            "87b5da4c.37a348",
+            "cf31813c.d0e52",
+            "70ac3c3f.f15224",
+            "8c3285a.31c7378"
+        ],
+        "x": 2797.562828063965,
+        "y": 3887.223342895508,
+        "wires": []
+    },
+    {
+        "id": "b8d1ebf9.d3ac88",
+        "type": "link in",
+        "z": "cb95b8f7.9b4968",
+        "name": "",
+        "links": [
+            "f7b88c77.6d2bd"
+        ],
+        "x": 2212.493227005005,
+        "y": 4587.483371734619,
+        "wires": [
+            [
+                "65618ab0.d46604"
+            ]
+        ]
+    },
+    {
+        "id": "a1debaaf.4a4b38",
+        "type": "link in",
+        "z": "cb95b8f7.9b4968",
+        "name": "",
+        "links": [
+            "f7b88c77.6d2bd"
+        ],
+        "x": 2158.6735649108887,
+        "y": 4709.889624595642,
+        "wires": [
+            [
+                "7d91a6f.d97ed58"
+            ]
+        ]
+    },
+    {
+        "id": "8de606c4.f604e8",
+        "type": "link in",
+        "z": "cb95b8f7.9b4968",
+        "name": "",
+        "links": [
+            "f7b88c77.6d2bd"
+        ],
+        "x": 2249.6735668182373,
+        "y": 4871.889629364014,
+        "wires": [
+            [
+                "7c7fe529.2a194c"
+            ]
+        ]
+    },
+    {
+        "id": "2185e5d.3fcfb1a",
+        "type": "link in",
+        "z": "cb95b8f7.9b4968",
+        "name": "",
+        "links": [
+            "f7b88c77.6d2bd"
+        ],
+        "x": 2199.673565864563,
+        "y": 4980,
+        "wires": [
+            [
+                "3a0fb9cd.f73f16"
+            ]
+        ]
+    },
+    {
+        "id": "8b240c0a.2902c",
+        "type": "link in",
+        "z": "cb95b8f7.9b4968",
+        "name": "",
+        "links": [
+            "803b215f.63702"
+        ],
+        "x": 2207.833559036255,
+        "y": 4531.667613983154,
+        "wires": [
+            [
+                "65618ab0.d46604"
+            ]
+        ]
+    },
+    {
+        "id": "b558432c.dd514",
+        "type": "link in",
+        "z": "cb95b8f7.9b4968",
+        "name": "",
+        "links": [
+            "803b215f.63702"
+        ],
+        "x": 2152.0000619888306,
+        "y": 4641.333633422852,
+        "wires": [
+            [
+                "7d91a6f.d97ed58"
+            ]
+        ]
+    },
+    {
+        "id": "4cfa7aa3.e18024",
+        "type": "link in",
+        "z": "cb95b8f7.9b4968",
+        "name": "",
+        "links": [
+            "803b215f.63702"
+        ],
+        "x": 2242.000062942505,
+        "y": 4814.333638191223,
+        "wires": [
+            [
+                "7c7fe529.2a194c"
+            ]
+        ]
+    },
+    {
+        "id": "d2720788.e6e728",
+        "type": "link in",
+        "z": "cb95b8f7.9b4968",
+        "name": "",
+        "links": [
+            "803b215f.63702"
+        ],
+        "x": 2193.000062942505,
+        "y": 4913.33364200592,
+        "wires": [
+            [
+                "3a0fb9cd.f73f16"
+            ]
+        ]
+    },
+    {
+        "id": "51d295eb.a4ff1c",
+        "type": "function",
+        "z": "cb95b8f7.9b4968",
+        "name": "agrega por días/salon",
+        "func": "// fecha por defecto es hoy\nvar ahora = new Date();\n// pillo los globales si los hay, si no la fecha de hoy\nvar desde = new Date(global.get(\"desde\") || ahora);\nvar hasta = new Date(global.get(\"hasta\") || ahora); \n// el día de inicio desde las cero horas\nvar inicio = new Date(desde.getFullYear(),desde.getMonth(),desde.getDate(),1,0,0,0);\n// el día final es hasta final del día\nvar final = new Date(hasta.getFullYear(),hasta.getMonth(),hasta.getDate(),24,59,59,99);\n\nmsg.payload=\n[\n    { \"$match\": { \"date\": { \"$gte\": inicio , \"$lte\": final },\"topic\":\"infind/GRUPO2/ESP5821487/datos\" } },\n    { \"$project\": {\n        \"date\": 1,\n        \"temperatura\": \"$DHT11.temp\"\n        }\n    },\n    { \"$group\": {\n        \"_id\": { // cada muestra una fecha distinta: agrupo por días\n        \"$dateFromParts\" : {\n            \"year\": { \"$year\": \"$date\" }, \n            \"month\": { \"$month\": \"$date\" },\n            \"day\": { \"$dayOfMonth\": \"$date\" }\n        }},\n\n        \"Tmedia\":{\"$avg\":\"$temperatura\"},\n        \"Tmax\":  {\"$max\":\"$temperatura\"},\n        \"Tmin\":  {\"$min\":\"$temperatura\"},\n        \"datos\": {\"$sum\":1},\n    }},\n    { \"$sort\": {\"_id\": 1} } //ordena por campo id, que es una fecha\n];\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 2361,
+        "y": 4372.33349609375,
+        "wires": [
+            [
+                "39fbd76c.4af588"
+            ]
+        ]
+    },
+    {
+        "id": "c13ece0f.6b705",
+        "type": "function",
+        "z": "cb95b8f7.9b4968",
+        "name": "agrega todo/salon",
+        "func": "// fecha por defecto es hoy\nvar ahora = new Date();\n// pillo los globales si los hay, si no la fecha de hoy\nvar desde = new Date(global.get(\"desde\") || ahora);\nvar hasta = new Date(global.get(\"hasta\") || ahora); \n// el día de inicio desde las cero horas\nvar inicio = new Date(desde.getFullYear(),desde.getMonth(),desde.getDate(),1,0,0,0);\n// el día final es hasta final del día\nvar final = new Date(hasta.getFullYear(),hasta.getMonth(),hasta.getDate(),24,59,59,99);\n\nmsg.payload=\n[\n    { \"$match\": { \"date\": { \"$gte\": inicio , \"$lte\": final }, \"topic\":\"infind/GRUPO2/ESP5821487/datos\"} },// criterio búsqueda. Se queda con los eltos qur coincidan con fechas\n    { \"$project\": {\n        \"temperatura\": \"$DHT11.temp\" // con las proyecciones se elige de todo el documento los campos que vamos a utilizar\n        }\n    },\n    { \"$group\": { //agrupación - da valores a esos grupos\n        \"_id\": 0,\n        \"Tmedia\":{\"$avg\":\"$temperatura\"},\n        \"Tmax\":  {\"$max\":\"$temperatura\"},\n        \"Tmin\":  {\"$min\":\"$temperatura\"},\n        \"datos\": {\"$sum\":1}\n    }}\n \n];\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 2415.999931335449,
+        "y": 4258.3333568573,
+        "wires": [
+            [
+                "7490ddc9.850bf4"
+            ]
+        ]
+    },
+    {
+        "id": "7490ddc9.850bf4",
+        "type": "mongodb in",
+        "z": "cb95b8f7.9b4968",
+        "mongodb": "c5464916.ceffc8",
+        "name": "",
+        "collection": "datos/GRUPO2_json",
+        "operation": "aggregate",
+        "x": 2699.999931335449,
+        "y": 4265.3333568573,
+        "wires": [
+            [
+                "bb98e549.779fc8",
+                "83288403.14c5e8",
+                "3a108a06.07ddd6",
+                "f80be682.6f5c38"
+            ]
+        ]
+    },
+    {
+        "id": "aac3483f.2f3f18",
+        "type": "function",
+        "z": "cb95b8f7.9b4968",
+        "name": "genera datos gráfica",
+        "func": "var arrayavg=[];\nvar arraymax=[];\nvar arraymin=[];\n\n// los arrays usados en la represenstación gráfica deben contener objetos JSON con dos campos: {x , y}\n// en x debemos poner la hora en formato \"timestamp\". Si tenemos un objeto fecha se puede convertir usando el método getTime()\n// en y debemos poner el valor de la variable\n// mas info en: https://github.com/node-red/node-red-dashboard/blob/master/Charts.md\n\nif(Array.isArray(msg.payload) && msg.payload.length>0)\n{\n    for (var i = 0; i < msg.payload.length; i++) { // añade datos a los array\n        arrayavg.push({x : msg.payload[i]._id.getTime() , y : msg.payload[i].Tmedia});\n        arraymax.push({x : msg.payload[i]._id.getTime() , y : msg.payload[i].Tmax});\n        arraymin.push({x : msg.payload[i]._id.getTime() , y : msg.payload[i].Tmin});\n    }\n}\n    \nmsg.payload = [{\n        \"series\":[\"T.media\",\"T.max\",\"T.min\"],\n        \"data\":[arrayavg, arraymax, arraymin],\n        \"labels\":[\"\"]\n        }];\n\nreturn msg;  ",
+        "outputs": "1",
+        "noerr": 0,
+        "x": 2985.000015258789,
+        "y": 4347.333494186401,
+        "wires": [
+            [
+                "26faa1f2.2bbb5e"
+            ]
+        ]
+    },
+    {
+        "id": "26faa1f2.2bbb5e",
+        "type": "ui_chart",
+        "z": "cb95b8f7.9b4968",
+        "name": "",
+        "group": "e58be95a.39a0c8",
+        "order": 8,
+        "width": 0,
+        "height": 0,
+        "label": "Temperaturas diarias",
+        "chartType": "line",
+        "legend": "true",
+        "xformat": "D/M",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "colors": [
+            "#008000",
+            "#ff0000",
+            "#0080ff",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "useOldStyle": false,
+        "x": 3209.9997634887695,
+        "y": 4346.333623886108,
+        "wires": [
+            [],
+            []
+        ]
+    },
+    {
+        "id": "39fbd76c.4af588",
+        "type": "mongodb in",
+        "z": "cb95b8f7.9b4968",
+        "mongodb": "c5464916.ceffc8",
+        "name": "",
+        "collection": "datos/GRUPO2_json",
+        "operation": "aggregate",
+        "x": 2692.999931335449,
+        "y": 4351.3333568573,
+        "wires": [
+            [
+                "aac3483f.2f3f18"
+            ]
+        ]
+    },
+    {
+        "id": "bb98e549.779fc8",
+        "type": "ui_text",
+        "z": "cb95b8f7.9b4968",
+        "group": "e58be95a.39a0c8",
+        "order": 3,
+        "width": "6",
+        "height": "1",
+        "name": "",
+        "label": "Média en el período",
+        "format": "{{msg.payload[0].Tmedia | number:1 }}ºC",
+        "layout": "row-left",
+        "x": 3039.0000228881836,
+        "y": 4159.333225250244,
+        "wires": []
+    },
+    {
+        "id": "83288403.14c5e8",
+        "type": "ui_text",
+        "z": "cb95b8f7.9b4968",
+        "group": "e58be95a.39a0c8",
+        "order": 4,
+        "width": "6",
+        "height": "1",
+        "name": "",
+        "label": "Máxima en el período",
+        "format": "{{msg.payload[0].Tmax | number:1 }}ºC",
+        "layout": "row-left",
+        "x": 3033.221611022949,
+        "y": 4198.736711502075,
+        "wires": []
+    },
+    {
+        "id": "3a108a06.07ddd6",
+        "type": "ui_text",
+        "z": "cb95b8f7.9b4968",
+        "group": "e58be95a.39a0c8",
+        "order": 5,
+        "width": "6",
+        "height": "1",
+        "name": "",
+        "label": "Mínima en el período",
+        "format": "{{msg.payload[0].Tmin | number:1 }}ºC",
+        "layout": "row-left",
+        "x": 3032.221611022949,
+        "y": 4236.7366771698,
+        "wires": []
+    },
+    {
+        "id": "f80be682.6f5c38",
+        "type": "ui_text",
+        "z": "cb95b8f7.9b4968",
+        "group": "e58be95a.39a0c8",
+        "order": 6,
+        "width": "6",
+        "height": "1",
+        "name": "",
+        "label": "Número de datos",
+        "format": "{{msg.payload[0].datos }} muestras",
+        "layout": "row-left",
+        "x": 3028.221611022949,
+        "y": 4274.00962638855,
+        "wires": []
+    },
+    {
+        "id": "74be5f6d.d5e75",
+        "type": "link in",
+        "z": "cb95b8f7.9b4968",
+        "name": "",
+        "links": [
+            "f7b88c77.6d2bd"
+        ],
+        "x": 2267.493158340454,
+        "y": 4278.483232498169,
+        "wires": [
+            [
+                "c13ece0f.6b705"
+            ]
+        ]
+    },
+    {
+        "id": "d6d478b4.ec39b8",
+        "type": "link in",
+        "z": "cb95b8f7.9b4968",
+        "name": "",
+        "links": [
+            "f7b88c77.6d2bd"
+        ],
+        "x": 2213.673496246338,
+        "y": 4400.889485359192,
+        "wires": [
+            [
+                "51d295eb.a4ff1c"
+            ]
+        ]
+    },
+    {
+        "id": "87b5da4c.37a348",
+        "type": "link in",
+        "z": "cb95b8f7.9b4968",
+        "name": "",
+        "links": [
+            "803b215f.63702"
+        ],
+        "x": 2262.833490371704,
+        "y": 4222.667474746704,
+        "wires": [
+            [
+                "c13ece0f.6b705"
+            ]
+        ]
+    },
+    {
+        "id": "cf31813c.d0e52",
+        "type": "link in",
+        "z": "cb95b8f7.9b4968",
+        "name": "",
+        "links": [
+            "803b215f.63702"
+        ],
+        "x": 2206.99999332428,
+        "y": 4332.333494186401,
+        "wires": [
+            [
+                "51d295eb.a4ff1c"
+            ]
+        ]
+    },
+    {
+        "id": "3b47bf9b.32db5",
+        "type": "function",
+        "z": "cb95b8f7.9b4968",
+        "name": "agrega por días/wc",
+        "func": "// fecha por defecto es hoy\nvar ahora = new Date();\n// pillo los globales si los hay, si no la fecha de hoy\nvar desde = new Date(global.get(\"desde\") || ahora);\nvar hasta = new Date(global.get(\"hasta\") || ahora); \n// el día de inicio desde las cero horas\nvar inicio = new Date(desde.getFullYear(),desde.getMonth(),desde.getDate(),1,0,0,0);\n// el día final es hasta final del día\nvar final = new Date(hasta.getFullYear(),hasta.getMonth(),hasta.getDate(),24,59,59,99);\n\nmsg.payload=\n[\n    { \"$match\": { \"date\": { \"$gte\": inicio , \"$lte\": final },\"topic\":\"infind/GRUPO2/ESP1122489/datos\" } },\n    { \"$project\": {\n        \"date\": 1,\n        \"temperatura\": \"$DHT11.temp\"\n        }\n    },\n    { \"$group\": {\n        \"_id\": { // cada muestra una fecha distinta: agrupo por días\n        \"$dateFromParts\" : {\n            \"year\": { \"$year\": \"$date\" }, \n            \"month\": { \"$month\": \"$date\" },\n            \"day\": { \"$dayOfMonth\": \"$date\" }\n        }},\n\n        \"Tmedia\":{\"$avg\":\"$temperatura\"},\n        \"Tmax\":  {\"$max\":\"$temperatura\"},\n        \"Tmin\":  {\"$min\":\"$temperatura\"},\n        \"datos\": {\"$sum\":1},\n    }},\n    { \"$sort\": {\"_id\": 1} } //ordena por campo id, que es una fecha\n];\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 2362.333251953125,
+        "y": 4106.33349609375,
+        "wires": [
+            [
+                "87ef013a.6b515"
+            ]
+        ]
+    },
+    {
+        "id": "a5bd1c19.dccf9",
+        "type": "function",
+        "z": "cb95b8f7.9b4968",
+        "name": "agrega todo/wc",
+        "func": "// fecha por defecto es hoy\nvar ahora = new Date();\n// pillo los globales si los hay, si no la fecha de hoy\nvar desde = new Date(global.get(\"desde\") || ahora);\nvar hasta = new Date(global.get(\"hasta\") || ahora); \n// el día de inicio desde las cero horas\nvar inicio = new Date(desde.getFullYear(),desde.getMonth(),desde.getDate(),1,0,0,0);\n// el día final es hasta final del día\nvar final = new Date(hasta.getFullYear(),hasta.getMonth(),hasta.getDate(),24,59,59,99);\n\nmsg.payload=\n[\n    { \"$match\": { \"date\": { \"$gte\": inicio , \"$lte\": final }, \"topic\":\"infind/GRUPO2/ESP1122489/datos\"} },// criterio búsqueda. Se queda con los eltos qur coincidan con fechas\n    { \"$project\": {\n        \"temperatura\": \"$DHT11.temp\" // con las proyecciones se elige de todo el documento los campos que vamos a utilizar\n        }\n    },\n    { \"$group\": { //agrupación - da valores a esos grupos\n        \"_id\": 0,\n        \"Tmedia\":{\"$avg\":\"$temperatura\"},\n        \"Tmax\":  {\"$max\":\"$temperatura\"},\n        \"Tmin\":  {\"$min\":\"$temperatura\"},\n        \"datos\": {\"$sum\":1}\n    }}\n \n];\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 2417.333183288574,
+        "y": 3992.3333568573,
+        "wires": [
+            [
+                "239dad7b.aae5a2"
+            ]
+        ]
+    },
+    {
+        "id": "239dad7b.aae5a2",
+        "type": "mongodb in",
+        "z": "cb95b8f7.9b4968",
+        "mongodb": "c5464916.ceffc8",
+        "name": "",
+        "collection": "datos/GRUPO2_json",
+        "operation": "aggregate",
+        "x": 2711.333183288574,
+        "y": 3999.3333568573,
+        "wires": [
+            [
+                "4fea8e7c.f5a15",
+                "fe154a6c.232d28",
+                "1e276560.93cbab",
+                "de0ea07c.9bf"
+            ]
+        ]
+    },
+    {
+        "id": "ed31ded6.35277",
+        "type": "function",
+        "z": "cb95b8f7.9b4968",
+        "name": "genera datos gráfica",
+        "func": "var arrayavg=[];\nvar arraymax=[];\nvar arraymin=[];\n\n// los arrays usados en la represenstación gráfica deben contener objetos JSON con dos campos: {x , y}\n// en x debemos poner la hora en formato \"timestamp\". Si tenemos un objeto fecha se puede convertir usando el método getTime()\n// en y debemos poner el valor de la variable\n// mas info en: https://github.com/node-red/node-red-dashboard/blob/master/Charts.md\n\nif(Array.isArray(msg.payload) && msg.payload.length>0)\n{\n    for (var i = 0; i < msg.payload.length; i++) { // añade datos a los array\n        arrayavg.push({x : msg.payload[i]._id.getTime() , y : msg.payload[i].Tmedia});\n        arraymax.push({x : msg.payload[i]._id.getTime() , y : msg.payload[i].Tmax});\n        arraymin.push({x : msg.payload[i]._id.getTime() , y : msg.payload[i].Tmin});\n    }\n}\n    \nmsg.payload = [{\n        \"series\":[\"T.media\",\"T.max\",\"T.min\"],\n        \"data\":[arrayavg, arraymax, arraymin],\n        \"labels\":[\"\"]\n        }];\n\nreturn msg;  ",
+        "outputs": "1",
+        "noerr": 0,
+        "x": 2996.333267211914,
+        "y": 4081.3334941864014,
+        "wires": [
+            [
+                "f6277271.20a5f"
+            ]
+        ]
+    },
+    {
+        "id": "f6277271.20a5f",
+        "type": "ui_chart",
+        "z": "cb95b8f7.9b4968",
+        "name": "",
+        "group": "a88ba3a2.208c4",
+        "order": 8,
+        "width": 0,
+        "height": 0,
+        "label": "Temperaturas diarias",
+        "chartType": "line",
+        "legend": "true",
+        "xformat": "D/M",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "colors": [
+            "#008000",
+            "#ff0000",
+            "#0080ff",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "useOldStyle": false,
+        "x": 3221.3330154418945,
+        "y": 4080.3336238861084,
+        "wires": [
+            [],
+            []
+        ]
+    },
+    {
+        "id": "87ef013a.6b515",
+        "type": "mongodb in",
+        "z": "cb95b8f7.9b4968",
+        "mongodb": "c5464916.ceffc8",
+        "name": "",
+        "collection": "datos/GRUPO2_json",
+        "operation": "aggregate",
+        "x": 2704.333183288574,
+        "y": 4085.3333568573,
+        "wires": [
+            [
+                "ed31ded6.35277"
+            ]
+        ]
+    },
+    {
+        "id": "4fea8e7c.f5a15",
+        "type": "ui_text",
+        "z": "cb95b8f7.9b4968",
+        "group": "a88ba3a2.208c4",
+        "order": 3,
+        "width": "6",
+        "height": "1",
+        "name": "",
+        "label": "Média en el período",
+        "format": "{{msg.payload[0].Tmedia | number:1 }}ºC",
+        "layout": "row-left",
+        "x": 3050.3332748413086,
+        "y": 3893.333225250244,
+        "wires": []
+    },
+    {
+        "id": "fe154a6c.232d28",
+        "type": "ui_text",
+        "z": "cb95b8f7.9b4968",
+        "group": "a88ba3a2.208c4",
+        "order": 4,
+        "width": "6",
+        "height": "1",
+        "name": "",
+        "label": "Máxima en el período",
+        "format": "{{msg.payload[0].Tmax | number:1 }}ºC",
+        "layout": "row-left",
+        "x": 3044.554862976074,
+        "y": 3932.736711502075,
+        "wires": []
+    },
+    {
+        "id": "1e276560.93cbab",
+        "type": "ui_text",
+        "z": "cb95b8f7.9b4968",
+        "group": "a88ba3a2.208c4",
+        "order": 5,
+        "width": "6",
+        "height": "1",
+        "name": "",
+        "label": "Mínima en el período",
+        "format": "{{msg.payload[0].Tmin | number:1 }}ºC",
+        "layout": "row-left",
+        "x": 3043.554862976074,
+        "y": 3970.7366771698,
+        "wires": []
+    },
+    {
+        "id": "de0ea07c.9bf",
+        "type": "ui_text",
+        "z": "cb95b8f7.9b4968",
+        "group": "a88ba3a2.208c4",
+        "order": 6,
+        "width": "6",
+        "height": "1",
+        "name": "",
+        "label": "Número de datos",
+        "format": "{{msg.payload[0].datos }} muestras",
+        "layout": "row-left",
+        "x": 3039.554862976074,
+        "y": 4008.00962638855,
+        "wires": []
+    },
+    {
+        "id": "3beeb7f8.523728",
+        "type": "link in",
+        "z": "cb95b8f7.9b4968",
+        "name": "",
+        "links": [
+            "f7b88c77.6d2bd"
+        ],
+        "x": 2278.826410293579,
+        "y": 4012.483232498169,
+        "wires": [
+            [
+                "a5bd1c19.dccf9"
+            ]
+        ]
+    },
+    {
+        "id": "54f24362.cf59dc",
+        "type": "link in",
+        "z": "cb95b8f7.9b4968",
+        "name": "",
+        "links": [
+            "f7b88c77.6d2bd"
+        ],
+        "x": 2225.006748199463,
+        "y": 4134.889485359192,
+        "wires": [
+            [
+                "3b47bf9b.32db5"
+            ]
+        ]
+    },
+    {
+        "id": "70ac3c3f.f15224",
+        "type": "link in",
+        "z": "cb95b8f7.9b4968",
+        "name": "",
+        "links": [
+            "803b215f.63702"
+        ],
+        "x": 2274.166742324829,
+        "y": 3956.667474746704,
+        "wires": [
+            [
+                "a5bd1c19.dccf9"
+            ]
+        ]
+    },
+    {
+        "id": "8c3285a.31c7378",
+        "type": "link in",
+        "z": "cb95b8f7.9b4968",
+        "name": "",
+        "links": [
+            "803b215f.63702"
+        ],
+        "x": 2218.333245277405,
+        "y": 4066.3334941864014,
+        "wires": [
+            [
+                "3b47bf9b.32db5"
+            ]
+        ]
+    },
+    {
+        "id": "28bd582b.0a3118",
+        "type": "http response",
+        "z": "cb95b8f7.9b4968",
+        "name": "",
+        "statusCode": "",
+        "headers": {
+            "Content-Disposition": "attachment; filename=registros.csv"
+        },
+        "x": 2295.4933528900146,
+        "y": 3392.5185585021973,
+        "wires": []
+    },
+    {
+        "id": "32e2293c.ae0106",
+        "type": "function",
+        "z": "cb95b8f7.9b4968",
+        "name": "Unicode y separador",
+        "func": "//add Unicode BOM character (byte order mark) to make EXCEL knows this is UTF-8\nif(global.get(\"separador_decimal\")==\"punto\")\n{\n    msg.payload='\\ufeff'+msg.payload;\n\n}\nelse\n{\n    msg.payload='\\ufeff'+(msg.payload).replace(/\\./g,\",\");\n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 2117.4935245513916,
+        "y": 3390.5186672210693,
+        "wires": [
+            [
+                "28bd582b.0a3118"
+            ]
+        ]
+    },
+    {
+        "id": "9ac4b301.9cd9b",
+        "type": "function",
+        "z": "cb95b8f7.9b4968",
+        "name": "consulta",
+        "func": "// fecha por defecto es hoy\nvar ahora = new Date();\n// pillo los globales si los hay, si no la fecha de hoy\nvar desde = new Date(global.get(\"desde2\") || ahora);\nvar hasta = new Date(global.get(\"hasta2\") || ahora); \n// el día de inicio desde las cero horas\nvar inicio = new Date(desde.getFullYear(),desde.getMonth(),desde.getDate(),0,0,0,0);\n// el día final es hasta final del día\nvar final = new Date(hasta.getFullYear(),hasta.getMonth(),hasta.getDate(),23,59,59,999);\n\nmsg.payload=\n[\n    { \"$match\": { \"date\": { \"$gte\": inicio , \"$lte\": final } } },\n    { \"$project\": {\n        \"_id\": 0,\n        \"date\": 1,\n        \"topic\" : \"$topic\",\n        \"temperatura\": \"$DHT11.temp\",\n        \"humedad\": \"$DHT11.hum\",\n        }\n    },\n    { \"$sort\": {\"date\": 1} }\n];\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1484.4937438964844,
+        "y": 3388.5183429718018,
+        "wires": [
+            [
+                "9df2e000.cf1d5"
+            ]
+        ]
+    },
+    {
+        "id": "29886504.33cdaa",
+        "type": "http in",
+        "z": "cb95b8f7.9b4968",
+        "name": "",
+        "url": "/registros",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 1321.4937057495117,
+        "y": 3388.518321990967,
+        "wires": [
+            [
+                "9ac4b301.9cd9b"
+            ]
+        ]
+    },
+    {
+        "id": "e2618ca2.77a48",
+        "type": "ui_template",
+        "z": "cb95b8f7.9b4968",
+        "group": "836fb62c.5d2aa8",
+        "name": "",
+        "order": 3,
+        "width": "0",
+        "height": "0",
+        "format": "<style>\n.button {\n    text-align: center;\n    font: bold 17px Arial;\n    text-decoration: none;\n    background-color: #339966;\n    color: white;\n    padding: 8px 10px;\n    border: 2px solid #CCCCCC;\n  }\n  \n  .button:hover\n  {\n   background-color: #26734d;\n  }\n\n</style>\n<a href=\"/registros\" class=\"button\">Descarga registros en CSV (EXCEL)</a>\n",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "templateScope": "local",
+        "x": 1340.4937286376953,
+        "y": 3280.5181550979614,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "ff4ae702.a06968",
+        "type": "csv",
+        "z": "cb95b8f7.9b4968",
+        "name": "",
+        "sep": ";",
+        "hdrin": "",
+        "hdrout": true,
+        "multi": "one",
+        "ret": "\\r\\n",
+        "temp": "date,topic, temperatura, humedad",
+        "skip": 0,
+        "x": 1946.4936981201172,
+        "y": 3390.5185050964355,
+        "wires": [
+            [
+                "32e2293c.ae0106"
+            ]
+        ]
+    },
+    {
+        "id": "cad6dd54.2633c",
+        "type": "ui_switch",
+        "z": "cb95b8f7.9b4968",
+        "name": "separdor decimal",
+        "label": "{{msg.topic}}",
+        "tooltip": "",
+        "group": "836fb62c.5d2aa8",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "decouple": "false",
+        "topic": "",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "x": 1425.4967041015625,
+        "y": 3745.4951639175415,
+        "wires": [
+            [
+                "c531e37d.8167a"
+            ]
+        ]
+    },
+    {
+        "id": "b1444f09.ff9af",
         "type": "inject",
         "z": "cb95b8f7.9b4968",
         "name": "",
         "topic": "",
-        "payload": "{}",
-        "payloadType": "str",
+        "payload": "true",
+        "payloadType": "bool",
         "repeat": "",
         "crontab": "",
-        "once": false,
+        "once": true,
         "onceDelay": 0.1,
-        "x": 2410,
-        "y": 4540,
+        "x": 1388.4937286376953,
+        "y": 3693.4070711135864,
         "wires": [
             [
-                "f22b96d5.26c608"
+                "c531e37d.8167a"
             ]
         ]
     },
     {
-        "id": "192fc086.dbf32f",
-        "type": "debug",
+        "id": "c531e37d.8167a",
+        "type": "function",
+        "z": "cb95b8f7.9b4968",
+        "name": "set global separador_decimal",
+        "func": "if(msg.payload===true)\n{\n    global.set(\"separador_decimal\",\"coma\");\n    msg.topic=\"separador decimal = coma\";\n}\nelse\n{\n    global.set(\"separador_decimal\",\"punto\");\n    msg.topic=\"separador decimal = punto\";\n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1688.5052375793457,
+        "y": 3691.114408493042,
+        "wires": [
+            [
+                "cad6dd54.2633c"
+            ]
+        ]
+    },
+    {
+        "id": "210456ab.c27d4a",
+        "type": "ui_date_picker",
         "z": "cb95b8f7.9b4968",
         "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "x": 3008,
-        "y": 4514,
+        "label": "Fecha inicio",
+        "group": "836fb62c.5d2aa8",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "topic": "",
+        "x": 1545.2748794555664,
+        "y": 3523.2510380744934,
+        "wires": [
+            [
+                "8ba21edb.88f4"
+            ]
+        ]
+    },
+    {
+        "id": "c72c7046.6c429",
+        "type": "ui_date_picker",
+        "z": "cb95b8f7.9b4968",
+        "name": "",
+        "label": "Fecha final",
+        "group": "836fb62c.5d2aa8",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "topic": "",
+        "x": 1548.286231994629,
+        "y": 3572.2452754974365,
+        "wires": [
+            [
+                "88a24988.cf6098"
+            ]
+        ]
+    },
+    {
+        "id": "8ba21edb.88f4",
+        "type": "change",
+        "z": "cb95b8f7.9b4968",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "desde2",
+                "pt": "global",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1751.2805557250977,
+        "y": 3521.912925720215,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "88a24988.cf6098",
+        "type": "change",
+        "z": "cb95b8f7.9b4968",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "hasta2",
+                "pt": "global",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1754.5078353881836,
+        "y": 3572.796480178833,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "fb86e9f1.11f718",
+        "type": "inject",
+        "z": "cb95b8f7.9b4968",
+        "name": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "x": 1347.2833786010742,
+        "y": 3547.6714782714844,
+        "wires": [
+            [
+                "210456ab.c27d4a",
+                "c72c7046.6c429"
+            ]
+        ]
+    },
+    {
+        "id": "3b289082.faeec",
+        "type": "comment",
+        "z": "cb95b8f7.9b4968",
+        "name": "Controles para seleccionar fechas",
+        "info": "",
+        "x": 1404.2833671569824,
+        "y": 3451.148762702942,
         "wires": []
     },
     {
-        "id": "636a2f07.4f2a1",
+        "id": "8d51c470.0b3ac8",
+        "type": "comment",
+        "z": "cb95b8f7.9b4968",
+        "name": "Botón en HTML para lanzar descarga de fichero",
+        "info": "",
+        "x": 1450.2834854125977,
+        "y": 3232.6006088256836,
+        "wires": []
+    },
+    {
+        "id": "b5834608.3f1098",
+        "type": "comment",
+        "z": "cb95b8f7.9b4968",
+        "name": "Flujo para descarga de fichero",
+        "info": "",
+        "x": 1392.507911682129,
+        "y": 3330.5239753723145,
+        "wires": []
+    },
+    {
+        "id": "1870f242.2c67de",
+        "type": "comment",
+        "z": "cb95b8f7.9b4968",
+        "name": "Selector de separador decimal",
+        "info": "",
+        "x": 1400.5078926086426,
+        "y": 3633.0691957473755,
+        "wires": []
+    },
+    {
+        "id": "9df2e000.cf1d5",
+        "type": "mongodb in",
+        "z": "cb95b8f7.9b4968",
+        "mongodb": "c5464916.ceffc8",
+        "name": "",
+        "collection": "datos/GRUPO2_json",
+        "operation": "aggregate",
+        "x": 1722.8958740234375,
+        "y": 3390.888997077942,
+        "wires": [
+            [
+                "ff4ae702.a06968"
+            ]
+        ]
+    },
+    {
+        "id": "a42ccbf5.1e2f48",
+        "type": "telegrambot-command",
+        "z": "cb95b8f7.9b4968",
+        "name": "/logica",
+        "bot": "407d7e26.e9903",
+        "command": "/logica",
+        "commandType": "str",
+        "commandCase": false,
+        "x": 2644.5078125,
+        "y": 3306.0234375,
+        "wires": [
+            [
+                "996c8295.d6a3b"
+            ]
+        ]
+    },
+    {
+        "id": "996c8295.d6a3b",
+        "type": "telegrambot-switch",
+        "z": "cb95b8f7.9b4968",
+        "name": "switch prediccion",
+        "bot": "407d7e26.e9903",
+        "chatId": "",
+        "question": "Que lógica de LED quieres?",
+        "answers": [
+            "positiva",
+            "negativa"
+        ],
+        "outputs": 3,
+        "autoAnswerCallback": false,
+        "timeoutValue": "20",
+        "timeoutUnits": "s",
+        "x": 2844.015625,
+        "y": 3305,
+        "wires": [
+            [
+                "24eb0946.76c716"
+            ],
+            [
+                "56c07044.d60e2"
+            ],
+            [
+                "40c019c1.e01228"
+            ]
+        ]
+    },
+    {
+        "id": "24eb0946.76c716",
+        "type": "function",
+        "z": "cb95b8f7.9b4968",
+        "name": "logica positiva",
+        "func": "msg.payload = {\"logica\": true}\nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 3063,
+        "y": 3278,
+        "wires": [
+            [
+                "1837d45.ca3ec2c",
+                "3224ee61.a3ed42",
+                "40833ce3.961f84",
+                "5a02a451.f09c7c",
+                "ab8d7f31.51396"
+            ]
+        ]
+    },
+    {
+        "id": "40c019c1.e01228",
+        "type": "telegrambot-notify",
+        "z": "cb95b8f7.9b4968",
+        "name": "TimeOut",
+        "bot": "407d7e26.e9903",
+        "chatId": "",
+        "message": "Se acabo el tiempo",
+        "parseMode": "",
+        "x": 2969,
+        "y": 3381,
+        "wires": []
+    },
+    {
+        "id": "56c07044.d60e2",
+        "type": "function",
+        "z": "cb95b8f7.9b4968",
+        "name": "logica negativa",
+        "func": "msg.payload = {\"logica\": false}\nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 3065,
+        "y": 3330,
+        "wires": [
+            [
+                "1837d45.ca3ec2c",
+                "5a02a451.f09c7c",
+                "40833ce3.961f84",
+                "3224ee61.a3ed42",
+                "b74d7cd.6aa1f8"
+            ]
+        ]
+    },
+    {
+        "id": "1837d45.ca3ec2c",
+        "type": "mqtt out",
+        "z": "cb95b8f7.9b4968",
+        "name": "",
+        "topic": "infind/GRUPO2/ESP8789990/logica",
+        "qos": "",
+        "retain": "",
+        "broker": "8fab76dc.3e75b8",
+        "x": 3353,
+        "y": 3277,
+        "wires": []
+    },
+    {
+        "id": "3224ee61.a3ed42",
+        "type": "mqtt out",
+        "z": "cb95b8f7.9b4968",
+        "name": "",
+        "topic": "infind/GRUPO2/ESP1122489/logica",
+        "qos": "",
+        "retain": "",
+        "broker": "8fab76dc.3e75b8",
+        "x": 3354,
+        "y": 3308,
+        "wires": []
+    },
+    {
+        "id": "40833ce3.961f84",
+        "type": "mqtt out",
+        "z": "cb95b8f7.9b4968",
+        "name": "",
+        "topic": "infind/GRUPO2/ESP5821487/logica",
+        "qos": "",
+        "retain": "",
+        "broker": "8fab76dc.3e75b8",
+        "x": 3348,
+        "y": 3340,
+        "wires": []
+    },
+    {
+        "id": "5a02a451.f09c7c",
+        "type": "mqtt out",
+        "z": "cb95b8f7.9b4968",
+        "name": "",
+        "topic": "infind/GRUPO2/ESP5826449/logica",
+        "qos": "",
+        "retain": "",
+        "broker": "8fab76dc.3e75b8",
+        "x": 3349,
+        "y": 3375,
+        "wires": []
+    },
+    {
+        "id": "420ed77f.de6c58",
+        "type": "link in",
+        "z": "cb95b8f7.9b4968",
+        "name": "logica",
+        "links": [
+            "a94b2fdc.1959e"
+        ],
+        "x": 2630,
+        "y": 3261,
+        "wires": [
+            [
+                "996c8295.d6a3b"
+            ]
+        ]
+    },
+    {
+        "id": "a94b2fdc.1959e",
+        "type": "link out",
+        "z": "cb95b8f7.9b4968",
+        "name": "HumMax",
+        "links": [
+            "420ed77f.de6c58"
+        ],
+        "x": 534,
+        "y": 893,
+        "wires": []
+    },
+    {
+        "id": "3cb09c4a.1fb124",
+        "type": "json",
+        "z": "cb95b8f7.9b4968",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 2658.5005645751953,
+        "y": 2309.333320617676,
+        "wires": [
+            [
+                "e8cf5fa3.80bc7"
+            ]
+        ]
+    },
+    {
+        "id": "d71ca0ae.2f267",
+        "type": "json",
+        "z": "cb95b8f7.9b4968",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 2642,
+        "y": 2252.333251953125,
+        "wires": [
+            [
+                "234a7119.b0d1de"
+            ]
+        ]
+    },
+    {
+        "id": "403d4d57.e1cb54",
+        "type": "json",
+        "z": "cb95b8f7.9b4968",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 2637,
+        "y": 2211.333251953125,
+        "wires": [
+            [
+                "1a31f7e8.11fcb8"
+            ]
+        ]
+    },
+    {
+        "id": "add17476.33d298",
+        "type": "json",
+        "z": "cb95b8f7.9b4968",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 2649,
+        "y": 2155.333251953125,
+        "wires": [
+            [
+                "44a27c7a.8a4b54"
+            ]
+        ]
+    },
+    {
+        "id": "b74d7cd.6aa1f8",
+        "type": "telegrambot-notify",
+        "z": "cb95b8f7.9b4968",
+        "name": "respuesta negativa",
+        "bot": "407d7e26.e9903",
+        "chatId": "-487674790",
+        "message": "Se ha establecido la lógica negativa",
+        "parseMode": "",
+        "x": 3264,
+        "y": 3471.333251953125,
+        "wires": []
+    },
+    {
+        "id": "ab8d7f31.51396",
+        "type": "telegrambot-notify",
+        "z": "cb95b8f7.9b4968",
+        "name": "respuesta positiva",
+        "bot": "407d7e26.e9903",
+        "chatId": "-487674790",
+        "message": "Se ha establecido la lógica positiva",
+        "parseMode": "",
+        "x": 3289,
+        "y": 3226.333251953125,
+        "wires": []
+    },
+    {
+        "id": "7828c788.9d4278",
         "type": "debug",
         "z": "cb95b8f7.9b4968",
         "name": "",
@@ -11137,8 +12641,8 @@
         "console": false,
         "tostatus": false,
         "complete": "false",
-        "x": 2661,
-        "y": 4665,
+        "x": 3242.7188262939453,
+        "y": 4847.319488525391,
         "wires": []
     },
     {
@@ -11348,12 +12852,23 @@
         "collapse": false
     },
     {
-        "id": "800d9c9f.c6f35",
+        "id": "53520691.17b148",
         "type": "ui_group",
         "z": "",
-        "name": "Recoger Datos",
-        "tab": "9905e55b.fa87c8",
-        "order": 10,
+        "name": "Cocina",
+        "tab": "dba1b5f8.4c0d68",
+        "order": 2,
+        "disp": true,
+        "width": "12",
+        "collapse": false
+    },
+    {
+        "id": "36584412.3654ac",
+        "type": "ui_group",
+        "z": "",
+        "name": "Seleccion de fechas",
+        "tab": "dba1b5f8.4c0d68",
+        "order": 1,
         "disp": true,
         "width": "12",
         "collapse": false
@@ -11381,6 +12896,49 @@
         "collapse": false
     },
     {
+        "id": "74d0e08.fd5c12",
+        "type": "ui_group",
+        "z": "",
+        "name": "Habitacion",
+        "tab": "dba1b5f8.4c0d68",
+        "order": 3,
+        "disp": true,
+        "width": "12",
+        "collapse": false
+    },
+    {
+        "id": "e58be95a.39a0c8",
+        "type": "ui_group",
+        "z": "",
+        "name": "Salon",
+        "tab": "dba1b5f8.4c0d68",
+        "order": 4,
+        "disp": true,
+        "width": "12",
+        "collapse": false
+    },
+    {
+        "id": "a88ba3a2.208c4",
+        "type": "ui_group",
+        "z": "",
+        "name": "Baño",
+        "tab": "dba1b5f8.4c0d68",
+        "order": 5,
+        "disp": true,
+        "width": "12",
+        "collapse": false
+    },
+    {
+        "id": "836fb62c.5d2aa8",
+        "type": "ui_group",
+        "z": "",
+        "name": "Consulta de datos",
+        "tab": "53f82b69.107a04",
+        "disp": true,
+        "width": "8",
+        "collapse": false
+    },
+    {
         "id": "9905e55b.fa87c8",
         "type": "ui_tab",
         "z": "",
@@ -11397,6 +12955,26 @@
         "name": "Configuracion",
         "icon": "dashboard",
         "order": 2,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "dba1b5f8.4c0d68",
+        "type": "ui_tab",
+        "z": "",
+        "name": "Agregación",
+        "icon": "dashboard",
+        "order": 2,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "53f82b69.107a04",
+        "type": "ui_tab",
+        "z": "",
+        "name": "Descarga Excel",
+        "icon": "dashboard",
+        "order": 1,
         "disabled": false,
         "hidden": false
     }
