@@ -145,7 +145,7 @@ bool cuenta_pulsos      =true;    // A partir de él, se permite conocer si se h
 unsigned long inicio = 0;         // Tiempo en que se produce una interrupción
 int cont=0;
 
-int LED_Secundario = 16;          //GPIO 16 
+int LED_Secundario = 16;          // GPIO 16 
 //int BUILTIN_LED  = 2;           // GPIO 2 - predefinido en 'Herramientas'
 int estado_led2 =1;               // Inicialmente, ambos LEDs están encendidos: estado=1. En caso de estar apagados, estado=0
 int estado_led16=1;
@@ -273,7 +273,6 @@ String serializa_JSON (struct registro_conexion estado)
   JSONVar ANALOG;
   String jsonString;
   
-
   jsonRoot["CHIPID"] = estado.CHIPI="ESP"+String(ESP.getChipId());
   jsonRoot["online"] = estado.conexion;
   
@@ -319,7 +318,7 @@ String serializa_JSONLED (struct registro_led valor_LED)
   String jsonString;
   
   jsonRoot["CHIPID"] = valor_LED.CHIPI="ESP"+String(ESP.getChipId());     
-  jsonRoot["led"]    = valor_LED.LED;        // valor de LED
+  jsonRoot["led"]    = valor_LED.LED;       // valor de LED
   jsonRoot["origen"] = valor_LED.origen;    // Indica de dónde proviene el valor (si se ha estimulado por pulsación o por mqtt)
   
   return JSON.stringify(jsonRoot);
@@ -589,22 +588,22 @@ void callback(char* topic, byte* payload, unsigned int length) {
      delay(TiempoLED);
      }
      
-     if (logica_PN==false)                // Lógica negativa: subirled=0 -> PWM=1023 // subirled=100 -> PWM=0
+     if (logica_PN==false)              // Lógica negativa: subirled=0 -> PWM=1023 // subirled=100 -> PWM=0
         PWM = 1023*(1-subirled/100);    
-      else                             // Lógica positiva: subirled=0 -> PWM=0    // subirled=100 -> PWM=1023
+      else                              // Lógica positiva: subirled=0 -> PWM=0    // subirled=100 -> PWM=1023
         PWM = 1023*(subirled/100);
         
-     analogWrite(BUILTIN_LED,PWM);  //Envio el valor al pin del led
+     analogWrite(BUILTIN_LED,PWM);      //Envio el valor al pin del led
      
      LED_dato = subirled;
 
      // Para poder encender al nivel anterior a través del botón flash, se usa esta variable intermedia 
      if (logica_PN==false)
      {
-      if (LED_dato != 0)             // Evita seguir apagado en caso de que el valor previo sea 0 -Lóg Neg
+      if (LED_dato != 0)              // Evita seguir apagado en caso de que el valor previo sea 0 -Lóg Neg
         LED_anterior = LED_dato; 
      }
-     else                            // Evita seguir apagado en caso de que el valor previo sea 100 -Lóg Pos
+     else                             // Evita seguir apagado en caso de que el valor previo sea 100 -Lóg Pos
      {
       if (LED_dato != 100)
         LED_anterior = LED_dato;
@@ -690,13 +689,13 @@ void callback(char* topic, byte* payload, unsigned int length) {
         {
           if(logica_PN==false)
           {
-            digitalWrite(BUILTIN_LED,HIGH);      // Apagamos LED - LOG NEG
+            digitalWrite(BUILTIN_LED,HIGH);         // Apagamos LED - LOG NEG
             estado_led2 = 0;
             LED_dato = 0;
           }
           else
           {
-            digitalWrite(BUILTIN_LED,LOW);       // Encendemos LED - LOG POS
+            digitalWrite(BUILTIN_LED,LOW);          // Encendemos LED - LOG POS
             estado_led2 = 1;
             LED_dato = 100;
           }
@@ -707,7 +706,7 @@ void callback(char* topic, byte* payload, unsigned int length) {
           valor_LED.origen = "mqtt"; 
           client.publish(topic_led,serializa_JSONLED(valor_LED).c_str() );
         }
-        else if (valorLED == 1)                     // Valor recibido = 1, encendemos al valor máximo el LED
+        else if (valorLED == 1)                  // Valor recibido = 1, encendemos al valor máximo el LED
         {
           if(logica_PN==false)
           {
@@ -905,12 +904,12 @@ void loop() {
       Serial.print("Terminó la pulsación, duración = ");
       Serial.print(ahora-penultima_int);
       Serial.println(" ms");
-      cont++;                          // Se ha dado un pulso 
-      if (ahora-penultima_int > 2000)  // Si NO haya actualización, se estudian las pulsaciones
+      cont++;                           // Se ha dado un pulso 
+      if (ahora-penultima_int > 2000)   // Si NO haya actualización, se estudian las pulsaciones
       {
         // Si se mantiene +2seg pulsado, se habilita la señal que permite actualizar
         actualiza=true;
-        cont=0;                        // Para evitar encender o apagar el LED, se resetea el contador de pulsos
+        cont=0;                         // Para evitar encender o apagar el LED, se resetea el contador de pulsos
         
         // Hacemos saber que la actualización se debe por el pulsador flash
         origen_act="pulsador";
@@ -936,33 +935,33 @@ void loop() {
           }
           else
           {
-            analogWrite(BUILTIN_LED,1023);   // Apagamos al nivel mínimo (activo al nivel alto como PWM)
+            analogWrite(BUILTIN_LED,1023);    // Apagamos al nivel mínimo (activo al nivel alto como PWM)
             Serial.println("GPIO 2 APAGADO al MÍN");
             estado_led2 = 0;
             LED_dato=0;
           }
           
-          cont=0;                           // Reseteamos la cuenta de pulsos
-          cuenta_pulsos=true;               // Se activa la contación de pulsos a partir del nº de interrupciones
+          cont=0;                             // Reseteamos la cuenta de pulsos
+          cuenta_pulsos=true;                 // Se activa la contación de pulsos a partir del nº de interrupciones
 
           // Publicamos por el topic correspondiente
           valor_LED.LED    = LED_dato;
           valor_LED.origen = "pulsador"; 
           client.publish(topic_led,serializa_JSONLED(valor_LED).c_str() );
         }
-        if (cont==1) // Si solo se ha contado 1 pulsación, encendemos o apagamos el LED principal (GPIO 16)
+        if (cont==1)                          // Si solo se ha contado 1 pulsación, encendemos o apagamos el LED principal (GPIO 16)
         {
         Serial.println("UNA PULSACION");
 
         if (estado_led2==1)          
           {
-            analogWrite(BUILTIN_LED,1023);  // Con una pulsación, se enciende o se apaga con lógica negada
+            analogWrite(BUILTIN_LED,1023);    // Con una pulsación, se enciende o se apaga con lógica negada
             Serial.println("GPIO 2 APAGADO");
             estado_led2 = 0;
             LED_dato = 0;
             
           }
-          else                              // Si estaba apagado, encendemos al nivel anterior
+          else                                // Si estaba apagado, encendemos al nivel anterior
           { 
             if (logica_PN==false)
               PWM = 1023*(1-LED_anterior/100); 
@@ -975,7 +974,7 @@ void loop() {
             LED_dato = LED_anterior;
             
           }
-          cont=0;                           // Reseteamos la cuenta
+          cont=0;                             // Reseteamos la cuenta
           cuenta_pulsos=true;
           
           // Publicamos por el topic correspondiente
@@ -983,7 +982,7 @@ void loop() {
           valor_LED.origen="pulsador"; 
           client.publish(topic_led,serializa_JSONLED(valor_LED).c_str());
         }
-        else if (cont>2)                    // Si se cuentan más de 2 pulsos, se hace saber que no es válido
+        else if (cont>2)                      // Si se cuentan más de 2 pulsos, se hace saber que no es válido
         {
           Serial.println("MAS DE 2 PULSACIONES, CÓDIGO NO VÁLIDO");
 
@@ -1035,9 +1034,6 @@ void loop() {
       Serial.print(HTTP_OTA_ADDRESS);Serial.print(":");Serial.print(HTTP_OTA_PORT);Serial.println(HTTP_OTA_PATH); // Se comprueba la actualización
       Serial.println( "--------------------------" );  
       
-      //estado.conexion=false;                                                                         // Se desconecta mientras se realiza la actualización
-      //client.publish(topic_conexion,serializa_JSON(estado).c_str(),true);      // Publicamos por el topic de conexión que nos hemos desconectado debido a la actualización
-      
       actualiza=false;                        // Se 'resetea' la variable booleana que habilita la actualización
 
       // Hacemos saber al usuario que se van a buscar actualizaciones
@@ -1074,20 +1070,20 @@ void loop() {
   now=millis();
   // LASER
   if (nombre_casa=="salon") {
-    if ((comprueba_laser == true)&&(now-lastLaser>20000))                    // Se reintentará cada cierto tiempo la inicialización del sensor láser
+    if ((comprueba_laser == true)&&(now-lastLaser>20000))   // Se reintentará cada cierto tiempo la inicialización del sensor láser
     {
-      if (!lox.begin()) { // En caso de fallo de inicialización, se toma el valor -1 en estado_laser
+      if (!lox.begin()) {                                   // En caso de fallo de inicialización, se toma el valor -1 en estado_laser
         Serial.println(F("Error al iniciar VL53L0X"));
-        laser.estado_sensor = "Fallo al iniciar";   // Se hace saber que ha dado fallo al inicializar
+        laser.estado_sensor = "Fallo al iniciar";           // Se hace saber que ha dado fallo al inicializar
         estado_laser = -1;
       }
-      else                // En caso de haberse inicializado correctamente, se toma un valor alto (7000) en estado_laser
+      else                                                  // En caso de haberse inicializado correctamente, se toma un valor alto (7000) en estado_laser
       {
         Serial.println("Iniciado VL53L0X");
-        laser.estado_sensor = "VL53L0X activo";     // Se hace saber que el sensor se ha inicializado correctamente
+        laser.estado_sensor = "VL53L0X activo";             // Se hace saber que el sensor se ha inicializado correctamente
         estado_laser=7000;
         
-        comprueba_laser = false;                      // No volvemos a estudiar la inicialización, sino que se empiezan a tomar las medidas correspondientes
+        comprueba_laser = false;                            // No volvemos a estudiar la inicialización, sino que se empiezan a tomar las medidas correspondientes
       }
       // Publicamos el estado por el topic correspondiente
       laser.distancia = estado_laser;
@@ -1095,12 +1091,12 @@ void loop() {
 
       lastLaser=now;
     }
-    else if(comprueba_laser==false)                 // Cuando esté activo el sensor, se podrá leer datos del sensor
+    else if(comprueba_laser==false)                         // Cuando esté activo el sensor, se podrá leer datos del sensor
     {
       VL53L0X_RangingMeasurementData_t measure;
   
       // Leyendo sensor...
-      lox.rangingTest(&measure, false);             // Si se pasa true como parametro, muestra por puerto serie datos de debug
+      lox.rangingTest(&measure, false);                     // Si se pasa true como parametro, muestra por puerto serie datos de debug
       float medida_laser = measure.RangeMilliMeter;
     
       laser.distancia     = medida_laser;
@@ -1115,7 +1111,7 @@ void loop() {
       // Publicamos la distancia por el topic correspondiente
       client.publish(topic_laser,serializa_JSONdistist(laser).c_str() ); 
     
-      cambia_dist = medida_laser;                   // Actualizamos la distancia 
+      cambia_dist = medida_laser;                           // Actualizamos la distancia 
       }
     }
   }
@@ -1178,6 +1174,7 @@ void loop() {
       PeligroHumoa=0;
     }
     now=millis();
+    
     // En caso de haber haber peligro en algún valor, se hace saber al usuario
     if ((PeligroHumoa>0 || PeligroLPGa>0 || PeligroCOa>0)||(now-lastPeligro>20000))
     {
