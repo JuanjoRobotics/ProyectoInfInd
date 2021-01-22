@@ -249,11 +249,11 @@ String serializa_JSONGlobal (struct registro_datos datos_globales)
   JSONVar ANALOG;
   String jsonString;
   
-  DHT11["temp"] = datos_globales.temperatura;
+  DHT11["temp"] = datos_globales.temperatura*10/10.0;
   DHT11["hum"]  = datos_globales.humedad;
-  Wifi["ssid"]  = datos_globales.ssid;
-  Wifi["ip"]    = datos_globales.mqtt_server;
-  Wifi["rssi"]  = datos_globales.rssi;
+  Wifi["SSId"]  = datos_globales.ssid;
+  Wifi["IP"]    = datos_globales.mqtt_server;
+  Wifi["RSSI"]  = datos_globales.rssi;
 
   jsonRoot["CHIPID"] = datos_globales.CHIPI="ESP"+String(ESP.getChipId()); // ID del Chip
   jsonRoot["Uptime"] = datos_globales.tiempo;
@@ -802,7 +802,7 @@ void setup() {
   // Asignaciones para uso de sensores, en caso de obtener otro ID, se le asignará como habitación
   if (String(ESP.getChipId())=="5821487")         // Sensores disponibles: DHT11 / VL53L0X / MQ2
     nombre_casa="salon";
-  else if (String(ESP.getChipId())=="1122489")    // Sensores disponibles: DHT11 / MQ2
+  else if (String(ESP.getChipId())=="1122489")    // Sensores disponibles: DHT11
     nombre_casa="wc";
   else if (String(ESP.getChipId())=="5826449")    // Sensores disponibles: DHT11 / MQ2
     nombre_casa="cocina";
@@ -819,7 +819,7 @@ void setup() {
     // DHT
     dht.setup(14, DHTesp::DHT11);           // Connect DHT sensor to GPIO 14
   }
-  if ((nombre_casa=="salon")or(nombre_casa=="wc")or(nombre_casa=="cocina"))
+  if ((nombre_casa=="salon")or(nombre_casa=="cocina"))
   {
     // MQ-2
     mq2.begin();
@@ -1002,7 +1002,7 @@ void loop() {
    datos_globales.mqtt_server  = WiFi.SSID();
    datos_globales.vcc          = ESP.getVcc();
    datos_globales.rssi         = WiFi.RSSI();
-   datos_globales.temperatura  = round(dht.getTemperature());
+   datos_globales.temperatura  = dht.getTemperature();
    datos_globales.humedad      = dht.getHumidity();
    datos_globales.tiempo       = millis();
    datos_globales.valor_LED    = LED_dato;
