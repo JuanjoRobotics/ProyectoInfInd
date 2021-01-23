@@ -682,8 +682,8 @@
         "autoAnswerCallback": false,
         "timeoutValue": "20",
         "timeoutUnits": "s",
-        "x": 3778.9998931884766,
-        "y": 215.99999809265137,
+        "x": 3767.999984741211,
+        "y": 219.00000381469727,
         "wires": [
             [
                 "17d8db0c.136f55"
@@ -873,7 +873,7 @@
         "type": "function",
         "z": "cb95b8f7.9b4968",
         "name": "respuesta cocina",
-        "func": "var vcc=msg.payload[0].vcc;\nvar fecha=msg.payload[0].date;\nvar Temperatura=msg.payload[0].DHT11.temp;\nvar Humedad=msg.payload[0].DHT11.hum;\nvar led =msg.payload[0].LED;\n\n\nmsg.payload=msg.mensaje;\n\nmsg.payload=\"El estado de la cocina es el siguiente:  \\n\";\nmsg.payload+=\"El voltaje es de \"+vcc+\" voltios \\n\";\nmsg.payload+=\"Tenemos unos agradables \"+Temperatura+\" ºC \\n\";\nmsg.payload+=\"La humedad es del \"+Humedad+\" % \\n\";\n\nif (led == 25)\nmsg.payload+=\"La cocina esta a nivel bajo  \\n\";\nelse if (led ==50)\nmsg.payload+=\"La cocina esta a nivel medio  \\n\";\nelse if (led ==75)\nmsg.payload+=\"La cocina esta a nivel alto  \\n\";\nelse if (led ==100)\nmsg.payload+=\"La cocina esta a nivel maximo  \\n\";\nelse if (led === 0)\nmsg.payload+=\"La cocina esta apagada  \\n\";\n\nmsg.payload+=\"Última actualización: \"+fecha.toLocaleString('es-ES', { timeZone: 'Europe/Madrid', hour12: false });\n\n\nreturn msg;",
+        "func": "var vcc=msg.payload[0].vcc;\nvar fecha=msg.payload[0].date;\nvar Temperatura=msg.payload[0].DHT11.temp;\nvar Humedad=msg.payload[0].DHT11.hum;\nvar led =msg.payload[0].LED;\n\n\nmsg.payload=msg.mensaje;\n\nmsg.payload=\"El estado de la cocina es el siguiente:  \\n\";\nmsg.payload+= \"el voltaje de la placa es \"+vcc+\" voltios\\n \"\nmsg.payload+=\"Tenemos unos agradables \"+Temperatura+\" ºC \\n\";\nmsg.payload+=\"La humedad es del \"+Humedad+\" % \\n\";\n\nif (led == 25)\nmsg.payload+=\"La cocina esta a nivel bajo  \\n\";\nelse if (led ==50)\nmsg.payload+=\"La cocina esta a nivel medio  \\n\";\nelse if (led ==75)\nmsg.payload+=\"La cocina esta a nivel alto  \\n\";\nelse if (led ==100)\nmsg.payload+=\"La cocina esta a nivel maximo  \\n\";\nelse if (led === 0)\nmsg.payload+=\"La cocina esta apagada  \\n\";\n\nmsg.payload+=\"Última actualización: \"+fecha.toLocaleString('es-ES', { timeZone: 'Europe/Madrid', hour12: false });\n\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "x": 4624.700088500977,
@@ -1177,7 +1177,7 @@
         "type": "function",
         "z": "cb95b8f7.9b4968",
         "name": "respuesta habitacion",
-        "func": "var vcc=msg.payload[0].vcc;\nvar fecha=msg.payload[0].date;\nvar Temperatura=msg.payload[0].DHT11.temp;\nvar Humedad=msg.payload[0].DHT11.hum;\nvar led = msg.payload[0].LED;\nmsg.payload=msg.mensaje;\n\nmsg.payload=\"El estado de la habitacion es el siguiente:  \\n\";\nmsg.payload+=\"El voltaje es de \"+vcc+\" voltios \\n\";\nmsg.payload+=\"Tenemos unos agradables \"+Temperatura+\" ºC \\n\";\nmsg.payload+=\"La humedad es del \"+Humedad+\" % \\n\";\n\nif (led == 25)\nmsg.payload+=\"La  habitacion esta a nivel bajo  \\n\";\nelse if (led ==50)\nmsg.payload+=\"La  habitacion esta a nivel medio  \\n\";\nelse if (led ==75)\nmsg.payload+=\"La  habitacion esta a nivel alto  \\n\";\nelse if (led ==100)\nmsg.payload+=\"La  habitacion esta a nivel maximo  \\n\";\nelse if (led === 0)\nmsg.payload+=\"La habitacion esta apagada  \\n\";\n\nmsg.payload+=\"Última actualización: \"+fecha.toLocaleString('es-ES', { timeZone: 'Europe/Madrid', hour12: false });\n\n\nreturn msg;",
+        "func": "var vcc=msg.payload[0].vcc;\nvar fecha=msg.payload[0].date;\nvar Temperatura=msg.payload[0].DHT11.temp;\nvar Humedad=msg.payload[0].DHT11.hum;\nvar led = msg.payload[0].LED;\nmsg.payload=msg.mensaje;\n\nmsg.payload=\"El estado de la habitacion es el siguiente:  \\n\";\nmsg.payload += \"el voltaje de la placa es \"+vcc+\" voltios\\n \"\nmsg.payload+=\"Tenemos unos agradables \"+Temperatura+\" ºC \\n\";\nmsg.payload+=\"La humedad es del \"+Humedad+\" % \\n\";\n\nif (led == 25)\nmsg.payload+=\"La  habitacion esta a nivel bajo  \\n\";\nelse if (led ==50)\nmsg.payload+=\"La  habitacion esta a nivel medio  \\n\";\nelse if (led ==75)\nmsg.payload+=\"La  habitacion esta a nivel alto  \\n\";\nelse if (led ==100)\nmsg.payload+=\"La  habitacion esta a nivel maximo  \\n\";\nelse if (led === 0)\nmsg.payload+=\"La habitacion esta apagada  \\n\";\n\nmsg.payload+=\"Última actualización: \"+fecha.toLocaleString('es-ES', { timeZone: 'Europe/Madrid', hour12: false });\n\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "x": 4623.699844360352,
@@ -1225,7 +1225,7 @@
         "type": "function",
         "z": "cb95b8f7.9b4968",
         "name": "respuesta salon",
-        "func": "var vcc=msg.payload[0].vcc;\nvar fecha=msg.payload[0].date;\nvar Temperatura=msg.payload[0].DHT11.temp;\nvar Humedad=msg.payload[0].DHT11.hum;\nvar led = msg.payload[0].LED;\nmsg.payload=msg.mensaje;\n\nmsg.payload=\"El estado del salon es el siguiente:  \\n\";\nmsg.payload+=\"El voltaje es de \"+vcc+\" voltios \\n\";\nmsg.payload+=\"Tenemos unos agradables \"+Temperatura+\" ºC \\n\";\nmsg.payload+=\"La humedad es del \"+Humedad+\" % \\n\";\n\nif (led == 25)\nmsg.payload+=\"El salon esta a nivel bajo  \\n\";\nelse if (led ==50)\nmsg.payload+=\"El salon esta a nivel medio  \\n\";\nelse if (led ==75)\nmsg.payload+=\"El salon esta a nivel alto  \\n\";\nelse if (led ==100)\nmsg.payload+=\"El salon esta a nivel maximo  \\n\";\nelse if (led === 0)\nmsg.payload+=\"El salon esta apagado  \\n\";\n\nmsg.payload+=\"Última actualización: \"+fecha.toLocaleString('es-ES', { timeZone: 'Europe/Madrid', hour12: false });\n\n\nreturn msg;",
+        "func": "var vcc=msg.payload[0].vcc;\nvar fecha=msg.payload[0].date;\nvar Temperatura=msg.payload[0].DHT11.temp;\nvar Humedad=msg.payload[0].DHT11.hum;\nvar led = msg.payload[0].LED;\nmsg.payload=msg.mensaje;\n\nmsg.payload=\"El estado del salon es el siguiente:  \\n\";\nmsg.payload += \"el voltaje de la placa es \"+vcc+\" voltios\\n \"\nmsg.payload+=\"Tenemos unos agradables \"+Temperatura+\" ºC \\n\";\nmsg.payload+=\"La humedad es del \"+Humedad+\" % \\n\";\n\nif (led == 25)\nmsg.payload+=\"El salon esta a nivel bajo  \\n\";\nelse if (led ==50)\nmsg.payload+=\"El salon esta a nivel medio  \\n\";\nelse if (led ==75)\nmsg.payload+=\"El salon esta a nivel alto  \\n\";\nelse if (led ==100)\nmsg.payload+=\"El salon esta a nivel maximo  \\n\";\nelse if (led === 0)\nmsg.payload+=\"El salon esta apagado  \\n\";\n\nmsg.payload+=\"Última actualización: \"+fecha.toLocaleString('es-ES', { timeZone: 'Europe/Madrid', hour12: false });\n\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "x": 4616.699844360352,
@@ -1244,11 +1244,12 @@
         "func": "msg.mensaje=msg.payload;\nmsg.limit=1;\nmsg.sort={\"date\":-1};\nmsg.payload={\"topic\":\"infind/GRUPO2/ESP1122489/datos\"};\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 4018.9998931884766,
-        "y": 282.99999809265137,
+        "x": 4030.0001678466797,
+        "y": 274.9999990463257,
         "wires": [
             [
-                "9a219fff.37152"
+                "9a219fff.37152",
+                "c6911a13.0c1478"
             ]
         ]
     },
@@ -1264,7 +1265,8 @@
         "y": 289.99999809265137,
         "wires": [
             [
-                "821b8dc0.2ecd3"
+                "821b8dc0.2ecd3",
+                "c6911a13.0c1478"
             ]
         ]
     },
@@ -1273,7 +1275,7 @@
         "type": "function",
         "z": "cb95b8f7.9b4968",
         "name": "respuesta baño",
-        "func": "var vcc=msg.payload[0].vcc;\nvar fecha=msg.payload[0].date;\nvar Temperatura=msg.payload[0].DHT11.temp;\nvar Humedad=msg.payload[0].DHT11.hum;\nmsg.payload=msg.mensaje;\n\nmsg.payload=\"El estado del baño es el siguiente:  \\n\";\nmsg.payload+=\"El voltaje es de \"+vcc+\" voltios \\n\";\nmsg.payload+=\"Tenemos unos agradables \"+Temperatura+\" ºC \\n\";\nmsg.payload+=\"La humedad es del \"+Humedad+\" % \\n\";\n\nif (led == 25)\nmsg.payload+=\"El baño esta a nivel bajo  \\n\";\nelse if (led ==50)\nmsg.payload+=\"El baño esta a nivel medio  \\n\";\nelse if (led ==75)\nmsg.payload+=\"El baño esta a nivel alto  \\n\";\nelse if (led ==100)\nmsg.payload+=\"El baño esta a nivel maximo  \\n\";\nelse if (led === 0)\nmsg.payload+=\"El baño esta apagado  \\n\";\n\nmsg.payload+=\"Última actualización: \"+fecha.toLocaleString('es-ES', { timeZone: 'Europe/Madrid', hour12: false });\n\n\nreturn msg;",
+        "func": "var vcc=msg.payload[0].vcc;\nvar fecha=msg.payload[0].date;\nvar Temperatura=msg.payload[0].DHT11.temp;\nvar Humedad=msg.payload[0].DHT11.hum;\nvar led = msg.payload[0].LED;\nmsg.payload=msg.mensaje;\n\nmsg.payload=\"El estado del baño es el siguiente:  \\n\";\nmsg.payload += \"el voltaje de la placa es \"+vcc+\" voltios\\n \"\nmsg.payload+=\"Tenemos unos agradables \"+Temperatura+\" ºC \\n\";\nmsg.payload+=\"La humedad es del \"+Humedad+\" % \\n\";\n\nif (led == 25)\nmsg.payload+=\"El baño esta a nivel bajo  \\n\";\nelse if (led ==50)\nmsg.payload+=\"El baño esta a nivel medio  \\n\";\nelse if (led ==75)\nmsg.payload+=\"El baño esta a nivel alto  \\n\";\nelse if (led ==100)\nmsg.payload+=\"El baño esta a nivel maximo  \\n\";\nelse if (led === 0)\nmsg.payload+=\"El baño esta apagado  \\n\";\n\nmsg.payload+=\"Última actualización: \"+fecha.toLocaleString('es-ES', { timeZone: 'Europe/Madrid', hour12: false });\n\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "x": 4619.699844360352,
@@ -2367,7 +2369,8 @@
         "wires": [
             [
                 "7de15541.d2a8bc",
-                "a77d3dd.2d05fc"
+                "a77d3dd.2d05fc",
+                "ad617d.f1813e8"
             ]
         ]
     },
@@ -7593,19 +7596,6 @@
         "wires": []
     },
     {
-        "id": "27562b09.3e42b4",
-        "type": "telegrambot-notify",
-        "z": "cb95b8f7.9b4968",
-        "name": "TimeOut",
-        "bot": "407d7e26.e9903",
-        "chatId": "",
-        "message": "Se acabo el tiempo",
-        "parseMode": "",
-        "x": 514.6667175292969,
-        "y": 932.0001220703125,
-        "wires": []
-    },
-    {
         "id": "1a612e8d.4ecec1",
         "type": "telegrambot-switch",
         "z": "cb95b8f7.9b4968",
@@ -10130,9 +10120,7 @@
             [
                 "a94b2fdc.1959e"
             ],
-            [
-                "27562b09.3e42b4"
-            ]
+            []
         ]
     },
     {
@@ -12060,7 +12048,7 @@
         "type": "function",
         "z": "cb95b8f7.9b4968",
         "name": "consulta",
-        "func": "// fecha por defecto es hoy\nvar ahora = new Date();\n// pillo los globales si los hay, si no la fecha de hoy\nvar desde = new Date(global.get(\"desde2\") || ahora);\nvar hasta = new Date(global.get(\"hasta2\") || ahora); \n// el día de inicio desde las cero horas\nvar inicio = new Date(desde.getFullYear(),desde.getMonth(),desde.getDate(),0,0,0,0);\n// el día final es hasta final del día\nvar final = new Date(hasta.getFullYear(),hasta.getMonth(),hasta.getDate(),23,59,59,999);\n\nmsg.payload=\n[\n    { \"$match\": { \"date\": { \"$gte\": inicio , \"$lte\": final } } },\n    { \"$project\": {\n        \"_id\": 0,\n        \"date\": 1,\n        \"topic\" : \"$topic\",\n        \"temperatura\": \"$DHT11.temp\",\n        \"humedad\": \"$DHT11.hum\",\n        }\n    },\n    { \"$sort\": {\"date\": 1} }\n];\n\nreturn msg;",
+        "func": "// fecha por defecto es hoy\nvar ahora = new Date();\n// pillo los globales si los hay, si no la fecha de hoy\nvar desde = new Date(global.get(\"desde2\") || ahora);\nvar hasta = new Date(global.get(\"hasta2\") || ahora); \n// el día de inicio desde las cero horas\nvar inicio = new Date(desde.getFullYear(),desde.getMonth(),desde.getDate(),0,0,0,0);\n// el día final es hasta final del día\nvar final = new Date(hasta.getFullYear(),hasta.getMonth(),hasta.getDate(),23,59,59,999);\n\nmsg.payload=\n[\n    { \"$match\": { \"date\": { \"$gte\": inicio , \"$lte\": final } } },\n    { \"$project\": {\n        \"_id\": 0,\n        \"date\": 1,\n        \"topic\" : \"$topic\",\n        \"temperatura\": \"$DHT11.temp\",\n        \"humedad\": \"$DHT11.hum\",\n        \"iluminacion\": \"$LED\"\n        }\n    },\n    { \"$sort\": {\"date\": 1} }\n];\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "x": 1484.4937438964844,
@@ -12117,7 +12105,7 @@
         "hdrout": true,
         "multi": "one",
         "ret": "\\r\\n",
-        "temp": "date,topic, temperatura, humedad",
+        "temp": "date,topic, temperatura, humedad, iluminacion",
         "skip": 0,
         "x": 1946.4936981201172,
         "y": 3390.5185050964355,
@@ -12370,8 +12358,8 @@
         "command": "/logica",
         "commandType": "str",
         "commandCase": false,
-        "x": 2644.5078125,
-        "y": 3306.0234375,
+        "x": 2651.507869720459,
+        "y": 3351.02352142334,
         "wires": [
             [
                 "996c8295.d6a3b"
@@ -12394,8 +12382,8 @@
         "autoAnswerCallback": false,
         "timeoutValue": "20",
         "timeoutUnits": "s",
-        "x": 2844.015625,
-        "y": 3305,
+        "x": 2851.015682220459,
+        "y": 3350.00008392334,
         "wires": [
             [
                 "24eb0946.76c716"
@@ -12416,8 +12404,8 @@
         "func": "msg.payload = {\"logica\": true}\nreturn msg",
         "outputs": 1,
         "noerr": 0,
-        "x": 3063,
-        "y": 3278,
+        "x": 3070.000057220459,
+        "y": 3323.00008392334,
         "wires": [
             [
                 "1837d45.ca3ec2c",
@@ -12437,8 +12425,8 @@
         "chatId": "",
         "message": "Se acabo el tiempo",
         "parseMode": "",
-        "x": 2969,
-        "y": 3381,
+        "x": 2976.000057220459,
+        "y": 3426.00008392334,
         "wires": []
     },
     {
@@ -12449,8 +12437,8 @@
         "func": "msg.payload = {\"logica\": false}\nreturn msg",
         "outputs": 1,
         "noerr": 0,
-        "x": 3065,
-        "y": 3330,
+        "x": 3072.000057220459,
+        "y": 3375.00008392334,
         "wires": [
             [
                 "1837d45.ca3ec2c",
@@ -12470,8 +12458,8 @@
         "qos": "",
         "retain": "",
         "broker": "8fab76dc.3e75b8",
-        "x": 3353,
-        "y": 3277,
+        "x": 3360.000057220459,
+        "y": 3322.00008392334,
         "wires": []
     },
     {
@@ -12483,8 +12471,8 @@
         "qos": "",
         "retain": "",
         "broker": "8fab76dc.3e75b8",
-        "x": 3354,
-        "y": 3308,
+        "x": 3361.000057220459,
+        "y": 3353.00008392334,
         "wires": []
     },
     {
@@ -12496,8 +12484,8 @@
         "qos": "",
         "retain": "",
         "broker": "8fab76dc.3e75b8",
-        "x": 3348,
-        "y": 3340,
+        "x": 3355.000057220459,
+        "y": 3385.00008392334,
         "wires": []
     },
     {
@@ -12509,8 +12497,8 @@
         "qos": "",
         "retain": "",
         "broker": "8fab76dc.3e75b8",
-        "x": 3349,
-        "y": 3375,
+        "x": 3356.000057220459,
+        "y": 3420.00008392334,
         "wires": []
     },
     {
@@ -12521,8 +12509,8 @@
         "links": [
             "a94b2fdc.1959e"
         ],
-        "x": 2630,
-        "y": 3261,
+        "x": 2637.000057220459,
+        "y": 3306.00008392334,
         "wires": [
             [
                 "996c8295.d6a3b"
@@ -12614,8 +12602,8 @@
         "chatId": "-487674790",
         "message": "Se ha establecido la lógica negativa",
         "parseMode": "",
-        "x": 3264,
-        "y": 3471.333251953125,
+        "x": 3271.000057220459,
+        "y": 3516.333335876465,
         "wires": []
     },
     {
@@ -12627,8 +12615,8 @@
         "chatId": "-487674790",
         "message": "Se ha establecido la lógica positiva",
         "parseMode": "",
-        "x": 3289,
-        "y": 3226.333251953125,
+        "x": 3296.000057220459,
+        "y": 3271.333335876465,
         "wires": []
     },
     {
@@ -12643,6 +12631,34 @@
         "complete": "false",
         "x": 3242.7188262939453,
         "y": 4847.319488525391,
+        "wires": []
+    },
+    {
+        "id": "ad617d.f1813e8",
+        "type": "debug",
+        "z": "cb95b8f7.9b4968",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 1144.8750190734863,
+        "y": 4020.0235500335693,
+        "wires": []
+    },
+    {
+        "id": "c6911a13.0c1478",
+        "type": "debug",
+        "z": "cb95b8f7.9b4968",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 4378.375106811523,
+        "y": 385.5078344345093,
         "wires": []
     },
     {
@@ -12962,7 +12978,7 @@
         "id": "dba1b5f8.4c0d68",
         "type": "ui_tab",
         "z": "",
-        "name": "Agregación",
+        "name": "Históricos",
         "icon": "dashboard",
         "order": 2,
         "disabled": false,
