@@ -1,0 +1,1715 @@
+[
+    {
+        "id": "c6d25030.f8e9",
+        "type": "tab",
+        "label": "Home",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "a089d6e7.e80558",
+        "type": "nora-light",
+        "z": "c6d25030.f8e9",
+        "devicename": "Luz Cocina",
+        "lightcolor": false,
+        "brightnesscontrol": true,
+        "turnonwhenbrightnesschanges": true,
+        "passthru": false,
+        "statepayload": true,
+        "brightnessoverride": "",
+        "roomhint": "",
+        "name": "",
+        "nora": "94e3897e.42eec8",
+        "topic": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "x": 804.383171081543,
+        "y": 130.7189426422119,
+        "wires": [
+            [
+                "2232432f.269cbc",
+                "65ebdbcf.3a32c4"
+            ]
+        ]
+    },
+    {
+        "id": "2232432f.269cbc",
+        "type": "function",
+        "z": "c6d25030.f8e9",
+        "name": "",
+        "func": "var Encendido=msg.payload.on;\n\nif (Encendido===true)\n{\nmsg.payload = {\"level\": msg.payload.brightness}\n}\nelse\n{\n    msg.payload = {\"level\": 0}\n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 974.7656383514404,
+        "y": 172.75001430511475,
+        "wires": [
+            [
+                "b3472de9.89e6c",
+                "d1ceb60e.f287e8"
+            ]
+        ]
+    },
+    {
+        "id": "65ebdbcf.3a32c4",
+        "type": "debug",
+        "z": "c6d25030.f8e9",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 1039.3827934265137,
+        "y": 108.0312557220459,
+        "wires": []
+    },
+    {
+        "id": "b3472de9.89e6c",
+        "type": "debug",
+        "z": "c6d25030.f8e9",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 1244.386775970459,
+        "y": 149.02345848083496,
+        "wires": []
+    },
+    {
+        "id": "d1ceb60e.f287e8",
+        "type": "mqtt out",
+        "z": "c6d25030.f8e9",
+        "name": "",
+        "topic": "infind/GRUPO2/ESP5826449/led/cmd",
+        "qos": "",
+        "retain": "",
+        "broker": "e3c0e99f.2e4018",
+        "x": 1253.765640258789,
+        "y": 210.75002193450928,
+        "wires": []
+    },
+    {
+        "id": "75e3e42f.5eb98c",
+        "type": "nora-light",
+        "z": "c6d25030.f8e9",
+        "devicename": "Luz Salón",
+        "lightcolor": false,
+        "brightnesscontrol": true,
+        "turnonwhenbrightnesschanges": true,
+        "passthru": false,
+        "statepayload": true,
+        "brightnessoverride": "",
+        "roomhint": "",
+        "name": "",
+        "nora": "94e3897e.42eec8",
+        "topic": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "x": 729.7656173706055,
+        "y": 399.7500307559967,
+        "wires": [
+            [
+                "7b1613be.fb110c",
+                "4abf1289.4b05dc"
+            ]
+        ]
+    },
+    {
+        "id": "7b1613be.fb110c",
+        "type": "function",
+        "z": "c6d25030.f8e9",
+        "name": "",
+        "func": "var Encendido=msg.payload.on;\n\nif (Encendido===true)\n{\nmsg.payload = {\"level\": msg.payload.brightness}\n}\nelse\n{\n    msg.payload = {\"level\": 0}\n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 959.1482696533203,
+        "y": 483.7811281681061,
+        "wires": [
+            [
+                "d91b679.63cd598",
+                "f0fd256f.b646e8"
+            ]
+        ]
+    },
+    {
+        "id": "4abf1289.4b05dc",
+        "type": "debug",
+        "z": "c6d25030.f8e9",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 1052.7654113769531,
+        "y": 384.0623915195465,
+        "wires": []
+    },
+    {
+        "id": "d91b679.63cd598",
+        "type": "debug",
+        "z": "c6d25030.f8e9",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 1242.7693328857422,
+        "y": 471.0545742511749,
+        "wires": []
+    },
+    {
+        "id": "f0fd256f.b646e8",
+        "type": "mqtt out",
+        "z": "c6d25030.f8e9",
+        "name": "",
+        "topic": "infind/GRUPO2/ESP5821487/led/cmd",
+        "qos": "",
+        "retain": "",
+        "broker": "e3c0e99f.2e4018",
+        "x": 1259.1482696533203,
+        "y": 575.7811300754547,
+        "wires": []
+    },
+    {
+        "id": "174023d5.425c6c",
+        "type": "nora-light",
+        "z": "c6d25030.f8e9",
+        "devicename": "Luz Dormitorio",
+        "lightcolor": false,
+        "brightnesscontrol": true,
+        "turnonwhenbrightnesschanges": true,
+        "passthru": false,
+        "statepayload": true,
+        "brightnessoverride": "",
+        "roomhint": "",
+        "name": "",
+        "nora": "94e3897e.42eec8",
+        "topic": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "x": 868.4323921203613,
+        "y": 788.4167647361755,
+        "wires": [
+            [
+                "596fc57e.4bf06c",
+                "ef56ed43.0302e"
+            ]
+        ]
+    },
+    {
+        "id": "596fc57e.4bf06c",
+        "type": "function",
+        "z": "c6d25030.f8e9",
+        "name": "",
+        "func": "var Encendido=msg.payload.on;\n\nif (Encendido===true)\n{\nmsg.payload = {\"level\": msg.payload.brightness}\n}\nelse\n{\n    msg.payload = {\"level\": 0}\n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1087.8150215148926,
+        "y": 895.3050317764282,
+        "wires": [
+            [
+                "92a87449.8f6628",
+                "99a76e9.c007f9"
+            ]
+        ]
+    },
+    {
+        "id": "ef56ed43.0302e",
+        "type": "debug",
+        "z": "c6d25030.f8e9",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 1181.4321632385254,
+        "y": 772.7291007041931,
+        "wires": []
+    },
+    {
+        "id": "92a87449.8f6628",
+        "type": "debug",
+        "z": "c6d25030.f8e9",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 1371.4360847473145,
+        "y": 882.5784778594971,
+        "wires": []
+    },
+    {
+        "id": "99a76e9.c007f9",
+        "type": "mqtt out",
+        "z": "c6d25030.f8e9",
+        "name": "",
+        "topic": "infind/GRUPO2/ESP8789990/led/cmd",
+        "qos": "",
+        "retain": "",
+        "broker": "e3c0e99f.2e4018",
+        "x": 1396.8150520324707,
+        "y": 972.3050589561462,
+        "wires": []
+    },
+    {
+        "id": "9429925.d86997",
+        "type": "nora-light",
+        "z": "c6d25030.f8e9",
+        "devicename": "Luz Baño",
+        "lightcolor": false,
+        "brightnesscontrol": true,
+        "turnonwhenbrightnesschanges": true,
+        "passthru": false,
+        "statepayload": true,
+        "brightnessoverride": "",
+        "roomhint": "",
+        "name": "",
+        "nora": "94e3897e.42eec8",
+        "topic": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "x": 865.4324989318848,
+        "y": 1081.2738981246948,
+        "wires": [
+            [
+                "912bd324.554d3",
+                "17a41320.8285fd"
+            ]
+        ]
+    },
+    {
+        "id": "912bd324.554d3",
+        "type": "function",
+        "z": "c6d25030.f8e9",
+        "name": "",
+        "func": "var Encendido=msg.payload.on;\n\nif (Encendido===true)\n{\nmsg.payload = {\"level\": msg.payload.brightness}\n}\nelse\n{\n    msg.payload = {\"level\": 0}\n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1091.8150024414062,
+        "y": 1156.3050775527954,
+        "wires": [
+            [
+                "61ff702.1ac8f9",
+                "e23783e7.36a6c"
+            ]
+        ]
+    },
+    {
+        "id": "17a41320.8285fd",
+        "type": "debug",
+        "z": "c6d25030.f8e9",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 1184.4321556091309,
+        "y": 1066.5863037109375,
+        "wires": []
+    },
+    {
+        "id": "61ff702.1ac8f9",
+        "type": "debug",
+        "z": "c6d25030.f8e9",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 1374.43607711792,
+        "y": 1153.578486442566,
+        "wires": []
+    },
+    {
+        "id": "e23783e7.36a6c",
+        "type": "mqtt out",
+        "z": "c6d25030.f8e9",
+        "name": "",
+        "topic": "infind/GRUPO2/ESP1122489/led/cmd",
+        "qos": "",
+        "retain": "",
+        "broker": "e3c0e99f.2e4018",
+        "x": 1390.815013885498,
+        "y": 1258.3050422668457,
+        "wires": []
+    },
+    {
+        "id": "44875f42.1a2bb",
+        "type": "nora-switch",
+        "z": "c6d25030.f8e9",
+        "devicename": "Interruptor Cocina",
+        "roomhint": "",
+        "name": "",
+        "passthru": false,
+        "nora": "94e3897e.42eec8",
+        "topic": "level",
+        "onvalue": "{\"level\":1}",
+        "onvalueType": "json",
+        "offvalue": "{\"level\":0}",
+        "offvalueType": "json",
+        "x": 2646.049514770508,
+        "y": 245.79006385803223,
+        "wires": [
+            [
+                "410c76cc.476fc8",
+                "2a54266.d0323da"
+            ]
+        ]
+    },
+    {
+        "id": "2a54266.d0323da",
+        "type": "debug",
+        "z": "c6d25030.f8e9",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "x": 3177.0533242225647,
+        "y": 338.5474624633789,
+        "wires": []
+    },
+    {
+        "id": "410c76cc.476fc8",
+        "type": "mqtt out",
+        "z": "c6d25030.f8e9",
+        "name": "",
+        "topic": "infind/GRUPO2/ESP5826449/switch/cmd",
+        "qos": "",
+        "retain": "",
+        "broker": "e3c0e99f.2e4018",
+        "x": 3186.4322357177734,
+        "y": 432.273983001709,
+        "wires": []
+    },
+    {
+        "id": "38ec94f7.52169c",
+        "type": "nora-switch",
+        "z": "c6d25030.f8e9",
+        "devicename": "Interruptor Salón",
+        "roomhint": "",
+        "name": "",
+        "passthru": false,
+        "nora": "94e3897e.42eec8",
+        "topic": "level",
+        "onvalue": "{\"level\":1}",
+        "onvalueType": "json",
+        "offvalue": "{\"level\":0}",
+        "offvalueType": "json",
+        "x": 2635.6822357177734,
+        "y": 531.4167714118958,
+        "wires": [
+            [
+                "efd8c86a.c88cd8",
+                "658a9917.feda58"
+            ]
+        ]
+    },
+    {
+        "id": "efd8c86a.c88cd8",
+        "type": "debug",
+        "z": "c6d25030.f8e9",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 2977.682144165039,
+        "y": 522.1820893287659,
+        "wires": []
+    },
+    {
+        "id": "658a9917.feda58",
+        "type": "mqtt out",
+        "z": "c6d25030.f8e9",
+        "name": "",
+        "topic": "infind/GRUPO2/ESP5821487/switch/cmd",
+        "qos": "",
+        "retain": "",
+        "broker": "e3c0e99f.2e4018",
+        "x": 3121.065040588379,
+        "y": 631.9009404182434,
+        "wires": []
+    },
+    {
+        "id": "f418cf20.f0c73",
+        "type": "nora-switch",
+        "z": "c6d25030.f8e9",
+        "devicename": "Interruptor Dormitorio",
+        "roomhint": "",
+        "name": "",
+        "passthru": false,
+        "nora": "94e3897e.42eec8",
+        "topic": "level",
+        "onvalue": "{\"level\":1}",
+        "onvalueType": "json",
+        "offvalue": "{\"level\":0}",
+        "offvalueType": "json",
+        "x": 2670.6822357177734,
+        "y": 843.4167714118958,
+        "wires": [
+            [
+                "da309ac0.feca28",
+                "dc1bd1fc.19b28"
+            ]
+        ]
+    },
+    {
+        "id": "da309ac0.feca28",
+        "type": "debug",
+        "z": "c6d25030.f8e9",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 3002.682144165039,
+        "y": 834.1820893287659,
+        "wires": []
+    },
+    {
+        "id": "dc1bd1fc.19b28",
+        "type": "mqtt out",
+        "z": "c6d25030.f8e9",
+        "name": "",
+        "topic": "infind/GRUPO2/ESP8789990/switch/cmd",
+        "qos": "",
+        "retain": "",
+        "broker": "e3c0e99f.2e4018",
+        "x": 3073.065044403076,
+        "y": 899.9012551307678,
+        "wires": []
+    },
+    {
+        "id": "d08c07ee.bc6628",
+        "type": "nora-switch",
+        "z": "c6d25030.f8e9",
+        "devicename": "Interruptor Baño",
+        "roomhint": "",
+        "name": "",
+        "passthru": false,
+        "nora": "94e3897e.42eec8",
+        "topic": "level",
+        "onvalue": "{\"level\":1}",
+        "onvalueType": "json",
+        "offvalue": "{\"level\":0}",
+        "offvalueType": "json",
+        "x": 2680.6823501586914,
+        "y": 1177.4171891212463,
+        "wires": [
+            [
+                "e0d9ec70.86cdd",
+                "b3af62f1.efe6"
+            ]
+        ]
+    },
+    {
+        "id": "e0d9ec70.86cdd",
+        "type": "debug",
+        "z": "c6d25030.f8e9",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 2875.682258605957,
+        "y": 1119.182508945465,
+        "wires": []
+    },
+    {
+        "id": "b3af62f1.efe6",
+        "type": "mqtt out",
+        "z": "c6d25030.f8e9",
+        "name": "",
+        "topic": "infind/GRUPO2/ESP1122489/switch/cmd",
+        "qos": "",
+        "retain": "",
+        "broker": "e3c0e99f.2e4018",
+        "x": 3034.0651626586914,
+        "y": 1175.9019351005554,
+        "wires": []
+    },
+    {
+        "id": "4234b8d7.6fb308",
+        "type": "nora-thermostat",
+        "z": "c6d25030.f8e9",
+        "devicename": "Termostato Cocina",
+        "roomhint": "",
+        "name": "",
+        "modes": "off,heat,cool",
+        "unit": "C",
+        "topic": "",
+        "passthru": false,
+        "commandOnly": true,
+        "queryOnly": false,
+        "bufferRangeCelsius": 2,
+        "nora": "94e3897e.42eec8",
+        "x": 4553.637252807617,
+        "y": 679.4749307632446,
+        "wires": [
+            [
+                "e1571f27.3ead3"
+            ]
+        ]
+    },
+    {
+        "id": "bfbe002.d468a",
+        "type": "mqtt in",
+        "z": "c6d25030.f8e9",
+        "name": "",
+        "topic": "infind/GRUPO2/ESP5826449/datos",
+        "qos": "2",
+        "broker": "e3c0e99f.2e4018",
+        "x": 3869.015823364258,
+        "y": 636.7514219284058,
+        "wires": [
+            [
+                "adf997c3.c5a008"
+            ]
+        ]
+    },
+    {
+        "id": "e1571f27.3ead3",
+        "type": "debug",
+        "z": "c6d25030.f8e9",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 4776.0165939331055,
+        "y": 678.7530069351196,
+        "wires": []
+    },
+    {
+        "id": "70e18405.c0911c",
+        "type": "function",
+        "z": "c6d25030.f8e9",
+        "name": "",
+        "func": "var temp=msg.payload.DHT11.temp;\nvar hum=msg.payload.DHT11.hum;\nvar max=global.get(\"TemperaturaMax\");\nvar min=global.get(\"TemperaturaMin\");\n\nif (temp>=max)\n{\n  msg.payload={\"mode\": \"cool\",\n             \"setpoint\": 22,\n             \"setpointLow\": min,\n             \"setpointHigh\": max,\n             \"humidity\": hum,\n             \"temperature\": temp}  \n}\nelse if (temp<=min)\n{\n    msg.payload={\"mode\": \"heat\",\n             \"setpoint\": 22,\n             \"setpointLow\": min,\n             \"setpointHigh\": max,\n             \"humidity\": hum,\n             \"temperature\": temp}\n}\nelse\n{\n        msg.payload={\"mode\": \"off\",\n             \"setpoint\": 22,\n             \"setpointLow\": min,\n             \"setpointHigh\": max,\n             \"humidity\": hum,\n             \"temperature\": temp}\n}\nreturn msg;\n\n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 4280.015865325928,
+        "y": 687.7513589859009,
+        "wires": [
+            [
+                "8f2e4a4d.98ca48",
+                "4234b8d7.6fb308"
+            ]
+        ],
+        "outputLabels": [
+            "msg1"
+        ]
+    },
+    {
+        "id": "8f2e4a4d.98ca48",
+        "type": "debug",
+        "z": "c6d25030.f8e9",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "x": 4461.62911605835,
+        "y": 809.524733543396,
+        "wires": []
+    },
+    {
+        "id": "adf997c3.c5a008",
+        "type": "json",
+        "z": "c6d25030.f8e9",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 4106.625207901001,
+        "y": 655.4264688491821,
+        "wires": [
+            [
+                "70e18405.c0911c"
+            ]
+        ]
+    },
+    {
+        "id": "e737b4bb.aeec68",
+        "type": "inject",
+        "z": "c6d25030.f8e9",
+        "name": "",
+        "topic": "",
+        "payload": "{\"mode\":\"off\",\"setpoint\":25,\"setpointLow\":20,\"setpointHigh\":30,\"humidity\":55,\"temperature\":31}",
+        "payloadType": "json",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 4328.879047393799,
+        "y": 608.4538717269897,
+        "wires": [
+            [
+                "4234b8d7.6fb308"
+            ]
+        ]
+    },
+    {
+        "id": "c1504978.2e2a28",
+        "type": "mqtt in",
+        "z": "c6d25030.f8e9",
+        "name": "",
+        "topic": "infind/GRUPO2/temperaturas",
+        "qos": "2",
+        "broker": "e3c0e99f.2e4018",
+        "x": 3750.875274658203,
+        "y": 207.9105396270752,
+        "wires": [
+            [
+                "1b69d226.2401ee"
+            ]
+        ]
+    },
+    {
+        "id": "7eb7cbe.75afc34",
+        "type": "change",
+        "z": "c6d25030.f8e9",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "TemperaturaMax",
+                "pt": "global",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 4459.8869552612305,
+        "y": 306.5240316390991,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "7eef6f06.a99ba",
+        "type": "debug",
+        "z": "c6d25030.f8e9",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 4189.383003234863,
+        "y": 413.50789070129395,
+        "wires": []
+    },
+    {
+        "id": "2328d4d4.2cd3ec",
+        "type": "function",
+        "z": "c6d25030.f8e9",
+        "name": "",
+        "func": "var TempMax = msg.payload.TempMax\nvar TempMin = msg.payload.TempMin\n\n\nmsg1={\"payload\":TempMax,\"topic\":\"TemperaturaMax\"};\nmsg2={\"payload\":TempMin,\"topic\":\"TemperaturaMin\"};\n\nreturn [msg1, msg2];",
+        "outputs": 2,
+        "noerr": 0,
+        "x": 4182.379047393799,
+        "y": 272.60951137542725,
+        "wires": [
+            [
+                "7eb7cbe.75afc34"
+            ],
+            [
+                "e17fc571.606d38"
+            ]
+        ]
+    },
+    {
+        "id": "e17fc571.606d38",
+        "type": "change",
+        "z": "c6d25030.f8e9",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "TemperaturaMin",
+                "pt": "global",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 4445.765823364258,
+        "y": 358.75004482269287,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "3ba0134d.421c1c",
+        "type": "inject",
+        "z": "c6d25030.f8e9",
+        "name": "",
+        "topic": "",
+        "payload": "{\"TempMin\":15,\"TempMax\":30}",
+        "payloadType": "json",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 3953.7657890319824,
+        "y": 296.75013637542725,
+        "wires": [
+            [
+                "2328d4d4.2cd3ec"
+            ]
+        ]
+    },
+    {
+        "id": "672ca177.eab2d",
+        "type": "nora-thermostat",
+        "z": "c6d25030.f8e9",
+        "devicename": "Termostato Salón",
+        "roomhint": "",
+        "name": "",
+        "modes": "off,heat,cool",
+        "unit": "C",
+        "topic": "",
+        "passthru": false,
+        "commandOnly": true,
+        "queryOnly": false,
+        "bufferRangeCelsius": 2,
+        "nora": "94e3897e.42eec8",
+        "x": 4542.765701293945,
+        "y": 1041.7501020431519,
+        "wires": [
+            [
+                "9b2dcd04.090e9"
+            ]
+        ]
+    },
+    {
+        "id": "7dd37f22.cbd29",
+        "type": "mqtt in",
+        "z": "c6d25030.f8e9",
+        "name": "",
+        "topic": "infind/GRUPO2/ESP5821487/datos",
+        "qos": "2",
+        "broker": "e3c0e99f.2e4018",
+        "x": 3870.144271850586,
+        "y": 1000.0268182754517,
+        "wires": [
+            [
+                "5e765112.b3559"
+            ]
+        ]
+    },
+    {
+        "id": "9b2dcd04.090e9",
+        "type": "debug",
+        "z": "c6d25030.f8e9",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 4800.144760131836,
+        "y": 1006.0279951095581,
+        "wires": []
+    },
+    {
+        "id": "1e0febf2.c44524",
+        "type": "function",
+        "z": "c6d25030.f8e9",
+        "name": "",
+        "func": "var temp=msg.payload.DHT11.temp;\nvar hum=msg.payload.DHT11.hum;\nvar max=global.get(\"TemperaturaMax\");\nvar min=global.get(\"TemperaturaMin\");\n\nif (temp>=max)\n{\n  msg.payload={\"mode\": \"cool\",\n             \"setpoint\": 22,\n             \"setpointLow\": min,\n             \"setpointHigh\": max,\n             \"humidity\": hum,\n             \"temperature\": temp}  \n}\nelse if (temp<=min)\n{\n    msg.payload={\"mode\": \"heat\",\n             \"setpoint\": 22,\n             \"setpointLow\": min,\n             \"setpointHigh\": max,\n             \"humidity\": hum,\n             \"temperature\": temp}\n}\nelse\n{\n        msg.payload={\"mode\": \"off\",\n             \"setpoint\": 22,\n             \"setpointLow\": min,\n             \"setpointHigh\": max,\n             \"humidity\": hum,\n             \"temperature\": temp}\n}\nreturn msg;\n\n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 4270.144287109375,
+        "y": 1055.0267763137817,
+        "wires": [
+            [
+                "c9713498.dd30b8",
+                "672ca177.eab2d"
+            ]
+        ],
+        "outputLabels": [
+            "msg1"
+        ]
+    },
+    {
+        "id": "c9713498.dd30b8",
+        "type": "debug",
+        "z": "c6d25030.f8e9",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "x": 4451.757537841797,
+        "y": 1176.8001508712769,
+        "wires": []
+    },
+    {
+        "id": "5e765112.b3559",
+        "type": "json",
+        "z": "c6d25030.f8e9",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 4096.753629684448,
+        "y": 1022.701886177063,
+        "wires": [
+            [
+                "1e0febf2.c44524"
+            ]
+        ]
+    },
+    {
+        "id": "dbc7d699.a62928",
+        "type": "inject",
+        "z": "c6d25030.f8e9",
+        "name": "",
+        "topic": "",
+        "payload": "{\"mode\":\"off\",\"setpoint\":25,\"setpointLow\":20,\"setpointHigh\":30,\"humidity\":55,\"temperature\":31}",
+        "payloadType": "json",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 4319.007469177246,
+        "y": 975.7292890548706,
+        "wires": [
+            [
+                "672ca177.eab2d"
+            ]
+        ]
+    },
+    {
+        "id": "56307ba7.ad4d04",
+        "type": "nora-thermostat",
+        "z": "c6d25030.f8e9",
+        "devicename": "Termostato Dormitorio",
+        "roomhint": "",
+        "name": "",
+        "modes": "off,heat,cool",
+        "unit": "C",
+        "topic": "",
+        "passthru": false,
+        "commandOnly": true,
+        "queryOnly": false,
+        "bufferRangeCelsius": 2,
+        "nora": "94e3897e.42eec8",
+        "x": 4530.765701293945,
+        "y": 1425.7501020431519,
+        "wires": [
+            [
+                "2fcb8938.31b106"
+            ]
+        ]
+    },
+    {
+        "id": "e24b16df.97aef8",
+        "type": "mqtt in",
+        "z": "c6d25030.f8e9",
+        "name": "",
+        "topic": "infind/GRUPO2/ESP8789990/datos",
+        "qos": "2",
+        "broker": "e3c0e99f.2e4018",
+        "x": 3849.144256591797,
+        "y": 1391.0267629623413,
+        "wires": [
+            [
+                "d10c8171.63f3e"
+            ]
+        ]
+    },
+    {
+        "id": "2fcb8938.31b106",
+        "type": "debug",
+        "z": "c6d25030.f8e9",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 4764.1447677612305,
+        "y": 1411.0279235839844,
+        "wires": []
+    },
+    {
+        "id": "1f2b03a6.38c9fc",
+        "type": "function",
+        "z": "c6d25030.f8e9",
+        "name": "",
+        "func": "var temp=msg.payload.DHT11.temp;\nvar hum=msg.payload.DHT11.hum;\nvar max=global.get(\"TemperaturaMax\");\nvar min=global.get(\"TemperaturaMin\");\n\nif (temp>=max)\n{\n  msg.payload={\"mode\": \"cool\",\n             \"setpoint\": 22,\n             \"setpointLow\": min,\n             \"setpointHigh\": max,\n             \"humidity\": hum,\n             \"temperature\": temp}  \n}\nelse if (temp<=min)\n{\n    msg.payload={\"mode\": \"heat\",\n             \"setpoint\": 22,\n             \"setpointLow\": min,\n             \"setpointHigh\": max,\n             \"humidity\": hum,\n             \"temperature\": temp}\n}\nelse\n{\n        msg.payload={\"mode\": \"off\",\n             \"setpoint\": 22,\n             \"setpointLow\": min,\n             \"setpointHigh\": max,\n             \"humidity\": hum,\n             \"temperature\": temp}\n}\nreturn msg;\n\n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 4248.144287109375,
+        "y": 1439.0267763137817,
+        "wires": [
+            [
+                "a8a1cf30.da19d",
+                "56307ba7.ad4d04"
+            ]
+        ],
+        "outputLabels": [
+            "msg1"
+        ]
+    },
+    {
+        "id": "a8a1cf30.da19d",
+        "type": "debug",
+        "z": "c6d25030.f8e9",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "x": 4429.757537841797,
+        "y": 1560.8001508712769,
+        "wires": []
+    },
+    {
+        "id": "d10c8171.63f3e",
+        "type": "json",
+        "z": "c6d25030.f8e9",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 4074.7536296844482,
+        "y": 1406.701886177063,
+        "wires": [
+            [
+                "1f2b03a6.38c9fc"
+            ]
+        ]
+    },
+    {
+        "id": "3ced7905.84f486",
+        "type": "inject",
+        "z": "c6d25030.f8e9",
+        "name": "",
+        "topic": "",
+        "payload": "{\"mode\":\"off\",\"setpoint\":25,\"setpointLow\":20,\"setpointHigh\":30,\"humidity\":55,\"temperature\":31}",
+        "payloadType": "json",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 4297.007469177246,
+        "y": 1359.7292890548706,
+        "wires": [
+            [
+                "56307ba7.ad4d04"
+            ]
+        ]
+    },
+    {
+        "id": "e1087219.f2f0b",
+        "type": "nora-thermostat",
+        "z": "c6d25030.f8e9",
+        "devicename": "Termostato Baño",
+        "roomhint": "",
+        "name": "",
+        "modes": "off,heat,cool",
+        "unit": "C",
+        "topic": "",
+        "passthru": false,
+        "commandOnly": true,
+        "queryOnly": false,
+        "bufferRangeCelsius": 2,
+        "nora": "94e3897e.42eec8",
+        "x": 4517.765701293945,
+        "y": 1795.7501020431519,
+        "wires": [
+            [
+                "df08e440.024268"
+            ]
+        ]
+    },
+    {
+        "id": "21f053f9.087bfc",
+        "type": "mqtt in",
+        "z": "c6d25030.f8e9",
+        "name": "",
+        "topic": "infind/GRUPO2/ESP1122489/datos",
+        "qos": "2",
+        "broker": "e3c0e99f.2e4018",
+        "x": 3836.144271850586,
+        "y": 1747.027075767517,
+        "wires": [
+            [
+                "b83bcd93.8149a"
+            ]
+        ]
+    },
+    {
+        "id": "df08e440.024268",
+        "type": "debug",
+        "z": "c6d25030.f8e9",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 4775.144760131836,
+        "y": 1760.027995109558,
+        "wires": []
+    },
+    {
+        "id": "b45d2495.977b08",
+        "type": "function",
+        "z": "c6d25030.f8e9",
+        "name": "",
+        "func": "var temp=msg.payload.DHT11.temp;\nvar hum=msg.payload.DHT11.hum;\nvar max=global.get(\"TemperaturaMax\");\nvar min=global.get(\"TemperaturaMin\");\n\nif (temp>=max)\n{\n  msg.payload={\"mode\": \"cool\",\n             \"setpoint\": 22,\n             \"setpointLow\": min,\n             \"setpointHigh\": max,\n             \"humidity\": hum,\n             \"temperature\": temp}  \n}\nelse if (temp<=min)\n{\n    msg.payload={\"mode\": \"heat\",\n             \"setpoint\": 22,\n             \"setpointLow\": min,\n             \"setpointHigh\": max,\n             \"humidity\": hum,\n             \"temperature\": temp}\n}\nelse\n{\n        msg.payload={\"mode\": \"off\",\n             \"setpoint\": 22,\n             \"setpointLow\": min,\n             \"setpointHigh\": max,\n             \"humidity\": hum,\n             \"temperature\": temp}\n}\nreturn msg;\n\n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 4245.144287109375,
+        "y": 1809.0267763137817,
+        "wires": [
+            [
+                "c5fa135d.99d2d",
+                "e1087219.f2f0b"
+            ]
+        ],
+        "outputLabels": [
+            "msg1"
+        ]
+    },
+    {
+        "id": "c5fa135d.99d2d",
+        "type": "debug",
+        "z": "c6d25030.f8e9",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "x": 4426.757537841797,
+        "y": 1930.8001508712769,
+        "wires": []
+    },
+    {
+        "id": "b83bcd93.8149a",
+        "type": "json",
+        "z": "c6d25030.f8e9",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 4071.7536296844482,
+        "y": 1776.701886177063,
+        "wires": [
+            [
+                "b45d2495.977b08"
+            ]
+        ]
+    },
+    {
+        "id": "d34f7d5d.49eb3",
+        "type": "inject",
+        "z": "c6d25030.f8e9",
+        "name": "",
+        "topic": "",
+        "payload": "{\"mode\":\"off\",\"setpoint\":25,\"setpointLow\":20,\"setpointHigh\":30,\"humidity\":55,\"temperature\":31}",
+        "payloadType": "json",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 4294.007469177246,
+        "y": 1729.7292890548706,
+        "wires": [
+            [
+                "e1087219.f2f0b"
+            ]
+        ]
+    },
+    {
+        "id": "d6925dd0.55b27",
+        "type": "mqtt in",
+        "z": "c6d25030.f8e9",
+        "name": "",
+        "topic": "infind/GRUPO2/ESP5826449/switch/status",
+        "qos": "2",
+        "broker": "e3c0e99f.2e4018",
+        "x": 2086.6666107177734,
+        "y": 297.6846237182617,
+        "wires": [
+            [
+                "7abddf19.3e6ae"
+            ]
+        ]
+    },
+    {
+        "id": "862651bc.79649",
+        "type": "function",
+        "z": "c6d25030.f8e9",
+        "name": "",
+        "func": "var Estado=msg.payload.switch;\n\n\n    msg.payload = {\"level\": Estado}\n\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 2409.803363800049,
+        "y": 250.38762664794922,
+        "wires": [
+            [
+                "44875f42.1a2bb",
+                "d8afff19.ffc23"
+            ]
+        ]
+    },
+    {
+        "id": "3a67c923.f5e0d6",
+        "type": "debug",
+        "z": "c6d25030.f8e9",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "x": 2438.0573959350586,
+        "y": 128.2935447692871,
+        "wires": []
+    },
+    {
+        "id": "d8afff19.ffc23",
+        "type": "debug",
+        "z": "c6d25030.f8e9",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "x": 2471.041633605957,
+        "y": 334.29775619506836,
+        "wires": []
+    },
+    {
+        "id": "7abddf19.3e6ae",
+        "type": "json",
+        "z": "c6d25030.f8e9",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 2269.0534076690674,
+        "y": 175.96158981323242,
+        "wires": [
+            [
+                "862651bc.79649",
+                "3a67c923.f5e0d6"
+            ]
+        ]
+    },
+    {
+        "id": "3e271c40.7b28f4",
+        "type": "mqtt in",
+        "z": "c6d25030.f8e9",
+        "name": "",
+        "topic": "infind/GRUPO2/ESP5821487/switch/status",
+        "qos": "2",
+        "broker": "e3c0e99f.2e4018",
+        "x": 2086.6666107177734,
+        "y": 572.9167714118958,
+        "wires": [
+            [
+                "277ba579.2f929a"
+            ]
+        ]
+    },
+    {
+        "id": "a85f2c80.9018c",
+        "type": "function",
+        "z": "c6d25030.f8e9",
+        "name": "",
+        "func": "var Estado=msg.payload.switch;\n\n\n    msg.payload = {\"level\": Estado}\n\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 2409.803363800049,
+        "y": 525.6197743415833,
+        "wires": [
+            [
+                "de57c866.401428",
+                "38ec94f7.52169c"
+            ]
+        ]
+    },
+    {
+        "id": "4507a7a7.bab068",
+        "type": "debug",
+        "z": "c6d25030.f8e9",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "x": 2473.0573177337646,
+        "y": 426.3828372955322,
+        "wires": []
+    },
+    {
+        "id": "de57c866.401428",
+        "type": "debug",
+        "z": "c6d25030.f8e9",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "x": 2471.041633605957,
+        "y": 609.5299038887024,
+        "wires": []
+    },
+    {
+        "id": "277ba579.2f929a",
+        "type": "json",
+        "z": "c6d25030.f8e9",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 2304.0533294677734,
+        "y": 474.05088233947754,
+        "wires": [
+            [
+                "a85f2c80.9018c",
+                "4507a7a7.bab068"
+            ]
+        ]
+    },
+    {
+        "id": "30e53794.6166e8",
+        "type": "mqtt in",
+        "z": "c6d25030.f8e9",
+        "name": "",
+        "topic": "infind/GRUPO2/ESP8789990/switch/status",
+        "qos": "2",
+        "broker": "e3c0e99f.2e4018",
+        "x": 2086.6666107177734,
+        "y": 903.9167714118958,
+        "wires": [
+            [
+                "ea48251a.0a6d18"
+            ]
+        ]
+    },
+    {
+        "id": "767314c4.64a8bc",
+        "type": "function",
+        "z": "c6d25030.f8e9",
+        "name": "",
+        "func": "var Estado=msg.payload.switch;\n\n\n    msg.payload = {\"level\": Estado}\n\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 2409.803363800049,
+        "y": 856.6197743415833,
+        "wires": [
+            [
+                "49724422.39777c",
+                "f418cf20.f0c73"
+            ]
+        ]
+    },
+    {
+        "id": "2fc008d3.7c5198",
+        "type": "debug",
+        "z": "c6d25030.f8e9",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "x": 2473.0573177337646,
+        "y": 734.5256428718567,
+        "wires": []
+    },
+    {
+        "id": "49724422.39777c",
+        "type": "debug",
+        "z": "c6d25030.f8e9",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "x": 2471.041633605957,
+        "y": 940.5299038887024,
+        "wires": []
+    },
+    {
+        "id": "ea48251a.0a6d18",
+        "type": "json",
+        "z": "c6d25030.f8e9",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 2304.0533294677734,
+        "y": 782.193687915802,
+        "wires": [
+            [
+                "767314c4.64a8bc",
+                "2fc008d3.7c5198"
+            ]
+        ]
+    },
+    {
+        "id": "634a7d81.7d4fb4",
+        "type": "mqtt in",
+        "z": "c6d25030.f8e9",
+        "name": "",
+        "topic": "infind/GRUPO2/ESP1122489/switch/status",
+        "qos": "2",
+        "broker": "e3c0e99f.2e4018",
+        "x": 2131.4322357177734,
+        "y": 1175.91712808609,
+        "wires": [
+            [
+                "7d814d4f.3b86f4"
+            ]
+        ]
+    },
+    {
+        "id": "972c843c.c603e8",
+        "type": "function",
+        "z": "c6d25030.f8e9",
+        "name": "",
+        "func": "var Estado=msg.payload.switch;\n\n\n    msg.payload = {\"level\": Estado}\n\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 2496.569009780884,
+        "y": 1173.6200699806213,
+        "wires": [
+            [
+                "6f4a089c.731898",
+                "d08c07ee.bc6628"
+            ]
+        ]
+    },
+    {
+        "id": "6f4a089c.731898",
+        "type": "debug",
+        "z": "c6d25030.f8e9",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "x": 2687.807289123535,
+        "y": 1260.5301650762558,
+        "wires": []
+    },
+    {
+        "id": "7d814d4f.3b86f4",
+        "type": "json",
+        "z": "c6d25030.f8e9",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 2375.8189659118652,
+        "y": 1172.1939225196838,
+        "wires": [
+            [
+                "972c843c.c603e8"
+            ]
+        ]
+    },
+    {
+        "id": "9462969b.f57c48",
+        "type": "mqtt in",
+        "z": "c6d25030.f8e9",
+        "name": "",
+        "topic": "infind/GRUPO2/ESP5826449/led/status",
+        "qos": "2",
+        "broker": "e3c0e99f.2e4018",
+        "x": 245,
+        "y": 121.75000190734863,
+        "wires": [
+            [
+                "9c35df8a.ea54c"
+            ]
+        ]
+    },
+    {
+        "id": "9c35df8a.ea54c",
+        "type": "json",
+        "z": "c6d25030.f8e9",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 476.37891387939453,
+        "y": 121.43358898162842,
+        "wires": [
+            [
+                "d8cedba1.5a5e98"
+            ]
+        ]
+    },
+    {
+        "id": "d8cedba1.5a5e98",
+        "type": "function",
+        "z": "c6d25030.f8e9",
+        "name": "",
+        "func": "var brillo=msg.payload.led;\n\n\nif (brillo>0)\n{\n  msg.payload={\"online\": true,\n             \"on\": true,\n             \"brightness\": brillo}  \n}\nelse\n{\n            msg.payload={\"online\": true,\n             \"on\": false,\n             \"brightness\": brillo} \n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 613.3789558410645,
+        "y": 128.61718940734863,
+        "wires": [
+            [
+                "a089d6e7.e80558",
+                "32646b70.2b2c94"
+            ]
+        ]
+    },
+    {
+        "id": "6f815601.71c238",
+        "type": "mqtt in",
+        "z": "c6d25030.f8e9",
+        "name": "",
+        "topic": "infind/GRUPO2/ESP5821487/led/status",
+        "qos": "2",
+        "broker": "e3c0e99f.2e4018",
+        "x": 234.765625,
+        "y": 287.7500021457672,
+        "wires": [
+            [
+                "32e96bec.24fed4"
+            ]
+        ]
+    },
+    {
+        "id": "32e96bec.24fed4",
+        "type": "json",
+        "z": "c6d25030.f8e9",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 401.14452743530273,
+        "y": 412.4335882663727,
+        "wires": [
+            [
+                "709543e.37b74bc"
+            ]
+        ]
+    },
+    {
+        "id": "e882fc8d.c2683",
+        "type": "mqtt in",
+        "z": "c6d25030.f8e9",
+        "name": "",
+        "topic": "infind/GRUPO2/ESP8789990/led/status",
+        "qos": "2",
+        "broker": "e3c0e99f.2e4018",
+        "x": 201.7657012939453,
+        "y": 768.7500133514404,
+        "wires": [
+            [
+                "9c579dd1.3b857"
+            ]
+        ]
+    },
+    {
+        "id": "9c579dd1.3b857",
+        "type": "json",
+        "z": "c6d25030.f8e9",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 532.811279296875,
+        "y": 773.1002974510193,
+        "wires": [
+            [
+                "b0a8b789.4b3078"
+            ]
+        ]
+    },
+    {
+        "id": "b0a8b789.4b3078",
+        "type": "function",
+        "z": "c6d25030.f8e9",
+        "name": "",
+        "func": "var brillo=msg.payload.led;\n\n\nif (brillo>0)\n{\n  msg.payload={\"online\": true,\n             \"on\": true,\n             \"brightness\": brillo}  \n}\nelse\n{\n            msg.payload={\"online\": true,\n             \"on\": false,\n             \"brightness\": brillo} \n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 690.1445617675781,
+        "y": 738.6171913146973,
+        "wires": [
+            [
+                "174023d5.425c6c"
+            ]
+        ]
+    },
+    {
+        "id": "2a946a0d.ac1796",
+        "type": "mqtt in",
+        "z": "c6d25030.f8e9",
+        "name": "",
+        "topic": "infind/GRUPO2/ESP1122489/led/status",
+        "qos": "2",
+        "broker": "e3c0e99f.2e4018",
+        "x": 385.43237686157227,
+        "y": 953.2739615440369,
+        "wires": [
+            [
+                "252d037e.fdfacc"
+            ]
+        ]
+    },
+    {
+        "id": "252d037e.fdfacc",
+        "type": "json",
+        "z": "c6d25030.f8e9",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 532.811279296875,
+        "y": 1079.9574918746948,
+        "wires": [
+            [
+                "7e3a62e3.87de1c"
+            ]
+        ]
+    },
+    {
+        "id": "7e3a62e3.87de1c",
+        "type": "function",
+        "z": "c6d25030.f8e9",
+        "name": "",
+        "func": "var brillo=msg.payload.led;\n\n\nif (brillo>0)\n{\n  msg.payload={\"online\": true,\n             \"on\": true,\n             \"brightness\": brillo}  \n}\nelse\n{\n            msg.payload={\"online\": true,\n             \"on\": false,\n             \"brightness\": brillo} \n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 675.8112831115723,
+        "y": 1075.1410875320435,
+        "wires": [
+            [
+                "9429925.d86997"
+            ]
+        ]
+    },
+    {
+        "id": "1b69d226.2401ee",
+        "type": "json",
+        "z": "c6d25030.f8e9",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 4022.386785507202,
+        "y": 208.93770027160645,
+        "wires": [
+            [
+                "2328d4d4.2cd3ec",
+                "7eef6f06.a99ba"
+            ]
+        ]
+    },
+    {
+        "id": "709543e.37b74bc",
+        "type": "function",
+        "z": "c6d25030.f8e9",
+        "name": "",
+        "func": "var brillo=msg.payload.led;\n\n\nif (brillo>0)\n{\n  msg.payload={\"online\": true,\n             \"on\": true,\n             \"brightness\": brillo}  \n}\nelse\n{\n            msg.payload={\"online\": true,\n             \"on\": false,\n             \"brightness\": brillo} \n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 546.765625,
+        "y": 408.7500021457672,
+        "wires": [
+            [
+                "75e3e42f.5eb98c"
+            ]
+        ]
+    },
+    {
+        "id": "32646b70.2b2c94",
+        "type": "debug",
+        "z": "c6d25030.f8e9",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 658.3906135559082,
+        "y": 227.51564598083496,
+        "wires": []
+    },
+    {
+        "id": "94e3897e.42eec8",
+        "type": "nora-config",
+        "z": "",
+        "name": "NORA",
+        "group": "",
+        "notify": false
+    },
+    {
+        "id": "e3c0e99f.2e4018",
+        "type": "mqtt-broker",
+        "z": "",
+        "name": "",
+        "broker": "iot.ac.uma.es",
+        "port": "1883",
+        "clientid": "",
+        "usetls": false,
+        "compatmode": true,
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": ""
+    }
+]
