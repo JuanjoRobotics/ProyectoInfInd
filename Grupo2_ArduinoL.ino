@@ -365,9 +365,7 @@ void setup_wifi() {
   
   delay(10);
   
-  uint8_t macAddr[6];
-  WiFi.macAddress(macAddr);
-  Serial.printf("Connected, mac address: %02X:%02X:%02X:%02X:%02X:%02X\n", macAddr[0], macAddr[1], macAddr[2], macAddr[3], macAddr[4], macAddr[5]); // MAC del dispositivo
+  
   
   // Empezamos conectándonos a la red WiFi
   Serial.println();
@@ -382,7 +380,11 @@ void setup_wifi() {
     delay(500);
     Serial.print(".");
   }
-
+  
+  uint8_t macAddr[6];
+  WiFi.macAddress(macAddr);
+  Serial.printf("Connected, mac address: %02X:%02X:%02X:%02X:%02X:%02X\n", macAddr[0], macAddr[1], macAddr[2], macAddr[3], macAddr[4], macAddr[5]); // MAC del dispositivo
+  
   randomSeed(micros());
   Serial.println("");
   Serial.println("WiFi connected");
@@ -590,7 +592,7 @@ void callback(char* topic, byte* payload, unsigned int length) {
           TiempoRecogida=valorDatos;
         }
         // -- Actualiza -- 
-        if (root["envia"] == nullptr)              // Valor recibido sin valor, mantenemos el último valor
+        if (root["actualiza"] == nullptr)              // Valor recibido sin valor, mantenemos el último valor
         {
         }
         else
@@ -599,7 +601,7 @@ void callback(char* topic, byte* payload, unsigned int length) {
         }
 
         // -- Velocidad -- 
-        if (root["envia"] == nullptr)              // Valor recibido sin valor, mantenemos el último valor
+        if (root["velocidad"] == nullptr)              // Valor recibido sin valor, mantenemos el último valor
         {
         }
         else
