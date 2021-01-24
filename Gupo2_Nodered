@@ -4368,7 +4368,7 @@
         "type": "function",
         "z": "cb95b8f7.9b4968",
         "name": "Puerta",
-        "func": "var puerta = msg.payload.VL53L0X;\nif (puerta <= 100 )\n\nmsg={\"payload\": 1 , \"topic\": \"Puerta\"};\n\nelse\n\nmsg={\"payload\": 0 , \"topic\": \"Puerta\"};\n\nreturn msg;",
+        "func": "var puerta = msg.payload.VL53L0X;\nif (puerta <= 200 )\n\nmsg={\"payload\": 1 , \"topic\": \"Puerta\"};\n\nelse\n\nmsg={\"payload\": 0 , \"topic\": \"Puerta\"};\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "x": 526.0990791320801,
