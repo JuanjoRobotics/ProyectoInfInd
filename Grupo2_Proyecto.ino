@@ -162,15 +162,16 @@ float LED_anterior = LED_dato;    // Registra el último valor del LED (!=0)
 float TiempoRecogida  = 300;      // Recoger datos sensores (segundos): inicialmente en 5 min = 300 s
 float TiempoLED       = 10;       // Tiempo en que tarda en cambiar el LED un 1%: inicialmente en 10 ms
 int  TiempoActualiza  = 60;       // Tiempo en comprobar actualizaciones (minutos): inicialmente en 60 min = 1 hora
+bool estado_conex     = false;
 
 //--------Asignación dependencia--------
 String nombre_casa;               // Asigna un nombre en función del CHIP ID (una estancia de la casa domotizada)
 
 //--------LASER--------
-float cambia_dist     = 0;        // Evita enviar continuamente los datos tomados del sensor láser
+int cambia_dist       = 0;        // Evita enviar continuamente los datos tomados del sensor láser
 bool comprueba_laser  = false;    // En caso de estar en true, comprueba inicialización del sensor
 float estado_laser;               // Medida tomada por el láser (-1 en caso de dar fallo por inicialización)
- 
+
 //--------Peligro--------
 int PeligroCOa  =0;               // Nivel de peligro de CO
 int PeligroLPGa =0;               // Nivel de peligro de LPG: gas natural
@@ -403,13 +404,16 @@ void reconnect() {
     clientId += String(ESP.getChipId()) ;
     
     // Esperamos a conexión
-    estado.conexion=false;                  // Inicialmente, no hemos establecido conexión
-
+    estado_conex    = false;
+    estado.conexion = estado_conex;                  // Inicialmente, no hemos establecido conexión
+   
     // Conexión al servidor y últimas voluntades
     if (client.connect(clientId.c_str(),"infind","zancudo",topic_conexion,0,true,serializa_JSON(estado).c_str())) {
       Serial.println("connected"); // Estaremos conectados. Usuario: infind. Contraseña: zancudo. 
       estado.CHIPI=String(ESP.getChipId());
-      estado.conexion = true;
+      estado_conex    = true;
+      estado.conexion = estado_conex;
+      
       client.publish(topic_conexion,serializa_JSON(estado).c_str(),true );
       
       // Subscripción a los distintos topics
@@ -985,7 +989,10 @@ void loop() {
    
       client.publish(topic_global,serializa_JSONGlobal(datos_globales).c_str() );
       //Publicamos el estado de conexion con retain flag=true
-  
+
+      estado.conexion=estado_conex;
+      client.publish(topic_conexion,serializa_JSON(estado).c_str(),true );
+      
       lastMsg = now;
     }
   
@@ -1072,20 +1079,28 @@ void loop() {
         // Leyendo sensor...
         lox.rangingTest(&measure, false);                     // Si se pasa true como parametro, muestra por puerto serie datos de debug
         float medida_laser = measure.RangeMilliMeter;
-    
+
         laser.distancia     = medida_laser;
         laser.estado_sensor = "VL53L0X iniciado";
-    
-        // Cuando se salga de un rango específico, se toma una nueva medida y se hace saber al usuario
-        if (cambia_dist >= medida_laser+100 || cambia_dist<=medida_laser-100) 
+
+        if (medida_laser<=200 && cambia_dist==0)              // Envío de datos únicamente en caso de estar por debajo del umbral (puerta abierta) y la última fue por encima
         {
-        Serial.print("Distancia (mm): ");
-        Serial.println(measure.RangeMilliMeter);
+          Serial.print("Distancia (mm): ");
+          Serial.println(measure.RangeMilliMeter);
     
-        // Publicamos la distancia por el topic correspondiente
-        client.publish(topic_laser,serializa_JSONdistist(laser).c_str() ); 
+          // Publicamos la distancia por el topic correspondiente
+          client.publish(topic_laser,serializa_JSONdistist(laser).c_str() ); 
+          
+          cambia_dist=1;
+        }
+        else if (medida_laser>=200 && cambia_dist==1)         // Envío de datos únicamente en caso de estar por encima del umbral (puerta cerrada) y la última fue por debajo
+        {
+          Serial.print("Distancia (mm): ");
+          Serial.println(measure.RangeMilliMeter);
     
-        cambia_dist = medida_laser;                           // Actualizamos la distancia 
+          // Publicamos la distancia por el topic correspondiente
+          client.publish(topic_laser,serializa_JSONdistist(laser).c_str() ); 
+          cambia_dist=0;
         }
       }
     }
