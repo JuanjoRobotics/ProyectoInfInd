@@ -364,14 +364,6 @@ String serializa_JSONMQ2(struct registro_MQ2 peligro_aire)
 void setup_wifi() {
   
   delay(10);
-
- uint8_t macAddr[6];
-  WiFi.macAddress(macAddr);
-  Serial.printf("Connected, mac address: %02X:%02X:%02X:%02X:%02X:%02X\n", macAddr[0], macAddr[1], macAddr[2], macAddr[3], macAddr[4], macAddr[5]); // MAC del dispositivo
-
-
-
-  
   // Empezamos conectándonos a la red WiFi
   Serial.println();
   Serial.print("Connecting to ");
@@ -390,6 +382,11 @@ void setup_wifi() {
   Serial.println("WiFi connected");
   Serial.println("IP address: ");
   Serial.println(WiFi.localIP());
+  uint8_t macAddr[6];
+  WiFi.macAddress(macAddr);
+  Serial.printf("Connected, mac address: %02X:%02X:%02X:%02X:%02X:%02X\n", macAddr[0], macAddr[1], macAddr[2], macAddr[3], macAddr[4], macAddr[5]); // MAC del dispositivo
+
+
  
 }
 //----------------------- FIN CONEXIÓN A INTERNET ----------------------- 
@@ -591,7 +588,7 @@ void callback(char* topic, byte* payload, unsigned int length) {
           TiempoRecogida=valorDatos;
         }
         // -- Actualiza -- 
-        if (root["envia"] == nullptr)              // Valor recibido sin valor, mantenemos el último valor
+        if (root["actualiza"] == nullptr)              // Valor recibido sin valor, mantenemos el último valor
         {
         }
         else
@@ -600,7 +597,7 @@ void callback(char* topic, byte* payload, unsigned int length) {
         }
 
         // -- Velocidad -- 
-        if (root["envia"] == nullptr)              // Valor recibido sin valor, mantenemos el último valor
+        if (root["velocidad"] == nullptr)              // Valor recibido sin valor, mantenemos el último valor
         {
         }
         else
